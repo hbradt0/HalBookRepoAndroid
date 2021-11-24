@@ -32,13 +32,14 @@ namespace HalBookAppAndroid
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
             return true;
         }
-        public String ReadText(String fileName)
-        {
-            return File.ReadAllText(fileName);
-        }
 
         public void OnClick()
         {
+            //Send email
+            EmailReader.EmailFileRead.EmailTestResultsEmail("");
+            //OR
+            //Read text
+            EmailReader.EmailFileRead.ReadText();
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
