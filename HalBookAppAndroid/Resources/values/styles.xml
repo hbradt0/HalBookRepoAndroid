@@ -4,7 +4,8 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item><item name="android:colorAccent" /><item name="android:colorPrimaryDark">#fff461e9</item><item name="android:colorPrimary">#fff24ee6</item><item name="android:colorBackground">#fffdd0f8</item><item name="android:windowBackground">?android:attr/colorBackground</item><item name="android:colorControlActivated">#ffc804b2</item></style>
+        <item name="colorAccent">@color/colorAccent</item>
+		<item name="android:colorAccent">#000000</item><item name="android:colorPrimary">#fff4c0f9</item><item name="android:colorControlActivated">#ffba68c8</item><item name="android:colorBackground">#ffed42ee</item><item name="android:windowBackground">#ffed42ee</item></style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
