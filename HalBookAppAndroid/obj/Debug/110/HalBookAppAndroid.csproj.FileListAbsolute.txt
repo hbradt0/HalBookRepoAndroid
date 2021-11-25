@@ -306,3 +306,5 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\s
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\res\layout\activity_user_main.xml
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\res\layout\content_book.xml

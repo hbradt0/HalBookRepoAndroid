@@ -7,21 +7,30 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="ClickHere" />
-
     <Button
-        android:layout_width="500px"
+        android:layout_width="377.0dp"
         android:layout_height="100px"
-        android:text="Click to Read"/>
+        android:id="@+id/ReadPageButton"
+        android:text="Click to Read"
+        android:gravity="top"
+        android:layout_marginRight="130.5dp"
+        android:layout_marginBottom="10dp"/>
 
-    <Button
+    <EditText
         android:layout_width="181.5dp"
         android:layout_height="wrap_content"
+        android:id="@+id/YourEmail"
+        android:layout_above="@+id/YourEmail"
         android:layout_centerInParent="true"
-        android:text="Click to story"/>
+        android:text=""/>
+
+    <Button
+        android:layout_width="252.5dp"
+        android:layout_height="46.0dp"
+        android:gravity="bottom"
+        android:id="@+id/EmailPageButton"
+        android:layout_below="@+id/YourEmail"
+        android:text="Click to story"
+        android:layout_marginBottom="10dp"/>
 
 </RelativeLayout>

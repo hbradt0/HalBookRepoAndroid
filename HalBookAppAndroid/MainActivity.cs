@@ -14,11 +14,19 @@ namespace HalBookAppAndroid
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+
+        public Android.Widget.EditText editText;
+        public Android.Widget.TextView textView;
+
+        public Android.Widget.Button Button1;
+        public Android.Widget.Button Button2;
+
+        public AppCompatAutoCompleteTextView readInfo;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.content_main);
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -33,13 +41,30 @@ namespace HalBookAppAndroid
             return true;
         }
 
-        public void OnClick()
+        //Option 1
+        public void OnClickButton1()
         {
-            //Send email
-            EmailReader.EmailFileRead.EmailTestResultsEmail("");
-            //OR
-            //Read text
-            EmailReader.EmailFileRead.ReadText();
+            Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
+            textView = FindViewById<Android.Widget.TextView>(Resource.Id.TextView2);
+            String text = EmailReader.EmailFileRead.ReadText();
+
+            Button2.Click += (e, o) => {
+                SetContentView(Resource.Layout.activity_user_main);
+                textView.Text = text;
+            };
+        }
+
+        public void OnClickButton2()
+        {
+            Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
+            editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
+
+            Button2.Click += (e, o) => {
+                String text = editText.Text;
+                if(text != "" && text.Contains("@") && text.Contains("."))
+                    EmailReader.EmailFileRead.EmailTestResultsEmail(text);
+            };
+
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

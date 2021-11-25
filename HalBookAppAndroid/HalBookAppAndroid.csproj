@@ -113,6 +113,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Halbook.txt" />
+    <AndroidResource Include="Resources\layout\activity_user_main.xml" />
+    <AndroidResource Include="Resources\layout\content_book.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
