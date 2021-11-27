@@ -8,6 +8,7 @@ using AndroidX.AppCompat.App;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using System.IO;
+using Android.Widget;
 
 namespace HalBookAppAndroid
 {
@@ -20,56 +21,66 @@ namespace HalBookAppAndroid
 
         public Android.Widget.Button Button1;
         public Android.Widget.Button Button2;
+        public Android.Widget.Button Button3;
+
+        public Android.Widget.ImageView imageView;
+        int togglePicture;
 
         public AppCompatAutoCompleteTextView readInfo;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            SetContentView(Resource.Layout.content_main);
+            SetContentView(Resource.Layout.activity_main);
 
-            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
+            togglePicture = 0;
+            imageView = FindViewById<ImageView>(Resource.Id.NewImage);
+            imageView.SetImageResource(Resource.Drawable.pic5);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
-        }
+            imageView.Click += ImageOnClick;
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
-            return true;
-        }
-
-        //Option 1
-        public void OnClickButton1()
-        {
             Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
-            textView = FindViewById<Android.Widget.TextView>(Resource.Id.TextView2);
-            String text = EmailReader.EmailFileRead.ReadText();
-
-            Button2.Click += (e, o) => {
-                SetContentView(Resource.Layout.activity_user_main);
-                textView.Text = text;
-            };
-        }
-
-        public void OnClickButton2()
-        {
+            textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
+            Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
             editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
 
-            Button2.Click += (e, o) => {
-                String text = editText.Text;
-                if(text != "" && text.Contains("@") && text.Contains("."))
-                    EmailReader.EmailFileRead.EmailTestResultsEmail(text);
-            };
+            Button1.Click += Button1Click;
+            Button2.Click += Button2Click;
+            Button3.Click += Button3Click;
+        }
 
+        private void Button1Click(object sender, EventArgs eventArgs)
+        {
+            String text = EmailReader.EmailFileRead.ReadText();
+            SetContentView(Resource.Layout.activity_user_main);
+            textView.Text = text;
+        }
+
+        private void Button2Click(object sender, EventArgs eventArgs)
+        {
+            String text = editText.Text;
+            if(EmailReader.EmailFileRead.ValidateEmail(text))
+                EmailReader.EmailFileRead.EmailTestResultsEmail(text);
+        }
+
+        private void Button3Click(object sender, EventArgs eventArgs)
+        {
+            SetContentView(Resource.Layout.activity_main);
+        }
+
+        private void ImageOnClick(object sender, EventArgs eventArgs)
+        {
+            View view = (View)sender;
+            var imageView = FindViewById<ImageView>(Resource.Id.NewImage);
+            imageView.SetImageResource(Resource.Drawable.pic8);
+            togglePicture++;
+            if (togglePicture >= 1)
+                togglePicture = 0;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            
             int id = item.ItemId;
             /*
             if (item.ItemId == 1)
@@ -82,7 +93,6 @@ namespace HalBookAppAndroid
                 item.Text = "Downloading";
                 item.Description = "Downloading";
             }
-
             Text = item.Text;
             Description = item.Description;
             */
@@ -94,17 +104,9 @@ namespace HalBookAppAndroid
             return base.OnOptionsItemSelected(item);
         }
 
-        private void FabOnClick(object sender, EventArgs eventArgs)
-        {
-            View view = (View) sender;
-            Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (View.IOnClickListener)null).Show();
-        }
-
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 	}

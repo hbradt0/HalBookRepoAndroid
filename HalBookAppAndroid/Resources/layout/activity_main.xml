@@ -1,32 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="800px"
+        android:layout_height="100px"
+        android:id="@+id/NewImage"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:contentDescription="@+string/ImageText2"
+        android:src="@drawable/pic5" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:id="@+id/ReadPageButton"
+        android:text="@+string/ReadPageButtonText"
+        android:layout_above="@+id/Image"
+        android:layout_centerInParent="true"
+        android:gravity="top|start"
+        android:layout_marginRight="130.5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="top" />
+
+    <ImageView
+        android:layout_width="181.5dp"
+        android:layout_height="100px"
+        android:id="@+id/Image"
+        android:layout_above="@+id/Instructions"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:contentDescription="@+string/ImageText"
+        app:srcCompat="@android:drawable/ic_dialog_email"/>
+
+    <TextView
+        android:layout_width="181.5dp"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:id="@+id/Instructions"
+        android:layout_above="@+id/YourEmail"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="@+string/Instructions"/>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <EditText
+        android:layout_width="700px"
+        android:layout_height="100px"
+        android:id="@+id/YourEmail"
+        android:layout_above="@+id/EmailPageButton"
+        android:layout_centerInParent="true"
+        android:text=""
+        android:inputType="textEmailAddress"
+        android:gravity="center" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+      <Button
+        android:layout_width="600px"
+        android:layout_height="100px"
+        android:gravity="bottom"
+        android:id="@+id/EmailPageButton"
+        android:layout_above="@+id/fab"        
+        android:layout_below="@+id/YourEmail"
+        android:text="@+string/EmailPageButtonText"
+        android:layout_centerInParent="true"
+        android:layout_gravity="bottom" />
 
-    <include layout="@layout/content_main" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

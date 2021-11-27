@@ -24,6 +24,11 @@ namespace EmailReader //rename
             return File.ReadAllText(fileName);
         }
 
+        public static bool ValidateEmail(String email = "")
+        {
+            return email.Contains("@") && email.Contains(".") && email!="";
+        }
+
         public static void EmailTestResultsEmail(String email, String file = "")
         {
             try
