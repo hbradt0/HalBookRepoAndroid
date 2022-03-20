@@ -1,10 +1,3 @@
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\HalBookAppAndroid.dll
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\HalBookAppAndroid.pdb
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid.apk
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid.aab
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid-Signed.aab
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid-Signed.apk
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid-Signed.apk.idsig
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\MonoAndroid,Version=v11.0.AssemblyAttributes.cs
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\build.props
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\adb.props
@@ -23,6 +16,16 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\l
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\72\jl\files.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\73\jl\files.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\74\jl\files.cache
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\HalBookAppAndroid.csproj.AssemblyReference.cache
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\Halbook.txt
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\Reflections.docx
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\HalBookAppAndroid.dll
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\HalBookAppAndroid.pdb
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid.apk
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid.aab
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid-Signed.aab
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid-Signed.apk
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\com.companyname.halbookappandroid-Signed.apk.idsig
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\R.txt
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\R.cs.flag
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\HalBookAppAndroid.csproj.CoreCompileInputs.cache
@@ -308,3 +311,5 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\s
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\res\drawable\reflections.docx
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\res\drawable\halbook.txt

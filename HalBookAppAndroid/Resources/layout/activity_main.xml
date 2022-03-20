@@ -10,8 +10,8 @@
     android:gravity="center">
 
     <ImageView
-        android:layout_width="800px"
-        android:layout_height="100px"
+        android:layout_width="1000px"
+        android:layout_height="500px"
         android:id="@+id/NewImage"
         android:gravity="center"
         android:layout_centerInParent="true"

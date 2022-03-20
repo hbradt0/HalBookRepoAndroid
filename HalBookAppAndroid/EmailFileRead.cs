@@ -20,7 +20,7 @@ namespace EmailReader //rename
         public static String ReadText(String fileName = "")
         {
             if (fileName == "")
-                fileName = Credentials.FileIn.FullName;
+                fileName = Credentials.FileInString;//FileIn.FullName;
             return File.ReadAllText(fileName);
         }
 
@@ -52,7 +52,32 @@ namespace EmailReader //rename
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
+
                 //MessageBox.Show("mail Send");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public static void EmailDev(String email, String devemail = "")
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress(Credentials.emailFrom);
+
+                mail.To.Add(devemail);
+                mail.Subject = "Your story creative...";
+                mail.Body = "Here is your story booklet! Emailed to you at " + DateTime.Now.ToString() + "\nThe email is " + email;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(Credentials.SMTPEmail, Credentials.SMTPPassword);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
             }
             catch (Exception ex)
             {

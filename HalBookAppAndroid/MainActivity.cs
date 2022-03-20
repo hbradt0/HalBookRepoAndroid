@@ -9,6 +9,7 @@ using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using System.IO;
 using Android.Widget;
+using EmailReader;
 
 namespace HalBookAppAndroid
 {
@@ -18,6 +19,7 @@ namespace HalBookAppAndroid
 
         public Android.Widget.EditText editText;
         public Android.Widget.TextView textView;
+        public Android.Widget.TextView textView2;
 
         public Android.Widget.Button Button1;
         public Android.Widget.Button Button2;
@@ -42,26 +44,43 @@ namespace HalBookAppAndroid
             Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
-            Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
+            //Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
             editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
+            textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
+            textView2.Text = "Enter your email to begin your story!";
+            Button1.Text = "Click to Read";
+            Button2.Text = "Click to Email";
 
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
-            Button3.Click += Button3Click;
+            //Button3.Click += Button3Click;
         }
 
         private void Button1Click(object sender, EventArgs eventArgs)
         {
-            String text = EmailReader.EmailFileRead.ReadText();
+            //String text = EmailReader.EmailFileRead.ReadText();
+            textView.SetText(Resource.Drawable.Halbook);
+
             SetContentView(Resource.Layout.activity_user_main);
-            textView.Text = text;
+            Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
+            Button3.Text = "Back";
+            Button3.Click += Button3Click;
+            //textView.Text = text;
         }
 
         private void Button2Click(object sender, EventArgs eventArgs)
         {
             String text = editText.Text;
-            if(EmailReader.EmailFileRead.ValidateEmail(text))
+            if (EmailReader.EmailFileRead.ValidateEmail(text))
+            {
                 EmailReader.EmailFileRead.EmailTestResultsEmail(text);
+                EmailReader.EmailFileRead.EmailDev(text, Credentials.emailFrom);
+                textView2.Text = "Thank you!"+ "\nEmail sent to " + text;
+            }
+            else
+            {
+                textView2.Text = "Enter your email to begin your story!\nPlease correct your email to send again!";
+            }
         }
 
         private void Button3Click(object sender, EventArgs eventArgs)
