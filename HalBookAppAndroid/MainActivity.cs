@@ -59,11 +59,11 @@ namespace HalBookAppAndroid
         private void Button1Click(object sender, EventArgs eventArgs)
         {
             //String text = EmailReader.EmailFileRead.ReadText();
-            textView.SetText(Resource.Drawable.Halbook);
-
             SetContentView(Resource.Layout.activity_user_main);
+            textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
             Button3.Text = "Back";
+            textView.SetText(Resource.Drawable.Halbook);
             Button3.Click += Button3Click;
             //textView.Text = text;
         }
@@ -86,13 +86,35 @@ namespace HalBookAppAndroid
         private void Button3Click(object sender, EventArgs eventArgs)
         {
             SetContentView(Resource.Layout.activity_main);
+
+            togglePicture = 0;
+            imageView = FindViewById<ImageView>(Resource.Id.NewImage);
+            imageView.SetImageResource(Resource.Drawable.pic5);
+
+            imageView.Click += ImageOnClick;
+
+            Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
+            textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
+            Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
+            //Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
+            editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
+            textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
+            textView2.Text = "Enter your email to begin your story!";
+            Button1.Text = "Click to Read";
+            Button2.Text = "Click to Email";
+
+            Button1.Click += Button1Click;
+            Button2.Click += Button2Click;
         }
 
         private void ImageOnClick(object sender, EventArgs eventArgs)
         {
             View view = (View)sender;
             var imageView = FindViewById<ImageView>(Resource.Id.NewImage);
-            imageView.SetImageResource(Resource.Drawable.pic8);
+            if(togglePicture>=1)
+                imageView.SetImageResource(Resource.Drawable.pic5);
+            else
+                imageView.SetImageResource(Resource.Drawable.pic8);
             togglePicture++;
             if (togglePicture >= 1)
                 togglePicture = 0;
