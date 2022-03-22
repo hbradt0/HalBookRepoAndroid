@@ -21,7 +21,7 @@ namespace EmailReader
 
         public static String SMTPEmail = "berrylantis@gmail.com";
 
-        public static String SMTPPassword = "berrylantis@gmail.com";
+        public static String SMTPPassword = "birds?ice2";
 
         public static String MakeFileName(String name)
         {
