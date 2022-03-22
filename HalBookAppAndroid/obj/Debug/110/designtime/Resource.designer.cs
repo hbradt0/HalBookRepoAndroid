@@ -3377,10 +3377,13 @@ namespace HalBookAppAndroid
 			public const int Reflections = 2131165313;
 			
 			// aapt resource value: 0x7F070082
-			public const int tooltip_frame_dark = 2131165314;
+			public const int Reflections2 = 2131165314;
 			
 			// aapt resource value: 0x7F070083
-			public const int tooltip_frame_light = 2131165315;
+			public const int tooltip_frame_dark = 2131165315;
+			
+			// aapt resource value: 0x7F070084
+			public const int tooltip_frame_light = 2131165316;
 			
 			static Drawable()
 			{

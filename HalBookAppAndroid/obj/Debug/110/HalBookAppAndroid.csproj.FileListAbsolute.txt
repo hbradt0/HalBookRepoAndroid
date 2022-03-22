@@ -16,7 +16,6 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\l
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\72\jl\files.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\73\jl\files.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\74\jl\files.cache
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\HalBookAppAndroid.csproj.AssemblyReference.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\Halbook.txt
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\Reflections.docx
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Debug\HalBookAppAndroid.dll
@@ -313,3 +312,5 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\s
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\res\drawable\reflections.docx
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\res\drawable\halbook.txt
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\res\drawable\reflections2.txt
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\HalBookAppAndroid.csproj.AssemblyReference.cache

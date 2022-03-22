@@ -58,14 +58,17 @@ namespace HalBookAppAndroid
 
         private void Button1Click(object sender, EventArgs eventArgs)
         {
-            //String text = EmailReader.EmailFileRead.ReadText();
             SetContentView(Resource.Layout.activity_user_main);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
             Button3.Text = "Back";
+            textView.SetScrollContainer(true);
+            textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
             textView.SetText(Resource.Drawable.Halbook);
             Button3.Click += Button3Click;
-            //textView.Text = text;
+            var is1 = this.Resources.OpenRawResource(Resource.Drawable.Halbook);
+            String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+            textView.Text = text;
         }
 
         private void Button2Click(object sender, EventArgs eventArgs)
@@ -73,9 +76,11 @@ namespace HalBookAppAndroid
             String text = editText.Text;
             if (EmailReader.EmailFileRead.ValidateEmail(text))
             {
-                EmailReader.EmailFileRead.EmailTestResultsEmail(text);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Reflections2);
+                String txt = EmailReader.EmailFileRead.ReadTextFile(is1);
+                EmailReader.EmailFileRead.EmailTestResultsEmail(text,txt);
                 EmailReader.EmailFileRead.EmailDev(text, Credentials.emailFrom);
-                textView2.Text = "Thank you!"+ "\nEmail sent to " + text;
+                textView2.Text = "Thank you!" + "\nEmail sent to " + text;
             }
             else
             {
@@ -111,13 +116,14 @@ namespace HalBookAppAndroid
         {
             View view = (View)sender;
             var imageView = FindViewById<ImageView>(Resource.Id.NewImage);
-            if(togglePicture>=1)
+            if (togglePicture >= 1)
                 imageView.SetImageResource(Resource.Drawable.pic5);
             else
                 imageView.SetImageResource(Resource.Drawable.pic8);
             togglePicture++;
             if (togglePicture >= 1)
                 togglePicture = 0;
+            imageView.Click += ImageOnClick;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -150,5 +156,5 @@ namespace HalBookAppAndroid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-	}
+    }
 }

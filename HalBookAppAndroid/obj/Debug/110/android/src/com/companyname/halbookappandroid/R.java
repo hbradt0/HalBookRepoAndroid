@@ -4739,8 +4739,9 @@ public final class R {
     public static final int pic5=0x7f07007f;
     public static final int pic8=0x7f070080;
     public static final int reflections=0x7f070081;
-    public static final int tooltip_frame_dark=0x7f070082;
-    public static final int tooltip_frame_light=0x7f070083;
+    public static final int reflections2=0x7f070082;
+    public static final int tooltip_frame_dark=0x7f070083;
+    public static final int tooltip_frame_light=0x7f070084;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
