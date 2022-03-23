@@ -18,11 +18,33 @@ namespace EmailReader //rename
 
         }
 
+        public static string fileName1 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "notes.txt");
+
         public static String ReadText(String fileName = "")
         {
             if (fileName == "")
-                fileName = Credentials.FileInString;//FileIn.FullName;
-            return File.ReadAllText(fileName);
+                fileName = fileName1;
+            if (File.Exists(fileName))
+                return File.ReadAllText(fileName);
+            else
+            {
+                File.WriteAllText(fileName, "");
+                return "";
+            }
+        }
+
+        public static void WriteText(String text, String fileName = "")
+        {
+            if (fileName == "")
+                fileName = fileName1;
+            File.AppendAllText(fileName,text);
+        }
+
+        public static void DeleteText(String fileName = "")
+        {
+            if (fileName == "")
+                fileName = fileName1;
+            File.WriteAllText(fileName, "");
         }
 
         public static String ReadTextFile(Stream s)

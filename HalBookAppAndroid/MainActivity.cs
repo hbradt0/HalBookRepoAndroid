@@ -20,10 +20,16 @@ namespace HalBookAppAndroid
         public Android.Widget.EditText editText;
         public Android.Widget.TextView textView;
         public Android.Widget.TextView textView2;
+        public Android.Widget.EditText editTextWrite;
+        public Android.Widget.TextView textViewWrite;
 
         public Android.Widget.Button Button1;
         public Android.Widget.Button Button2;
         public Android.Widget.Button Button3;
+        public Android.Widget.Button Buttonbackyourstory;
+        public Android.Widget.Button Buttonyourstoryscreen;
+        public Android.Widget.Button ButtonyourstoryscreenUpload;
+        public Android.Widget.Button ButtonDelete;
 
         public Android.Widget.ImageView imageView;
         int togglePicture;
@@ -44,15 +50,19 @@ namespace HalBookAppAndroid
             Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
+            Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
+            //Buttonbackyourstory = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
             //Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
             editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             textView2.Text = "Enter your email to begin your story!";
             Button1.Text = "Click to Read";
             Button2.Text = "Click to Email";
+            Buttonyourstoryscreen.Text = "Create your journal";
 
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
+            Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
             //Button3.Click += Button3Click;
         }
 
@@ -71,6 +81,57 @@ namespace HalBookAppAndroid
             textView.Text = text;
         }
 
+        private void ButtonyourstoryscreenClick(object sender, EventArgs eventArgs)
+        {
+            SetContentView(Resource.Layout.activity_user);
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
+            editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
+            Buttonbackyourstory = FindViewById<Android.Widget.Button>(Resource.Id.back1);
+            ButtonyourstoryscreenUpload = FindViewById<Android.Widget.Button>(Resource.Id.upload);
+            ButtonDelete = FindViewById<Android.Widget.Button>(Resource.Id.freshstart);
+
+            Buttonbackyourstory.Text = "Back";
+            ButtonyourstoryscreenUpload.Text = "Submit";
+            ButtonDelete.SetBackgroundColor(Android.Graphics.Color.Red);
+            ButtonDelete.Text = "Start Over";
+
+            editTextWrite.SetScrollContainer(true);
+            editTextWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            editTextWrite.Text = "";
+
+            Buttonbackyourstory.Click += ButtonbackyourstoryscreenClick;
+            ButtonyourstoryscreenUpload.Click += ButtonyourstoryscreenUploadClick;
+            ButtonDelete.Click += ButtonDeleteClick;
+
+
+            textViewWrite.SetScrollContainer(true);
+            textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            textViewWrite.Text = EmailFileRead.ReadText();
+            
+        }
+
+        private void ButtonyourstoryscreenUploadClick(object sender, EventArgs eventArgs)
+        {
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
+            editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
+            String text = editTextWrite.Text;
+            EmailFileRead.WriteText(text);
+            String totalText = EmailFileRead.ReadText();
+            textViewWrite.Text = totalText;
+            editTextWrite.Text = String.Empty;
+           
+            textViewWrite.SetScrollContainer(true);
+            textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+        }
+
+        private void ButtonDeleteClick(object sender, EventArgs eventArgs)
+        {
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
+            editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
+            EmailFileRead.DeleteText();
+            textViewWrite.Text = String.Empty;
+        }
+
         private void Button2Click(object sender, EventArgs eventArgs)
         {
             String text = editText.Text;
@@ -78,8 +139,10 @@ namespace HalBookAppAndroid
             {
                 var is1 = this.Resources.OpenRawResource(Resource.Drawable.Reflections2);
                 String txt = EmailReader.EmailFileRead.ReadTextFile(is1);
-                EmailReader.EmailFileRead.EmailTestResultsEmail(text,txt);
+                String txt2 = "\n Your story: \n" + EmailReader.EmailFileRead.ReadText();
+                EmailReader.EmailFileRead.EmailTestResultsEmail(text,txt + txt2);
                 EmailReader.EmailFileRead.EmailDev(text, Credentials.emailFrom);
+
                 textView2.Text = "Thank you!" + "\nEmail sent to " + text;
             }
             else
@@ -101,15 +164,48 @@ namespace HalBookAppAndroid
             Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
+            Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
             //Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
             editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             textView2.Text = "Enter your email to begin your story!";
             Button1.Text = "Click to Read";
             Button2.Text = "Click to Email";
+            Buttonyourstoryscreen.Text = "Create your journal";
 
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
+            Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
+        }
+
+        private void ButtonbackyourstoryscreenClick(object sender, EventArgs eventArgs)
+        {
+            SetContentView(Resource.Layout.activity_main);
+
+            togglePicture = 0;
+            imageView = FindViewById<ImageView>(Resource.Id.NewImage);
+            imageView.SetImageResource(Resource.Drawable.pic5);
+
+            imageView.Click += ImageOnClick;
+
+            Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
+            textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
+            Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
+            editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
+            textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
+            Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
+            Button1.Click += Button1Click;
+            Button2.Click += Button2Click;
+            Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
+
+            textView2.Text = "Enter your email to begin your story!";
+            Button1.Text = "Click to Read";
+            Button2.Text = "Click to Email";
+            Buttonyourstoryscreen.Text = "Create your journal";
+
+            Button1.Click += Button1Click;
+            Button2.Click += Button2Click;
+            Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
         }
 
         private void ImageOnClick(object sender, EventArgs eventArgs)

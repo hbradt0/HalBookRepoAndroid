@@ -70,4 +70,15 @@
         android:layout_centerInParent="true"
         android:layout_gravity="bottom" />
 
+        <Button
+        android:layout_width="600px"
+        android:layout_height="100px"
+        android:gravity="bottom"
+        android:id="@+id/yourstoryscreenbutton"
+        android:layout_above="@+id/fab"        
+        android:layout_below="@+id/YourEmail"
+        android:text="@+string/EmailPageButtonText"
+        android:layout_centerInParent="true"
+        android:layout_gravity="bottom" />
+
 </LinearLayout>
