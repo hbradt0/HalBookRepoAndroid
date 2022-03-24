@@ -47,6 +47,16 @@ namespace EmailReader //rename
             File.WriteAllText(fileName, "");
         }
 
+        public static void DeleteLastLine(String fileName = "")
+        {
+            if (fileName == "")
+                fileName = fileName1;
+            var v = File.ReadAllLines(fileName).ToList<String>();
+            if(v.Count>0)
+                v.Remove(v.Last());
+            File.WriteAllLines(fileName, v);
+        }
+
         public static String ReadTextFile(Stream s)
         {
             String str = "";

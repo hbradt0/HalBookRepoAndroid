@@ -37,6 +37,14 @@
         <Button
         android:layout_width="600px"
         android:layout_height="100px"
+        android:id="@+id/delete1line"
+        android:text="@+string/delete1line"
+        android:layout_centerInParent="true"
+        />
+
+        <Button
+        android:layout_width="600px"
+        android:layout_height="100px"
         android:id="@+id/upload"
         android:layout_above="@+id/edityours"
         android:text="@+string/upload"

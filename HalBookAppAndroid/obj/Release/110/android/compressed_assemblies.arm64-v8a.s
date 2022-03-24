@@ -8,7 +8,7 @@
 .L.compressed_assembly_descriptors:
 	/* 0: HalBookAppAndroid.dll */
 	/* uncompressed_file_size */
-	.word	361984
+	.word	363008
 	/* loaded */
 	.byte	0
 	/* data */
@@ -26,7 +26,7 @@
 
 	/* 2: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.word	1119744
+	.word	1122304
 	/* loaded */
 	.byte	0
 	/* data */
@@ -44,7 +44,7 @@
 
 	/* 4: System.Core.dll */
 	/* uncompressed_file_size */
-	.word	54784
+	.word	55808
 	/* loaded */
 	.byte	0
 	/* data */
@@ -197,7 +197,7 @@
 
 	/* 21: mscorlib.dll */
 	/* uncompressed_file_size */
-	.word	1876992
+	.word	1877504
 	/* loaded */
 	.byte	0
 	/* data */
