@@ -33,7 +33,7 @@
         android:gravity="center"
         android:text="@+string/TextViewText"
         android:isScrollContainer="true"
-        android:background="@drawable/border"
+        android:background="@drawable/bordertext"
         android:scrollbars = "vertical"/>
 
         <Button
@@ -42,6 +42,7 @@
         android:id="@+id/delete1line"
         android:text="@+string/delete1line"
         android:layout_centerInParent="true"
+        android:background="@android:color/holo_purple"
         />
 
         <Button
@@ -64,7 +65,7 @@
         android:gravity="top|start" 
         android:maxLines="10" 
         android:scrollbars="vertical"
-        android:background="@drawable/border"
+        android:background="@drawable/bordertext"
         />
 
 </LinearLayout>
