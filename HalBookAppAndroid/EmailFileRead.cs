@@ -1,3 +1,6 @@
+using MailKit.Security;
+using MimeKit;
+using MimeKit.Text;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -37,7 +40,11 @@ namespace EmailReader //rename
         {
             if (fileName == "")
                 fileName = fileName1;
-            File.AppendAllText(fileName,text);
+            string format = "MM/dd/yyyy";
+            String date = "\n" + DateTime.Now.ToString(format) + ":";
+            if (File.ReadAllText(fileName).Contains(DateTime.Now.ToString(format)))
+                date = "";
+            File.AppendAllText(fileName,date+text);
         }
 
         public static void DeleteText(String fileName = "")
@@ -54,6 +61,8 @@ namespace EmailReader //rename
             var v = File.ReadAllLines(fileName).ToList<String>();
             if(v.Count>0)
                 v.Remove(v.Last());
+            foreach(var x in v)
+                v.Remove("\n");
             File.WriteAllLines(fileName, v);
         }
 
@@ -82,59 +91,79 @@ namespace EmailReader //rename
             return email.Contains("@") && email.Contains(".") && email!="";
         }
 
-        public static void EmailTestResultsEmail(String email, String fileText = "", String fileInfo = "")
+        public static void EmailTestResultsEmail(String e, String fileText = "", String fileInfo = "", int seconds = 20)
         {
             try
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress(Credentials.emailFrom);
+                // create email message
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse(Credentials.emailFrom));
+                email.To.Add(MailboxAddress.Parse(e));
+                email.Subject = "Your story creative...";
+                var part = new TextPart(TextFormat.Html) { Text = "<h1>Your story</h1>" };
+                var part2 = new TextPart(TextFormat.Plain) { Text = "Welcome to your story creative!\n" };
+                var part3 = new TextPart(TextFormat.Plain) { Text = fileText };
+                var multipart = new Multipart("mixed");
 
-                mail.To.Add(email);
-                mail.Subject = "Your story creative...";
-                mail.Body = "Here is your story booklet! Emailed to you at " + DateTime.Now.ToString() +"\n" + fileText;
-
-                System.Net.Mail.Attachment attachment;
-                if (fileText == "")
-                    fileText = Credentials.FileOut.FullName;
                 if (fileInfo != "")
                 {
-                    FileInfo file = new FileInfo(fileInfo);
-                    attachment = new System.Net.Mail.Attachment(fileText);
-                    mail.Attachments.Add(attachment);
+                    // create an image attachment for the file located at path
+                    var attachment = new MimePart()
+                    {
+                        Content = new MimeContent(File.OpenRead(fileInfo)),
+                        ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                        ContentTransferEncoding = ContentEncoding.Base64,
+                        FileName = Path.GetFileName(fileInfo)
+                    };
+
+                    // now create the multipart/mixed container to hold the message text and the
+                    // image attachment
+                    multipart.Add(attachment);
                 }
+                multipart.Add(part);
+                multipart.Add(part2);
+                multipart.Add(part3);
+                email.Body = multipart;
 
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential(Credentials.SMTPEmail, Credentials.SMTPPassword);
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-
-                //MessageBox.Show("mail Send");
+                // send email
+                var smtp = new MailKit.Net.Smtp.SmtpClient();
+                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                smtp.Authenticate(Credentials.SMTPEmail, Credentials.SMTPPassword);
+                smtp.Send(email);
+                Thread.Sleep(1000 * seconds);
+                smtp.Disconnect(true);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                Debug.Write(ex.ToString());
             }
         }
 
-        public static void EmailDev(String email, String devemail = "")
+        public static void EmailDev(String e, String devemail = "", int seconds = 20)
         {
             try
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress(Credentials.emailFrom);
+                // create email message
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse(Credentials.emailFrom));
+                email.To.Add(MailboxAddress.Parse(e));
+                email.Subject = "Your story creative...";
+                var part = new TextPart(TextFormat.Html) { Text = "<h1>Your story</h1>" };
+                var part2 = new TextPart(TextFormat.Plain) { Text = "Here is your story booklet! Emailed to you at " + DateTime.Now.ToString() + "\nThe email is " + email };
 
-                mail.To.Add(devemail);
-                mail.Subject = "Your story creative...";
-                mail.Body = "Here is your story booklet! Emailed to you at " + DateTime.Now.ToString() + "\nThe email is " + email;
+                var multipart = new Multipart("mixed");
 
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential(Credentials.SMTPEmail, Credentials.SMTPPassword);
-                SmtpServer.EnableSsl = true;
+                multipart.Add(part);
+                multipart.Add(part2);
 
-                SmtpServer.Send(mail);
+                // send email
+                var smtp = new MailKit.Net.Smtp.SmtpClient();
+                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                smtp.Authenticate(Credentials.SMTPEmail, Credentials.SMTPPassword);
+                smtp.Send(email);
+                Thread.Sleep(1000 * seconds);
+                smtp.Disconnect(true);
             }
             catch (Exception ex)
             {

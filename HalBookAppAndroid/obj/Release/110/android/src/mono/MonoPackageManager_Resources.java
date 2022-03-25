@@ -3,6 +3,10 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "HalBookAppAndroid.dll" comes first in this list. */
 		"HalBookAppAndroid.dll",
+		"BouncyCastle.Crypto.dll",
+		"MailKit.dll",
+		"MimeKit.dll",
+		"System.Security.Cryptography.Pkcs.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.AppCompat.dll",
 		"Xamarin.AndroidX.Core.dll",

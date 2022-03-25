@@ -105,11 +105,12 @@ namespace HalBookAppAndroid
             Buttonbackyourstory.Text = "Back";
             ButtonyourstoryscreenUpload.Text = "Submit";
             ButtonDelete.SetBackgroundColor(Android.Graphics.Color.Red);
-            ButtonDelete.Text = "Start Over";
+            ButtonDelete.Text = "Reset";
 
             editTextWrite.SetScrollContainer(true);
             editTextWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
             editTextWrite.Text = "";
+            editTextWrite.SetHeight(300);
             ButtonDelete1Line.Text = "Delete previous line";
 
             Buttonbackyourstory.Click += ButtonbackyourstoryscreenClick;
@@ -143,7 +144,17 @@ namespace HalBookAppAndroid
         {
             textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
             editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
-            EmailFileRead.DeleteText();
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("Deleting everything");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
+            {
+                EmailFileRead.DeleteText();
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
             textViewWrite.Text = String.Empty;
         }
 

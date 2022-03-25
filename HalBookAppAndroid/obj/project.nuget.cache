@@ -1,10 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "w1zeHoldPadpYFwkf0apUovS+OBm6DVN+dfX5T0f8yDQYcxQCzHwbfVqD0xTuE8EwnpxOKEHNyY47lIynHIHuA==",
+  "dgSpecHash": "djhk5LPzBz5JsWdVqlv92ifTa9ca6pOa0EEN50tWlTwq92ylSV8pOMZDdMwjORZomzGuP9oNbg8CYmZ3DiTwTA==",
   "success": true,
   "projectFilePath": "C:\\Users\\hbradt\\source\\repos\\HalBookAppAndroid\\HalBookAppAndroid\\HalBookAppAndroid.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hbradt\\.nuget\\packages\\mailkit\\3.1.1\\mailkit.3.1.1.nupkg.sha512",
+    "C:\\Users\\hbradt\\.nuget\\packages\\mimekit\\3.1.1\\mimekit.3.1.1.nupkg.sha512",
+    "C:\\Users\\hbradt\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
+    "C:\\Users\\hbradt\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\hbradt\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\hbradt\\.nuget\\packages\\system.reflection.typeextensions\\4.4.0\\system.reflection.typeextensions.4.4.0.nupkg.sha512",
+    "C:\\Users\\hbradt\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
+    "C:\\Users\\hbradt\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.3\\xamarin.androidx.activity.1.1.0.3.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation\\1.1.0.7\\xamarin.androidx.annotation.1.1.0.7.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.appcompat\\1.2.0.5\\xamarin.androidx.appcompat.1.2.0.5.nupkg.sha512",

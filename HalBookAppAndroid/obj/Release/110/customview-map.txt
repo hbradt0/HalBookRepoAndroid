@@ -23,6 +23,8 @@ LinearLayout;obj\Release\110\res\layout\activity_main.xml
 LinearLayout;obj\Release\110\res\layout\activity_user.xml
 LinearLayout;obj\Release\110\res\layout\activity_user_main.xml
 menu;obj\Release\110\res\menu\menu_main.xml
+padding;obj\Release\110\res\drawable\border.xml
+padding;obj\Release\110\res\drawable\bordertext.xml
 paths;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 resources;obj\Release\110\res\values\colors.xml
 resources;obj\Release\110\res\values\dimens.xml
@@ -30,7 +32,13 @@ resources;obj\Release\110\res\values\ic_launcher_background.xml
 resources;obj\Release\110\res\values\strings.xml
 resources;obj\Release\110\res\values\styles.xml
 ScrollView;obj\Release\110\res\layout\content_main.xml
+shape;obj\Release\110\res\drawable\border.xml
+shape;obj\Release\110\res\drawable\bordertext.xml
+solid;obj\Release\110\res\drawable\border.xml
+solid;obj\Release\110\res\drawable\bordertext.xml
 string;obj\Release\110\res\values\strings.xml
+stroke;obj\Release\110\res\drawable\border.xml
+stroke;obj\Release\110\res\drawable\bordertext.xml
 style;obj\Release\110\res\values\styles.xml
 TextView;obj\Release\110\res\layout\activity_main.xml
 TextView;obj\Release\110\res\layout\activity_user.xml
