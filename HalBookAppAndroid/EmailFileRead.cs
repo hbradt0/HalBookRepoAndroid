@@ -41,10 +41,10 @@ namespace EmailReader //rename
             if (fileName == "")
                 fileName = fileName1;
             string format = "MM/dd/yyyy";
-            String date = "\n" + DateTime.Now.ToString(format) + ":";
+            String date = "\n" + DateTime.Now.ToString(format) + ":\n";
             if (File.ReadAllText(fileName).Contains(DateTime.Now.ToString(format)))
-                date = "";
-            File.AppendAllText(fileName,date+text);
+                date = "";//"\n";
+            File.AppendAllText(fileName,date+text+"\n");
         }
 
         public static void DeleteText(String fileName = "")
@@ -59,10 +59,11 @@ namespace EmailReader //rename
             if (fileName == "")
                 fileName = fileName1;
             var v = File.ReadAllLines(fileName).ToList<String>();
-            if(v.Count>0)
+            if (v.Count > 0)
+            {
                 v.Remove(v.Last());
-            foreach(var x in v)
-                v.Remove("\n");
+                v.RemoveAll(x=>x==String.Empty);
+            }
             File.WriteAllLines(fileName, v);
         }
 
@@ -127,11 +128,11 @@ namespace EmailReader //rename
 
                 // send email
                 var smtp = new MailKit.Net.Smtp.SmtpClient();
-                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                smtp.Authenticate(Credentials.SMTPEmail, Credentials.SMTPPassword);
-                smtp.Send(email);
+                smtp.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                smtp.AuthenticateAsync(Credentials.SMTPEmail, Credentials.SMTPPassword);
+                smtp.SendAsync(email);
                 Thread.Sleep(1000 * seconds);
-                smtp.Disconnect(true);
+                smtp.DisconnectAsync(true);
             }
             catch (Exception ex)
             {

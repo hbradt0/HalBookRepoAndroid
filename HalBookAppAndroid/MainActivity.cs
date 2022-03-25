@@ -128,7 +128,7 @@ namespace HalBookAppAndroid
         {
             textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
             editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
-            String text = "\n"+editTextWrite.Text;
+            String text = editTextWrite.Text;
             if (editTextWrite.Text == String.Empty)
                 text = "";
             EmailFileRead.WriteText(text);
@@ -152,10 +152,10 @@ namespace HalBookAppAndroid
             alert.SetButton("OK", (c, ev) =>
             {
                 EmailFileRead.DeleteText();
+				textViewWrite.Text = String.Empty;
             });
             alert.SetButton2("CANCEL", (c, ev) => { });
             alert.Show();
-            textViewWrite.Text = String.Empty;
         }
 
         private void ButtonDeleteOneLineClick(object sender, EventArgs eventArgs)
