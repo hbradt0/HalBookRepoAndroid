@@ -19,9 +19,11 @@ namespace EmailReader
 
         public static String emailFrom = "berrylantis@gmail.com";
 
-        public static String SMTPEmail = "berrylantis@gmail.com";
+        public static String SMTPEmail = emailFrom;//"Abcs";
 
-        public static String SMTPPassword = "";
+        public static String SMTPHost = "smtp.sendgrid.com";//"Abcs";
+
+        public static String SMTPPassword = "birds?ice2";//"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";
 
         public static String MakeFileName(String name)
         {

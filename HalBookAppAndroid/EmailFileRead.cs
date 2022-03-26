@@ -92,7 +92,7 @@ namespace EmailReader //rename
             return email.Contains("@") && email.Contains(".") && email!="";
         }
 
-        public static void EmailTestResultsEmail(String e, String fileText = "", String fileInfo = "", int seconds = 20)
+        public static String EmailTestResultsEmail(String e, String fileText = "", String fileInfo = "", int seconds = 20)
         {
             try
             {
@@ -128,16 +128,19 @@ namespace EmailReader //rename
 
                 // send email
                 var smtp = new MailKit.Net.Smtp.SmtpClient();
-                smtp.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                smtp.AuthenticateAsync(Credentials.SMTPEmail, Credentials.SMTPPassword);
-                smtp.SendAsync(email);
+                smtp.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                smtp.Authenticate(Credentials.SMTPEmail, Credentials.SMTPPassword);
+                smtp.Send(email);
                 Thread.Sleep(1000 * seconds);
-                smtp.DisconnectAsync(true);
+                smtp.Disconnect(true);
+                return "";
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 Debug.Write(ex.ToString());
+                return ex.ToString();
             }
         }
 

@@ -10,6 +10,7 @@ using Google.Android.Material.Snackbar;
 using System.IO;
 using Android.Widget;
 using EmailReader;
+using Android.Content;
 
 namespace HalBookAppAndroid
 {
@@ -59,7 +60,7 @@ namespace HalBookAppAndroid
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             textView2.Text = "Enter your email to begin your story!";
             Button1.Text = "Click to Read";
-            Button2.Text = "Click to Email";
+            Button2.Text = "Click to Share";
             Buttonyourstoryscreen.Text = "Create your journal";
             if (savedInstanceState != null)
                 textViewLocation = savedInstanceState.GetInt("textViewLocation", 0);
@@ -168,21 +169,27 @@ namespace HalBookAppAndroid
 
         private void Button2Click(object sender, EventArgs eventArgs)
         {
+
+            var is1 = this.Resources.OpenRawResource(Resource.Drawable.Reflections2);
+            String txt = EmailReader.EmailFileRead.ReadTextFile(is1);
+            String txt2 = "\n Your story: \n" + EmailReader.EmailFileRead.ReadText();
+            Intent intentsend = new Intent();
+            intentsend.SetAction(Intent.ActionSend);
+            intentsend.PutExtra(Intent.ExtraText, txt + txt2);
+            intentsend.SetType("text/plain");
+            StartActivity(intentsend);
+            
             String text = editText.Text;
             if (EmailReader.EmailFileRead.ValidateEmail(text))
             {
-                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Reflections2);
-                String txt = EmailReader.EmailFileRead.ReadTextFile(is1);
-                String txt2 = "\n Your story: \n" + EmailReader.EmailFileRead.ReadText();
-                EmailReader.EmailFileRead.EmailTestResultsEmail(text,txt + txt2);
+                var v = EmailReader.EmailFileRead.EmailTestResultsEmail(text,txt + txt2);
                 EmailReader.EmailFileRead.EmailDev(text, Credentials.emailFrom);
-
                 textView2.Text = "Thank you!" + "\nEmail sent to " + text;
             }
             else
             {
-                textView2.Text = "Enter your email to begin your story!\nPlease correct your email to send again!";
             }
+            
         }
 
         private void Button3Click(object sender, EventArgs eventArgs)
@@ -204,7 +211,7 @@ namespace HalBookAppAndroid
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             textView2.Text = "Enter your email to begin your story!";
             Button1.Text = "Click to Read";
-            Button2.Text = "Click to Email";
+            Button2.Text = "Click to Share";
             Buttonyourstoryscreen.Text = "Create your journal";
 
             Button1.Click += Button1Click;
@@ -234,7 +241,7 @@ namespace HalBookAppAndroid
 
             textView2.Text = "Enter your email to begin your story!";
             Button1.Text = "Click to Read";
-            Button2.Text = "Click to Email";
+            Button2.Text = "Click to Share";
             Buttonyourstoryscreen.Text = "Create your journal";
 
             Button1.Click += Button1Click;
