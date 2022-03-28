@@ -18,14 +18,15 @@ namespace HalBookAppAndroid
     public class MainActivity : AppCompatActivity
     {
 
-        public Android.Widget.EditText editText;
+        //public Android.Widget.EditText editText;
         public Android.Widget.TextView textView;
         public Android.Widget.TextView textView2;
         public Android.Widget.EditText editTextWrite;
         public Android.Widget.TextView textViewWrite;
+        public Android.Widget.TextView titleText;
 
         public Android.Widget.Button Button1;
-        public Android.Widget.Button Button2;
+        public Android.Widget.ImageView Button2;
         public Android.Widget.Button Button3;
         public Android.Widget.Button Buttonbackyourstory;
         public Android.Widget.Button Buttonyourstoryscreen;
@@ -50,17 +51,16 @@ namespace HalBookAppAndroid
 
             imageView.Click += ImageOnClick;
 
-            Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
+            Button2 = FindViewById<ImageView>(Resource.Id.Image);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
             Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
-            //Buttonbackyourstory = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
-            //Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
-            editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
+            titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
+            titleText.Text = "Your Story!";
+
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
-            textView2.Text = "Enter your email to begin your story!";
+            textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
-            Button2.Text = "Click to Share";
             Buttonyourstoryscreen.Text = "Create your journal";
             if (savedInstanceState != null)
                 textViewLocation = savedInstanceState.GetInt("textViewLocation", 0);
@@ -68,6 +68,7 @@ namespace HalBookAppAndroid
             Button2.Click += Button2Click;
             Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
             //Button3.Click += Button3Click;
+            //EmailFileRead.DeleteFileAfterMonths();
         }
 
         protected override void OnSaveInstanceState(Bundle outState)
@@ -110,7 +111,7 @@ namespace HalBookAppAndroid
 
             editTextWrite.SetScrollContainer(true);
             editTextWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-            editTextWrite.Text = "";
+            editTextWrite.Hint = "Your entry here...";
             editTextWrite.SetHeight(300);
             ButtonDelete1Line.Text = "Delete previous line";
 
@@ -122,23 +123,43 @@ namespace HalBookAppAndroid
             textViewWrite.SetScrollContainer(true);
             textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
             textViewWrite.Text = EmailFileRead.ReadText();
-            
+
         }
 
         private void ButtonyourstoryscreenUploadClick(object sender, EventArgs eventArgs)
         {
             textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
             editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
-            String text = editTextWrite.Text;
-            if (editTextWrite.Text == String.Empty)
-                text = "";
-            EmailFileRead.WriteText(text);
-            String totalText = EmailFileRead.ReadText();
-            textViewWrite.Text = totalText;
-            editTextWrite.Text = String.Empty;
-           
-            textViewWrite.SetScrollContainer(true);
-            textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            if (EmailFileRead.FileSizeWarning())
+            {
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("Your file is too big, please share soon");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                   //Does nothing
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
+            }
+            else
+            {
+
+                String text = editTextWrite.Text;
+                if (editTextWrite.Text == String.Empty)
+                    text = "";
+                EmailFileRead.WriteText(text);
+                String totalText = EmailFileRead.ReadText();
+                textViewWrite.Text = "";
+                textViewWrite.Append(totalText);
+                editTextWrite.Text = String.Empty;
+
+                textViewWrite.SetScrollContainer(true);
+                textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+                //textViewWrite.ScrollTo(0, textViewWrite.Bottom - 200);
+            }
         }
 
         private void ButtonDeleteClick(object sender, EventArgs eventArgs)
@@ -164,7 +185,10 @@ namespace HalBookAppAndroid
             textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
             editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
             EmailFileRead.DeleteLastLine();
-            textViewWrite.Text = EmailFileRead.ReadText();
+
+            String totalText = EmailFileRead.ReadText();
+            textViewWrite.Text = "";
+            textViewWrite.Append(totalText);
         }
 
         private void Button2Click(object sender, EventArgs eventArgs)
@@ -178,18 +202,6 @@ namespace HalBookAppAndroid
             intentsend.PutExtra(Intent.ExtraText, txt + txt2);
             intentsend.SetType("text/plain");
             StartActivity(intentsend);
-            
-            String text = editText.Text;
-            if (EmailReader.EmailFileRead.ValidateEmail(text))
-            {
-                var v = EmailReader.EmailFileRead.EmailTestResultsEmail(text,txt + txt2);
-                EmailReader.EmailFileRead.EmailDev(text, Credentials.emailFrom);
-                textView2.Text = "Thank you!" + "\nEmail sent to " + text;
-            }
-            else
-            {
-            }
-            
         }
 
         private void Button3Click(object sender, EventArgs eventArgs)
@@ -199,19 +211,18 @@ namespace HalBookAppAndroid
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
             imageView.SetImageResource(Resource.Drawable.pic5);
-
+            titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
+            titleText.Text = "Your Story!";
             imageView.Click += ImageOnClick;
 
-            Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
+            Button2 = FindViewById<ImageView>(Resource.Id.Image);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
             Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
             //Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
-            editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
-            textView2.Text = "Enter your email to begin your story!";
+            textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
-            Button2.Text = "Click to Share";
             Buttonyourstoryscreen.Text = "Create your journal";
 
             Button1.Click += Button1Click;
@@ -228,20 +239,19 @@ namespace HalBookAppAndroid
             imageView.SetImageResource(Resource.Drawable.pic5);
 
             imageView.Click += ImageOnClick;
-
-            Button2 = FindViewById<Android.Widget.Button>(Resource.Id.ReadPageButton);
+            titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
+            titleText.Text = "Your Story!";
+            Button2 = FindViewById<ImageView>(Resource.Id.Image);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
-            editText = FindViewById<Android.Widget.EditText>(Resource.Id.YourEmail);
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
             Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
 
-            textView2.Text = "Enter your email to begin your story!";
+            textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
-            Button2.Text = "Click to Share";
             Buttonyourstoryscreen.Text = "Create your journal";
 
             Button1.Click += Button1Click;
@@ -257,29 +267,15 @@ namespace HalBookAppAndroid
                 imageView.SetImageResource(Resource.Drawable.pic5);
             else
                 imageView.SetImageResource(Resource.Drawable.pic8);
-            togglePicture++;
             if (togglePicture >= 1)
                 togglePicture = 0;
-            imageView.Click += ImageOnClick;
+            else
+                togglePicture++;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
-            /*
-            if (item.ItemId == 1)
-            {
-                item.Description = ReadText(@"C:\Users\hbradt\Downloads\HalBook.txt");
-                item.Text = "Book";
-            }
-            if (item.Id == 2)
-            {
-                item.Text = "Downloading";
-                item.Description = "Downloading";
-            }
-            Text = item.Text;
-            Description = item.Description;
-            */
             if (id == Resource.Id.action_settings)
             {
                 return true;

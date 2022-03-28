@@ -36,6 +36,26 @@ namespace EmailReader //rename
             }
         }
 
+        public static void DeleteFileAfterMonths(String fileName = "", int month = 12)
+        {
+            if (fileName == "")
+                fileName = fileName1;
+
+            var fi = new FileInfo(fileName);
+            if (fi.CreationTime > DateTime.Now.AddMonths(-1*month))
+                fi.Delete();
+            
+        }
+
+        public static bool FileSizeWarning(String fileName = "", long size = 1024000000)
+        {
+            if (fileName == "")
+                fileName = fileName1;
+
+            var fi = new FileInfo(fileName);
+            return fi.Length > size;
+        }
+
         public static void WriteText(String text, String fileName = "")
         {
             if (fileName == "")
@@ -144,7 +164,7 @@ namespace EmailReader //rename
             }
         }
 
-        public static void EmailDev(String e, String devemail = "", int seconds = 20)
+    public static void EmailDev(String e, String devemail = "", int seconds = 20)
         {
             try
             {

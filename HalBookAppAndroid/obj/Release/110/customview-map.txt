@@ -10,7 +10,6 @@ cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\
 color;obj\Release\110\res\values\colors.xml
 color;obj\Release\110\res\values\ic_launcher_background.xml
 dimen;obj\Release\110\res\values\dimens.xml
-EditText;obj\Release\110\res\layout\activity_main.xml
 EditText;obj\Release\110\res\layout\activity_user.xml
 external-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -31,6 +30,9 @@ resources;obj\Release\110\res\values\dimens.xml
 resources;obj\Release\110\res\values\ic_launcher_background.xml
 resources;obj\Release\110\res\values\strings.xml
 resources;obj\Release\110\res\values\styles.xml
+ScrollView;obj\Release\110\res\layout\activity_main.xml
+ScrollView;obj\Release\110\res\layout\activity_user.xml
+ScrollView;obj\Release\110\res\layout\activity_user_main.xml
 ScrollView;obj\Release\110\res\layout\content_main.xml
 shape;obj\Release\110\res\drawable\border.xml
 shape;obj\Release\110\res\drawable\bordertext.xml
