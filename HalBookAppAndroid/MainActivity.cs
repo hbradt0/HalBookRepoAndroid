@@ -34,11 +34,24 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ButtonDelete;
         public Android.Widget.Button ButtonDelete1Line;
 
+        public AppCompatAutoCompleteTextView readInfo;
         public Android.Widget.ImageView imageView;
         int togglePicture;
         int textViewLocation = 0;
 
-        public AppCompatAutoCompleteTextView readInfo;
+        public Android.Widget.Button Publish;
+
+	//TODO view
+        public Android.Widget.EditText editTextTodo;
+        public Android.Widget.TextView textViewTodo;
+        public Android.Widget.Button ButtonTodoList;
+        public Android.Widget.Button ButtonTodoUpload;
+        public Android.Widget.Button ButtonTodoDelete;
+        public Android.Widget.Button ButtonTodoDelete1Line;
+        public Android.Widget.Button ButtonbackTodo;
+        public Android.Widget.Button ShareTodo;
+        public Android.Widget.Button ReadHiddenJournal;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -61,7 +74,13 @@ namespace HalBookAppAndroid
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
-            Buttonyourstoryscreen.Text = "Create your journal";
+            Buttonyourstoryscreen.Text = "Create your journal"; 
+  
+            ButtonTodoList= FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
+            ButtonTodoList.Text = "Create Todo List";
+       	    ButtonTodoList.Click += ButtonTodoClick;
+
+            Button2 = FindViewById<ImageView>(Resource.Id.Image);
             if (savedInstanceState != null)
                 textViewLocation = savedInstanceState.GetInt("textViewLocation", 0);
             Button1.Click += Button1Click;
@@ -223,7 +242,10 @@ namespace HalBookAppAndroid
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
-            Buttonyourstoryscreen.Text = "Create your journal";
+            Buttonyourstoryscreen.Text = "Create your journal";         
+   	        ButtonTodoList= FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
+            ButtonTodoList.Text = "Create Todo List";
+       	    ButtonTodoList.Click += ButtonTodoClick;
 
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
@@ -249,7 +271,9 @@ namespace HalBookAppAndroid
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
             Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
-
+            ButtonTodoList= FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
+            ButtonTodoList.Text = "Create Todo List";
+       	    ButtonTodoList.Click += ButtonTodoClick;
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
             Buttonyourstoryscreen.Text = "Create your journal";
@@ -288,6 +312,148 @@ namespace HalBookAppAndroid
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+
+ 	private void ButtonBackTodoListMainPage(object sender, EventArgs eventArgs)
+ 	{
+            SetContentView(Resource.Layout.activity_main);
+
+            togglePicture = 0;
+            imageView = FindViewById<ImageView>(Resource.Id.NewImage);
+            imageView.SetImageResource(Resource.Drawable.pic5);
+
+            imageView.Click += ImageOnClick;
+            titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
+            titleText.Text = "Your Story!";
+            Button2 = FindViewById<ImageView>(Resource.Id.Image);
+            textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
+            Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
+            textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
+            Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
+            Button1.Click += Button1Click;
+            Button2.Click += Button2Click;
+            Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
+            ButtonTodoList= FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
+            ButtonTodoList.Text = "Create Todo List";
+       	    ButtonTodoList.Click += ButtonTodoClick;
+            textView2.Text = "Click mail to share your story!";
+            Button1.Text = "Click to Read";
+            Buttonyourstoryscreen.Text = "Create your journal";
+
+            Button1.Click += Button1Click;
+            Button2.Click += Button2Click;
+            Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
+        }
+
+        private void ButtonTodoClick(object sender, EventArgs eventArgs)
+        {
+            SetContentView(Resource.Layout.activity_todo);
+            textViewTodo = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
+            editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
+            ButtonbackTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoback);
+            ButtonTodoUpload = FindViewById<Android.Widget.Button>(Resource.Id.todoupload);
+            ButtonTodoDelete =  FindViewById<Android.Widget.Button>(Resource.Id.todofreshstart);
+            ButtonTodoDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.tododelete1line);
+            ShareTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoshare);
+
+            ButtonbackTodo.Text = "Back";
+            ButtonTodoUpload.Text = "Submit";
+            ButtonTodoDelete.SetBackgroundColor(Android.Graphics.Color.Red);
+            ButtonTodoDelete.Text = "Reset";
+
+            editTextTodo.SetScrollContainer(true);
+            editTextTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            editTextTodo.Hint = "Your entry here...";
+            editTextTodo.SetHeight(300);
+            ButtonTodoDelete1Line.Text = "Delete previous line";
+
+            ButtonbackTodo.Click += ButtonBackTodoListMainPage;
+            ButtonTodoUpload.Click += ButtonTodoUploadClick;
+            ButtonTodoDelete.Click += ButtonTodoDeleteClick;
+            ButtonTodoDelete1Line.Click += ButtonTodoDeleteOneLineClick;
+            ShareTodo.Text = "Share";
+	        ShareTodo.Click += ShareTodoClick;
+
+            textViewTodo.SetScrollContainer(true);
+            textViewTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            textViewTodo.Text = EmailFileRead.ReadText(EmailFileRead.fileName2);
+
+        }
+
+        private void ShareTodoClick(object sender, EventArgs eventArgs)
+        {
+            String txt = EmailReader.EmailFileRead.ReadFileFromDate(EmailFileRead.fileName2);
+            Intent intentsend = new Intent();
+            intentsend.SetAction(Intent.ActionSend);
+            intentsend.PutExtra(Intent.ExtraText, txt);
+            intentsend.SetType("text/plain");
+            StartActivity(intentsend);
+        }
+
+        private void ButtonTodoUploadClick(object sender, EventArgs eventArgs)
+        {
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
+            editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
+            if (EmailFileRead.FileSizeWarning(EmailFileRead.fileName2))
+            {
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("Your file is too big, please share soon");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                   //Does nothing
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
+            }
+            else
+            {
+
+                String text = editTextTodo.Text;
+                if (editTextTodo.Text == String.Empty)
+                    text = "";
+                EmailFileRead.WriteText(text,EmailFileRead.fileName2);
+                String totalText = EmailFileRead.ReadText(EmailFileRead.fileName2);
+                textViewTodo.Text = "";
+                textViewTodo.Append(totalText);
+                editTextTodo.Text = String.Empty;
+
+                textViewTodo.SetScrollContainer(true);
+                textViewTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+                //textViewWrite.ScrollTo(0, textViewWrite.Bottom - 200);
+            }
+        }
+
+        private void ButtonTodoDeleteClick(object sender, EventArgs eventArgs)
+        {
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
+            editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("Deleting everything");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
+            {
+                EmailFileRead.DeleteText(EmailFileRead.fileName2);
+                textViewTodo.Text = String.Empty;
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
+        }
+
+        private void ButtonTodoDeleteOneLineClick(object sender, EventArgs eventArgs)
+        {
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
+            editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
+            EmailFileRead.DeleteLastLine(EmailFileRead.fileName2);
+
+            String totalText = EmailFileRead.ReadText(EmailFileRead.fileName2);
+            textViewTodo.Text = "";
+            textViewTodo.Append(totalText);
         }
     }
 }

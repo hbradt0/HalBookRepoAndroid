@@ -4,12 +4,14 @@ adaptive-icon;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Release\110\res\layout\activity_main.xml
+Button;obj\Release\110\res\layout\activity_todo.xml
 Button;obj\Release\110\res\layout\activity_user.xml
 Button;obj\Release\110\res\layout\activity_user_main.xml
 cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Release\110\res\values\colors.xml
 color;obj\Release\110\res\values\ic_launcher_background.xml
 dimen;obj\Release\110\res\values\dimens.xml
+EditText;obj\Release\110\res\layout\activity_todo.xml
 EditText;obj\Release\110\res\layout\activity_user.xml
 external-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -19,6 +21,7 @@ ImageView;obj\Release\110\res\layout\activity_main.xml
 item;obj\Release\110\res\menu\menu_main.xml
 item;obj\Release\110\res\values\styles.xml
 LinearLayout;obj\Release\110\res\layout\activity_main.xml
+LinearLayout;obj\Release\110\res\layout\activity_todo.xml
 LinearLayout;obj\Release\110\res\layout\activity_user.xml
 LinearLayout;obj\Release\110\res\layout\activity_user_main.xml
 menu;obj\Release\110\res\menu\menu_main.xml
@@ -31,6 +34,7 @@ resources;obj\Release\110\res\values\ic_launcher_background.xml
 resources;obj\Release\110\res\values\strings.xml
 resources;obj\Release\110\res\values\styles.xml
 ScrollView;obj\Release\110\res\layout\activity_main.xml
+ScrollView;obj\Release\110\res\layout\activity_todo.xml
 ScrollView;obj\Release\110\res\layout\activity_user.xml
 ScrollView;obj\Release\110\res\layout\activity_user_main.xml
 ScrollView;obj\Release\110\res\layout\content_main.xml
@@ -43,5 +47,6 @@ stroke;obj\Release\110\res\drawable\border.xml
 stroke;obj\Release\110\res\drawable\bordertext.xml
 style;obj\Release\110\res\values\styles.xml
 TextView;obj\Release\110\res\layout\activity_main.xml
+TextView;obj\Release\110\res\layout\activity_todo.xml
 TextView;obj\Release\110\res\layout\activity_user.xml
 TextView;obj\Release\110\res\layout\activity_user_main.xml

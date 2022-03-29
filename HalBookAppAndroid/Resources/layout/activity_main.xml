@@ -45,6 +45,17 @@
             android:layout_centerInParent="true"
             android:layout_gravity="bottom" />
 
+        <Button
+            android:layout_width="700px"
+            android:layout_height="100px"
+            android:gravity="center"
+            android:id="@+id/TodoListButton"
+            android:layout_above="@+id/fab"
+            android:layout_below="@+id/YourEmail"
+            android:text="@+string/EmailPageButtonText"
+            android:layout_centerInParent="true"
+            android:layout_gravity="bottom" />
+
         <ImageView
             android:layout_width="181.5dp"
             android:layout_height="100px"

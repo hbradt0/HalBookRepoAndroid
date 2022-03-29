@@ -22,6 +22,7 @@ namespace EmailReader //rename
         }
 
         public static string fileName1 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "notes.txt");
+        public static string fileName2 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "todo.txt");
 
         public static String ReadText(String fileName = "")
         {
@@ -36,6 +37,26 @@ namespace EmailReader //rename
             }
         }
 
+        public static String ReadFileFromDate(String fileName = "")
+        {
+            if (fileName == "")
+                fileName = fileName1;
+
+            String myString = File.ReadAllText(fileName);
+            string toBeSearched = DateTime.Now.ToString("MM/dd/yyyy")+":\n";
+            int ix = myString.IndexOf(toBeSearched);
+
+            if (ix != -1)
+            {
+                string code = myString.Substring(ix + toBeSearched.Length);
+                return code;
+            }
+            else 
+            {
+                return "";
+            }
+        }
+    
         public static void DeleteFileAfterMonths(String fileName = "", int month = 12)
         {
             if (fileName == "")
