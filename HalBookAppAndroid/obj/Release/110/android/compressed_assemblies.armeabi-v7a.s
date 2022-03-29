@@ -37,7 +37,7 @@
 
 	/* 1: HalBookAppAndroid.dll */
 	/* uncompressed_file_size */
-	.long	370688
+	.long	370176
 	/* loaded */
 	.byte	0
 	/* data */
