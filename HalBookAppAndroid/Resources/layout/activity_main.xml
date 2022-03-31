@@ -32,7 +32,9 @@
             android:layout_below="@+id/YourEmail"
             android:text="@+string/EmailPageButtonText"
             android:layout_centerInParent="true"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:background="@drawable/ButtonColor"/>
 
         <Button
             android:layout_width="700px"
@@ -43,7 +45,9 @@
             android:layout_below="@+id/YourEmail"
             android:text="@+string/EmailPageButtonText"
             android:layout_centerInParent="true"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:background="@drawable/bordertext"/>
 
         <Button
             android:layout_width="700px"
@@ -54,7 +58,9 @@
             android:layout_below="@+id/YourEmail"
             android:text="@+string/EmailPageButtonText"
             android:layout_centerInParent="true"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:background="@drawable/bordertext"/>
 
         <ImageView
             android:layout_width="181.5dp"

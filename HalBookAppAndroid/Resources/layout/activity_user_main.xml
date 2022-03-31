@@ -11,26 +11,44 @@
         android:orientation="vertical"
         android:gravity="center">
 
-
     <Button
         android:layout_width="300px"
         android:layout_height="100px"
         android:id="@+id/back"
         android:text="@+string/BackText"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:layout_centerInParent="true"
         android:layout_gravity="top" />
 
     <TextView
         android:layout_width="1000px"
-        android:layout_height="2000px"
+        android:layout_height="1600px"
         android:id="@+id/bookText"
         android:textSize="20sp"
-        android:background="@drawable/bordertext"
-        android:gravity="left"
+        android:textColor="@android:color/holo_purple"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/bookText"
         android:text="@+string/TextViewText"
         android:isScrollContainer="true"
-        android:layout_marginHorizontal="1600px"
+        android:background="@drawable/bordertext"
         android:scrollbars = "vertical"/>
+
+    <EditText
+        android:layout_width="300px"
+        android:layout_height="100px"
+        android:id="@+id/hiddenbuttontext"
+        android:layout_gravity="top"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:layout_width="300px"
+        android:layout_height="100px"
+        android:id="@+id/hiddenbutton"
+        android:text="@+string/BackText"
+        android:layout_centerInParent="true"
+        android:layout_gravity="left"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:background="@drawable/ButtonColor"/>
 
     </LinearLayout>
 </ScrollView>

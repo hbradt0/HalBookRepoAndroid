@@ -11,10 +11,11 @@ using System.IO;
 using Android.Widget;
 using EmailReader;
 using Android.Content;
+using Android.Content.PM;
 
 namespace HalBookAppAndroid
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
 
@@ -77,7 +78,7 @@ namespace HalBookAppAndroid
             Buttonyourstoryscreen.Text = "Create your journal"; 
   
             ButtonTodoList= FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
-            ButtonTodoList.Text = "Create Todo List";
+            ButtonTodoList.Text = "Create To Do List";
        	    ButtonTodoList.Click += ButtonTodoClick;
 
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -105,13 +106,54 @@ namespace HalBookAppAndroid
             textView.SetScrollContainer(true);
             textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
             textView.ScrollTo(0,textViewLocation);
-            textView.SetText(Resource.Drawable.Halbook);
             Button3.Click += Button3Click;
-            var is1 = this.Resources.OpenRawResource(Resource.Drawable.Halbook);
-            String text = EmailReader.EmailFileRead.ReadTextFile(is1);
-            textView.Text = text;
+            String texty = EmailFileRead.ReadText();
+            textView.Text = texty;
             textViewLocation = textView.ScrollY;
+            var hiddenbutton = FindViewById<Android.Widget.Button>(Resource.Id.hiddenbutton);
+            hiddenbutton.Text = "Code";
+            hiddenbutton.Click += hiddenbuttonclick;
+            var hidemybuttontext = FindViewById<Android.Widget.EditText>(Resource.Id.hiddenbuttontext);
+            hidemybuttontext.Hint = "type 'hint'";
+
         }
+
+        private void hiddenbuttonclick(object sender, EventArgs eventArgs)
+        {
+            var hidemybuttontext = FindViewById<Android.Widget.EditText>(Resource.Id.hiddenbuttontext);
+            String pswd = hidemybuttontext.Text;
+            if (pswd == "secret_code")
+            {
+                textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
+                textView.SetScrollContainer(true);
+                textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+                textView.SetText(Resource.Drawable.Halbook);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Halbook);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                textView.Text = text;
+                var hiddenbutton = FindViewById<Android.Widget.Button>(Resource.Id.hiddenbutton);
+                hiddenbutton.Text = "Code";
+                hiddenbutton.Click += hiddenbuttonclick;
+            }
+            else if(pswd.ToLower() == "hint")
+            {
+                textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
+                textView.SetScrollContainer(true);
+                textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+                textView.SetText(Resource.Drawable.Halbook);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Reflections2);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                textView.Text = text;
+                var hiddenbutton = FindViewById<Android.Widget.Button>(Resource.Id.hiddenbutton);
+                hiddenbutton.Text = "Code";
+                hiddenbutton.Click += hiddenbuttonclick;
+            }
+            else
+            {
+                hidemybuttontext.Hint = "type 'hint'";
+            }
+        }
+
 
         private void ButtonyourstoryscreenClick(object sender, EventArgs eventArgs)
         {
@@ -212,13 +254,10 @@ namespace HalBookAppAndroid
 
         private void Button2Click(object sender, EventArgs eventArgs)
         {
-
-            var is1 = this.Resources.OpenRawResource(Resource.Drawable.Reflections2);
-            String txt = EmailReader.EmailFileRead.ReadTextFile(is1);
             String txt2 = "\n Your story: \n" + EmailReader.EmailFileRead.ReadText();
             Intent intentsend = new Intent();
             intentsend.SetAction(Intent.ActionSend);
-            intentsend.PutExtra(Intent.ExtraText, txt + txt2);
+            intentsend.PutExtra(Intent.ExtraText, txt2);
             intentsend.SetType("text/plain");
             StartActivity(intentsend);
         }
@@ -244,8 +283,8 @@ namespace HalBookAppAndroid
             Button1.Text = "Click to Read";
             Buttonyourstoryscreen.Text = "Create your journal";         
    	        ButtonTodoList= FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
-            ButtonTodoList.Text = "Create Todo List";
-       	    ButtonTodoList.Click += ButtonTodoClick;
+            ButtonTodoList.Text = "Create To Do List";
+            ButtonTodoList.Click += ButtonTodoClick;
 
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
@@ -272,8 +311,8 @@ namespace HalBookAppAndroid
             Button2.Click += Button2Click;
             Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
             ButtonTodoList= FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
-            ButtonTodoList.Text = "Create Todo List";
-       	    ButtonTodoList.Click += ButtonTodoClick;
+            ButtonTodoList.Text = "Create To Do List";
+            ButtonTodoList.Click += ButtonTodoClick;
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
             Buttonyourstoryscreen.Text = "Create your journal";
@@ -335,7 +374,7 @@ namespace HalBookAppAndroid
             Button2.Click += Button2Click;
             Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
             ButtonTodoList= FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
-            ButtonTodoList.Text = "Create Todo List";
+            ButtonTodoList.Text = "Create To Do List";
        	    ButtonTodoList.Click += ButtonTodoClick;
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
@@ -372,7 +411,7 @@ namespace HalBookAppAndroid
             ButtonTodoUpload.Click += ButtonTodoUploadClick;
             ButtonTodoDelete.Click += ButtonTodoDeleteClick;
             ButtonTodoDelete1Line.Click += ButtonTodoDeleteOneLineClick;
-            ShareTodo.Text = "Share";
+            ShareTodo.Text = "Share Today";
 	        ShareTodo.Click += ShareTodoClick;
 
             textViewTodo.SetScrollContainer(true);
@@ -415,7 +454,7 @@ namespace HalBookAppAndroid
                 String text = editTextTodo.Text;
                 if (editTextTodo.Text == String.Empty)
                     text = "";
-                EmailFileRead.WriteText(text,EmailFileRead.fileName2);
+                EmailFileRead.WriteText(text,EmailFileRead.fileName2,true);
                 String totalText = EmailFileRead.ReadText(EmailFileRead.fileName2);
                 textViewTodo.Text = "";
                 textViewTodo.Append(totalText);

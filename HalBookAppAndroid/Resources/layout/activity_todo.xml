@@ -16,6 +16,7 @@
         android:layout_height="100px"
         android:id="@+id/todoback"
         android:text="@+string/BackText1"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:layout_centerInParent="true"
         android:layout_gravity="top" />
           
@@ -24,6 +25,7 @@
         android:layout_height="100px"
         android:id="@+id/todofreshstart"
         android:text="@+string/freshstart"
+        android:backgroundTint="@android:color/holo_red_light"
         android:layout_marginLeft="200px"
         />
 
@@ -32,6 +34,7 @@
         android:layout_height="100px"
         android:id="@+id/todoshare"
         android:text="@+string/share"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:layout_marginLeft="200px"
         />
 
@@ -54,6 +57,7 @@
         android:layout_width="600px"
         android:layout_height="100px"
         android:id="@+id/tododelete1line"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:text="@+string/delete1line"
         android:layout_centerInParent="true"
         android:background="@android:color/holo_purple"
@@ -64,6 +68,7 @@
         android:layout_height="100px"
         android:id="@+id/todoupload"
         android:text="@+string/upload"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:layout_centerInParent="true"
         />
 
