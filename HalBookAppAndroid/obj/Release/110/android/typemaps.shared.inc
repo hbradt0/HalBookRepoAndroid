@@ -49,42 +49,42 @@
 	.section	.rodata.map_aname.8,"aMS",@progbits,1
 	.type	.L.map_aname.8, @object
 .L.map_aname.8:
-	.asciz	"Xamarin.AndroidX.Activity"
-	.size	.L.map_aname.8, 26
+	.asciz	"HalBookAppAndroid"
+	.size	.L.map_aname.8, 18
 
 	.section	.rodata.map_aname.9,"aMS",@progbits,1
 	.type	.L.map_aname.9, @object
 .L.map_aname.9:
-	.asciz	"Xamarin.AndroidX.Lifecycle.LiveData.Core"
-	.size	.L.map_aname.9, 41
+	.asciz	"Xamarin.AndroidX.Activity"
+	.size	.L.map_aname.9, 26
 
 	.section	.rodata.map_aname.10,"aMS",@progbits,1
 	.type	.L.map_aname.10, @object
 .L.map_aname.10:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.10, 13
+	.asciz	"Xamarin.AndroidX.Lifecycle.LiveData.Core"
+	.size	.L.map_aname.10, 41
 
 	.section	.rodata.map_aname.11,"aMS",@progbits,1
 	.type	.L.map_aname.11, @object
 .L.map_aname.11:
-	.asciz	"Xamarin.AndroidX.CustomView"
-	.size	.L.map_aname.11, 28
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.11, 13
 
 	.section	.rodata.map_aname.12,"aMS",@progbits,1
 	.type	.L.map_aname.12, @object
 .L.map_aname.12:
-	.asciz	"Xamarin.Google.Guava.ListenableFuture"
-	.size	.L.map_aname.12, 38
+	.asciz	"Xamarin.AndroidX.CustomView"
+	.size	.L.map_aname.12, 28
 
 	.section	.rodata.map_aname.13,"aMS",@progbits,1
 	.type	.L.map_aname.13, @object
 .L.map_aname.13:
-	.asciz	"Xamarin.AndroidX.Lifecycle.ViewModel"
-	.size	.L.map_aname.13, 37
+	.asciz	"Xamarin.Google.Guava.ListenableFuture"
+	.size	.L.map_aname.13, 38
 
 	.section	.rodata.map_aname.14,"aMS",@progbits,1
 	.type	.L.map_aname.14, @object
 .L.map_aname.14:
-	.asciz	"HalBookAppAndroid"
-	.size	.L.map_aname.14, 18
+	.asciz	"Xamarin.AndroidX.Lifecycle.ViewModel"
+	.size	.L.map_aname.14, 37
 

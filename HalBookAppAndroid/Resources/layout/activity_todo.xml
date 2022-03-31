@@ -19,22 +19,29 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:layout_centerInParent="true"
         android:layout_gravity="top" />
-          
-        <Button
+
+        <EditText
         android:layout_width="300px"
         android:layout_height="100px"
-        android:id="@+id/todofreshstart"
-        android:text="@+string/freshstart"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:layout_marginLeft="200px"
-        />
-
+        android:id="@+id/daysprior"
+        android:layout_gravity="left"
+        android:inputType="textEmailAddress" />
+        
         <Button
         android:layout_width="300px"
         android:layout_height="100px"
         android:id="@+id/todoshare"
         android:text="@+string/share"
         android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_gravity="left"
+        />
+
+        <Button
+        android:layout_width="300px"
+        android:layout_height="100px"
+        android:id="@+id/todofreshstart"
+        android:text="@+string/freshstart"
+        android:backgroundTint="@android:color/holo_red_light"
         android:layout_marginLeft="200px"
         />
 

@@ -44,6 +44,7 @@ namespace HalBookAppAndroid
 
 	//TODO view
         public Android.Widget.EditText editTextTodo;
+        public Android.Widget.EditText editTextDate;
         public Android.Widget.TextView textViewTodo;
         public Android.Widget.Button ButtonTodoList;
         public Android.Widget.Button ButtonTodoUpload;
@@ -395,8 +396,10 @@ namespace HalBookAppAndroid
             ButtonTodoDelete =  FindViewById<Android.Widget.Button>(Resource.Id.todofreshstart);
             ButtonTodoDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.tododelete1line);
             ShareTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoshare);
+            editTextDate = FindViewById<Android.Widget.EditText>(Resource.Id.daysprior);
+            editTextDate.Hint = " # days prior";
 
-            ButtonbackTodo.Text = "Back";
+	        ButtonbackTodo.Text = "Back";
             ButtonTodoUpload.Text = "Submit";
             ButtonTodoDelete.SetBackgroundColor(Android.Graphics.Color.Red);
             ButtonTodoDelete.Text = "Reset";
@@ -422,7 +425,9 @@ namespace HalBookAppAndroid
 
         private void ShareTodoClick(object sender, EventArgs eventArgs)
         {
-            String txt = EmailReader.EmailFileRead.ReadFileFromDate(EmailFileRead.fileName2);
+            int i = 0;
+            Int32.TryParse(editTextDate.Text, out i);
+            String txt = EmailReader.EmailFileRead.ReadFileFromDate(EmailFileRead.fileName2,i);
             Intent intentsend = new Intent();
             intentsend.SetAction(Intent.ActionSend);
             intentsend.PutExtra(Intent.ExtraText, txt);
