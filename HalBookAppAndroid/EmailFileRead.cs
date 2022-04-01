@@ -121,7 +121,8 @@ namespace EmailReader //rename
             if (v.Count > 0)
             {
                 v.Remove(v.Last());
-                v.RemoveAll(x=>x==String.Empty);
+                if(v.Last()==String.Empty)
+                    v.RemoveAt(v.Count-1);
             }
             File.WriteAllLines(fileName, v);
         }

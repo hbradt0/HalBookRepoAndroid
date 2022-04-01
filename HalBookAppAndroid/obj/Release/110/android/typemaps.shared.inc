@@ -43,14 +43,14 @@
 	.section	.rodata.map_aname.7,"aMS",@progbits,1
 	.type	.L.map_aname.7, @object
 .L.map_aname.7:
-	.asciz	"Xamarin.AndroidX.Loader"
-	.size	.L.map_aname.7, 24
+	.asciz	"HalBookAppAndroid"
+	.size	.L.map_aname.7, 18
 
 	.section	.rodata.map_aname.8,"aMS",@progbits,1
 	.type	.L.map_aname.8, @object
 .L.map_aname.8:
-	.asciz	"HalBookAppAndroid"
-	.size	.L.map_aname.8, 18
+	.asciz	"Xamarin.AndroidX.Loader"
+	.size	.L.map_aname.8, 24
 
 	.section	.rodata.map_aname.9,"aMS",@progbits,1
 	.type	.L.map_aname.9, @object

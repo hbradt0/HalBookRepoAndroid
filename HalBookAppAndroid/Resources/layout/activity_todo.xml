@@ -25,6 +25,7 @@
         android:layout_height="100px"
         android:id="@+id/daysprior"
         android:layout_gravity="left"
+        android:layout_weight="1"
         android:inputType="textEmailAddress" />
         
         <Button
@@ -32,8 +33,9 @@
         android:layout_height="100px"
         android:id="@+id/todoshare"
         android:text="@+string/share"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_weight="1"
         android:layout_gravity="left"
+        android:backgroundTint="@android:color/holo_blue_light"
         />
 
         <Button

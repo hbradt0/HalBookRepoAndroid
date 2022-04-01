@@ -397,7 +397,7 @@ namespace HalBookAppAndroid
             ButtonTodoDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.tododelete1line);
             ShareTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoshare);
             editTextDate = FindViewById<Android.Widget.EditText>(Resource.Id.daysprior);
-            editTextDate.Hint = " # days prior";
+            editTextDate.Hint = "0 days";
 
 	        ButtonbackTodo.Text = "Back";
             ButtonTodoUpload.Text = "Submit";

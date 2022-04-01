@@ -170,17 +170,17 @@ map_modules:
 	.zero	4
 	.xword	0
 
-	/* module_uuid: 39474576-1024-4319-8815-86282e2971d8 */
-	.byte	0x76, 0x45, 0x47, 0x39, 0x24, 0x10, 0x19, 0x43, 0x88, 0x15, 0x86, 0x28, 0x2e, 0x29, 0x71, 0xd8
+	/* module_uuid: 741a526e-23ff-4f17-ae68-80a134cefc20 */
+	.byte	0x6e, 0x52, 0x1a, 0x74, 0xff, 0x23, 0x17, 0x4f, 0xae, 0x68, 0x80, 0xa1, 0x34, 0xce, 0xfc, 0x20
 	/* entry_count */
-	.word	5
+	.word	1
 	/* duplicate_count */
-	.word	4
+	.word	0
 	/* map */
 	.xword	module7_managed_to_java
 	/* duplicate_map */
-	.xword	module7_managed_to_java_duplicates
-	/* assembly_name: Xamarin.AndroidX.Loader */
+	.xword	0
+	/* assembly_name: HalBookAppAndroid */
 	.xword	.L.map_aname.7
 	/* image */
 	.xword	0
@@ -190,17 +190,17 @@ map_modules:
 	.zero	4
 	.xword	0
 
-	/* module_uuid: 699f767a-12bf-459d-a117-0728dda7263c */
-	.byte	0x7a, 0x76, 0x9f, 0x69, 0xbf, 0x12, 0x9d, 0x45, 0xa1, 0x17, 0x07, 0x28, 0xdd, 0xa7, 0x26, 0x3c
+	/* module_uuid: 39474576-1024-4319-8815-86282e2971d8 */
+	.byte	0x76, 0x45, 0x47, 0x39, 0x24, 0x10, 0x19, 0x43, 0x88, 0x15, 0x86, 0x28, 0x2e, 0x29, 0x71, 0xd8
 	/* entry_count */
-	.word	1
+	.word	5
 	/* duplicate_count */
-	.word	0
+	.word	4
 	/* map */
 	.xword	module8_managed_to_java
 	/* duplicate_map */
-	.xword	0
-	/* assembly_name: HalBookAppAndroid */
+	.xword	module8_managed_to_java_duplicates
+	/* assembly_name: Xamarin.AndroidX.Loader */
 	.xword	.L.map_aname.8
 	/* image */
 	.xword	0
@@ -2301,7 +2301,7 @@ map_java:
 
 	/* #196 */
 	/* module_index */
-	.word	7
+	.word	8
 	/* type_token_id */
 	.word	33554452
 	/* java_name */
@@ -2311,7 +2311,7 @@ map_java:
 
 	/* #197 */
 	/* module_index */
-	.word	7
+	.word	8
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2321,7 +2321,7 @@ map_java:
 
 	/* #198 */
 	/* module_index */
-	.word	7
+	.word	8
 	/* type_token_id */
 	.word	33554447
 	/* java_name */
@@ -2331,7 +2331,7 @@ map_java:
 
 	/* #199 */
 	/* module_index */
-	.word	7
+	.word	8
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2341,7 +2341,7 @@ map_java:
 
 	/* #200 */
 	/* module_index */
-	.word	7
+	.word	8
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2391,7 +2391,7 @@ map_java:
 
 	/* #205 */
 	/* module_index */
-	.word	8
+	.word	7
 	/* type_token_id */
 	.word	33554434
 	/* java_name */
