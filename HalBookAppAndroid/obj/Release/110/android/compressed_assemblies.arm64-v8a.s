@@ -53,7 +53,7 @@
 
 	/* 5: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.word	1135616
+	.word	1136128
 	/* loaded */
 	.byte	0
 	/* data */

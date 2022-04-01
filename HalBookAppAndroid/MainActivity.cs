@@ -15,7 +15,7 @@ using Android.Content.PM;
 
 namespace HalBookAppAndroid
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "Your Story", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, Icon="@drawable/ic_launcher_round", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
 
