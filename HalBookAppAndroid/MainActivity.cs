@@ -15,7 +15,7 @@ using Android.Content.PM;
 
 namespace HalBookAppAndroid
 {
-    [Activity(Label = "Your Story", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, Icon="@drawable/ic_launcher_round", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "Create Your Story", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, Icon="@drawable/ic_launcher_round", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
 
@@ -71,7 +71,7 @@ namespace HalBookAppAndroid
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
             Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
             titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
-            titleText.Text = "Your Story!";
+            titleText.Text = "Create Your Story!";
 
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             textView2.Text = "Click mail to share your story!";
@@ -271,7 +271,7 @@ namespace HalBookAppAndroid
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
             imageView.SetImageResource(Resource.Drawable.pic5);
             titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
-            titleText.Text = "Your Story!";
+            titleText.Text = "Create Your Story!";
             imageView.Click += ImageOnClick;
 
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -302,7 +302,7 @@ namespace HalBookAppAndroid
 
             imageView.Click += ImageOnClick;
             titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
-            titleText.Text = "Your Story!";
+            titleText.Text = "Create Your Story!";
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
@@ -365,7 +365,7 @@ namespace HalBookAppAndroid
 
             imageView.Click += ImageOnClick;
             titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
-            titleText.Text = "Your Story!";
+            titleText.Text = "Create Your Story!";
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
