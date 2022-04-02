@@ -50,7 +50,6 @@ shape;obj\Release\110\res\drawable\buttoncolor.xml
 solid;obj\Release\110\res\drawable\border.xml
 solid;obj\Release\110\res\drawable\bordertext.xml
 solid;obj\Release\110\res\drawable\buttoncolor.xml
-StackLayout;obj\Release\110\res\layout\activity_todo.xml
 string;obj\Release\110\res\values\strings.xml
 stroke;obj\Release\110\res\drawable\border.xml
 stroke;obj\Release\110\res\drawable\bordertext.xml

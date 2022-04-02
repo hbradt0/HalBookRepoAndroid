@@ -67,7 +67,52 @@ namespace EmailReader //rename
             	}
 	        }
         }
-    
+
+        public static String ReadFileFromDateToNextDay(DateTime myDate, String fileName = "")
+        {
+            if (fileName == "")
+                fileName = fileName1;
+
+            String myString = File.ReadAllText(fileName);
+
+            string toBeSearched = myDate.ToString("MM/dd/yyyy") + ":\n";
+            string toBeSearched2 = myDate.AddDays(1).ToString("MM/");
+
+            int ix = myString.IndexOf(toBeSearched);
+            if (ix != -1)
+            {
+                string code = myString.Substring(ix);
+                try
+                {
+                    int ix2 = code.IndexOf(toBeSearched2, ix);
+                    if (ix2 != -1)
+                    {
+                        return code.Substring(0, ix2);
+                    }
+                    else
+                    {
+                        return code;
+                    }
+                }
+                catch(Exception e)
+                { return code;  }
+            }
+            else
+            {
+                toBeSearched = DateTime.Now.ToString("MM/dd/yyyy") + ":\n";
+                ix = myString.IndexOf(toBeSearched);
+                if (ix != -1)
+                {
+                    String code = myString.Substring(ix);
+                    return code;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
+
         public static void DeleteFileAfterMonths(String fileName = "", int month = 12)
         {
             if (fileName == "")

@@ -19,7 +19,22 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:layout_centerInParent="true"
         android:layout_gravity="top" />
-          
+
+        <Button  
+        android:text="Pick Date"  
+        android:layout_width="300px"  
+        android:layout_height="100px" 
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_gravity="left"
+        android:id="@+id/buttonDateText"
+        /> 
+        
+        <TextView  
+        android:text=""  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:id="@+id/editTextDateShare" /> 
+
         <Button
         android:layout_width="300px"
         android:layout_height="100px"
@@ -49,7 +64,7 @@
         android:layout_height="100px"
         android:id="@+id/delete1line"
         android:text="@+string/delete1line"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:backgroundTint="@android:color/holo_red_light"
         android:layout_centerInParent="true"
         />
 

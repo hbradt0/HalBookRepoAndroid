@@ -66,7 +66,7 @@
         android:layout_width="600px"
         android:layout_height="100px"
         android:id="@+id/tododelete1line"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:backgroundTint="@android:color/holo_red_light"
         android:text="@+string/delete1line"
         android:layout_centerInParent="true"
         android:background="@android:color/holo_purple"
