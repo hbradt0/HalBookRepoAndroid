@@ -1,6 +1,7 @@
 @string/appbar_scrolling_view_behavior;obj\Release\110\res\layout\content_main.xml
 adaptive-icon;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
+androidx.appcompat.widget.ContentFrameLayout;obj\Release\110\res\layout\activity_user.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Release\110\res\layout\activity_main.xml
@@ -33,6 +34,9 @@ padding;obj\Release\110\res\drawable\border.xml
 padding;obj\Release\110\res\drawable\bordertext.xml
 padding;obj\Release\110\res\drawable\buttoncolor.xml
 paths;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+RelativeLayout;obj\Release\110\res\layout\activity_todo.xml
+RelativeLayout;obj\Release\110\res\layout\activity_user.xml
+RelativeLayout;obj\Release\110\res\layout\activity_user_main.xml
 resources;obj\Release\110\res\values\colors.xml
 resources;obj\Release\110\res\values\dimens.xml
 resources;obj\Release\110\res\values\ic_launcher_background.xml

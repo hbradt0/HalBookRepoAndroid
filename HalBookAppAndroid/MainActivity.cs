@@ -116,6 +116,7 @@ namespace HalBookAppAndroid
             Button3.Text = "Back";
             textView.SetScrollContainer(true);
             textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            textView.Parent.RequestDisallowInterceptTouchEvent(false);
             textView.ScrollTo(0,textViewLocation);
             Button3.Click += Button3Click;
             String texty = EmailFileRead.ReadText();
@@ -128,6 +129,7 @@ namespace HalBookAppAndroid
             hiddenbutton.Click += hiddenbuttonclick;
         }
 
+
         private void hiddenbuttonclick(object sender, EventArgs eventArgs)
         {
             var hidemybuttontext = FindViewById<Android.Widget.EditText>(Resource.Id.hiddenbuttontext);
@@ -137,6 +139,7 @@ namespace HalBookAppAndroid
                 textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
                 textView.SetScrollContainer(true);
                 textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+                textView.Parent.RequestDisallowInterceptTouchEvent(false);
                 textView.SetText(Resource.Drawable.Halbook);
                 var is1 = this.Resources.OpenRawResource(Resource.Drawable.Halbook);
                 String text = EmailReader.EmailFileRead.ReadTextFile(is1);
@@ -179,6 +182,11 @@ namespace HalBookAppAndroid
             ButtonDateShare = FindViewById<Android.Widget.Button>(Resource.Id.buttonDateText);
             editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
 
+            //var v = WindowManager.MaximumWindowMetrics.Bounds.Bottom;
+           // if (v<1000)
+           // {
+            //    textViewWrite.SetHeight(300);
+           // }
             Buttonbackyourstory.Text = "Back";
             ButtonyourstoryscreenUpload.Text = "Submit";
             ButtonDelete.Text = "Reset";
@@ -202,8 +210,10 @@ namespace HalBookAppAndroid
             ButtonDateShare.Click += ButtonClickDate;
         }
 
+
+
         //Click date
-        void ButtonClickDate(object sender, EventArgs eventArgs)
+            void ButtonClickDate(object sender, EventArgs eventArgs)
         {
             DateTime today = DateTime.Today;
             DatePickerDialog dialog = new DatePickerDialog(this, OnDateSet, today.Year, today.Month - 1, today.Day);
@@ -256,6 +266,7 @@ namespace HalBookAppAndroid
 
                 textViewWrite.SetScrollContainer(true);
                 textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+                textViewWrite.Parent.RequestDisallowInterceptTouchEvent(false);
                 //textViewWrite.ScrollTo(0, textViewWrite.Bottom - 200);
             }
         }
@@ -477,6 +488,7 @@ namespace HalBookAppAndroid
                 ButtonTodoDelete.Text = "Reset";
 
                 editTextTodo.SetScrollContainer(true);
+                editTextTodo.Parent.RequestDisallowInterceptTouchEvent(false);
                 editTextTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
                 editTextTodo.Hint = "Your entry here...";
                 editTextTodo.SetHeight(300);
@@ -539,9 +551,10 @@ namespace HalBookAppAndroid
 
                     textViewTodo.SetScrollContainer(true);
                     textViewTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-                    //textViewWrite.ScrollTo(0, textViewWrite.Bottom - 200);
-                }
+                    textViewWrite.Parent.RequestDisallowInterceptTouchEvent(false);
+                //textViewWrite.ScrollTo(0, textViewWrite.Bottom - 200);
             }
+        }
 
             private void ButtonTodoDeleteClick(object sender, EventArgs eventArgs)
             {
@@ -571,5 +584,8 @@ namespace HalBookAppAndroid
                 textViewTodo.Text = "";
                 textViewTodo.Append(totalText);
             }
+
+        
     }
+    
 }

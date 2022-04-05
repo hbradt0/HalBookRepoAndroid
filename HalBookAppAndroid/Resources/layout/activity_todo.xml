@@ -4,16 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="#E6E6FA">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="#E6E6FA">
 
         <Button
-        android:layout_width="300px"
-        android:layout_height="100px"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="250dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/todoback"
         android:text="@+string/BackText1"
         android:backgroundTint="@android:color/holo_blue_light"
@@ -21,16 +27,24 @@
         android:layout_gravity="top" />
 
         <EditText
-        android:layout_width="300px"
-        android:layout_height="100px"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="250dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/daysprior"
         android:layout_gravity="left"
         android:layout_weight="1"
         android:inputType="textEmailAddress" />
         
         <Button
-        android:layout_width="300px"
-        android:layout_height="100px"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="250dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/todoshare"
         android:text="@+string/share"
         android:layout_weight="1"
@@ -39,18 +53,24 @@
         />
 
         <Button
-        android:layout_width="300px"
-        android:layout_height="100px"
+        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="90dp"
         android:id="@+id/todofreshstart"
         android:text="@+string/freshstart"
         android:backgroundTint="@android:color/holo_red_light"
-        android:layout_marginLeft="200px"
         />
 
         <TextView
-        android:layout_width="800px"
-        android:layout_marginHorizontal="1600px"
-        android:layout_height="1200px"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:textSize="15sp"
         android:id="@+id/todotext"
         android:textColor="@android:color/holo_purple"
@@ -63,8 +83,10 @@
         android:scrollbars = "vertical"/>
 
         <Button
-        android:layout_width="600px"
+        android:layout_width="match_parent"
         android:layout_height="100px"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:id="@+id/tododelete1line"
         android:backgroundTint="@android:color/holo_red_light"
         android:text="@+string/delete1line"
@@ -73,8 +95,10 @@
         />
 
         <Button
-        android:layout_width="600px"
+        android:layout_width="match_parent"
         android:layout_height="100px"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:id="@+id/todoupload"
         android:text="@+string/upload"
         android:backgroundTint="@android:color/holo_blue_light"
@@ -82,8 +106,12 @@
         />
 
         <EditText
-        android:layout_width="800px"
-        android:layout_height="300px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:id="@+id/todowrite"
         android:layout_centerInParent="true"
         android:text=""

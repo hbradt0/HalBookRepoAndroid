@@ -4,16 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:id="@+id/scrollview"
+    android:background="#E6E6FA">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        >
 
         <Button
-        android:layout_width="300px"
-        android:layout_height="100px"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="250dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/back1"
         android:text="@+string/BackText1"
         android:backgroundTint="@android:color/holo_blue_light"
@@ -22,8 +29,12 @@
 
         <Button  
         android:text="Pick Date"  
-        android:layout_width="300px"  
-        android:layout_height="100px" 
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="250dp"
+        android:layout_marginLeft="10dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:layout_gravity="left"
         android:id="@+id/buttonDateText"
@@ -36,18 +47,24 @@
         android:id="@+id/editTextDateShare" /> 
 
         <Button
-        android:layout_width="300px"
-        android:layout_height="100px"
+        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="90dp"
         android:id="@+id/freshstart"
         android:text="@+string/freshstart"
         android:backgroundTint="@android:color/holo_red_light"
-        android:layout_marginLeft="200px"
         />
 
         <TextView
-        android:layout_width="800px"
-        android:layout_marginHorizontal="1600px"
-        android:layout_height="1200px"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:textSize="15sp"
         android:id="@+id/yourbooktext"
         android:textColor="@android:color/holo_purple"
@@ -60,8 +77,10 @@
         android:scrollbars = "vertical"/>
 
         <Button
-        android:layout_width="600px"
+        android:layout_width="match_parent"
         android:layout_height="100px"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:id="@+id/delete1line"
         android:text="@+string/delete1line"
         android:backgroundTint="@android:color/holo_red_light"
@@ -69,8 +88,10 @@
         />
 
         <Button
-        android:layout_width="600px"
+        android:layout_width="match_parent"
         android:layout_height="100px"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:id="@+id/upload"
         android:text="@+string/upload"
         android:backgroundTint="@android:color/holo_blue_light"
@@ -78,8 +99,12 @@
         />
 
         <EditText
-        android:layout_width="800px"
+        android:layout_width="match_parent"
         android:layout_height="300px"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:id="@+id/edityours"
         android:layout_centerInParent="true"
         android:text=""
