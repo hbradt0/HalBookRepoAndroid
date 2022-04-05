@@ -13,9 +13,11 @@
         android:gravity="center">
 
         <TextView
-            android:layout_width="600px"
-            android:layout_height="300px"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_marginBottom="1dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
             android:textSize="23sp"
             android:id="@+id/titleText"
             android:background="@drawable/bordertext"
@@ -96,8 +98,8 @@
             android:text="@+string/Instructions"/>
 
         <ImageView
-            android:layout_height="300dp"
-            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_width="match_parent"
             android:id="@+id/NewImage"
             android:gravity="center"
             android:layout_centerInParent="true"
