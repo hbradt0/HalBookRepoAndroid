@@ -1,6 +1,16 @@
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\Reflections.docx
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\Halbook.txt
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\HalBookAppAndroid.dll
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\HalBookAppAndroid.pdb
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid.apk
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid.aab
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.aab
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.apk
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.apk.idsig
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\MonoAndroid,Version=v11.0.AssemblyAttributes.cs
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\build.props
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\adb.props
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.csproj.AssemblyReference.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res.flag
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\files.cache
@@ -19,16 +29,6 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\R.txt
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\R.cs.flag
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.csproj.CoreCompileInputs.cache
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.csproj.AssemblyReference.cache
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\Reflections.docx
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\Halbook.txt
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\HalBookAppAndroid.dll
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\HalBookAppAndroid.pdb
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid.apk
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid.aab
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.aab
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.apk
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.apk.idsig
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.dll
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.pdb
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\bin\com.halbook.halbookappandroid.apk
@@ -73,6 +73,7 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\layout\activity_todo.xml
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\buttoncolor.xml
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\ic_launcher_round.png
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\layout\activity_user_edit.xml
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\uploadflags.txt
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\resolvedassemblies.hash
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\link.flag
@@ -190,4 +191,3 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\stamp\_GenerateJavaStubs.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\layout\activity_user_edit.xml
