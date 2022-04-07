@@ -54,7 +54,13 @@ namespace HalBookAppAndroid
         //Date 
         public Android.Widget.Button ButtonDateShare;
         public Android.Widget.TextView editTextDateShare;
-
+		
+		//Button
+		public Android.Widget.Button ButtonGoToEditPageStart;
+        public Android.Widget.Button ButtonSaveEditPage;
+        public Android.Widget.EditText EditJournal;
+        public Android.Widget.Button ButtonBackEditPage;
+		
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -181,6 +187,7 @@ namespace HalBookAppAndroid
             ButtonDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.delete1line);
             ButtonDateShare = FindViewById<Android.Widget.Button>(Resource.Id.buttonDateText);
             editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
+            ButtonGoToEditPageStart = FindViewById<Android.Widget.Button>(Resource.Id.EditJournalPage);
 
             //var v = WindowManager.MaximumWindowMetrics.Bounds.Bottom;
            // if (v<1000)
@@ -191,6 +198,7 @@ namespace HalBookAppAndroid
             ButtonyourstoryscreenUpload.Text = "Submit";
             ButtonDelete.Text = "Reset";
             ButtonDateShare.Text = "Share Entry";
+            ButtonGoToEditPageStart.Text = "Edit Full Journal";
 
             editTextWrite.SetScrollContainer(true);
             editTextWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
@@ -208,9 +216,8 @@ namespace HalBookAppAndroid
             ButtonDelete.Click += ButtonDeleteClick;
             ButtonDelete1Line.Click += ButtonDeleteOneLineClick;
             ButtonDateShare.Click += ButtonClickDate;
+            ButtonGoToEditPageStart.Click+=ButtonGoToEditPage;
         }
-
-
 
         //Click date
             void ButtonClickDate(object sender, EventArgs eventArgs)
@@ -584,6 +591,112 @@ namespace HalBookAppAndroid
                 textViewTodo.Text = "";
                 textViewTodo.Append(totalText);
             }
+					
+			//Create your story
+			private void ButtonBackEditPageClick(object sender, EventArgs eventArgs)
+			{
+            //Initialize
+            SetContentView(Resource.Layout.activity_user);
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
+            editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
+            Buttonbackyourstory = FindViewById<Android.Widget.Button>(Resource.Id.back1);
+            ButtonyourstoryscreenUpload = FindViewById<Android.Widget.Button>(Resource.Id.upload);
+            ButtonDelete = FindViewById<Android.Widget.Button>(Resource.Id.freshstart);
+            ButtonDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.delete1line);
+            ButtonDateShare = FindViewById<Android.Widget.Button>(Resource.Id.buttonDateText);
+            editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
+            ButtonGoToEditPageStart = FindViewById<Android.Widget.Button>(Resource.Id.EditJournalPage);
+
+            //var v = WindowManager.MaximumWindowMetrics.Bounds.Bottom;
+            // if (v<1000)
+            // {
+            //    textViewWrite.SetHeight(300);
+            // }
+            Buttonbackyourstory.Text = "Back";
+            ButtonyourstoryscreenUpload.Text = "Submit";
+            ButtonDelete.Text = "Reset";
+            ButtonDateShare.Text = "Share Entry";
+            ButtonGoToEditPageStart.Text = "Edit Full Journal";
+
+            editTextWrite.SetScrollContainer(true);
+            editTextWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            editTextWrite.Hint = "Your entry here...";
+            editTextWrite.SetHeight(300);
+            ButtonDelete1Line.Text = "Delete previous line";
+
+            textViewWrite.SetScrollContainer(true);
+            textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            textViewWrite.Text = EmailFileRead.ReadText();
+
+            //Clicks
+            Buttonbackyourstory.Click += ButtonbackyourstoryscreenClick;
+            ButtonyourstoryscreenUpload.Click += ButtonyourstoryscreenUploadClick;
+            ButtonDelete.Click += ButtonDeleteClick;
+            ButtonDelete1Line.Click += ButtonDeleteOneLineClick;
+            ButtonDateShare.Click += ButtonClickDate;
+            ButtonGoToEditPageStart.Click += ButtonGoToEditPage;
+            }
+			
+			//EditFull
+			private void ButtonGoToEditPage(object sender, EventArgs eventArgs)
+			{
+				//Initialize
+				SetContentView(Resource.Layout.activity_user_edit);
+            
+				ButtonSaveEditPage = FindViewById<Android.Widget.Button>(Resource.Id.SaveJournalEdit);
+				ButtonBackEditPage = FindViewById<Android.Widget.Button>(Resource.Id.BackJournalEdit);
+				EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
+
+				ButtonBackEditPage.Text = "Back";
+				ButtonSaveEditPage.Text = "Save";
+				
+				EditJournal.SetScrollContainer(true);
+				EditJournal.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+				EditJournal.Text = (EmailFileRead.ReadText());
+	
+				//Clicks
+				ButtonBackEditPage.Click += ButtonBackEditPageClick;
+				ButtonSaveEditPage.Click += ButtonUploadFullEdit;
+        }
+
+        //Submit your story page button
+        private void ButtonUploadFullEdit(object sender, EventArgs eventArgs)
+			{
+				EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
+				if (EmailFileRead.FileSizeWarning())
+				{
+					Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+					Android.App.AlertDialog alert = dialog.Create();
+					alert.SetTitle("Are you sure?");
+					alert.SetMessage("Your file is too big, please share soon");
+					alert.SetIcon(Resource.Drawable.alert);
+					alert.SetButton("OK", (c, ev) =>
+					{
+					   //Does nothing
+					});
+					alert.SetButton2("CANCEL", (c, ev) => { });
+					alert.Show();
+				}
+				else
+				{
+					String text = EditJournal.Text;
+					if (EditJournal.Text == String.Empty)
+						text = "";
+					Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+					Android.App.AlertDialog alert = dialog.Create();
+					alert.SetTitle("Are you sure?");
+					alert.SetMessage("This will edit your whole journal.");
+					alert.SetIcon(Resource.Drawable.alert);
+					alert.SetButton("OK", (c, ev) =>
+					{
+					   EmailFileRead.WriteAllText(text);
+					   String totalText = EmailFileRead.ReadText();
+					   EditJournal.Text = totalText;
+					});
+					alert.SetButton2("CANCEL", (c, ev) => { });
+					alert.Show();
+				}
+			}
 
         
     }
