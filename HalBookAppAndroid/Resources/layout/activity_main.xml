@@ -16,9 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginBottom="1dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/titleText"
+            android:gravity="center"
             android:layout_centerInParent="true"
             android:contentDescription="@+string/ImageText2"
             android:src="@drawable/maintitlepic" />
@@ -98,6 +100,8 @@
             android:layout_width="match_parent"
             android:id="@+id/NewImage"
             android:gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:layout_centerInParent="true"
             android:contentDescription="@+string/ImageText2"
             android:src="@drawable/pic5" />
