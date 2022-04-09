@@ -23,7 +23,7 @@ namespace HalBookAppAndroid
         public Android.Widget.TextView textView2;
         public Android.Widget.EditText editTextWrite;
         public Android.Widget.TextView textViewWrite;
-        public Android.Widget.TextView titleText;
+        public Android.Widget.ImageView titleText;
 
         //Buttons
         public Android.Widget.Button Button1;
@@ -78,7 +78,7 @@ namespace HalBookAppAndroid
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
             Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
-            titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
+            titleText = FindViewById<Android.Widget.ImageView>(Resource.Id.titleText);
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -87,7 +87,8 @@ namespace HalBookAppAndroid
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
-            titleText.Text = "Create Your Story!";
+            //titleText.Text = "Create Your Story!";
+            titleText.SetImageResource(Resource.Drawable.MainTitlePic);
             Buttonyourstoryscreen.Text = "Create your journal"; 
   
             ButtonTodoList.Text = "Create To Do List";
@@ -348,7 +349,7 @@ namespace HalBookAppAndroid
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
             Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
-            titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
+            titleText = FindViewById<Android.Widget.ImageView>(Resource.Id.titleText);
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -357,7 +358,8 @@ namespace HalBookAppAndroid
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
-            titleText.Text = "Create Your Story!";
+            //titleText.Text = "Create Your Story!";
+            titleText.SetImageResource(Resource.Drawable.MainTitlePic);
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -385,7 +387,7 @@ namespace HalBookAppAndroid
             textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
             Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
             Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
-            titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
+            titleText = FindViewById<Android.Widget.ImageView>(Resource.Id.titleText);
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -394,7 +396,8 @@ namespace HalBookAppAndroid
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
-            titleText.Text = "Create Your Story!";
+            //titleText.Text = "Create Your Story!";
+            titleText.SetImageResource(Resource.Drawable.MainTitlePic);
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -455,7 +458,7 @@ namespace HalBookAppAndroid
                 textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
                 Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
                 Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
-                titleText = FindViewById<Android.Widget.TextView>(Resource.Id.titleText);
+                titleText = FindViewById<Android.Widget.ImageView>(Resource.Id.titleText);
                 textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
                 ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
                 Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -464,7 +467,8 @@ namespace HalBookAppAndroid
                 textView2.Text = "Click mail to share your story!";
                 Button1.Text = "Click to Read";
 
-                titleText.Text = "Create Your Story!";
+                //titleText.Text = "Create Your Story!";
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic);
                 Buttonyourstoryscreen.Text = "Create your journal";
 
                 ButtonTodoList.Text = "Create To Do List";

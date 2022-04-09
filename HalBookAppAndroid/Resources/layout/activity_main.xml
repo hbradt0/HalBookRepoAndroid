@@ -12,20 +12,16 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <TextView
+          <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginBottom="1dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:textSize="23sp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
             android:id="@+id/titleText"
-            android:background="@drawable/bordertext"
-            android:textColor="@android:color/holo_purple"
             android:layout_centerInParent="true"
-            android:layout_above="@+id/upload"
-            android:gravity="center"
-            android:text="@+string/TextViewText"/>
+            android:contentDescription="@+string/ImageText2"
+            android:src="@drawable/maintitlepic" />
 
         <Button
             android:layout_width="match_parent"

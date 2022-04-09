@@ -140,11 +140,11 @@ namespace EmailReader //rename
             string format = "MM/dd/yyyy";
             String date = "\n" + DateTime.Now.ToString(format) + ":\n";
             if(list)
-                date = "\n" + DateTime.Now.ToString(format) + ":\n•";
+                date = "\n" + DateTime.Now.ToString(format) + ":\n• ";
             if (File.ReadAllText(fileName).Contains(DateTime.Now.ToString(format)))
             {
                 if (list)
-                    date = "•";
+                    date = "• ";
                 else
                     date = "";
             }
