@@ -934,6 +934,19 @@
         "build": {
           "buildTransitive/monoandroid50/Xamarin.Google.Guava.ListenableFuture.targets": {}
         }
+      },
+      "Xamarin.Tesseract/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/Tesseract.Binding.Droid.dll": {},
+          "lib/MonoAndroid10/Tesseract.Droid.dll": {},
+          "lib/MonoAndroid10/Tesseract.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Tesseract.Binding.Droid.dll": {},
+          "lib/MonoAndroid10/Tesseract.Droid.dll": {},
+          "lib/MonoAndroid10/Tesseract.dll": {}
+        }
       }
     }
   },
@@ -2054,6 +2067,24 @@
         "xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
         "xamarin.google.guava.listenablefuture.nuspec"
       ]
+    },
+    "Xamarin.Tesseract/0.3.4": {
+      "sha512": "XpOyKrgytYgAONE7DJU0pR2Zksn7xw1eLP3W4h2dkyCE3WlXHPCpJWYYmLK84aYuSq/QpLrAR4KDm0R3jhAjSA==",
+      "type": "package",
+      "path": "xamarin.tesseract/0.3.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Tesseract.Binding.Droid.dll",
+        "lib/MonoAndroid10/Tesseract.Droid.dll",
+        "lib/MonoAndroid10/Tesseract.dll",
+        "lib/Xamarin.iOS10/Tesseract.Binding.iOS.dll",
+        "lib/Xamarin.iOS10/Tesseract.dll",
+        "lib/Xamarin.iOS10/Tesseract.iOS.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Tesseract.dll",
+        "xamarin.tesseract.0.3.4.nupkg.sha512",
+        "xamarin.tesseract.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -2062,7 +2093,8 @@
       "MimeKit >= 3.1.1",
       "Xamarin.AndroidX.AppCompat >= 1.2.0.5",
       "Xamarin.Essentials >= 1.6.1",
-      "Xamarin.Google.Android.Material >= 1.0.0.1"
+      "Xamarin.Google.Android.Material >= 1.0.0.1",
+      "Xamarin.Tesseract >= 0.3.4"
     ]
   },
   "packageFolders": {
@@ -2122,6 +2154,10 @@
           "Xamarin.Google.Android.Material": {
             "target": "Package",
             "version": "[1.0.0.1, )"
+          },
+          "Xamarin.Tesseract": {
+            "target": "Package",
+            "version": "[0.3.4, )"
           }
         }
       }

@@ -37,7 +37,7 @@
 
 	/* 1: HalBookAppAndroid.dll */
 	/* uncompressed_file_size */
-	.long	375296
+	.long	377344
 	/* loaded */
 	.byte	0
 	/* data */
@@ -73,7 +73,7 @@
 
 	/* 5: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.long	1145344
+	.long	1167360
 	/* loaded */
 	.byte	0
 	/* data */
@@ -100,7 +100,7 @@
 
 	/* 8: System.Core.dll */
 	/* uncompressed_file_size */
-	.long	74240
+	.long	74752
 	/* loaded */
 	.byte	0
 	/* data */
@@ -170,140 +170,167 @@
 	.zero	3
 	.long	compressed_assembly_data_15
 
-	/* 16: Xamarin.AndroidX.Activity.dll */
+	/* 16: Tesseract.Binding.Droid.dll */
 	/* uncompressed_file_size */
-	.long	6144
+	.long	124928
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_16
 
-	/* 17: Xamarin.AndroidX.AppCompat.dll */
+	/* 17: Tesseract.Droid.dll */
 	/* uncompressed_file_size */
-	.long	322048
+	.long	19456
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_17
 
-	/* 18: Xamarin.AndroidX.Core.dll */
-	/* uncompressed_file_size */
-	.long	146432
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.long	compressed_assembly_data_18
-
-	/* 19: Xamarin.AndroidX.CustomView.dll */
+	/* 18: Tesseract.dll */
 	/* uncompressed_file_size */
 	.long	8704
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
+	.long	compressed_assembly_data_18
+
+	/* 19: Xamarin.AndroidX.Activity.dll */
+	/* uncompressed_file_size */
+	.long	6144
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
 	.long	compressed_assembly_data_19
 
-	/* 20: Xamarin.AndroidX.DrawerLayout.dll */
+	/* 20: Xamarin.AndroidX.AppCompat.dll */
 	/* uncompressed_file_size */
-	.long	40960
+	.long	322048
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_20
 
-	/* 21: Xamarin.AndroidX.Fragment.dll */
+	/* 21: Xamarin.AndroidX.Core.dll */
 	/* uncompressed_file_size */
-	.long	152576
+	.long	146432
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_21
 
-	/* 22: Xamarin.AndroidX.Lifecycle.Common.dll */
+	/* 22: Xamarin.AndroidX.CustomView.dll */
 	/* uncompressed_file_size */
-	.long	14848
+	.long	8704
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_22
 
-	/* 23: Xamarin.AndroidX.Lifecycle.LiveData.Core.dll */
+	/* 23: Xamarin.AndroidX.DrawerLayout.dll */
 	/* uncompressed_file_size */
-	.long	15872
+	.long	40960
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_23
 
-	/* 24: Xamarin.AndroidX.Lifecycle.ViewModel.dll */
+	/* 24: Xamarin.AndroidX.Fragment.dll */
 	/* uncompressed_file_size */
-	.long	16896
+	.long	152576
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_24
 
-	/* 25: Xamarin.AndroidX.Loader.dll */
+	/* 25: Xamarin.AndroidX.Lifecycle.Common.dll */
 	/* uncompressed_file_size */
-	.long	36352
+	.long	14848
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_25
 
-	/* 26: Xamarin.AndroidX.SavedState.dll */
+	/* 26: Xamarin.AndroidX.Lifecycle.LiveData.Core.dll */
 	/* uncompressed_file_size */
-	.long	12800
+	.long	15872
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_26
 
-	/* 27: Xamarin.Essentials.dll */
+	/* 27: Xamarin.AndroidX.Lifecycle.ViewModel.dll */
 	/* uncompressed_file_size */
-	.long	26112
+	.long	16896
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_27
 
-	/* 28: Xamarin.Google.Guava.ListenableFuture.dll */
+	/* 28: Xamarin.AndroidX.Loader.dll */
 	/* uncompressed_file_size */
-	.long	18072
+	.long	36352
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_28
 
-	/* 29: mscorlib.dll */
+	/* 29: Xamarin.AndroidX.SavedState.dll */
 	/* uncompressed_file_size */
-	.long	2058240
+	.long	12800
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.long	compressed_assembly_data_29
 
-	.size	.L.compressed_assembly_descriptors, 360
+	/* 30: Xamarin.Essentials.dll */
+	/* uncompressed_file_size */
+	.long	26112
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.long	compressed_assembly_data_30
+
+	/* 31: Xamarin.Google.Guava.ListenableFuture.dll */
+	/* uncompressed_file_size */
+	.long	18072
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.long	compressed_assembly_data_31
+
+	/* 32: mscorlib.dll */
+	/* uncompressed_file_size */
+	.long	2059264
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.long	compressed_assembly_data_32
+
+	.size	.L.compressed_assembly_descriptors, 396
 	.section	.data.compressed_assemblies,"aw",%progbits
 	.type	compressed_assemblies, %object
 	.p2align	2
 	.global	compressed_assemblies
 compressed_assemblies:
 	/* count */
-	.long	30
+	.long	33
 	/* descriptors */
 	.long	.L.compressed_assembly_descriptors
 	.size	compressed_assemblies, 8

@@ -57,6 +57,10 @@
             "Xamarin.Google.Android.Material": {
               "target": "Package",
               "version": "[1.0.0.1, )"
+            },
+            "Xamarin.Tesseract": {
+              "target": "Package",
+              "version": "[0.3.4, )"
             }
           }
         }

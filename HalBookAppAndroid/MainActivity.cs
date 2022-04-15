@@ -12,6 +12,10 @@ using Android.Widget;
 using EmailReader;
 using Android.Content;
 using Android.Content.PM;
+using Tesseract.Droid;
+using Android.Graphics;
+using Android.Graphics.Drawables;
+using Java.IO;
 
 namespace HalBookAppAndroid
 {
@@ -24,6 +28,7 @@ namespace HalBookAppAndroid
         public Android.Widget.EditText editTextWrite;
         public Android.Widget.TextView textViewWrite;
         public Android.Widget.ImageView titleText;
+        public Android.Widget.ImageView imagechoosephoto;
 
         //Buttons
         public Android.Widget.Button Button1;
@@ -50,6 +55,7 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ButtonbackTodo;
         public Android.Widget.Button ShareTodo;
         public Android.Widget.Button ReadHiddenJournal;
+        public Android.Widget.Button ChoosePhoto;
 
         //Date 
         public Android.Widget.Button ButtonDateShare;
@@ -135,7 +141,81 @@ namespace HalBookAppAndroid
             //Clicks
             hiddenbutton.Click += hiddenbuttonclick;
         }
+        public static readonly int PickImageId = 1000;
 
+        // Create a Method OnActivityResult(it is select the image controller)   
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
+            {
+                Android.Net.Uri uri = data.Data;
+                imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
+                imagechoosephoto.SetImageURI(uri);
+                bmpDrawable();
+                /*if (path != "")
+                {
+                    var v = readOCR(path);
+                    if (v != "")
+                        EmailFileRead.WriteText(v);
+                }*/
+            }
+            
+        }
+
+        public String bmpDrawable()
+        {
+            imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
+            Bitmap bmp = ((BitmapDrawable)imagechoosephoto.Drawable).Bitmap;
+            if (bmp != null)
+            {
+                MemoryStream stream = new MemoryStream();
+                bmp.Compress(Bitmap.CompressFormat.Png, 0, stream);
+                byte[] reducedImage = stream.ToArray();
+                var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+                using (var fileOutputStream = new Java.IO.FileOutputStream(fileName2))
+                {
+                    fileOutputStream.Write(reducedImage);
+                }
+                /*
+                if (bmp != null)
+                {
+                    bmp.Recycle();
+                    bmp = null;
+                }
+                */
+                return fileName2;
+            }
+            return "";  
+        }
+
+        public String readOCR(String sourceFilePath)
+        {
+            try
+            {
+                var tessAPI = new TesseractApi(Android.App.Application.Context, AssetsDeployment.OncePerInitialization);
+                tessAPI.Init("eng");
+                tessAPI.SetImage(sourceFilePath);
+                return tessAPI.Text;
+            }
+            catch(Exception e)
+            { return "";  }
+        }
+
+        private void ChooseMyPhoto(object sender, EventArgs eventArgs)
+        {
+
+            try
+            {
+                    Intent = new Intent();
+                    Intent.SetType("image/*");
+                    Intent.SetAction(Intent.ActionGetContent);
+                    StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+             }
+            catch (Exception ex)
+            {
+            }
+            
+        }
 
         private void hiddenbuttonclick(object sender, EventArgs eventArgs)
         {
@@ -191,10 +271,10 @@ namespace HalBookAppAndroid
             ButtonGoToEditPageStart = FindViewById<Android.Widget.Button>(Resource.Id.EditJournalPage);
 
             //var v = WindowManager.MaximumWindowMetrics.Bounds.Bottom;
-           // if (v<1000)
-           // {
+            // if (v<1000)
+            // {
             //    textViewWrite.SetHeight(300);
-           // }
+            // }
             Buttonbackyourstory.Text = "Back";
             ButtonyourstoryscreenUpload.Text = "Submit";
             ButtonDelete.Text = "Reset";
@@ -237,7 +317,9 @@ namespace HalBookAppAndroid
             Intent intentsend = new Intent();
             intentsend.SetAction(Intent.ActionSend);
             intentsend.PutExtra(Intent.ExtraText, txt2);
-            intentsend.SetType("text/plain");
+            //var v = Android.Net.Uri.Parse(EmailFileRead.imageFileName);
+            //intentsend.PutExtra(Intent.ExtraStream, v);
+            intentsend.SetType("*/*");
             StartActivity(intentsend);
         }
   
@@ -650,18 +732,34 @@ namespace HalBookAppAndroid
 				ButtonSaveEditPage = FindViewById<Android.Widget.Button>(Resource.Id.SaveJournalEdit);
 				ButtonBackEditPage = FindViewById<Android.Widget.Button>(Resource.Id.BackJournalEdit);
 				EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
+                ChoosePhoto = FindViewById<Android.Widget.Button>(Resource.Id.chooseimage);
 
-				ButtonBackEditPage.Text = "Back";
+                ButtonBackEditPage.Text = "Back";
 				ButtonSaveEditPage.Text = "Save";
+                ChoosePhoto.Text = "Photo";
 				
 				EditJournal.SetScrollContainer(true);
 				EditJournal.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
 				EditJournal.Text = (EmailFileRead.ReadText());
-	
-				//Clicks
-				ButtonBackEditPage.Click += ButtonBackEditPageClick;
+
+                imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
+                var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+                if (System.IO.File.Exists(fileName2))
+                {
+                    Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                    imagechoosephoto.SetImageBitmap(bitmap);
+                }
+                else
+                {
+                    imagechoosephoto.SetImageResource(Resource.Drawable.pic5);
+                }
+
+                //Clicks
+                ButtonBackEditPage.Click += ButtonBackEditPageClick;
 				ButtonSaveEditPage.Click += ButtonUploadFullEdit;
-        }
+                ChoosePhoto.Click += ChooseMyPhoto;
+
+            }
 
         //Submit your story page button
         private void ButtonUploadFullEdit(object sender, EventArgs eventArgs)

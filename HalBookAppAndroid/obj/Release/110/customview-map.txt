@@ -8,7 +8,7 @@ Button;obj\Release\110\res\layout\activity_todo.xml
 Button;obj\Release\110\res\layout\activity_user.xml
 Button;obj\Release\110\res\layout\activity_user_edit.xml
 Button;obj\Release\110\res\layout\activity_user_main.xml
-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Release\110\res\values\colors.xml
 color;obj\Release\110\res\values\ic_launcher_background.xml
 corners;obj\Release\110\res\drawable\buttoncolor.xml
@@ -17,11 +17,12 @@ EditText;obj\Release\110\res\layout\activity_todo.xml
 EditText;obj\Release\110\res\layout\activity_user.xml
 EditText;obj\Release\110\res\layout\activity_user_edit.xml
 EditText;obj\Release\110\res\layout\activity_user_main.xml
-external-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 ImageView;obj\Release\110\res\layout\activity_main.xml
+ImageView;obj\Release\110\res\layout\activity_user_edit.xml
 item;obj\Release\110\res\drawable\buttoncolor.xml
 item;obj\Release\110\res\menu\menu_main.xml
 item;obj\Release\110\res\values\styles.xml
@@ -35,7 +36,8 @@ menu;obj\Release\110\res\menu\menu_main.xml
 padding;obj\Release\110\res\drawable\border.xml
 padding;obj\Release\110\res\drawable\bordertext.xml
 padding;obj\Release\110\res\drawable\buttoncolor.xml
-paths;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+paths;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+resources;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\1\jl\res\values\strings.xml
 resources;obj\Release\110\res\values\colors.xml
 resources;obj\Release\110\res\values\dimens.xml
 resources;obj\Release\110\res\values\ic_launcher_background.xml
@@ -54,6 +56,7 @@ shape;obj\Release\110\res\drawable\buttoncolor.xml
 solid;obj\Release\110\res\drawable\border.xml
 solid;obj\Release\110\res\drawable\bordertext.xml
 solid;obj\Release\110\res\drawable\buttoncolor.xml
+string;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\1\jl\res\values\strings.xml
 string;obj\Release\110\res\values\strings.xml
 stroke;obj\Release\110\res\drawable\border.xml
 stroke;obj\Release\110\res\drawable\bordertext.xml

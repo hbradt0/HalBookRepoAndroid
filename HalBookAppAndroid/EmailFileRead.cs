@@ -23,6 +23,7 @@ namespace EmailReader //rename
 
         public static string fileName1 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "notes.txt");
         public static string fileName2 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "todo.txt");
+        public static string imageFileName = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
 
         public static String ReadText(String fileName = "")
         {
