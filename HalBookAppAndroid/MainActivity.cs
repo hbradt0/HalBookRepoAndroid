@@ -16,10 +16,13 @@ using Tesseract.Droid;
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Java.IO;
+using Android.Provider;
+using Android.Media;
+using Android.Util;
 
 namespace HalBookAppAndroid
 {
-    [Activity(Label = "Create Your Story", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, Icon="@drawable/ic_launcher_round", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "Create Your Story", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, Icon = "@drawable/ic_launcher_round", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
         //Text views
@@ -28,7 +31,6 @@ namespace HalBookAppAndroid
         public Android.Widget.EditText editTextWrite;
         public Android.Widget.TextView textViewWrite;
         public Android.Widget.ImageView titleText;
-        public Android.Widget.ImageView imagechoosephoto;
 
         //Buttons
         public Android.Widget.Button Button1;
@@ -41,10 +43,11 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ButtonDelete1Line;
         public AppCompatAutoCompleteTextView readInfo;
         public Android.Widget.ImageView imageView;
+        public Android.Widget.Button ImageCalendar;
         int togglePicture;
         int textViewLocation = 0;
 
-	    //TODO view
+        //TODO view
         public Android.Widget.EditText editTextTodo;
         public Android.Widget.EditText editTextDate;
         public Android.Widget.TextView textViewTodo;
@@ -55,18 +58,24 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ButtonbackTodo;
         public Android.Widget.Button ShareTodo;
         public Android.Widget.Button ReadHiddenJournal;
-        public Android.Widget.Button ChoosePhoto;
 
         //Date 
         public Android.Widget.Button ButtonDateShare;
         public Android.Widget.TextView editTextDateShare;
-		
-		//Button
-		public Android.Widget.Button ButtonGoToEditPageStart;
+
+        //Button
+        public Android.Widget.Button ButtonGoToEditPageStart;
         public Android.Widget.Button ButtonSaveEditPage;
         public Android.Widget.EditText EditJournal;
         public Android.Widget.Button ButtonBackEditPage;
-		
+
+        //Image view
+        public Android.Widget.ImageView imagechoosephoto;
+        public Android.Widget.Button ImagePageBack;
+        public Android.Widget.Button ChoosePhoto;
+        public Android.Widget.Button ChooseCameraPhoto;
+        public Android.Widget.Button ButtonShareImagePage;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -88,6 +97,19 @@ namespace HalBookAppAndroid
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
+            ImageCalendar = FindViewById<Android.Widget.Button>(Resource.Id.ImageCalendar);
+
+            ImageCalendar.Text = "Change Image";
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            if (System.IO.File.Exists(fileName2))
+            {
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                imageView.SetImageBitmap(bitmap);
+            }
+            else
+            {
+                imageView.SetImageResource(Resource.Drawable.pic5);
+            }
 
             //Properties
             textView2.Text = "Click mail to share your story!";
@@ -95,8 +117,8 @@ namespace HalBookAppAndroid
 
             //titleText.Text = "Create Your Story!";
             titleText.SetImageResource(Resource.Drawable.MainTitlePic);
-            Buttonyourstoryscreen.Text = "Create your journal"; 
-  
+            Buttonyourstoryscreen.Text = "Create your journal";
+
             ButtonTodoList.Text = "Create To Do List";
 
             if (savedInstanceState != null)
@@ -107,6 +129,7 @@ namespace HalBookAppAndroid
             Button2.Click += Button2Click;
             Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
             ButtonTodoList.Click += ButtonTodoClick;
+            ImageCalendar.Click += ButtonImageCalendarClick;
 
         }
 
@@ -130,7 +153,7 @@ namespace HalBookAppAndroid
             textView.SetScrollContainer(true);
             textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
             textView.Parent.RequestDisallowInterceptTouchEvent(false);
-            textView.ScrollTo(0,textViewLocation);
+            textView.ScrollTo(0, textViewLocation);
             Button3.Click += Button3Click;
             String texty = EmailFileRead.ReadText();
             textView.Text = texty;
@@ -140,81 +163,6 @@ namespace HalBookAppAndroid
 
             //Clicks
             hiddenbutton.Click += hiddenbuttonclick;
-        }
-        public static readonly int PickImageId = 1000;
-
-        // Create a Method OnActivityResult(it is select the image controller)   
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        {
-            if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
-            {
-                Android.Net.Uri uri = data.Data;
-                imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
-                imagechoosephoto.SetImageURI(uri);
-                bmpDrawable();
-                /*if (path != "")
-                {
-                    var v = readOCR(path);
-                    if (v != "")
-                        EmailFileRead.WriteText(v);
-                }*/
-            }
-            
-        }
-
-        public String bmpDrawable()
-        {
-            imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
-            Bitmap bmp = ((BitmapDrawable)imagechoosephoto.Drawable).Bitmap;
-            if (bmp != null)
-            {
-                MemoryStream stream = new MemoryStream();
-                bmp.Compress(Bitmap.CompressFormat.Png, 0, stream);
-                byte[] reducedImage = stream.ToArray();
-                var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
-                using (var fileOutputStream = new Java.IO.FileOutputStream(fileName2))
-                {
-                    fileOutputStream.Write(reducedImage);
-                }
-                /*
-                if (bmp != null)
-                {
-                    bmp.Recycle();
-                    bmp = null;
-                }
-                */
-                return fileName2;
-            }
-            return "";  
-        }
-
-        public String readOCR(String sourceFilePath)
-        {
-            try
-            {
-                var tessAPI = new TesseractApi(Android.App.Application.Context, AssetsDeployment.OncePerInitialization);
-                tessAPI.Init("eng");
-                tessAPI.SetImage(sourceFilePath);
-                return tessAPI.Text;
-            }
-            catch(Exception e)
-            { return "";  }
-        }
-
-        private void ChooseMyPhoto(object sender, EventArgs eventArgs)
-        {
-
-            try
-            {
-                    Intent = new Intent();
-                    Intent.SetType("image/*");
-                    Intent.SetAction(Intent.ActionGetContent);
-                    StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
-             }
-            catch (Exception ex)
-            {
-            }
-            
         }
 
         private void hiddenbuttonclick(object sender, EventArgs eventArgs)
@@ -235,7 +183,7 @@ namespace HalBookAppAndroid
                 hiddenbutton.Text = "Code";
                 hiddenbutton.Click += hiddenbuttonclick;
             }
-            else if(pswd.ToLower() == "hint")
+            else if (pswd.ToLower() == "hint")
             {
                 textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
                 textView.SetScrollContainer(true);
@@ -297,11 +245,11 @@ namespace HalBookAppAndroid
             ButtonDelete.Click += ButtonDeleteClick;
             ButtonDelete1Line.Click += ButtonDeleteOneLineClick;
             ButtonDateShare.Click += ButtonClickDate;
-            ButtonGoToEditPageStart.Click+=ButtonGoToEditPage;
+            ButtonGoToEditPageStart.Click += ButtonGoToEditPage;
         }
 
         //Click date
-            void ButtonClickDate(object sender, EventArgs eventArgs)
+        void ButtonClickDate(object sender, EventArgs eventArgs)
         {
             DateTime today = DateTime.Today;
             DatePickerDialog dialog = new DatePickerDialog(this, OnDateSet, today.Year, today.Month - 1, today.Day);
@@ -317,12 +265,10 @@ namespace HalBookAppAndroid
             Intent intentsend = new Intent();
             intentsend.SetAction(Intent.ActionSend);
             intentsend.PutExtra(Intent.ExtraText, txt2);
-            //var v = Android.Net.Uri.Parse(EmailFileRead.imageFileName);
-            //intentsend.PutExtra(Intent.ExtraStream, v);
             intentsend.SetType("*/*");
             StartActivity(intentsend);
         }
-  
+
         //Submit your story page button
         private void ButtonyourstoryscreenUploadClick(object sender, EventArgs eventArgs)
         {
@@ -337,7 +283,7 @@ namespace HalBookAppAndroid
                 alert.SetIcon(Resource.Drawable.alert);
                 alert.SetButton("OK", (c, ev) =>
                 {
-                   //Does nothing
+                    //Does nothing
                 });
                 alert.SetButton2("CANCEL", (c, ev) => { });
                 alert.Show();
@@ -374,7 +320,7 @@ namespace HalBookAppAndroid
             alert.SetButton("OK", (c, ev) =>
             {
                 EmailFileRead.DeleteText();
-				textViewWrite.Text = String.Empty;
+                textViewWrite.Text = String.Empty;
             });
             alert.SetButton2("CANCEL", (c, ev) => { });
             alert.Show();
@@ -435,7 +381,9 @@ namespace HalBookAppAndroid
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
+            ImageCalendar = FindViewById<Android.Widget.Button>(Resource.Id.ImageCalendar);
 
+            ImageCalendar.Text = "Image Calendar";
             //Properties
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
@@ -447,6 +395,7 @@ namespace HalBookAppAndroid
             ButtonTodoList.Text = "Create To Do List";
 
             //Clicks
+            ImageCalendar.Click += ButtonImageCalendarClick;
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
             Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
@@ -473,7 +422,20 @@ namespace HalBookAppAndroid
             textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
             ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
+            ImageCalendar = FindViewById<Android.Widget.Button>(Resource.Id.ImageCalendar);
 
+            ImageCalendar.Text = "Change Image";
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            if (System.IO.File.Exists(fileName2))
+            {
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                imageView.SetImageBitmap(bitmap);
+            }
+            else
+            {
+                imageView.SetImageResource(Resource.Drawable.pic5);
+            }
+            
             //Properties
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
@@ -485,6 +447,7 @@ namespace HalBookAppAndroid
             ButtonTodoList.Text = "Create To Do List";
 
             //Clicks
+            ImageCalendar.Click += ButtonImageCalendarClick;
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
             Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
@@ -496,14 +459,43 @@ namespace HalBookAppAndroid
         {
             View view = (View)sender;
             var imageView = FindViewById<ImageView>(Resource.Id.NewImage);
-            if (togglePicture >= 1)
-                imageView.SetImageResource(Resource.Drawable.pic5);
+
+            ImageCalendar.Text = "Change Image";
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            if (System.IO.File.Exists(fileName2))
+            {
+                if (togglePicture == 0)
+                {
+
+                    Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                    imageView.SetImageBitmap(bitmap);
+                }
+                else if(togglePicture == 1)
+                {
+                    imageView.SetImageResource(Resource.Drawable.pic8);
+                }
+                else
+                {
+                    imageView.SetImageResource(Resource.Drawable.pic5);
+
+                }
+                if (togglePicture >= 2)
+                    togglePicture = 0;
+                else
+                    togglePicture++;
+            }
             else
-                imageView.SetImageResource(Resource.Drawable.pic8);
-            if (togglePicture >= 1)
-                togglePicture = 0;
-            else
-                togglePicture++;
+            {
+                if (togglePicture >= 1)
+                    imageView.SetImageResource(Resource.Drawable.pic5);
+                else
+                    imageView.SetImageResource(Resource.Drawable.pic8);
+                if (togglePicture >= 1)
+                    togglePicture = 0;
+                else
+                    togglePicture++;
+            }
+        
         }
 
         //Android built in
@@ -525,162 +517,175 @@ namespace HalBookAppAndroid
         }
 
         //TODO LIST
- 	    private void ButtonBackTodoListMainPage(object sender, EventArgs eventArgs)
- 	    {
-                SetContentView(Resource.Layout.activity_main);
+        private void ButtonBackTodoListMainPage(object sender, EventArgs eventArgs)
+        {
+            SetContentView(Resource.Layout.activity_main);
 
-                //Image view
-                togglePicture = 0;
-                imageView = FindViewById<ImageView>(Resource.Id.NewImage);
-                imageView.SetImageResource(Resource.Drawable.pic5);
-                imageView.Click += ImageOnClick;
+            //Image view
+            togglePicture = 0;
+            imageView = FindViewById<ImageView>(Resource.Id.NewImage);
+            imageView.SetImageResource(Resource.Drawable.pic5);
+            imageView.Click += ImageOnClick;
 
-                //Initialize
-                Button2 = FindViewById<ImageView>(Resource.Id.Image);
-                textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
-                Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
-                Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
-                titleText = FindViewById<Android.Widget.ImageView>(Resource.Id.titleText);
-                textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
-                ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
-                Button2 = FindViewById<ImageView>(Resource.Id.Image);
+            //Initialize
+            Button2 = FindViewById<ImageView>(Resource.Id.Image);
+            textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
+            Button1 = FindViewById<Android.Widget.Button>(Resource.Id.EmailPageButton);
+            Buttonyourstoryscreen = FindViewById<Android.Widget.Button>(Resource.Id.yourstoryscreenbutton);
+            titleText = FindViewById<Android.Widget.ImageView>(Resource.Id.titleText);
+            textView2 = FindViewById<Android.Widget.TextView>(Resource.Id.Instructions);
+            ButtonTodoList = FindViewById<Android.Widget.Button>(Resource.Id.TodoListButton);
+            Button2 = FindViewById<ImageView>(Resource.Id.Image);
+            ImageCalendar = FindViewById<Android.Widget.Button>(Resource.Id.ImageCalendar);
 
-                //Properties
-                textView2.Text = "Click mail to share your story!";
-                Button1.Text = "Click to Read";
-
-                //titleText.Text = "Create Your Story!";
-                titleText.SetImageResource(Resource.Drawable.MainTitlePic);
-                Buttonyourstoryscreen.Text = "Create your journal";
-
-                ButtonTodoList.Text = "Create To Do List";
-
-                //Clicks
-                Button1.Click += Button1Click;
-                Button2.Click += Button2Click;
-                Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
-                ButtonTodoList.Click += ButtonTodoClick;
-            }
-
-            private void ButtonTodoClick(object sender, EventArgs eventArgs)
+            ImageCalendar.Text = "Change Image";
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            if (System.IO.File.Exists(fileName2))
             {
-                SetContentView(Resource.Layout.activity_todo);
-                textViewTodo = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
-                editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
-                ButtonbackTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoback);
-                ButtonTodoUpload = FindViewById<Android.Widget.Button>(Resource.Id.todoupload);
-                ButtonTodoDelete =  FindViewById<Android.Widget.Button>(Resource.Id.todofreshstart);
-                ButtonTodoDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.tododelete1line);
-                ShareTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoshare);
-                editTextDate = FindViewById<Android.Widget.EditText>(Resource.Id.daysprior);
-                editTextDate.Hint = "0 days";
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                imageView.SetImageBitmap(bitmap);
+            }
+            else
+            {
+                imageView.SetImageResource(Resource.Drawable.pic5);
+            }
+            //Properties
+            textView2.Text = "Click mail to share your story!";
+            Button1.Text = "Click to Read";
 
-	            ButtonbackTodo.Text = "Back";
-                ButtonTodoUpload.Text = "Submit";
-                ButtonTodoDelete.SetBackgroundColor(Android.Graphics.Color.Red);
-                ButtonTodoDelete.Text = "Reset";
+            //titleText.Text = "Create Your Story!";
+            titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            Buttonyourstoryscreen.Text = "Create your journal";
 
-                editTextTodo.SetScrollContainer(true);
-                editTextTodo.Parent.RequestDisallowInterceptTouchEvent(false);
-                editTextTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-                editTextTodo.Hint = "Your entry here...";
-                editTextTodo.SetHeight(300);
-                ButtonTodoDelete1Line.Text = "Delete previous line";
+            ButtonTodoList.Text = "Create To Do List";
 
-                ButtonbackTodo.Click += ButtonBackTodoListMainPage;
-                ButtonTodoUpload.Click += ButtonTodoUploadClick;
-                ButtonTodoDelete.Click += ButtonTodoDeleteClick;
-                ButtonTodoDelete1Line.Click += ButtonTodoDeleteOneLineClick;
-                ShareTodo.Text = "Share Today";
-	            ShareTodo.Click += ShareTodoClick;
+            //Clicks
+            ImageCalendar.Click += ButtonImageCalendarClick;
+            Button1.Click += Button1Click;
+            Button2.Click += Button2Click;
+            Buttonyourstoryscreen.Click += ButtonyourstoryscreenClick;
+            ButtonTodoList.Click += ButtonTodoClick;
+        }
+
+        private void ButtonTodoClick(object sender, EventArgs eventArgs)
+        {
+            SetContentView(Resource.Layout.activity_todo);
+            textViewTodo = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
+            editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
+            ButtonbackTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoback);
+            ButtonTodoUpload = FindViewById<Android.Widget.Button>(Resource.Id.todoupload);
+            ButtonTodoDelete = FindViewById<Android.Widget.Button>(Resource.Id.todofreshstart);
+            ButtonTodoDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.tododelete1line);
+            ShareTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoshare);
+            editTextDate = FindViewById<Android.Widget.EditText>(Resource.Id.daysprior);
+            editTextDate.Hint = "0 days";
+
+            ButtonbackTodo.Text = "Back";
+            ButtonTodoUpload.Text = "Submit";
+            ButtonTodoDelete.SetBackgroundColor(Android.Graphics.Color.Red);
+            ButtonTodoDelete.Text = "Reset";
+
+            editTextTodo.SetScrollContainer(true);
+            editTextTodo.Parent.RequestDisallowInterceptTouchEvent(false);
+            editTextTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            editTextTodo.Hint = "Your entry here...";
+            editTextTodo.SetHeight(300);
+            ButtonTodoDelete1Line.Text = "Delete previous line";
+
+            ButtonbackTodo.Click += ButtonBackTodoListMainPage;
+            ButtonTodoUpload.Click += ButtonTodoUploadClick;
+            ButtonTodoDelete.Click += ButtonTodoDeleteClick;
+            ButtonTodoDelete1Line.Click += ButtonTodoDeleteOneLineClick;
+            ShareTodo.Text = "Share Today";
+            ShareTodo.Click += ShareTodoClick;
+
+            textViewTodo.SetScrollContainer(true);
+            textViewTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            textViewTodo.Text = EmailFileRead.ReadText(EmailFileRead.fileName2);
+
+        }
+
+        private void ShareTodoClick(object sender, EventArgs eventArgs)
+        {
+            int i = 0;
+            Int32.TryParse(editTextDate.Text, out i);
+            String txt = EmailReader.EmailFileRead.ReadFileFromDate(EmailFileRead.fileName2, i);
+            Intent intentsend = new Intent();
+            intentsend.SetAction(Intent.ActionSend);
+            intentsend.PutExtra(Intent.ExtraText, txt);
+            intentsend.SetType("text/plain");
+            StartActivity(intentsend);
+        }
+
+        private void ButtonTodoUploadClick(object sender, EventArgs eventArgs)
+        {
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
+            editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
+            if (EmailFileRead.FileSizeWarning(EmailFileRead.fileName2))
+            {
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("Your file is too big, please share soon");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                        //Does nothing
+                    });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
+            }
+            else
+            {
+
+                String text = editTextTodo.Text;
+                if (editTextTodo.Text == String.Empty)
+                    text = "";
+                EmailFileRead.WriteText(text, EmailFileRead.fileName2, true);
+                String totalText = EmailFileRead.ReadText(EmailFileRead.fileName2);
+                textViewTodo.Text = "";
+                textViewTodo.Append(totalText);
+                editTextTodo.Text = String.Empty;
 
                 textViewTodo.SetScrollContainer(true);
                 textViewTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-                textViewTodo.Text = EmailFileRead.ReadText(EmailFileRead.fileName2);
-
-            }
-
-            private void ShareTodoClick(object sender, EventArgs eventArgs)
-            {
-                int i = 0;
-                Int32.TryParse(editTextDate.Text, out i);
-                String txt = EmailReader.EmailFileRead.ReadFileFromDate(EmailFileRead.fileName2,i);
-                Intent intentsend = new Intent();
-                intentsend.SetAction(Intent.ActionSend);
-                intentsend.PutExtra(Intent.ExtraText, txt);
-                intentsend.SetType("text/plain");
-                StartActivity(intentsend);
-            }
-
-            private void ButtonTodoUploadClick(object sender, EventArgs eventArgs)
-            {
-                textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
-                editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
-                if (EmailFileRead.FileSizeWarning(EmailFileRead.fileName2))
-                {
-                    Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-                    Android.App.AlertDialog alert = dialog.Create();
-                    alert.SetTitle("Are you sure?");
-                    alert.SetMessage("Your file is too big, please share soon");
-                    alert.SetIcon(Resource.Drawable.alert);
-                    alert.SetButton("OK", (c, ev) =>
-                    {
-                       //Does nothing
-                    });
-                    alert.SetButton2("CANCEL", (c, ev) => { });
-                    alert.Show();
-                }
-                else
-                {
-
-                    String text = editTextTodo.Text;
-                    if (editTextTodo.Text == String.Empty)
-                        text = "";
-                    EmailFileRead.WriteText(text,EmailFileRead.fileName2,true);
-                    String totalText = EmailFileRead.ReadText(EmailFileRead.fileName2);
-                    textViewTodo.Text = "";
-                    textViewTodo.Append(totalText);
-                    editTextTodo.Text = String.Empty;
-
-                    textViewTodo.SetScrollContainer(true);
-                    textViewTodo.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-                    textViewWrite.Parent.RequestDisallowInterceptTouchEvent(false);
+                textViewWrite.Parent.RequestDisallowInterceptTouchEvent(false);
                 //textViewWrite.ScrollTo(0, textViewWrite.Bottom - 200);
             }
         }
 
-            private void ButtonTodoDeleteClick(object sender, EventArgs eventArgs)
+        private void ButtonTodoDeleteClick(object sender, EventArgs eventArgs)
+        {
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
+            editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("Deleting everything");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
             {
-                textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
-                editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
-                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-                Android.App.AlertDialog alert = dialog.Create();
-                alert.SetTitle("Are you sure?");
-                alert.SetMessage("Deleting everything");
-                alert.SetIcon(Resource.Drawable.alert);
-                alert.SetButton("OK", (c, ev) =>
-                {
-                    EmailFileRead.DeleteText(EmailFileRead.fileName2);
-                    textViewTodo.Text = String.Empty;
-                });
-                alert.SetButton2("CANCEL", (c, ev) => { });
-                alert.Show();
-            }
+                EmailFileRead.DeleteText(EmailFileRead.fileName2);
+                textViewTodo.Text = String.Empty;
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
+        }
 
-            private void ButtonTodoDeleteOneLineClick(object sender, EventArgs eventArgs)
-            {
-                textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
-                editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
-                EmailFileRead.DeleteLastLine(EmailFileRead.fileName2);
+        private void ButtonTodoDeleteOneLineClick(object sender, EventArgs eventArgs)
+        {
+            textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.todotext);
+            editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
+            EmailFileRead.DeleteLastLine(EmailFileRead.fileName2);
 
-                String totalText = EmailFileRead.ReadText(EmailFileRead.fileName2);
-                textViewTodo.Text = "";
-                textViewTodo.Append(totalText);
-            }
-					
-			//Create your story
-			private void ButtonBackEditPageClick(object sender, EventArgs eventArgs)
-			{
+            String totalText = EmailFileRead.ReadText(EmailFileRead.fileName2);
+            textViewTodo.Text = "";
+            textViewTodo.Append(totalText);
+        }
+
+        //Create your story
+        private void ButtonBackEditPageClick(object sender, EventArgs eventArgs)
+        {
             //Initialize
             SetContentView(Resource.Layout.activity_user);
             textViewWrite = FindViewById<Android.Widget.TextView>(Resource.Id.yourbooktext);
@@ -721,86 +726,261 @@ namespace HalBookAppAndroid
             ButtonDelete1Line.Click += ButtonDeleteOneLineClick;
             ButtonDateShare.Click += ButtonClickDate;
             ButtonGoToEditPageStart.Click += ButtonGoToEditPage;
-            }
-			
-			//EditFull
-			private void ButtonGoToEditPage(object sender, EventArgs eventArgs)
-			{
-				//Initialize
-				SetContentView(Resource.Layout.activity_user_edit);
-            
-				ButtonSaveEditPage = FindViewById<Android.Widget.Button>(Resource.Id.SaveJournalEdit);
-				ButtonBackEditPage = FindViewById<Android.Widget.Button>(Resource.Id.BackJournalEdit);
-				EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
-                ChoosePhoto = FindViewById<Android.Widget.Button>(Resource.Id.chooseimage);
+        }
 
-                ButtonBackEditPage.Text = "Back";
-				ButtonSaveEditPage.Text = "Save";
-                ChoosePhoto.Text = "Photo";
-				
-				EditJournal.SetScrollContainer(true);
-				EditJournal.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-				EditJournal.Text = (EmailFileRead.ReadText());
+        //EditFull
+        private void ButtonGoToEditPage(object sender, EventArgs eventArgs)
+        {
+            //Initialize
+            SetContentView(Resource.Layout.activity_user_edit);
+            ButtonSaveEditPage = FindViewById<Android.Widget.Button>(Resource.Id.SaveJournalEdit);
+            ButtonBackEditPage = FindViewById<Android.Widget.Button>(Resource.Id.BackJournalEdit);
+            EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
 
-                imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
-                var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
-                if (System.IO.File.Exists(fileName2))
-                {
-                    Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
-                    imagechoosephoto.SetImageBitmap(bitmap);
-                }
-                else
-                {
-                    imagechoosephoto.SetImageResource(Resource.Drawable.pic5);
-                }
+            ButtonBackEditPage.Text = "Back";
+            ButtonSaveEditPage.Text = "Save";
 
-                //Clicks
-                ButtonBackEditPage.Click += ButtonBackEditPageClick;
-				ButtonSaveEditPage.Click += ButtonUploadFullEdit;
-                ChoosePhoto.Click += ChooseMyPhoto;
+            EditJournal.SetScrollContainer(true);
+            EditJournal.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            EditJournal.Text = (EmailFileRead.ReadText());
 
-            }
+            //Clicks
+            ButtonBackEditPage.Click += ButtonBackEditPageClick;
+            ButtonSaveEditPage.Click += ButtonUploadFullEdit;
+
+        }
 
         //Submit your story page button
         private void ButtonUploadFullEdit(object sender, EventArgs eventArgs)
-			{
-				EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
-				if (EmailFileRead.FileSizeWarning())
-				{
-					Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-					Android.App.AlertDialog alert = dialog.Create();
-					alert.SetTitle("Are you sure?");
-					alert.SetMessage("Your file is too big, please share soon");
-					alert.SetIcon(Resource.Drawable.alert);
-					alert.SetButton("OK", (c, ev) =>
-					{
-					   //Does nothing
-					});
-					alert.SetButton2("CANCEL", (c, ev) => { });
-					alert.Show();
-				}
-				else
-				{
-					String text = EditJournal.Text;
-					if (EditJournal.Text == String.Empty)
-						text = "";
-					Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-					Android.App.AlertDialog alert = dialog.Create();
-					alert.SetTitle("Are you sure?");
-					alert.SetMessage("This will edit your whole journal.");
-					alert.SetIcon(Resource.Drawable.alert);
-					alert.SetButton("OK", (c, ev) =>
-					{
-					   EmailFileRead.WriteAllText(text);
-					   String totalText = EmailFileRead.ReadText();
-					   EditJournal.Text = totalText;
-					});
-					alert.SetButton2("CANCEL", (c, ev) => { });
-					alert.Show();
-				}
-			}
+        {
+            EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
+            if (EmailFileRead.FileSizeWarning())
+            {
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("Your file is too big, please share soon");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                        //Does nothing
+                    });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
+            }
+            else
+            {
+                String text = EditJournal.Text;
+                if (EditJournal.Text == String.Empty)
+                    text = "";
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("This will edit your whole journal.");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                    EmailFileRead.WriteAllText(text);
+                    String totalText = EmailFileRead.ReadText();
+                    EditJournal.Text = totalText;
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
+            }
+        }
 
-        
+
+        //ImageScreen
+        public static readonly int PickImageId = 1000;
+        public static readonly int CameraImageId = 1001;
+
+        // Create a Method OnActivityResult(it is select the image controller)   
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
+            {
+                Android.Net.Uri uri = data.Data;
+                imagechoosephoto.SetImageURI(uri);
+                bmpDrawable();
+                if (EmailFileRead.imageFileName != "")
+                {
+                    var v = readOCR(EmailFileRead.imageFileName);
+                    if (v != "")
+                        EmailFileRead.WriteText(v);
+                }
+            }
+            if ((requestCode == CameraImageId) && (resultCode == Result.Ok) && (data != null))
+            {
+                base.OnActivityResult(requestCode, resultCode, data);
+                Bitmap bitmap = (Bitmap)data.Extras.Get("data");
+                Matrix matrix = new Matrix();
+                matrix.PostRotate(90);
+                Bitmap rotated = Bitmap.CreateBitmap(bitmap, 0, 0, bitmap.Width, bitmap.Height,
+                        matrix, true);
+                imagechoosephoto.SetImageBitmap(rotated);
+                bmpDrawable();
+            }
+
+        }
+
+        public int GetRotation(ExifInterface exif)
+        {
+            try
+            {
+                var orientation = (Android.Media.Orientation)exif.GetAttributeInt(ExifInterface.TagOrientation, (int)Android.Media.Orientation.Normal);
+
+                switch (orientation)
+                {
+                    case Android.Media.Orientation.Rotate90:
+                        return 90;
+                    case Android.Media.Orientation.Rotate180:
+                        return 180;
+                    case Android.Media.Orientation.Rotate270:
+                        return 270;
+                    default:
+                        return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+        public String bmpDrawable()
+        {
+            imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
+            Bitmap bmp = ((BitmapDrawable)imagechoosephoto.Drawable).Bitmap;
+            if (bmp != null)
+            {
+                MemoryStream stream = new MemoryStream();
+                bmp.Compress(Bitmap.CompressFormat.Png, 0, stream);
+                byte[] reducedImage = stream.ToArray();
+                var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+                using (var fileOutputStream = new Java.IO.FileOutputStream(fileName2))
+                {
+                    fileOutputStream.Write(reducedImage);
+                }
+                /*
+                if (bmp != null)
+                {
+                    bmp.Recycle();
+                    bmp = null;
+                }
+                */
+                return fileName2;
+            }
+            return "";
+        }
+
+        public String readOCR(String sourceFilePath)
+        {
+            try
+            {
+                var tessAPI = new TesseractApi(Android.App.Application.Context, AssetsDeployment.OncePerInitialization);
+                tessAPI.Init("eng");
+                tessAPI.SetImage(sourceFilePath);
+                return tessAPI.Text;
+            }
+            catch (Exception e)
+            { return ""; }
+        }
+
+        private void ChooseMyPhoto(object sender, EventArgs eventArgs)
+        {
+            Intent = new Intent();
+            Intent.SetType("image/*");
+            Intent.SetAction(Intent.ActionGetContent);
+            StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+        }
+
+        private void ButtonImageCalendarClick(object sender, EventArgs eventArgs)
+        {
+            //Initialize
+            SetContentView(Resource.Layout.activity_image);
+
+            imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
+            ImagePageBack = FindViewById<Android.Widget.Button>(Resource.Id.BackImageScreen);
+            ChoosePhoto = FindViewById<Android.Widget.Button>(Resource.Id.chooseimage);
+            ChooseCameraPhoto = FindViewById<Android.Widget.Button>(Resource.Id.camerapicture);
+            ButtonShareImagePage = FindViewById<Android.Widget.Button>(Resource.Id.imageDatePick);
+
+            ChoosePhoto.Text = "Choose Photo";
+            ImagePageBack.Text = "Back";
+            ChooseCameraPhoto.Text = "Camera";
+            ButtonShareImagePage.Text = "Share";
+
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            if (System.IO.File.Exists(fileName2))
+            {
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                imagechoosephoto.SetImageBitmap(bitmap);
+            }
+            else
+            {
+                imagechoosephoto.SetImageResource(Resource.Drawable.pic5);
+            }
+
+            //Clicks
+            ImagePageBack.Click += ButtonbackyourstoryscreenClick;
+            ButtonShareImagePage.Click += ButtonClickDateImagePage;
+            ChoosePhoto.Click += ChooseMyPhoto;
+            ChooseCameraPhoto.Click += ButtonImageUploadClick;
+        }
+
+        //Click date
+        void ButtonClickDateImagePage(object sender, EventArgs eventArgs)
+        {
+            DateTime today = DateTime.Today;
+            DatePickerDialog dialog = new DatePickerDialog(this, OnDateSetImagePage, today.Year, today.Month - 1, today.Day);
+            dialog.DatePicker.MinDate = today.Millisecond;
+            dialog.Show();
+        }
+
+        //Share
+        void OnDateSetImagePage(object sender, DatePickerDialog.DateSetEventArgs e)
+        {
+            String txt2 = EmailReader.EmailFileRead.ReadFileFromDateToNextDay(e.Date);
+            Intent intentsend = new Intent();
+            intentsend.SetAction(Intent.ActionSendMultiple);
+            intentsend.PutExtra(Intent.ExtraText, txt2);
+           // var t = getImageUri(this);
+            //if (t != null)
+            //    intentsend.PutExtra(Intent.ExtraStream, t);
+            intentsend.SetType("*/*");
+            StartActivity(intentsend);
+        }
+
+        private Android.Net.Uri getImageUri(Context inContext)
+        {
+            //System.IO.Stream bytes = new System.IO.MemoryStream();
+            //bmp.Compress(Bitmap.CompressFormat.Jpeg, 100, bytes);
+            System.IO.Stream input = inContext.Assets.Open(EmailFileRead.imageFileName);
+            Java.IO.FileOutputStream output = new Java.IO.FileOutputStream(EmailFileRead.publicImageFileName);
+            byte[] buffer = new byte[1024];
+            int size;
+            while ((size = input.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                output.Write(buffer, 0, size);
+            }
+            input.Close();
+            output.Close();
+            Java.IO.File file = new Java.IO.File(EmailFileRead.publicImageFileName);
+            Android.Net.Uri uri = Android.Net.Uri.FromFile(file);
+            if (uri != null)
+                return uri;
+            else
+                return null;
+        }
+
+        //Submit your story page button
+        private void ButtonImageUploadClick(object sender, EventArgs eventArgs)
+        {
+            Intent intent = new Intent(MediaStore.ActionImageCapture);
+            StartActivityForResult(intent, CameraImageId);
+        }
+
+
     }
     
 }

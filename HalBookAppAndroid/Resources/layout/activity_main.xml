@@ -106,5 +106,20 @@
             android:contentDescription="@+string/ImageText2"
             android:src="@drawable/pic5" />
 
+         <Button
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="100dp"
+            android:gravity="center"
+            android:id="@+id/ImageCalendar"
+            android:text="Change Photo"
+            android:layout_centerInParent="true"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:background="@drawable/bordertext"/>
+
     </LinearLayout>
 </ScrollView>

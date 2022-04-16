@@ -23,7 +23,9 @@ namespace EmailReader //rename
 
         public static string fileName1 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "notes.txt");
         public static string fileName2 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "todo.txt");
-        public static string imageFileName = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+        public static string imageFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+        public static string publicImageFileName = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "image.jpg");
+
 
         public static String ReadText(String fileName = "")
         {
@@ -200,7 +202,8 @@ namespace EmailReader //rename
             String foo = strbuilder.ToString();
             return foo;
         }
-
+        
+    
         public static bool ValidateEmail(String email = "")
         {
             return email.Contains("@") && email.Contains(".") && email!="";

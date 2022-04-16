@@ -12,9 +12,9 @@ public class MainActivity
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
 			"n_onSaveInstanceState:(Landroid/os/Bundle;)V:GetOnSaveInstanceState_Landroid_os_Bundle_Handler\n" +
-			"n_onActivityResult:(IILandroid/content/Intent;)V:GetOnActivityResult_IILandroid_content_Intent_Handler\n" +
 			"n_onOptionsItemSelected:(Landroid/view/MenuItem;)Z:GetOnOptionsItemSelected_Landroid_view_MenuItem_Handler\n" +
 			"n_onRequestPermissionsResult:(I[Ljava/lang/String;[I)V:GetOnRequestPermissionsResult_IarrayLjava_lang_String_arrayIHandler\n" +
+			"n_onActivityResult:(IILandroid/content/Intent;)V:GetOnActivityResult_IILandroid_content_Intent_Handler\n" +
 			"";
 		mono.android.Runtime.register ("HalBookAppAndroid.MainActivity, HalBookAppAndroid", MainActivity.class, __md_methods);
 	}
@@ -52,14 +52,6 @@ public class MainActivity
 	private native void n_onSaveInstanceState (android.os.Bundle p0);
 
 
-	public void onActivityResult (int p0, int p1, android.content.Intent p2)
-	{
-		n_onActivityResult (p0, p1, p2);
-	}
-
-	private native void n_onActivityResult (int p0, int p1, android.content.Intent p2);
-
-
 	public boolean onOptionsItemSelected (android.view.MenuItem p0)
 	{
 		return n_onOptionsItemSelected (p0);
@@ -74,6 +66,14 @@ public class MainActivity
 	}
 
 	private native void n_onRequestPermissionsResult (int p0, java.lang.String[] p1, int[] p2);
+
+
+	public void onActivityResult (int p0, int p1, android.content.Intent p2)
+	{
+		n_onActivityResult (p0, p1, p2);
+	}
+
+	private native void n_onActivityResult (int p0, int p1, android.content.Intent p2);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

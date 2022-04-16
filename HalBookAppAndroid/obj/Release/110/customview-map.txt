@@ -3,6 +3,7 @@ adaptive-icon;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
+Button;obj\Release\110\res\layout\activity_image.xml
 Button;obj\Release\110\res\layout\activity_main.xml
 Button;obj\Release\110\res\layout\activity_todo.xml
 Button;obj\Release\110\res\layout\activity_user.xml
@@ -21,12 +22,14 @@ external-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAnd
 external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
+ImageView;obj\Release\110\res\layout\activity_image.xml
 ImageView;obj\Release\110\res\layout\activity_main.xml
 ImageView;obj\Release\110\res\layout\activity_user_edit.xml
 item;obj\Release\110\res\drawable\buttoncolor.xml
 item;obj\Release\110\res\menu\menu_main.xml
 item;obj\Release\110\res\values\styles.xml
 layer-list;obj\Release\110\res\drawable\buttoncolor.xml
+LinearLayout;obj\Release\110\res\layout\activity_image.xml
 LinearLayout;obj\Release\110\res\layout\activity_main.xml
 LinearLayout;obj\Release\110\res\layout\activity_todo.xml
 LinearLayout;obj\Release\110\res\layout\activity_user.xml
@@ -43,6 +46,7 @@ resources;obj\Release\110\res\values\dimens.xml
 resources;obj\Release\110\res\values\ic_launcher_background.xml
 resources;obj\Release\110\res\values\strings.xml
 resources;obj\Release\110\res\values\styles.xml
+ScrollView;obj\Release\110\res\layout\activity_image.xml
 ScrollView;obj\Release\110\res\layout\activity_main.xml
 ScrollView;obj\Release\110\res\layout\activity_todo.xml
 ScrollView;obj\Release\110\res\layout\activity_user.xml
