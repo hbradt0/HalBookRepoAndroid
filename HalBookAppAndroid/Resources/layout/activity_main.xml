@@ -98,6 +98,7 @@
         <ImageView
             android:layout_height="400dp"
             android:layout_width="match_parent"
+            android:adjustViewBounds="true"
             android:id="@+id/NewImage"
             android:gravity="center"
             android:layout_marginLeft="50dp"

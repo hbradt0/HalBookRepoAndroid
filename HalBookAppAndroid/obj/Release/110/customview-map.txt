@@ -36,6 +36,7 @@ LinearLayout;obj\Release\110\res\layout\activity_user.xml
 LinearLayout;obj\Release\110\res\layout\activity_user_edit.xml
 LinearLayout;obj\Release\110\res\layout\activity_user_main.xml
 menu;obj\Release\110\res\menu\menu_main.xml
+NumberPicker;obj\Release\110\res\layout\activity_image.xml
 padding;obj\Release\110\res\drawable\border.xml
 padding;obj\Release\110\res\drawable\bordertext.xml
 padding;obj\Release\110\res\drawable\buttoncolor.xml
@@ -65,7 +66,9 @@ string;obj\Release\110\res\values\strings.xml
 stroke;obj\Release\110\res\drawable\border.xml
 stroke;obj\Release\110\res\drawable\bordertext.xml
 style;obj\Release\110\res\values\styles.xml
+TextView;obj\Release\110\res\layout\activity_image.xml
 TextView;obj\Release\110\res\layout\activity_main.xml
 TextView;obj\Release\110\res\layout\activity_todo.xml
 TextView;obj\Release\110\res\layout\activity_user.xml
 TextView;obj\Release\110\res\layout\activity_user_main.xml
+ToggleButton;obj\Release\110\res\layout\activity_image.xml

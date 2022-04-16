@@ -64,6 +64,15 @@ androidx.core.view.ActionProvider$VisibilityListener;androidx.core.view.ActionPr
 AndroidX.Core.View.ActionProvider+IVisibilityListenerImplementor, Xamarin.AndroidX.Core;mono.androidx.core.view.ActionProvider_VisibilityListenerImplementor
 AndroidX.Core.View.ActionProvider.IVisibilityListenerImplementor;mono.androidx.core.view.ActionProvider_VisibilityListenerImplementor
 mono.androidx.core.view.ActionProvider_VisibilityListenerImplementor;mono.androidx.core.view.ActionProvider_VisibilityListenerImplementor
+AndroidX.Core.View.INestedScrollingParent, Xamarin.AndroidX.Core;androidx.core.view.NestedScrollingParent
+AndroidX.Core.View.INestedScrollingParent;androidx.core.view.NestedScrollingParent
+androidx.core.view.NestedScrollingParent;androidx.core.view.NestedScrollingParent
+AndroidX.Core.View.INestedScrollingParent2, Xamarin.AndroidX.Core;androidx.core.view.NestedScrollingParent2
+AndroidX.Core.View.INestedScrollingParent2;androidx.core.view.NestedScrollingParent2
+androidx.core.view.NestedScrollingParent2;androidx.core.view.NestedScrollingParent2
+AndroidX.Core.View.INestedScrollingParent3, Xamarin.AndroidX.Core;androidx.core.view.NestedScrollingParent3
+AndroidX.Core.View.INestedScrollingParent3;androidx.core.view.NestedScrollingParent3
+androidx.core.view.NestedScrollingParent3;androidx.core.view.NestedScrollingParent3
 AndroidX.Core.View.ITintableBackgroundView, Xamarin.AndroidX.Core;androidx.core.view.TintableBackgroundView
 AndroidX.Core.View.ITintableBackgroundView;androidx.core.view.TintableBackgroundView
 androidx.core.view.TintableBackgroundView;androidx.core.view.TintableBackgroundView
@@ -151,6 +160,18 @@ androidx.savedstate.SavedStateRegistry$SavedStateProvider;androidx.savedstate.Sa
 Xamarin.Essentials.ActivityLifecycleContextListener, Xamarin.Essentials;crc64a0e0a82d0db9a07d.ActivityLifecycleContextListener
 Xamarin.Essentials.ActivityLifecycleContextListener;crc64a0e0a82d0db9a07d.ActivityLifecycleContextListener
 xamarin.essentials.ActivityLifecycleContextListener;crc64a0e0a82d0db9a07d.ActivityLifecycleContextListener
+Google.Android.Material.Behavior.SwipeDismissBehavior+IOnDismissListener, Xamarin.Google.Android.Material;com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener
+Google.Android.Material.Behavior.SwipeDismissBehavior.IOnDismissListener;com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener
+com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener;com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener
+Google.Android.Material.Behavior.SwipeDismissBehavior+IOnDismissListenerImplementor, Xamarin.Google.Android.Material;mono.com.google.android.material.behavior.SwipeDismissBehavior_OnDismissListenerImplementor
+Google.Android.Material.Behavior.SwipeDismissBehavior.IOnDismissListenerImplementor;mono.com.google.android.material.behavior.SwipeDismissBehavior_OnDismissListenerImplementor
+mono.com.google.android.material.behavior.SwipeDismissBehavior_OnDismissListenerImplementor;mono.com.google.android.material.behavior.SwipeDismissBehavior_OnDismissListenerImplementor
+Google.Android.Material.Snackbar.Snackbar+SnackbarActionClickImplementor, Xamarin.Google.Android.Material;com.google.android.material.snackbar.Snackbar_SnackbarActionClickImplementor
+Google.Android.Material.Snackbar.Snackbar.SnackbarActionClickImplementor;com.google.android.material.snackbar.Snackbar_SnackbarActionClickImplementor
+com.google.android.material.snackbar.Snackbar_SnackbarActionClickImplementor;com.google.android.material.snackbar.Snackbar_SnackbarActionClickImplementor
+Google.Android.Material.Snackbar.IContentViewCallback, Xamarin.Google.Android.Material;com.google.android.material.snackbar.ContentViewCallback
+Google.Android.Material.Snackbar.IContentViewCallback;com.google.android.material.snackbar.ContentViewCallback
+com.google.android.material.snackbar.ContentViewCallback;com.google.android.material.snackbar.ContentViewCallback
 Google.Common.Util.Concurrent.IListenableFuture, Xamarin.Google.Guava.ListenableFuture;com.google.common.util.concurrent.ListenableFuture
 Google.Common.Util.Concurrent.IListenableFuture;com.google.common.util.concurrent.ListenableFuture
 com.google.common.util.concurrent.ListenableFuture;com.google.common.util.concurrent.ListenableFuture

@@ -19,6 +19,8 @@ using Java.IO;
 using Android.Provider;
 using Android.Media;
 using Android.Util;
+using AndroidX.Core.Content;
+using AndroidX.Core.App;
 
 namespace HalBookAppAndroid
 {
@@ -75,6 +77,9 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ChoosePhoto;
         public Android.Widget.Button ChooseCameraPhoto;
         public Android.Widget.Button ButtonShareImagePage;
+        public Android.Widget.Button togglebutton;
+        int savetoggle = 0;
+        public Android.Widget.Button savedImageButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -462,7 +467,8 @@ namespace HalBookAppAndroid
 
             ImageCalendar.Text = "Change Image";
             var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
-            if (System.IO.File.Exists(fileName2))
+            var fileName3 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
+            if (System.IO.File.Exists(fileName2) && !System.IO.File.Exists(fileName3))
             {
                 if (togglePicture == 0)
                 {
@@ -480,6 +486,32 @@ namespace HalBookAppAndroid
 
                 }
                 if (togglePicture >= 2)
+                    togglePicture = 0;
+                else
+                    togglePicture++;
+            }
+            else if (System.IO.File.Exists(fileName2) && System.IO.File.Exists(fileName3))
+            {
+                if (togglePicture == 0)
+                {
+
+                    Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                    imageView.SetImageBitmap(bitmap);
+                }
+                else if (togglePicture == 1)
+                {
+                    Bitmap bitmap = BitmapFactory.DecodeFile(fileName3);
+                    imageView.SetImageBitmap(bitmap);
+                }
+                else if (togglePicture == 2)
+                {
+                    imageView.SetImageResource(Resource.Drawable.pic8);
+                }
+                else
+                {
+                    imageView.SetImageResource(Resource.Drawable.pic5);
+                }
+                if (togglePicture >= 3)
                     togglePicture = 0;
                 else
                     togglePicture++;
@@ -512,6 +544,15 @@ namespace HalBookAppAndroid
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
+            // Check if the only required permission has been granted
+            if ((grantResults.Length == 1) && (grantResults[0] == Permission.Granted))
+            {
+                Snackbar.Make(this.FindViewById(Resource.Layout.activity_image),4,Snackbar.LengthShort).Show();
+            }
+            else
+            {
+            }
+
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
@@ -789,10 +830,36 @@ namespace HalBookAppAndroid
             }
         }
 
+		//ImageScreen
+		public void CheckPermission(String type = "camera")
+        {
+            if (type == "camera")
+            {
+                int requestPermissions = CameraImageId;
+                string cameraPermission = Android.Manifest.Permission.Camera;
 
-        //ImageScreen
-        public static readonly int PickImageId = 1000;
+                if (!(ContextCompat.CheckSelfPermission(this, cameraPermission) == (int)Permission.Granted))
+                {
+                    ActivityCompat.RequestPermissions(this, new String[] { cameraPermission, }, requestPermissions);
+                }
+            }
+            if(type == "pickimage")
+            {
+                int requestPermissions = PickImageId;
+                string mediaPermission = Android.Manifest.Permission.AccessMediaLocation;
+
+                if (!(ContextCompat.CheckSelfPermission(this, mediaPermission) == (int)Permission.Granted))
+                {
+                    ActivityCompat.RequestPermissions(this, new String[] { mediaPermission, }, requestPermissions);
+                }
+            }
+        }
+		
+	
+        public static readonly int PickImageId = 1002;
+        public static readonly int PickImageId2 = 1000;
         public static readonly int CameraImageId = 1001;
+        public static readonly int CameraImageId2 = 1003;
 
         // Create a Method OnActivityResult(it is select the image controller)   
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -802,12 +869,28 @@ namespace HalBookAppAndroid
                 Android.Net.Uri uri = data.Data;
                 imagechoosephoto.SetImageURI(uri);
                 bmpDrawable();
+                /*
                 if (EmailFileRead.imageFileName != "")
                 {
                     var v = readOCR(EmailFileRead.imageFileName);
                     if (v != "")
                         EmailFileRead.WriteText(v);
                 }
+                */
+            }
+            if ((requestCode == PickImageId2) && (resultCode == Result.Ok) && (data != null))
+            {
+                Android.Net.Uri uri = data.Data;
+                imagechoosephoto.SetImageURI(uri);
+                bmpDrawable("imagesaved.jpg");
+                /*
+                if (EmailFileRead.imageFileName != "")
+                {
+                    var v = readOCR(EmailFileRead.imageFileName);
+                    if (v != "")
+                        EmailFileRead.WriteText(v);
+                }
+                */
             }
             if ((requestCode == CameraImageId) && (resultCode == Result.Ok) && (data != null))
             {
@@ -819,6 +902,17 @@ namespace HalBookAppAndroid
                         matrix, true);
                 imagechoosephoto.SetImageBitmap(rotated);
                 bmpDrawable();
+            }
+            if ((requestCode == CameraImageId2) && (resultCode == Result.Ok) && (data != null))
+            {
+                base.OnActivityResult(requestCode, resultCode, data);
+                Bitmap bitmap = (Bitmap)data.Extras.Get("data");
+                Matrix matrix = new Matrix();
+                matrix.PostRotate(90);
+                Bitmap rotated = Bitmap.CreateBitmap(bitmap, 0, 0, bitmap.Width, bitmap.Height,
+                        matrix, true);
+                imagechoosephoto.SetImageBitmap(rotated);
+                bmpDrawable("imagesaved");
             }
 
         }
@@ -847,7 +941,7 @@ namespace HalBookAppAndroid
             }
         }
 
-        public String bmpDrawable()
+        public String bmpDrawable(String imageName = "image.jpg")
         {
             imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
             Bitmap bmp = ((BitmapDrawable)imagechoosephoto.Drawable).Bitmap;
@@ -856,7 +950,7 @@ namespace HalBookAppAndroid
                 MemoryStream stream = new MemoryStream();
                 bmp.Compress(Bitmap.CompressFormat.Png, 0, stream);
                 byte[] reducedImage = stream.ToArray();
-                var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+                var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), imageName);
                 using (var fileOutputStream = new Java.IO.FileOutputStream(fileName2))
                 {
                     fileOutputStream.Write(reducedImage);
@@ -891,26 +985,41 @@ namespace HalBookAppAndroid
             Intent = new Intent();
             Intent.SetType("image/*");
             Intent.SetAction(Intent.ActionGetContent);
-            StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+            if(savetoggle==0)
+                StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+            else
+                StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId2);
         }
 
         private void ButtonImageCalendarClick(object sender, EventArgs eventArgs)
         {
             //Initialize
             SetContentView(Resource.Layout.activity_image);
-
             imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
             ImagePageBack = FindViewById<Android.Widget.Button>(Resource.Id.BackImageScreen);
             ChoosePhoto = FindViewById<Android.Widget.Button>(Resource.Id.chooseimage);
             ChooseCameraPhoto = FindViewById<Android.Widget.Button>(Resource.Id.camerapicture);
             ButtonShareImagePage = FindViewById<Android.Widget.Button>(Resource.Id.imageDatePick);
+            togglebutton = FindViewById<Android.Widget.Button>(Resource.Id.togglebutton);
+            var textViewHere = FindViewById<Android.Widget.TextView>(Resource.Id.InstructionsImage); 
 
             ChoosePhoto.Text = "Choose Photo";
             ImagePageBack.Text = "Back";
             ChooseCameraPhoto.Text = "Camera";
             ButtonShareImagePage.Text = "Share";
 
-            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            textViewHere.Text = "Click the value to change the picture (saves 2 pictures)!";
+            togglebutton.Text = "0";
+
+            CheckPermission("camera");
+            CheckPermission("pickimage");
+
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
+            if(savetoggle == 0)
+            {
+                fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            }
+
             if (System.IO.File.Exists(fileName2))
             {
                 Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
@@ -926,6 +1035,36 @@ namespace HalBookAppAndroid
             ButtonShareImagePage.Click += ButtonClickDateImagePage;
             ChoosePhoto.Click += ChooseMyPhoto;
             ChooseCameraPhoto.Click += ButtonImageUploadClick;
+            togglebutton.Click += TogglePhotoCamera;
+        }
+
+        //Change the photo upon toggle
+        void TogglePhotoCamera(object sender, EventArgs eventArgs)
+        {
+            if (togglebutton.Text=="0")
+            {
+                savetoggle = 0;
+                togglebutton.Text = "1";
+            }
+            else
+            {
+                savetoggle = 1;
+                togglebutton.Text = "0";
+            }
+
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            var fileName3 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
+
+            if (System.IO.File.Exists(fileName2) && savetoggle == 0)
+            {
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                imagechoosephoto.SetImageBitmap(bitmap);
+            }
+            if(System.IO.File.Exists(fileName3) && savetoggle == 1)
+            {
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName3);
+                imagechoosephoto.SetImageBitmap(bitmap);
+            }
         }
 
         //Click date
@@ -973,11 +1112,14 @@ namespace HalBookAppAndroid
                 return null;
         }
 
-        //Submit your story page button
+        //Upload image
         private void ButtonImageUploadClick(object sender, EventArgs eventArgs)
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
-            StartActivityForResult(intent, CameraImageId);
+            if (savetoggle == 0)
+                StartActivityForResult(intent, CameraImageId);
+            else
+                StartActivityForResult(intent, CameraImageId2);
         }
 
 
