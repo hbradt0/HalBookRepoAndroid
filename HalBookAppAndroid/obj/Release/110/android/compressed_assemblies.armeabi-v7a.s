@@ -37,7 +37,7 @@
 
 	/* 1: HalBookAppAndroid.dll */
 	/* uncompressed_file_size */
-	.long	381952
+	.long	382976
 	/* loaded */
 	.byte	0
 	/* data */
@@ -334,7 +334,7 @@
 
 	/* 34: mscorlib.dll */
 	/* uncompressed_file_size */
-	.long	2060800
+	.long	2061312
 	/* loaded */
 	.byte	0
 	/* data */

@@ -24,7 +24,6 @@ foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 ImageView;obj\Release\110\res\layout\activity_image.xml
 ImageView;obj\Release\110\res\layout\activity_main.xml
-ImageView;obj\Release\110\res\layout\activity_user_edit.xml
 item;obj\Release\110\res\drawable\buttoncolor.xml
 item;obj\Release\110\res\menu\menu_main.xml
 item;obj\Release\110\res\values\styles.xml
@@ -36,7 +35,6 @@ LinearLayout;obj\Release\110\res\layout\activity_user.xml
 LinearLayout;obj\Release\110\res\layout\activity_user_edit.xml
 LinearLayout;obj\Release\110\res\layout\activity_user_main.xml
 menu;obj\Release\110\res\menu\menu_main.xml
-NumberPicker;obj\Release\110\res\layout\activity_image.xml
 padding;obj\Release\110\res\drawable\border.xml
 padding;obj\Release\110\res\drawable\bordertext.xml
 padding;obj\Release\110\res\drawable\buttoncolor.xml
@@ -71,4 +69,3 @@ TextView;obj\Release\110\res\layout\activity_main.xml
 TextView;obj\Release\110\res\layout\activity_todo.xml
 TextView;obj\Release\110\res\layout\activity_user.xml
 TextView;obj\Release\110\res\layout\activity_user_main.xml
-ToggleButton;obj\Release\110\res\layout\activity_image.xml

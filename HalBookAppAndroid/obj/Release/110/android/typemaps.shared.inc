@@ -19,20 +19,20 @@
 	.section	.rodata.map_aname.3,"aMS",@progbits,1
 	.type	.L.map_aname.3, @object
 .L.map_aname.3:
-	.asciz	"Xamarin.AndroidX.SavedState"
-	.size	.L.map_aname.3, 28
+	.asciz	"HalBookAppAndroid"
+	.size	.L.map_aname.3, 18
 
 	.section	.rodata.map_aname.4,"aMS",@progbits,1
 	.type	.L.map_aname.4, @object
 .L.map_aname.4:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.4, 13
+	.asciz	"Xamarin.AndroidX.SavedState"
+	.size	.L.map_aname.4, 28
 
 	.section	.rodata.map_aname.5,"aMS",@progbits,1
 	.type	.L.map_aname.5, @object
 .L.map_aname.5:
-	.asciz	"HalBookAppAndroid"
-	.size	.L.map_aname.5, 18
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.5, 13
 
 	.section	.rodata.map_aname.6,"aMS",@progbits,1
 	.type	.L.map_aname.6, @object

@@ -91,7 +91,7 @@ namespace HalBookAppAndroid
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
             imageView.SetImageResource(Resource.Drawable.pic5);
-            imageView.Click += ImageOnClick;
+            //imageView.Click += ImageOnClick;
 
             //Initialize
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -375,7 +375,7 @@ namespace HalBookAppAndroid
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
             imageView.SetImageResource(Resource.Drawable.pic5);
-            imageView.Click += ImageOnClick;
+            //imageView.Click += ImageOnClick;
 
             //Initialize
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -416,7 +416,7 @@ namespace HalBookAppAndroid
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
             imageView.SetImageResource(Resource.Drawable.pic5);
-            imageView.Click += ImageOnClick;
+            //imageView.Click += ImageOnClick;
 
             //Initialize
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -566,7 +566,7 @@ namespace HalBookAppAndroid
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
             imageView.SetImageResource(Resource.Drawable.pic5);
-            imageView.Click += ImageOnClick;
+            //imageView.Click += ImageOnClick;
 
             //Initialize
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
@@ -861,9 +861,9 @@ namespace HalBookAppAndroid
         public static readonly int CameraImageId = 1001;
         public static readonly int CameraImageId2 = 1003;
 
-        // Create a Method OnActivityResult(it is select the image controller)   
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        {
+        // Create a Method OnActivityResult(it is select the image controller)
+         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+            {
             if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
             {
                 Android.Net.Uri uri = data.Data;
@@ -1009,17 +1009,16 @@ namespace HalBookAppAndroid
             ButtonShareImagePage.Text = "Share";
 
             textViewHere.Text = "Click the value to change the picture (saves 2 pictures)!";
-            togglebutton.Text = "0";
+            togglebutton.Text = "Background Picture";
 
             CheckPermission("camera");
             CheckPermission("pickimage");
-
+            savetoggle = 0;
             var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
             if(savetoggle == 0)
             {
                 fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
             }
-
             if (System.IO.File.Exists(fileName2))
             {
                 Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
@@ -1039,33 +1038,47 @@ namespace HalBookAppAndroid
         }
 
         //Change the photo upon toggle
-        void TogglePhotoCamera(object sender, EventArgs eventArgs)
+        public void TogglePhotoCamera(object sender, EventArgs eventArgs)
         {
-            if (togglebutton.Text=="0")
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            var fileName3 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
+            if (System.IO.File.Exists(fileName2) && savetoggle == 0)
+            {
+                System.Threading.SpinWait.SpinUntil(() => BitmapFactory.DecodeFile(fileName2)!=null, TimeSpan.FromSeconds(10));
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                imagechoosephoto.SetImageBitmap(bitmap);
+            }
+            else
+            {
+                imagechoosephoto.SetImageResource(Resource.Drawable.pic5);
+            }
+
+            if (System.IO.File.Exists(fileName3) && savetoggle == 1)
+            {
+                System.Threading.SpinWait.SpinUntil(() => BitmapFactory.DecodeFile(fileName3) != null, TimeSpan.FromSeconds(10));
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName3);
+                imagechoosephoto.SetImageBitmap(bitmap);
+            }
+            else
+            {
+                imagechoosephoto.SetImageResource(Resource.Drawable.pic8);
+            }
+
+            if (savetoggle == 1)
             {
                 savetoggle = 0;
-                togglebutton.Text = "1";
+                System.Threading.SpinWait.SpinUntil(() => togglebutton.Text == "Background Picture", TimeSpan.FromSeconds(10));
+                togglebutton.Text = "Stored Picture";
             }
             else
             {
                 savetoggle = 1;
-                togglebutton.Text = "0";
-            }
-
-            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
-            var fileName3 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
-
-            if (System.IO.File.Exists(fileName2) && savetoggle == 0)
-            {
-                Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
-                imagechoosephoto.SetImageBitmap(bitmap);
-            }
-            if(System.IO.File.Exists(fileName3) && savetoggle == 1)
-            {
-                Bitmap bitmap = BitmapFactory.DecodeFile(fileName3);
-                imagechoosephoto.SetImageBitmap(bitmap);
+                System.Threading.SpinWait.SpinUntil(() => togglebutton.Text == "Stored Picture", TimeSpan.FromSeconds(10));
+                togglebutton.Text = "Background Picture";
             }
         }
+
+
 
         //Click date
         void ButtonClickDateImagePage(object sender, EventArgs eventArgs)

@@ -12,6 +12,7 @@ public class MonoPackageManager_Resources {
 		"Tesseract.Droid.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.AppCompat.dll",
+		"Xamarin.AndroidX.CoordinatorLayout.dll",
 		"Xamarin.AndroidX.Core.dll",
 		"Xamarin.AndroidX.CustomView.dll",
 		"Xamarin.AndroidX.DrawerLayout.dll",
@@ -22,6 +23,7 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.Loader.dll",
 		"Xamarin.AndroidX.SavedState.dll",
 		"Xamarin.Essentials.dll",
+		"Xamarin.Google.Android.Material.dll",
 		"Xamarin.Google.Guava.ListenableFuture.dll",
 	};
 	public static String[] Dependencies = new String[]{
