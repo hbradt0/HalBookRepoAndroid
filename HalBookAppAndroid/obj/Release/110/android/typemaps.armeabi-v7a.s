@@ -297,8 +297,8 @@ map_modules:
 	/* java_map */
 	.long	0
 
-	/* module_uuid: d2e0ac77-2195-4c6c-9a1a-e5e224db8fd9 */
-	.byte	0x77, 0xac, 0xe0, 0xd2, 0x95, 0x21, 0x6c, 0x4c, 0x9a, 0x1a, 0xe5, 0xe2, 0x24, 0xdb, 0x8f, 0xd9
+	/* module_uuid: b034fa80-29bd-4559-8354-26a743f74253 */
+	.byte	0x80, 0xfa, 0x34, 0xb0, 0xbd, 0x29, 0x59, 0x45, 0x83, 0x54, 0x26, 0xa7, 0x43, 0xf7, 0x42, 0x53
 	/* entry_count */
 	.long	1
 	/* duplicate_count */
@@ -307,27 +307,8 @@ map_modules:
 	.long	module13_managed_to_java
 	/* duplicate_map */
 	.long	0
-	/* assembly_name: HalBookAppAndroid */
-	.long	.L.map_aname.13
-	/* image */
-	.long	0
-	/* java_name_width */
-	.long	0
-	/* java_map */
-	.long	0
-
-	/* module_uuid: b034fa80-29bd-4559-8354-26a743f74253 */
-	.byte	0x80, 0xfa, 0x34, 0xb0, 0xbd, 0x29, 0x59, 0x45, 0x83, 0x54, 0x26, 0xa7, 0x43, 0xf7, 0x42, 0x53
-	/* entry_count */
-	.long	1
-	/* duplicate_count */
-	.long	0
-	/* map */
-	.long	module14_managed_to_java
-	/* duplicate_map */
-	.long	0
 	/* assembly_name: Xamarin.AndroidX.Activity */
-	.long	.L.map_aname.14
+	.long	.L.map_aname.13
 	/* image */
 	.long	0
 	/* java_name_width */
@@ -342,11 +323,11 @@ map_modules:
 	/* duplicate_count */
 	.long	2
 	/* map */
-	.long	module15_managed_to_java
+	.long	module14_managed_to_java
 	/* duplicate_map */
-	.long	module15_managed_to_java_duplicates
+	.long	module14_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Lifecycle.LiveData.Core */
-	.long	.L.map_aname.15
+	.long	.L.map_aname.14
 	/* image */
 	.long	0
 	/* java_name_width */
@@ -361,10 +342,29 @@ map_modules:
 	/* duplicate_count */
 	.long	1
 	/* map */
+	.long	module15_managed_to_java
+	/* duplicate_map */
+	.long	module15_managed_to_java_duplicates
+	/* assembly_name: Xamarin.AndroidX.CustomView */
+	.long	.L.map_aname.15
+	/* image */
+	.long	0
+	/* java_name_width */
+	.long	0
+	/* java_map */
+	.long	0
+
+	/* module_uuid: 9fd8aab0-08c1-4d4e-9bf2-4194771fba89 */
+	.byte	0xb0, 0xaa, 0xd8, 0x9f, 0xc1, 0x08, 0x4e, 0x4d, 0x9b, 0xf2, 0x41, 0x94, 0x77, 0x1f, 0xba, 0x89
+	/* entry_count */
+	.long	1
+	/* duplicate_count */
+	.long	0
+	/* map */
 	.long	module16_managed_to_java
 	/* duplicate_map */
-	.long	module16_managed_to_java_duplicates
-	/* assembly_name: Xamarin.AndroidX.CustomView */
+	.long	0
+	/* assembly_name: HalBookAppAndroid */
 	.long	.L.map_aname.16
 	/* image */
 	.long	0
@@ -1628,7 +1628,7 @@ map_java:
 
 	/* #134 */
 	/* module_index */
-	.long	14
+	.long	13
 	/* type_token_id */
 	.long	33554434
 	/* java_name */
@@ -2195,7 +2195,7 @@ map_java:
 
 	/* #197 */
 	/* module_index */
-	.long	16
+	.long	15
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2348,7 +2348,7 @@ map_java:
 
 	/* #214 */
 	/* module_index */
-	.long	15
+	.long	14
 	/* type_token_id */
 	.long	33554441
 	/* java_name */
@@ -2357,7 +2357,7 @@ map_java:
 
 	/* #215 */
 	/* module_index */
-	.long	15
+	.long	14
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2906,7 +2906,7 @@ map_java:
 
 	/* #276 */
 	/* module_index */
-	.long	13
+	.long	16
 	/* type_token_id */
 	.long	33554434
 	/* java_name */

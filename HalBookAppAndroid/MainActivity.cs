@@ -994,14 +994,12 @@ namespace HalBookAppAndroid
             ChoosePhoto = FindViewById<Android.Widget.Button>(Resource.Id.chooseimage);
             ChooseCameraPhoto = FindViewById<Android.Widget.Button>(Resource.Id.camerapicture);
             ButtonShareImagePage = FindViewById<Android.Widget.Button>(Resource.Id.imageDatePick);
-            var textViewHere = FindViewById<Android.Widget.TextView>(Resource.Id.InstructionsImage); 
 
             ChoosePhoto.Text = "Choose Photo";
             ImagePageBack.Text = "Back";
             ChooseCameraPhoto.Text = "Camera";
             ButtonShareImagePage.Text = "Share";
 
-            textViewHere.Text = "Click the value to change the picture (saves 2 pictures)!";
 
             CheckPermission("camera");
             CheckPermission("pickimage");

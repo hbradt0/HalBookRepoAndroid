@@ -79,26 +79,26 @@
 	.section	.rodata.map_aname.13,"aMS",@progbits,1
 	.type	.L.map_aname.13, @object
 .L.map_aname.13:
-	.asciz	"HalBookAppAndroid"
-	.size	.L.map_aname.13, 18
+	.asciz	"Xamarin.AndroidX.Activity"
+	.size	.L.map_aname.13, 26
 
 	.section	.rodata.map_aname.14,"aMS",@progbits,1
 	.type	.L.map_aname.14, @object
 .L.map_aname.14:
-	.asciz	"Xamarin.AndroidX.Activity"
-	.size	.L.map_aname.14, 26
+	.asciz	"Xamarin.AndroidX.Lifecycle.LiveData.Core"
+	.size	.L.map_aname.14, 41
 
 	.section	.rodata.map_aname.15,"aMS",@progbits,1
 	.type	.L.map_aname.15, @object
 .L.map_aname.15:
-	.asciz	"Xamarin.AndroidX.Lifecycle.LiveData.Core"
-	.size	.L.map_aname.15, 41
+	.asciz	"Xamarin.AndroidX.CustomView"
+	.size	.L.map_aname.15, 28
 
 	.section	.rodata.map_aname.16,"aMS",@progbits,1
 	.type	.L.map_aname.16, @object
 .L.map_aname.16:
-	.asciz	"Xamarin.AndroidX.CustomView"
-	.size	.L.map_aname.16, 28
+	.asciz	"HalBookAppAndroid"
+	.size	.L.map_aname.16, 18
 
 	.section	.rodata.map_aname.17,"aMS",@progbits,1
 	.type	.L.map_aname.17, @object
