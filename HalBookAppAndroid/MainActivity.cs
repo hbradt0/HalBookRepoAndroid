@@ -77,8 +77,6 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ChoosePhoto;
         public Android.Widget.Button ChooseCameraPhoto;
         public Android.Widget.Button ButtonShareImagePage;
-        public Android.Widget.Button togglebutton;
-        int savetoggle = 0;
         public Android.Widget.Button savedImageButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -854,7 +852,6 @@ namespace HalBookAppAndroid
                 }
             }
         }
-		
 	
         public static readonly int PickImageId = 1002;
         public static readonly int PickImageId2 = 1000;
@@ -985,10 +982,7 @@ namespace HalBookAppAndroid
             Intent = new Intent();
             Intent.SetType("image/*");
             Intent.SetAction(Intent.ActionGetContent);
-            if(savetoggle==0)
-                StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
-            else
-                StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId2);
+            StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
         }
 
         private void ButtonImageCalendarClick(object sender, EventArgs eventArgs)
@@ -1000,7 +994,6 @@ namespace HalBookAppAndroid
             ChoosePhoto = FindViewById<Android.Widget.Button>(Resource.Id.chooseimage);
             ChooseCameraPhoto = FindViewById<Android.Widget.Button>(Resource.Id.camerapicture);
             ButtonShareImagePage = FindViewById<Android.Widget.Button>(Resource.Id.imageDatePick);
-            togglebutton = FindViewById<Android.Widget.Button>(Resource.Id.togglebutton);
             var textViewHere = FindViewById<Android.Widget.TextView>(Resource.Id.InstructionsImage); 
 
             ChoosePhoto.Text = "Choose Photo";
@@ -1009,16 +1002,11 @@ namespace HalBookAppAndroid
             ButtonShareImagePage.Text = "Share";
 
             textViewHere.Text = "Click the value to change the picture (saves 2 pictures)!";
-            togglebutton.Text = "Background Picture";
 
             CheckPermission("camera");
             CheckPermission("pickimage");
-            savetoggle = 0;
-            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
-            if(savetoggle == 0)
-            {
-                fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
-            }
+
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
             if (System.IO.File.Exists(fileName2))
             {
                 Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
@@ -1034,7 +1022,6 @@ namespace HalBookAppAndroid
             ButtonShareImagePage.Click += ButtonClickDateImagePage;
             ChoosePhoto.Click += ChooseMyPhoto;
             ChooseCameraPhoto.Click += ButtonImageUploadClick;
-            togglebutton.Click += TogglePhotoCamera;
         }
 
         //Change the photo upon toggle
@@ -1042,7 +1029,7 @@ namespace HalBookAppAndroid
         {
             var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
             var fileName3 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
-            if (System.IO.File.Exists(fileName2) && savetoggle == 0)
+            if (System.IO.File.Exists(fileName2))
             {
                 System.Threading.SpinWait.SpinUntil(() => BitmapFactory.DecodeFile(fileName2)!=null, TimeSpan.FromSeconds(10));
                 Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
@@ -1053,29 +1040,6 @@ namespace HalBookAppAndroid
                 imagechoosephoto.SetImageResource(Resource.Drawable.pic5);
             }
 
-            if (System.IO.File.Exists(fileName3) && savetoggle == 1)
-            {
-                System.Threading.SpinWait.SpinUntil(() => BitmapFactory.DecodeFile(fileName3) != null, TimeSpan.FromSeconds(10));
-                Bitmap bitmap = BitmapFactory.DecodeFile(fileName3);
-                imagechoosephoto.SetImageBitmap(bitmap);
-            }
-            else
-            {
-                imagechoosephoto.SetImageResource(Resource.Drawable.pic8);
-            }
-
-            if (savetoggle == 1)
-            {
-                savetoggle = 0;
-                System.Threading.SpinWait.SpinUntil(() => togglebutton.Text == "Background Picture", TimeSpan.FromSeconds(10));
-                togglebutton.Text = "Stored Picture";
-            }
-            else
-            {
-                savetoggle = 1;
-                System.Threading.SpinWait.SpinUntil(() => togglebutton.Text == "Stored Picture", TimeSpan.FromSeconds(10));
-                togglebutton.Text = "Background Picture";
-            }
         }
 
 
@@ -1129,10 +1093,7 @@ namespace HalBookAppAndroid
         private void ButtonImageUploadClick(object sender, EventArgs eventArgs)
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
-            if (savetoggle == 0)
                 StartActivityForResult(intent, CameraImageId);
-            else
-                StartActivityForResult(intent, CameraImageId2);
         }
 
 
