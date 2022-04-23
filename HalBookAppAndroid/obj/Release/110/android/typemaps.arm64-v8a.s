@@ -270,6 +270,26 @@ map_modules:
 	.zero	4
 	.xword	0
 
+	/* module_uuid: 487fb371-f479-4e85-b790-48255bcce831 */
+	.byte	0x71, 0xb3, 0x7f, 0x48, 0x79, 0xf4, 0x85, 0x4e, 0xb7, 0x90, 0x48, 0x25, 0x5b, 0xcc, 0xe8, 0x31
+	/* entry_count */
+	.word	1
+	/* duplicate_count */
+	.word	0
+	/* map */
+	.xword	module12_managed_to_java
+	/* duplicate_map */
+	.xword	0
+	/* assembly_name: HalBookAppAndroid */
+	.xword	.L.map_aname.12
+	/* image */
+	.xword	0
+	/* java_name_width */
+	.word	0
+	/* java_map */
+	.zero	4
+	.xword	0
+
 	/* module_uuid: 39474576-1024-4319-8815-86282e2971d8 */
 	.byte	0x76, 0x45, 0x47, 0x39, 0x24, 0x10, 0x19, 0x43, 0x88, 0x15, 0x86, 0x28, 0x2e, 0x29, 0x71, 0xd8
 	/* entry_count */
@@ -277,11 +297,11 @@ map_modules:
 	/* duplicate_count */
 	.word	4
 	/* map */
-	.xword	module12_managed_to_java
+	.xword	module13_managed_to_java
 	/* duplicate_map */
-	.xword	module12_managed_to_java_duplicates
+	.xword	module13_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Loader */
-	.xword	.L.map_aname.12
+	.xword	.L.map_aname.13
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -297,11 +317,11 @@ map_modules:
 	/* duplicate_count */
 	.word	0
 	/* map */
-	.xword	module13_managed_to_java
+	.xword	module14_managed_to_java
 	/* duplicate_map */
 	.xword	0
 	/* assembly_name: Xamarin.AndroidX.Activity */
-	.xword	.L.map_aname.13
+	.xword	.L.map_aname.14
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -317,11 +337,11 @@ map_modules:
 	/* duplicate_count */
 	.word	2
 	/* map */
-	.xword	module14_managed_to_java
+	.xword	module15_managed_to_java
 	/* duplicate_map */
-	.xword	module14_managed_to_java_duplicates
+	.xword	module15_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Lifecycle.LiveData.Core */
-	.xword	.L.map_aname.14
+	.xword	.L.map_aname.15
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -337,30 +357,10 @@ map_modules:
 	/* duplicate_count */
 	.word	1
 	/* map */
-	.xword	module15_managed_to_java
-	/* duplicate_map */
-	.xword	module15_managed_to_java_duplicates
-	/* assembly_name: Xamarin.AndroidX.CustomView */
-	.xword	.L.map_aname.15
-	/* image */
-	.xword	0
-	/* java_name_width */
-	.word	0
-	/* java_map */
-	.zero	4
-	.xword	0
-
-	/* module_uuid: 9fd8aab0-08c1-4d4e-9bf2-4194771fba89 */
-	.byte	0xb0, 0xaa, 0xd8, 0x9f, 0xc1, 0x08, 0x4e, 0x4d, 0x9b, 0xf2, 0x41, 0x94, 0x77, 0x1f, 0xba, 0x89
-	/* entry_count */
-	.word	1
-	/* duplicate_count */
-	.word	0
-	/* map */
 	.xword	module16_managed_to_java
 	/* duplicate_map */
-	.xword	0
-	/* assembly_name: HalBookAppAndroid */
+	.xword	module16_managed_to_java_duplicates
+	/* assembly_name: Xamarin.AndroidX.CustomView */
 	.xword	.L.map_aname.16
 	/* image */
 	.xword	0
@@ -1627,7 +1627,7 @@ map_java:
 
 	/* #134 */
 	/* module_index */
-	.word	13
+	.word	14
 	/* type_token_id */
 	.word	33554434
 	/* java_name */
@@ -2194,7 +2194,7 @@ map_java:
 
 	/* #197 */
 	/* module_index */
-	.word	15
+	.word	16
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2347,7 +2347,7 @@ map_java:
 
 	/* #214 */
 	/* module_index */
-	.word	14
+	.word	15
 	/* type_token_id */
 	.word	33554441
 	/* java_name */
@@ -2356,7 +2356,7 @@ map_java:
 
 	/* #215 */
 	/* module_index */
-	.word	14
+	.word	15
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2401,7 +2401,7 @@ map_java:
 
 	/* #220 */
 	/* module_index */
-	.word	12
+	.word	13
 	/* type_token_id */
 	.word	33554452
 	/* java_name */
@@ -2410,7 +2410,7 @@ map_java:
 
 	/* #221 */
 	/* module_index */
-	.word	12
+	.word	13
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2419,7 +2419,7 @@ map_java:
 
 	/* #222 */
 	/* module_index */
-	.word	12
+	.word	13
 	/* type_token_id */
 	.word	33554447
 	/* java_name */
@@ -2428,7 +2428,7 @@ map_java:
 
 	/* #223 */
 	/* module_index */
-	.word	12
+	.word	13
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2437,7 +2437,7 @@ map_java:
 
 	/* #224 */
 	/* module_index */
-	.word	12
+	.word	13
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2905,7 +2905,7 @@ map_java:
 
 	/* #276 */
 	/* module_index */
-	.word	16
+	.word	12
 	/* type_token_id */
 	.word	33554434
 	/* java_name */

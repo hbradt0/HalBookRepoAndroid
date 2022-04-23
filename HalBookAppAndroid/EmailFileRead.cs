@@ -46,7 +46,7 @@ namespace EmailReader //rename
                 fileName = fileName1;
 
             String myString = File.ReadAllText(fileName);
-            string toBeSearched = DateTime.Now.AddDays(-1*day).ToString("MM/dd/yyyy")+":\n";
+            string toBeSearched = DateTime.Now.AddDays(-1*day).ToString("MM/dd/yyyy")+":";
             int ix = myString.IndexOf(toBeSearched);
 
             if (ix != -1)
@@ -56,7 +56,7 @@ namespace EmailReader //rename
             }
             else 
             {
- 		        toBeSearched = DateTime.Now.ToString("MM/dd/yyyy")+":\n";
+ 		        toBeSearched = DateTime.Now.ToString("MM/dd/yyyy")+":";
             	ix = myString.IndexOf(toBeSearched);
 
             	if(ix != -1)
@@ -78,7 +78,7 @@ namespace EmailReader //rename
 
             String myString = File.ReadAllText(fileName);
 
-            string toBeSearched = myDate.ToString("MM/dd/yyyy") + ":\n";
+            string toBeSearched = myDate.ToString("MM/dd/yyyy") + ":";
             string toBeSearched2 = myDate.AddDays(1).ToString("MM/");
 
             int ix = myString.IndexOf(toBeSearched);
@@ -102,7 +102,7 @@ namespace EmailReader //rename
             }
             else
             {
-                toBeSearched = DateTime.Now.ToString("MM/dd/yyyy") + ":\n";
+                toBeSearched = DateTime.Now.ToString("MM/dd/yyyy") + ":";
                 ix = myString.IndexOf(toBeSearched);
                 if (ix != -1)
                 {
@@ -174,13 +174,22 @@ namespace EmailReader //rename
             if (fileName == "")
                 fileName = fileName1;
             var v = File.ReadAllLines(fileName).ToList<String>();
-            if (v.Count > 0)
+            try
             {
-                v.Remove(v.Last());
-                if(v.Last()==String.Empty)
-                    v.RemoveAt(v.Count-1);
+                if (v.Count > 1)
+                {
+                    v.Remove(v.Last());
+                    if (v.Last() == String.Empty)
+                        v.RemoveAt(v.Count - 1);
+                }
+                else if (v.Count >= 0)
+                {
+                    v.Remove(v.Last());
+                }
+                File.WriteAllLines(fileName, v);
             }
-            File.WriteAllLines(fileName, v);
+            catch (Exception e)
+            { }
         }
 
         public static String ReadTextFile(Stream s)

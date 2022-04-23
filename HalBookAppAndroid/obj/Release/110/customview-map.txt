@@ -64,7 +64,6 @@ string;obj\Release\110\res\values\strings.xml
 stroke;obj\Release\110\res\drawable\border.xml
 stroke;obj\Release\110\res\drawable\bordertext.xml
 style;obj\Release\110\res\values\styles.xml
-TextView;obj\Release\110\res\layout\activity_image.xml
 TextView;obj\Release\110\res\layout\activity_main.xml
 TextView;obj\Release\110\res\layout\activity_todo.xml
 TextView;obj\Release\110\res\layout\activity_user.xml

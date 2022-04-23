@@ -386,7 +386,17 @@ namespace HalBookAppAndroid
             Button2 = FindViewById<ImageView>(Resource.Id.Image);
             ImageCalendar = FindViewById<Android.Widget.Button>(Resource.Id.ImageCalendar);
 
-            ImageCalendar.Text = "Image Calendar";
+            ImageCalendar.Text = "Change Image";
+            var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+            if (System.IO.File.Exists(fileName2))
+            {
+                Bitmap bitmap = BitmapFactory.DecodeFile(fileName2);
+                imageView.SetImageBitmap(bitmap);
+            }
+            else
+            {
+                imageView.SetImageResource(Resource.Drawable.pic5);
+            }
             //Properties
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
