@@ -268,7 +268,7 @@ namespace HalBookAppAndroid
             Intent intentsend = new Intent();
             intentsend.SetAction(Intent.ActionSend);
             intentsend.PutExtra(Intent.ExtraText, txt2);
-            intentsend.SetType("*/*");
+            intentsend.SetType("text/plain");
             StartActivity(intentsend);
         }
 

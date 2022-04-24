@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="100px"
             android:layout_marginBottom="1dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="1dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="100dp"
             android:gravity="center"

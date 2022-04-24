@@ -278,25 +278,6 @@ map_modules:
 	/* java_map */
 	.long	0
 
-	/* module_uuid: 487fb371-f479-4e85-b790-48255bcce831 */
-	.byte	0x71, 0xb3, 0x7f, 0x48, 0x79, 0xf4, 0x85, 0x4e, 0xb7, 0x90, 0x48, 0x25, 0x5b, 0xcc, 0xe8, 0x31
-	/* entry_count */
-	.long	1
-	/* duplicate_count */
-	.long	0
-	/* map */
-	.long	module12_managed_to_java
-	/* duplicate_map */
-	.long	0
-	/* assembly_name: HalBookAppAndroid */
-	.long	.L.map_aname.12
-	/* image */
-	.long	0
-	/* java_name_width */
-	.long	0
-	/* java_map */
-	.long	0
-
 	/* module_uuid: 39474576-1024-4319-8815-86282e2971d8 */
 	.byte	0x76, 0x45, 0x47, 0x39, 0x24, 0x10, 0x19, 0x43, 0x88, 0x15, 0x86, 0x28, 0x2e, 0x29, 0x71, 0xd8
 	/* entry_count */
@@ -304,11 +285,11 @@ map_modules:
 	/* duplicate_count */
 	.long	4
 	/* map */
-	.long	module13_managed_to_java
+	.long	module12_managed_to_java
 	/* duplicate_map */
-	.long	module13_managed_to_java_duplicates
+	.long	module12_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Loader */
-	.long	.L.map_aname.13
+	.long	.L.map_aname.12
 	/* image */
 	.long	0
 	/* java_name_width */
@@ -323,11 +304,11 @@ map_modules:
 	/* duplicate_count */
 	.long	0
 	/* map */
-	.long	module14_managed_to_java
+	.long	module13_managed_to_java
 	/* duplicate_map */
 	.long	0
 	/* assembly_name: Xamarin.AndroidX.Activity */
-	.long	.L.map_aname.14
+	.long	.L.map_aname.13
 	/* image */
 	.long	0
 	/* java_name_width */
@@ -342,11 +323,11 @@ map_modules:
 	/* duplicate_count */
 	.long	2
 	/* map */
-	.long	module15_managed_to_java
+	.long	module14_managed_to_java
 	/* duplicate_map */
-	.long	module15_managed_to_java_duplicates
+	.long	module14_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Lifecycle.LiveData.Core */
-	.long	.L.map_aname.15
+	.long	.L.map_aname.14
 	/* image */
 	.long	0
 	/* java_name_width */
@@ -361,10 +342,29 @@ map_modules:
 	/* duplicate_count */
 	.long	1
 	/* map */
+	.long	module15_managed_to_java
+	/* duplicate_map */
+	.long	module15_managed_to_java_duplicates
+	/* assembly_name: Xamarin.AndroidX.CustomView */
+	.long	.L.map_aname.15
+	/* image */
+	.long	0
+	/* java_name_width */
+	.long	0
+	/* java_map */
+	.long	0
+
+	/* module_uuid: f43accc9-cf2c-488a-91c3-3a397fc2470e */
+	.byte	0xc9, 0xcc, 0x3a, 0xf4, 0x2c, 0xcf, 0x8a, 0x48, 0x91, 0xc3, 0x3a, 0x39, 0x7f, 0xc2, 0x47, 0x0e
+	/* entry_count */
+	.long	1
+	/* duplicate_count */
+	.long	0
+	/* map */
 	.long	module16_managed_to_java
 	/* duplicate_map */
-	.long	module16_managed_to_java_duplicates
-	/* assembly_name: Xamarin.AndroidX.CustomView */
+	.long	0
+	/* assembly_name: HalBookAppAndroid */
 	.long	.L.map_aname.16
 	/* image */
 	.long	0
@@ -1628,7 +1628,7 @@ map_java:
 
 	/* #134 */
 	/* module_index */
-	.long	14
+	.long	13
 	/* type_token_id */
 	.long	33554434
 	/* java_name */
@@ -2195,7 +2195,7 @@ map_java:
 
 	/* #197 */
 	/* module_index */
-	.long	16
+	.long	15
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2348,7 +2348,7 @@ map_java:
 
 	/* #214 */
 	/* module_index */
-	.long	15
+	.long	14
 	/* type_token_id */
 	.long	33554441
 	/* java_name */
@@ -2357,7 +2357,7 @@ map_java:
 
 	/* #215 */
 	/* module_index */
-	.long	15
+	.long	14
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2402,7 +2402,7 @@ map_java:
 
 	/* #220 */
 	/* module_index */
-	.long	13
+	.long	12
 	/* type_token_id */
 	.long	33554452
 	/* java_name */
@@ -2411,7 +2411,7 @@ map_java:
 
 	/* #221 */
 	/* module_index */
-	.long	13
+	.long	12
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2420,7 +2420,7 @@ map_java:
 
 	/* #222 */
 	/* module_index */
-	.long	13
+	.long	12
 	/* type_token_id */
 	.long	33554447
 	/* java_name */
@@ -2429,7 +2429,7 @@ map_java:
 
 	/* #223 */
 	/* module_index */
-	.long	13
+	.long	12
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2438,7 +2438,7 @@ map_java:
 
 	/* #224 */
 	/* module_index */
-	.long	13
+	.long	12
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2906,7 +2906,7 @@ map_java:
 
 	/* #276 */
 	/* module_index */
-	.long	12
+	.long	16
 	/* type_token_id */
 	.long	33554434
 	/* java_name */
