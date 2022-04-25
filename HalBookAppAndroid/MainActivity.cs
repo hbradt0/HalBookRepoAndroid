@@ -162,7 +162,7 @@ namespace HalBookAppAndroid
             textView.Text = texty;
             textViewLocation = textView.ScrollY;
             hiddenbutton.Text = "Code";
-            hidemybuttontext.Hint = "type 'hint'";
+            hidemybuttontext.Hint = "type 'help'";
 
             //Clicks
             hiddenbutton.Click += hiddenbuttonclick;
@@ -186,7 +186,7 @@ namespace HalBookAppAndroid
                 hiddenbutton.Text = "Code";
                 hiddenbutton.Click += hiddenbuttonclick;
             }
-            else if (pswd.ToLower() == "hint")
+            else if (pswd.ToLower() == "help")
             {
                 textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
                 textView.SetScrollContainer(true);
@@ -201,7 +201,7 @@ namespace HalBookAppAndroid
             }
             else
             {
-                hidemybuttontext.Hint = "type 'hint'";
+                hidemybuttontext.Hint = "type 'help'";
             }
         }
 

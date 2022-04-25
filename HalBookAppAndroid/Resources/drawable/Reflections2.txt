@@ -1,23 +1,13 @@
-Sample journal:
-<Date here> <Your Title here>
-<SubTitle here>: <date here>
-<Author(s) Names here>
+Create Your Story:
 
-<Date here> <Your paragraph here> 
+<Date here>:
+<Your paragraph here> 
 
-
-<Date here> <Your paragraph here> 
-
-
-<Date here> <Your reflections here> 
-
-
-<Date here> <Your reflections here> 
+<Date here>:
+<Your paragraph here> 
 
 Share main page allows us to share everything from the journal
-
-Share on the todo page allows us to share by past # of days
-
+Share on the todo page allows us to share by past # of days (based upon the format generated "Date:" )
 Click back to reset, then read to read your journal again!
 
 

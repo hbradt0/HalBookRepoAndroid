@@ -58,13 +58,12 @@ namespace EmailReader //rename
             {
  		        toBeSearched = DateTime.Now.ToString("MM/dd/yyyy")+":";
             	ix = myString.IndexOf(toBeSearched);
-
             	if(ix != -1)
             	{
                 	String code = myString.Substring(ix);
                 	return code;
             	}
-		        else
+                else
 		        {
                 	return "";
             	}
@@ -158,6 +157,8 @@ namespace EmailReader //rename
         {
             if (fileName == "")
                 fileName = fileName1;
+            if (!text.StartsWith('\n'))
+                text = "\n" + text;
             File.WriteAllText(fileName, text);
         }
 

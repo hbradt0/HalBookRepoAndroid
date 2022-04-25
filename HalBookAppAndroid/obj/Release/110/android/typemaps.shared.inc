@@ -97,14 +97,14 @@
 	.section	.rodata.map_aname.16,"aMS",@progbits,1
 	.type	.L.map_aname.16, @object
 .L.map_aname.16:
-	.asciz	"HalBookAppAndroid"
-	.size	.L.map_aname.16, 18
+	.asciz	"Xamarin.Google.Guava.ListenableFuture"
+	.size	.L.map_aname.16, 38
 
 	.section	.rodata.map_aname.17,"aMS",@progbits,1
 	.type	.L.map_aname.17, @object
 .L.map_aname.17:
-	.asciz	"Xamarin.Google.Guava.ListenableFuture"
-	.size	.L.map_aname.17, 38
+	.asciz	"HalBookAppAndroid"
+	.size	.L.map_aname.17, 18
 
 	.section	.rodata.map_aname.18,"aMS",@progbits,1
 	.type	.L.map_aname.18, @object
