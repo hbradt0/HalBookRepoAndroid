@@ -78,6 +78,7 @@ namespace EmailReader //rename
 
             string toBeSearched = myDate.ToString("MM/dd/yyyy") + ":";
             string toBeSearched2 = myDate.AddDays(1).ToString("MM/");
+            string toBeSearched3 = myDate.AddDays(1).ToString("yyyy")+":";
 
             int ix = myString.IndexOf(toBeSearched);
             if (ix != -1)
@@ -85,14 +86,18 @@ namespace EmailReader //rename
                 string code = myString.Substring(ix);
                 try
                 {
-                    int ix2 = code.IndexOf(toBeSearched2, ix);
+                    int ix2 = code.IndexOf(toBeSearched2,10);
                     if (ix2 != -1)
                     {
                         return code.Substring(0, ix2);
                     }
                     else
                     {
-                        return code;
+                        int iy = code.IndexOf(toBeSearched3, 10);
+                        if (iy != -1)
+                            return code.Substring(0, iy-6);
+                        else
+                            return code;
                     }
                 }
                 catch(Exception e)
