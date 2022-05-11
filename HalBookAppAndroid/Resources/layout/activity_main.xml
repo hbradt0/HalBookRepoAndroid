@@ -27,7 +27,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="42dp"
             android:layout_marginBottom="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginLeft="0dp"
@@ -44,7 +44,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="42dp"
             android:layout_marginBottom="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginLeft="0dp"
@@ -61,7 +61,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="42dp"
             android:layout_marginBottom="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginLeft="0dp"
@@ -78,7 +78,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="42dp"
             android:layout_marginBottom="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginLeft="0dp"
@@ -93,7 +93,7 @@
 
         <ImageView
             android:layout_width="181.5dp"
-            android:layout_height="100px"
+            android:layout_height="46dp"
             android:id="@+id/Image"
             android:layout_above="@+id/Instructions"
             android:gravity="center"
@@ -103,7 +103,7 @@
 
         <TextView
             android:layout_width="181.5dp"
-            android:layout_height="150px"
+            android:layout_height="46dp"
             android:id="@+id/Instructions"
             android:layout_above="@+id/YourEmail"
             android:gravity="center"

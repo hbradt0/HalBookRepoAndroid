@@ -15,11 +15,11 @@
         >
 
         <Button
-        android:layout_height="40dp"
+        android:layout_height="42dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="2dp"
         android:layout_marginTop="2dp"
-        android:layout_marginRight="250dp"
+        android:layout_marginRight="200dp"
         android:layout_marginLeft="10dp"
         android:id="@+id/back1"
         android:text="@+string/BackText1"
@@ -29,11 +29,11 @@
 
         <Button  
         android:text="Pick Date"  
-        android:layout_height="40dp"
+        android:layout_height="42dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="1dp"
-        android:layout_marginRight="250dp"
+        android:layout_marginRight="200dp"
         android:layout_marginLeft="10dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:layout_gravity="left"
@@ -47,12 +47,12 @@
         android:id="@+id/editTextDateShare" /> 
 
         <Button
-        android:layout_height="40dp"
-        android:layout_width="100dp"
+        android:layout_height="42dp"
+        android:layout_width="match_parent"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="1dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginLeft="90dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="200dp"
         android:id="@+id/freshstart"
         android:text="@+string/freshstart"
         android:backgroundTint="@android:color/holo_red_light"
@@ -78,7 +78,7 @@
 
         <Button
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="42dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:id="@+id/delete1line"
@@ -89,7 +89,7 @@
 
         <Button
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="42dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:id="@+id/upload"
@@ -100,7 +100,7 @@
 
         <EditText
         android:layout_width="match_parent"
-        android:layout_height="300px"
+        android:layout_height="150dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"
@@ -119,7 +119,7 @@
 
         <Button
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="42dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:id="@+id/EditJournalPage"
