@@ -310,6 +310,26 @@ map_modules:
 	.zero	4
 	.xword	0
 
+	/* module_uuid: 242ed793-68a9-4bd9-b57c-370fd3fc4da6 */
+	.byte	0x93, 0xd7, 0x2e, 0x24, 0xa9, 0x68, 0xd9, 0x4b, 0xb5, 0x7c, 0x37, 0x0f, 0xd3, 0xfc, 0x4d, 0xa6
+	/* entry_count */
+	.word	1
+	/* duplicate_count */
+	.word	0
+	/* map */
+	.xword	module14_managed_to_java
+	/* duplicate_map */
+	.xword	0
+	/* assembly_name: HalBookAppAndroid */
+	.xword	.L.map_aname.14
+	/* image */
+	.xword	0
+	/* java_name_width */
+	.word	0
+	/* java_map */
+	.zero	4
+	.xword	0
+
 	/* module_uuid: 9ac1089a-eef9-4b98-b18e-ecbbdf857cee */
 	.byte	0x9a, 0x08, 0xc1, 0x9a, 0xf9, 0xee, 0x98, 0x4b, 0xb1, 0x8e, 0xec, 0xbb, 0xdf, 0x85, 0x7c, 0xee
 	/* entry_count */
@@ -317,11 +337,11 @@ map_modules:
 	/* duplicate_count */
 	.word	2
 	/* map */
-	.xword	module14_managed_to_java
+	.xword	module15_managed_to_java
 	/* duplicate_map */
-	.xword	module14_managed_to_java_duplicates
+	.xword	module15_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Lifecycle.LiveData.Core */
-	.xword	.L.map_aname.14
+	.xword	.L.map_aname.15
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -337,30 +357,10 @@ map_modules:
 	/* duplicate_count */
 	.word	1
 	/* map */
-	.xword	module15_managed_to_java
-	/* duplicate_map */
-	.xword	module15_managed_to_java_duplicates
-	/* assembly_name: Xamarin.AndroidX.CustomView */
-	.xword	.L.map_aname.15
-	/* image */
-	.xword	0
-	/* java_name_width */
-	.word	0
-	/* java_map */
-	.zero	4
-	.xword	0
-
-	/* module_uuid: 8e5d67c5-469c-4af2-b033-b062d644ab3d */
-	.byte	0xc5, 0x67, 0x5d, 0x8e, 0x9c, 0x46, 0xf2, 0x4a, 0xb0, 0x33, 0xb0, 0x62, 0xd6, 0x44, 0xab, 0x3d
-	/* entry_count */
-	.word	1
-	/* duplicate_count */
-	.word	0
-	/* map */
 	.xword	module16_managed_to_java
 	/* duplicate_map */
-	.xword	0
-	/* assembly_name: HalBookAppAndroid */
+	.xword	module16_managed_to_java_duplicates
+	/* assembly_name: Xamarin.AndroidX.CustomView */
 	.xword	.L.map_aname.16
 	/* image */
 	.xword	0
@@ -2194,7 +2194,7 @@ map_java:
 
 	/* #197 */
 	/* module_index */
-	.word	15
+	.word	16
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2347,7 +2347,7 @@ map_java:
 
 	/* #214 */
 	/* module_index */
-	.word	14
+	.word	15
 	/* type_token_id */
 	.word	33554441
 	/* java_name */
@@ -2356,7 +2356,7 @@ map_java:
 
 	/* #215 */
 	/* module_index */
-	.word	14
+	.word	15
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2905,7 +2905,7 @@ map_java:
 
 	/* #276 */
 	/* module_index */
-	.word	16
+	.word	14
 	/* type_token_id */
 	.word	33554434
 	/* java_name */
