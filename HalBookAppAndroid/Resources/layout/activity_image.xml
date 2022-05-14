@@ -40,9 +40,10 @@
         android:id="@+id/imageDatePick"
         android:visibility="gone"
         /> 
+   
         
         <ImageView
-            android:layout_height="400dp"
+            android:layout_height="450dp"
             android:layout_width="match_parent"
             android:layout_marginBottom="1dp"
             android:layout_marginLeft="50dp"
@@ -75,6 +76,20 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:layout_centerInParent="true"
         />
+
+       
+        <ImageView
+        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
+        android:adjustViewBounds="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/tinypic"
+        android:contentDescription="@+string/ImageText2"
+        android:src="@drawable/pinkflower" />
   
 
     </LinearLayout>

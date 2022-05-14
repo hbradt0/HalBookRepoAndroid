@@ -56,7 +56,7 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidKeyStore>false</AndroidKeyStore>
-    <AndroidPackageFormat>aab</AndroidPackageFormat>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
   </PropertyGroup>
@@ -197,6 +197,19 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_image.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pinkflower.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\MainTitlePic1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\blueflowers.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidResource>
   </ItemGroup>

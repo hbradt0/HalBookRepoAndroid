@@ -88,7 +88,7 @@ namespace HalBookAppAndroid
             //Image view
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
-            imageView.SetImageResource(Resource.Drawable.pic5);
+            imageView.SetImageResource(Resource.Drawable.blueflowers);
             //imageView.Click += ImageOnClick;
 
             //Initialize
@@ -111,7 +111,7 @@ namespace HalBookAppAndroid
             }
             else
             {
-                imageView.SetImageResource(Resource.Drawable.pic5);
+                imageView.SetImageResource(Resource.Drawable.blueflowers);
             }
 
             //Properties
@@ -119,7 +119,7 @@ namespace HalBookAppAndroid
             Button1.Text = "Click to Read";
 
             //titleText.Text = "Create Your Story!";
-            titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -372,7 +372,7 @@ namespace HalBookAppAndroid
             //Image view
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
-            imageView.SetImageResource(Resource.Drawable.pic5);
+            imageView.SetImageResource(Resource.Drawable.blueflowers);
             //imageView.Click += ImageOnClick;
 
             //Initialize
@@ -395,14 +395,14 @@ namespace HalBookAppAndroid
             }
             else
             {
-                imageView.SetImageResource(Resource.Drawable.pic5);
+                imageView.SetImageResource(Resource.Drawable.blueflowers);
             }
             //Properties
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
             //titleText.Text = "Create Your Story!";
-            titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -423,7 +423,7 @@ namespace HalBookAppAndroid
             //Image view
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
-            imageView.SetImageResource(Resource.Drawable.pic5);
+            imageView.SetImageResource(Resource.Drawable.blueflowers);
             //imageView.Click += ImageOnClick;
 
             //Initialize
@@ -446,7 +446,7 @@ namespace HalBookAppAndroid
             }
             else
             {
-                imageView.SetImageResource(Resource.Drawable.pic5);
+                imageView.SetImageResource(Resource.Drawable.blueflowers);
             }
             
             //Properties
@@ -454,7 +454,7 @@ namespace HalBookAppAndroid
             Button1.Text = "Click to Read";
 
             //titleText.Text = "Create Your Story!";
-            titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -490,7 +490,7 @@ namespace HalBookAppAndroid
                 }
                 else
                 {
-                    imageView.SetImageResource(Resource.Drawable.pic5);
+                    imageView.SetImageResource(Resource.Drawable.blueflowers);
 
                 }
                 if (togglePicture >= 2)
@@ -513,11 +513,11 @@ namespace HalBookAppAndroid
                 }
                 else if (togglePicture == 2)
                 {
-                    imageView.SetImageResource(Resource.Drawable.pic8);
+                    imageView.SetImageResource(Resource.Drawable.pinkflower);
                 }
                 else
                 {
-                    imageView.SetImageResource(Resource.Drawable.pic5);
+                    imageView.SetImageResource(Resource.Drawable.blueflowers);
                 }
                 if (togglePicture >= 3)
                     togglePicture = 0;
@@ -527,9 +527,9 @@ namespace HalBookAppAndroid
             else
             {
                 if (togglePicture >= 1)
-                    imageView.SetImageResource(Resource.Drawable.pic5);
+                    imageView.SetImageResource(Resource.Drawable.blueflowers);
                 else
-                    imageView.SetImageResource(Resource.Drawable.pic8);
+                    imageView.SetImageResource(Resource.Drawable.pinkflower);
                 if (togglePicture >= 1)
                     togglePicture = 0;
                 else
@@ -573,7 +573,7 @@ namespace HalBookAppAndroid
             //Image view
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
-            imageView.SetImageResource(Resource.Drawable.pic5);
+            imageView.SetImageResource(Resource.Drawable.blueflowers);
             //imageView.Click += ImageOnClick;
 
             //Initialize
@@ -596,14 +596,14 @@ namespace HalBookAppAndroid
             }
             else
             {
-                imageView.SetImageResource(Resource.Drawable.pic5);
+                imageView.SetImageResource(Resource.Drawable.blueflowers);
             }
             //Properties
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
             //titleText.Text = "Create Your Story!";
-            titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -1022,14 +1022,32 @@ namespace HalBookAppAndroid
             }
             else
             {
-                imagechoosephoto.SetImageResource(Resource.Drawable.pic5);
+                imagechoosephoto.SetImageResource(Resource.Drawable.blueflowers);
             }
 
+            var imagechoosephoto1 = FindViewById<ImageView>(Resource.Id.tinypic);
+            imagechoosephoto1.SetImageResource(Resource.Drawable.pinkflower);
+
             //Clicks
+            imagechoosephoto1.Click += ButtonImageSwitchClick1;
             ImagePageBack.Click += ButtonbackyourstoryscreenClick;
             ButtonShareImagePage.Click += ButtonClickDateImagePage;
             ChoosePhoto.Click += ChooseMyPhoto;
             ChooseCameraPhoto.Click += ButtonImageUploadClick;
+        }
+
+        public void ButtonImageSwitchClick1(object sender, EventArgs eventArgs)
+        { 
+                var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
+                if (System.IO.File.Exists(fileName2))
+                {
+                    System.IO.File.Delete(fileName2);
+                    imagechoosephoto.SetImageResource(Resource.Drawable.blueflowers);
+                }
+                else
+                {
+                    imagechoosephoto.SetImageResource(Resource.Drawable.blueflowers);
+                }
         }
 
         //Change the photo upon toggle
@@ -1045,7 +1063,7 @@ namespace HalBookAppAndroid
             }
             else
             {
-                imagechoosephoto.SetImageResource(Resource.Drawable.pic5);
+                imagechoosephoto.SetImageResource(Resource.Drawable.pinkflower);
             }
 
         }

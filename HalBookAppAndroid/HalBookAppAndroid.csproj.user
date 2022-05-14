@@ -4,7 +4,7 @@
     <SelectedDevice>maindevice</SelectedDevice>
     <ActiveDebugProfile>maindevice</ActiveDebugProfile>
     <DefaultDevice>maindevice</DefaultDevice>
-    <AndroidDesignerPreferredDevice>Nexus 7 2013</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
