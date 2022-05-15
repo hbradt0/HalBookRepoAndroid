@@ -78,6 +78,8 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ChooseCameraPhoto;
         public Android.Widget.Button ButtonShareImagePage;
         public Android.Widget.Button savedImageButton;
+        public Android.Widget.ImageView titletoggle;
+        int toggletitle1 = 1;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -118,8 +120,16 @@ namespace HalBookAppAndroid
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
-            //titleText.Text = "Create Your Story!";
-            titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
+            if (savedInstanceState != null)
+                toggletitle1 = savedInstanceState.GetInt("toggletitle1", 0);
+            if (toggletitle1 == 0)
+            {
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            }
+            else
+            {
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
+            }
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -139,6 +149,7 @@ namespace HalBookAppAndroid
         protected override void OnSaveInstanceState(Bundle outState)
         {
             outState.PutInt("textViewLocation", textViewLocation);
+            outState.PutInt("toggletitle", toggletitle1);
             base.OnSaveInstanceState(outState);
         }
 
@@ -401,8 +412,14 @@ namespace HalBookAppAndroid
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
-            //titleText.Text = "Create Your Story!";
-            titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
+            if (toggletitle1 == 0)
+            {
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            }
+            else
+            {
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
+            }
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -453,8 +470,14 @@ namespace HalBookAppAndroid
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
-            //titleText.Text = "Create Your Story!";
-            titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
+            if (toggletitle1 == 0)
+            {
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            }
+            else
+            {
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
+            }
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -602,8 +625,14 @@ namespace HalBookAppAndroid
             textView2.Text = "Click mail to share your story!";
             Button1.Text = "Click to Read";
 
-            //titleText.Text = "Create Your Story!";
-            titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
+            if (toggletitle1 == 0)
+            {
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic);
+            }
+            else
+            {
+                titleText.SetImageResource(Resource.Drawable.MainTitlePic1);
+            }
             Buttonyourstoryscreen.Text = "Create your journal";
 
             ButtonTodoList.Text = "Create To Do List";
@@ -1028,12 +1057,44 @@ namespace HalBookAppAndroid
             var imagechoosephoto1 = FindViewById<ImageView>(Resource.Id.tinypic);
             imagechoosephoto1.SetImageResource(Resource.Drawable.pinkflower);
 
+            titletoggle = FindViewById<ImageView>(Resource.Id.titletoggle);
+            if (toggletitle1 == 0)
+            {
+                titletoggle.SetImageResource(Resource.Drawable.MainTitlePic);
+            }
+            else
+            {
+                titletoggle.SetImageResource(Resource.Drawable.MainTitlePic1);
+            }
+
             //Clicks
             imagechoosephoto1.Click += ButtonImageSwitchClick1;
+            titletoggle.Click += ButtonTitleToggleClick;
             ImagePageBack.Click += ButtonbackyourstoryscreenClick;
             ButtonShareImagePage.Click += ButtonClickDateImagePage;
             ChoosePhoto.Click += ChooseMyPhoto;
             ChooseCameraPhoto.Click += ButtonImageUploadClick;
+        }
+        public void ButtonTitleToggleClick(object sender, EventArgs eventArgs)
+        {
+            if (toggletitle1 == 0)
+            {
+                toggletitle1 = 1;
+            }
+            else
+            {
+                toggletitle1 = 0;
+            }
+            if (toggletitle1 == 0)
+            {
+                titletoggle.SetImageResource(Resource.Drawable.MainTitlePic);
+            }
+            else
+            {
+                titletoggle.SetImageResource(Resource.Drawable.MainTitlePic1);
+            }
+
+
         }
 
         public void ButtonImageSwitchClick1(object sender, EventArgs eventArgs)

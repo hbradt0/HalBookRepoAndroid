@@ -350,17 +350,17 @@ map_modules:
 	.zero	4
 	.xword	0
 
-	/* module_uuid: 9f23b1d3-9a84-4812-94da-bb5319b8cab9 */
-	.byte	0xd3, 0xb1, 0x23, 0x9f, 0x84, 0x9a, 0x12, 0x48, 0x94, 0xda, 0xbb, 0x53, 0x19, 0xb8, 0xca, 0xb9
+	/* module_uuid: 22ab85d9-c40c-4739-b6fe-c7ac6cfd022e */
+	.byte	0xd9, 0x85, 0xab, 0x22, 0x0c, 0xc4, 0x39, 0x47, 0xb6, 0xfe, 0xc7, 0xac, 0x6c, 0xfd, 0x02, 0x2e
 	/* entry_count */
 	.word	1
 	/* duplicate_count */
-	.word	0
+	.word	1
 	/* map */
 	.xword	module16_managed_to_java
 	/* duplicate_map */
-	.xword	0
-	/* assembly_name: HalBookAppAndroid */
+	.xword	module16_managed_to_java_duplicates
+	/* assembly_name: Xamarin.Google.Guava.ListenableFuture */
 	.xword	.L.map_aname.16
 	/* image */
 	.xword	0
@@ -370,17 +370,17 @@ map_modules:
 	.zero	4
 	.xword	0
 
-	/* module_uuid: 22ab85d9-c40c-4739-b6fe-c7ac6cfd022e */
-	.byte	0xd9, 0x85, 0xab, 0x22, 0x0c, 0xc4, 0x39, 0x47, 0xb6, 0xfe, 0xc7, 0xac, 0x6c, 0xfd, 0x02, 0x2e
+	/* module_uuid: b8d48bdc-bab4-4d69-a2b8-4ea67f6192ad */
+	.byte	0xdc, 0x8b, 0xd4, 0xb8, 0xb4, 0xba, 0x69, 0x4d, 0xa2, 0xb8, 0x4e, 0xa6, 0x7f, 0x61, 0x92, 0xad
 	/* entry_count */
 	.word	1
 	/* duplicate_count */
-	.word	1
+	.word	0
 	/* map */
 	.xword	module17_managed_to_java
 	/* duplicate_map */
-	.xword	module17_managed_to_java_duplicates
-	/* assembly_name: Xamarin.Google.Guava.ListenableFuture */
+	.xword	0
+	/* assembly_name: HalBookAppAndroid */
 	.xword	.L.map_aname.17
 	/* image */
 	.xword	0
@@ -2554,7 +2554,7 @@ map_java:
 
 	/* #237 */
 	/* module_index */
-	.word	17
+	.word	16
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2905,7 +2905,7 @@ map_java:
 
 	/* #276 */
 	/* module_index */
-	.word	16
+	.word	17
 	/* type_token_id */
 	.word	33554434
 	/* java_name */

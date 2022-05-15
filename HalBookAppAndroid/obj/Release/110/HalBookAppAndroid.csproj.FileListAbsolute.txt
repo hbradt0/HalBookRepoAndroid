@@ -10,6 +10,7 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\MonoAndroid,Version=v11.0.AssemblyAttributes.cs
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\build.props
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\adb.props
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.csproj.AssemblyReference.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res.flag
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\1\jl\files.cache
@@ -76,6 +77,9 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\layout\activity_user_edit.xml
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\maintitlepic.png
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\layout\activity_image.xml
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\pinkflower.png
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\maintitlepic1.png
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\blueflowers.jpg
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\uploadflags.txt
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\resolvedassemblies.hash
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\link.flag
@@ -203,7 +207,3 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\stamp\_GenerateJavaStubs.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.csproj.AssemblyReference.cache
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\pinkflower.png
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\maintitlepic1.png
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\blueflowers.jpg
