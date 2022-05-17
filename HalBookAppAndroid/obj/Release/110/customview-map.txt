@@ -22,8 +22,12 @@ external-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAnd
 external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
+GridLayout;obj\Release\110\res\layout\activity_image.xml
 ImageView;obj\Release\110\res\layout\activity_image.xml
 ImageView;obj\Release\110\res\layout\activity_main.xml
+ImageView;obj\Release\110\res\layout\activity_todo.xml
+ImageView;obj\Release\110\res\layout\activity_user.xml
+ImageView;obj\Release\110\res\layout\activity_user_main.xml
 item;obj\Release\110\res\drawable\buttoncolor.xml
 item;obj\Release\110\res\menu\menu_main.xml
 item;obj\Release\110\res\values\styles.xml

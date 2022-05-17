@@ -25,6 +25,28 @@
         android:layout_centerInParent="true"
         android:layout_gravity="top" />
 
+        <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/dayspriorjournal"
+        android:layout_gravity="left"
+        android:layout_weight="1"
+        android:inputType="textEmailAddress" />
+        
+        <ImageView
+            android:layout_width="181.5dp"
+            android:layout_height="40dp"
+            android:id="@+id/todosharejournal"
+            android:layout_marginRight="200dp"
+            android:layout_marginLeft="70dp"
+            android:layout_above="@+id/Instructions"
+            android:contentDescription="@+string/ImageText"
+            android:src="@android:drawable/ic_menu_share"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -42,6 +64,7 @@
         android:isScrollContainer="true"
         android:background="@drawable/bordertext"
         android:scrollbars = "vertical"/>
+
 
     <EditText
         android:layout_height="45dp"

@@ -41,13 +41,15 @@ namespace HalBookAppAndroid
         public Android.Widget.Button Buttonbackyourstory;
         public Android.Widget.Button Buttonyourstoryscreen;
         public Android.Widget.Button ButtonyourstoryscreenUpload;
-        public Android.Widget.Button ButtonDelete;
+        public Android.Widget.ImageView ButtonDelete;
         public Android.Widget.Button ButtonDelete1Line;
         public AppCompatAutoCompleteTextView readInfo;
         public Android.Widget.ImageView imageView;
         public Android.Widget.Button ImageCalendar;
         int togglePicture;
         int textViewLocation = 0;
+        public Android.Widget.EditText editTextDateJournal;
+        public Android.Widget.ImageView ShareTodoJournal;
 
         //TODO view
         public Android.Widget.EditText editTextTodo;
@@ -55,14 +57,14 @@ namespace HalBookAppAndroid
         public Android.Widget.TextView textViewTodo;
         public Android.Widget.Button ButtonTodoList;
         public Android.Widget.Button ButtonTodoUpload;
-        public Android.Widget.Button ButtonTodoDelete;
+        public Android.Widget.ImageView ButtonTodoDelete;
         public Android.Widget.Button ButtonTodoDelete1Line;
         public Android.Widget.Button ButtonbackTodo;
-        public Android.Widget.Button ShareTodo;
+        public Android.Widget.ImageView ShareTodo;
         public Android.Widget.Button ReadHiddenJournal;
 
         //Date 
-        public Android.Widget.Button ButtonDateShare;
+        public Android.Widget.ImageView ButtonDateShare;
         public Android.Widget.TextView editTextDateShare;
 
         //Button
@@ -74,9 +76,9 @@ namespace HalBookAppAndroid
         //Image view
         public Android.Widget.ImageView imagechoosephoto;
         public Android.Widget.Button ImagePageBack;
-        public Android.Widget.Button ChoosePhoto;
-        public Android.Widget.Button ChooseCameraPhoto;
-        public Android.Widget.Button ButtonShareImagePage;
+        public Android.Widget.ImageView ChoosePhoto;
+        public Android.Widget.ImageView ChooseCameraPhoto;
+        public Android.Widget.ImageView ButtonShareImagePage;
         public Android.Widget.Button savedImageButton;
         public Android.Widget.ImageView titletoggle;
         int toggletitle1 = 1;
@@ -161,6 +163,10 @@ namespace HalBookAppAndroid
             Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
             var hiddenbutton = FindViewById<Android.Widget.Button>(Resource.Id.hiddenbutton);
             var hidemybuttontext = FindViewById<Android.Widget.EditText>(Resource.Id.hiddenbuttontext);
+            ShareTodoJournal = FindViewById<Android.Widget.ImageView>(Resource.Id.todosharejournal);
+            editTextDateJournal = FindViewById<Android.Widget.EditText>(Resource.Id.dayspriorjournal);
+            editTextDateJournal.Hint = "0 days";
+            ShareTodoJournal.SetImageResource(Resource.Drawable.share);
 
             //Properties with
             Button3.Text = "Back";
@@ -175,8 +181,20 @@ namespace HalBookAppAndroid
             hiddenbutton.Text = "Code";
             hidemybuttontext.Hint = "type 'help'";
 
+            ShareTodoJournal.Click += ShareTodoJournalClick;
             //Clicks
             hiddenbutton.Click += hiddenbuttonclick;
+        }
+        private void ShareTodoJournalClick(object sender, EventArgs eventArgs)
+        {
+            int i = 0;
+            Int32.TryParse(editTextDateJournal.Text, out i);
+            String txt = EmailReader.EmailFileRead.ReadFileFromDate(EmailFileRead.fileName1, i);
+            Intent intentsend = new Intent();
+            intentsend.SetAction(Intent.ActionSend);
+            intentsend.PutExtra(Intent.ExtraText, txt);
+            intentsend.SetType("text/plain");
+            StartActivity(intentsend);
         }
 
         private void hiddenbuttonclick(object sender, EventArgs eventArgs)
@@ -226,11 +244,13 @@ namespace HalBookAppAndroid
             editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
             Buttonbackyourstory = FindViewById<Android.Widget.Button>(Resource.Id.back1);
             ButtonyourstoryscreenUpload = FindViewById<Android.Widget.Button>(Resource.Id.upload);
-            ButtonDelete = FindViewById<Android.Widget.Button>(Resource.Id.freshstart);
+            ButtonDelete = FindViewById<Android.Widget.ImageView>(Resource.Id.freshstart);
             ButtonDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.delete1line);
-            ButtonDateShare = FindViewById<Android.Widget.Button>(Resource.Id.buttonDateText);
+            ButtonDateShare = FindViewById<Android.Widget.ImageView>(Resource.Id.buttonDateText);
             editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
             ButtonGoToEditPageStart = FindViewById<Android.Widget.Button>(Resource.Id.EditJournalPage);
+
+            ButtonDateShare.SetImageResource(Resource.Drawable.share);
 
             //var v = WindowManager.MaximumWindowMetrics.Bounds.Bottom;
             // if (v<1000)
@@ -239,8 +259,7 @@ namespace HalBookAppAndroid
             // }
             Buttonbackyourstory.Text = "Back";
             ButtonyourstoryscreenUpload.Text = "Submit";
-            ButtonDelete.Text = "Reset";
-            ButtonDateShare.Text = "Share Entry";
+            //ButtonDateShare.Text = "Share Entry";
             ButtonGoToEditPageStart.Text = "Edit Full Journal";
 
             editTextWrite.SetScrollContainer(true);
@@ -248,6 +267,7 @@ namespace HalBookAppAndroid
             editTextWrite.Hint = "Your entry here...";
             editTextWrite.SetHeight(300);
             ButtonDelete1Line.Text = "Delete previous line";
+            ButtonDelete.SetBackgroundColor(Android.Graphics.Color.Red);
 
             textViewWrite.SetScrollContainer(true);
             textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
@@ -652,16 +672,16 @@ namespace HalBookAppAndroid
             editTextTodo = FindViewById<Android.Widget.EditText>(Resource.Id.todowrite);
             ButtonbackTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoback);
             ButtonTodoUpload = FindViewById<Android.Widget.Button>(Resource.Id.todoupload);
-            ButtonTodoDelete = FindViewById<Android.Widget.Button>(Resource.Id.todofreshstart);
+            ButtonTodoDelete = FindViewById<Android.Widget.ImageView>(Resource.Id.todofreshstart);
             ButtonTodoDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.tododelete1line);
-            ShareTodo = FindViewById<Android.Widget.Button>(Resource.Id.todoshare);
+            ShareTodo = FindViewById<Android.Widget.ImageView>(Resource.Id.todoshare);
             editTextDate = FindViewById<Android.Widget.EditText>(Resource.Id.daysprior);
             editTextDate.Hint = "0 days";
 
             ButtonbackTodo.Text = "Back";
             ButtonTodoUpload.Text = "Submit";
             ButtonTodoDelete.SetBackgroundColor(Android.Graphics.Color.Red);
-            ButtonTodoDelete.Text = "Reset";
+            //ButtonTodoDelete.Text = "Reset";
 
             editTextTodo.SetScrollContainer(true);
             editTextTodo.Parent.RequestDisallowInterceptTouchEvent(false);
@@ -674,7 +694,9 @@ namespace HalBookAppAndroid
             ButtonTodoUpload.Click += ButtonTodoUploadClick;
             ButtonTodoDelete.Click += ButtonTodoDeleteClick;
             ButtonTodoDelete1Line.Click += ButtonTodoDeleteOneLineClick;
-            ShareTodo.Text = "Share Today";
+            ShareTodo.SetImageResource(Resource.Drawable.share);
+
+            //ShareTodo.Text = "Share Today";
             ShareTodo.Click += ShareTodoClick;
 
             textViewTodo.SetScrollContainer(true);
@@ -770,9 +792,9 @@ namespace HalBookAppAndroid
             editTextWrite = FindViewById<Android.Widget.EditText>(Resource.Id.edityours);
             Buttonbackyourstory = FindViewById<Android.Widget.Button>(Resource.Id.back1);
             ButtonyourstoryscreenUpload = FindViewById<Android.Widget.Button>(Resource.Id.upload);
-            ButtonDelete = FindViewById<Android.Widget.Button>(Resource.Id.freshstart);
+            ButtonDelete = FindViewById<Android.Widget.ImageView>(Resource.Id.freshstart);
             ButtonDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.delete1line);
-            ButtonDateShare = FindViewById<Android.Widget.Button>(Resource.Id.buttonDateText);
+            ButtonDateShare = FindViewById<Android.Widget.ImageView>(Resource.Id.buttonDateText);
             editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
             ButtonGoToEditPageStart = FindViewById<Android.Widget.Button>(Resource.Id.EditJournalPage);
 
@@ -783,8 +805,8 @@ namespace HalBookAppAndroid
             // }
             Buttonbackyourstory.Text = "Back";
             ButtonyourstoryscreenUpload.Text = "Submit";
-            ButtonDelete.Text = "Reset";
-            ButtonDateShare.Text = "Share Entry";
+            //ButtonDelete.Text = "Reset";
+            //ButtonDateShare.Text = "Share Entry";
             ButtonGoToEditPageStart.Text = "Edit Full Journal";
 
             editTextWrite.SetScrollContainer(true);
@@ -792,6 +814,7 @@ namespace HalBookAppAndroid
             editTextWrite.Hint = "Your entry here...";
             editTextWrite.SetHeight(300);
             ButtonDelete1Line.Text = "Delete previous line";
+            ButtonDateShare.SetImageResource(Resource.Drawable.share);
 
             textViewWrite.SetScrollContainer(true);
             textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
@@ -1030,18 +1053,21 @@ namespace HalBookAppAndroid
             SetContentView(Resource.Layout.activity_image);
             imagechoosephoto = FindViewById<ImageView>(Resource.Id.chooseimagephoto);
             ImagePageBack = FindViewById<Android.Widget.Button>(Resource.Id.BackImageScreen);
-            ChoosePhoto = FindViewById<Android.Widget.Button>(Resource.Id.chooseimage);
-            ChooseCameraPhoto = FindViewById<Android.Widget.Button>(Resource.Id.camerapicture);
-            ButtonShareImagePage = FindViewById<Android.Widget.Button>(Resource.Id.imageDatePick);
+            ChoosePhoto = FindViewById<Android.Widget.ImageView>(Resource.Id.chooseimage);
+            ChooseCameraPhoto = FindViewById<Android.Widget.ImageView>(Resource.Id.camerapicture);
+            ButtonShareImagePage = FindViewById<Android.Widget.ImageView>(Resource.Id.imageDatePick);
 
-            ChoosePhoto.Text = "Choose Photo";
+            //ChoosePhoto.Text = "Choose Photo";
             ImagePageBack.Text = "Back";
-            ChooseCameraPhoto.Text = "Camera";
-            ButtonShareImagePage.Text = "Share";
+            //ChooseCameraPhoto.Text = "Camera";
+            //ButtonShareImagePage.Text = "Share";
 
+            ChoosePhoto.SetImageResource(Resource.Drawable.gallery);
+            ChooseCameraPhoto.SetImageResource(Resource.Drawable.camera);
 
             CheckPermission("camera");
             CheckPermission("pickimage");
+            ButtonShareImagePage.SetImageResource(Resource.Drawable.share);
 
             var fileName2 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "image.jpg");
             if (System.IO.File.Exists(fileName2))
