@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-		<item name="android:colorAccent">#000000</item><item name="android:colorControlActivated">#ffba68c8</item><item name="android:colorBackground">#fffdd7fd</item><item name="android:windowBackground">?android:attr/colorBackground</item><item name="android:colorPrimary">#ffffffff</item></style>
+		<item name="android:colorAccent">#000000</item><item name="android:colorControlActivated">#ffba68c8</item><item name="android:colorPrimary">#ffffffff</item><item name="android:colorBackground">#ffe7e6ff</item><item name="android:windowBackground">?android:attr/colorBackground</item></style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

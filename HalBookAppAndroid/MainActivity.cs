@@ -237,6 +237,10 @@ namespace HalBookAppAndroid
             hiddenbutton.Text = "Code";
             hidemybuttontext.Hint = "type 'help'";
 
+            codeText.SetScrollContainer(true);
+            codeText.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            codeText.Parent.RequestDisallowInterceptTouchEvent(false);
+
             String codesneeded = "";
             if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 1))
             {
@@ -371,7 +375,7 @@ namespace HalBookAppAndroid
 
         private void shareClick(object sender, EventArgs eventArgs)
         {
-            String txt = storytextView.Text;
+            String txt = storytextView.Text+"\nCreate Your Story";
             Intent intentsend = new Intent();
             intentsend.SetAction(Intent.ActionSend);
             intentsend.PutExtra(Intent.ExtraText, txt);
@@ -393,7 +397,6 @@ namespace HalBookAppAndroid
             ButtonDateShare = FindViewById<Android.Widget.ImageView>(Resource.Id.buttonDateText);
             ButtonGoToEditPageStart = FindViewById<Android.Widget.Button>(Resource.Id.EditJournalPage);
             editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
-
             ButtonDateShare.SetImageResource(Resource.Drawable.share);
 
             //var v = WindowManager.MaximumWindowMetrics.Bounds.Bottom;
@@ -405,13 +408,13 @@ namespace HalBookAppAndroid
             ButtonyourstoryscreenUpload.Text = "Submit";
             //ButtonDateShare.Text = "Share Entry";
             ButtonGoToEditPageStart.Text = "Edit Full Journal";
+            ButtonDelete.SetImageResource(Resource.Drawable.PhotoReset);
 
             editTextWrite.SetScrollContainer(true);
             editTextWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
             editTextWrite.Hint = "Your entry here...";
             editTextWrite.SetHeight(300);
             ButtonDelete1Line.Text = "Delete previous line";
-            ButtonDelete.SetBackgroundColor(Android.Graphics.Color.Red);
 
             textViewWrite.SetScrollContainer(true);
             textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
@@ -824,7 +827,7 @@ namespace HalBookAppAndroid
 
             ButtonbackTodo.Text = "Back";
             ButtonTodoUpload.Text = "Submit";
-            ButtonTodoDelete.SetBackgroundColor(Android.Graphics.Color.Red);
+            ButtonTodoDelete.SetImageResource(Resource.Drawable.PhotoReset);
             //ButtonTodoDelete.Text = "Reset";
 
             editTextTodo.SetScrollContainer(true);
@@ -958,7 +961,7 @@ namespace HalBookAppAndroid
             editTextWrite.SetHeight(300);
             ButtonDelete1Line.Text = "Delete previous line";
             ButtonDateShare.SetImageResource(Resource.Drawable.share);
-            ButtonDelete.SetBackgroundColor(Android.Graphics.Color.Red);
+            ButtonDelete.SetImageResource(Resource.Drawable.PhotoReset);
 
             textViewWrite.SetScrollContainer(true);
             textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();

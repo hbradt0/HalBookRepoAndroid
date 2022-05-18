@@ -4751,19 +4751,20 @@ public final class R {
     public static final int notification_template_icon_low_bg=0x7f07008b;
     public static final int notification_tile_bg=0x7f07008c;
     public static final int notify_panel_notification_icon_bg=0x7f07008d;
-    public static final int pic5=0x7f07008e;
-    public static final int pic8=0x7f07008f;
-    public static final int pinkflower=0x7f070090;
-    public static final int reflections=0x7f070091;
-    public static final int reflections2=0x7f070092;
-    public static final int share=0x7f070093;
-    public static final int story1=0x7f070094;
-    public static final int story10=0x7f070095;
-    public static final int story25=0x7f070096;
-    public static final int story50=0x7f070097;
-    public static final int tooltip_frame_dark=0x7f070098;
-    public static final int tooltip_frame_light=0x7f070099;
-    public static final int wintext=0x7f07009a;
+    public static final int photoreset=0x7f07008e;
+    public static final int pic5=0x7f07008f;
+    public static final int pic8=0x7f070090;
+    public static final int pinkflower=0x7f070091;
+    public static final int reflections=0x7f070092;
+    public static final int reflections2=0x7f070093;
+    public static final int share=0x7f070094;
+    public static final int story1=0x7f070095;
+    public static final int story10=0x7f070096;
+    public static final int story25=0x7f070097;
+    public static final int story50=0x7f070098;
+    public static final int tooltip_frame_dark=0x7f070099;
+    public static final int tooltip_frame_light=0x7f07009a;
+    public static final int wintext=0x7f07009b;
   }
   public static final class id {
     public static final int ALT=0x7f080000;

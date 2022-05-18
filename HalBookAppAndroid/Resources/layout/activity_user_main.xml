@@ -38,7 +38,7 @@
         android:inputType="textEmailAddress" />
         
        <ImageView
-            android:layout_height="40dp"
+            android:layout_height="42dp"
             android:layout_width="match_parent"
             android:layout_marginBottom="2dp"
             android:layout_marginTop="2dp"
@@ -67,14 +67,25 @@
         android:background="@drawable/bordertext"
         android:scrollbars = "vertical"/>
 
+       <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/codeText"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:isScrollContainer="true"
+        android:scrollbars = "vertical"/>
 
-    <EditText
+        <EditText
         android:layout_height="45dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="2dp"
         android:layout_marginTop="2dp"
-        android:layout_marginRight="200dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:id="@+id/hiddenbuttontext"
         android:layout_gravity="top"
         android:inputType="textEmailAddress" />
@@ -84,31 +95,14 @@
         android:layout_width="match_parent"
         android:layout_marginBottom="2dp"
         android:layout_marginTop="2dp"
-        android:layout_marginRight="200dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:id="@+id/hiddenbutton"
         android:text="@+string/BackText"
         android:layout_centerInParent="true"
         android:layout_gravity="left"
         android:backgroundTint="@android:color/holo_blue_light"
         android:background="@drawable/ButtonColor"/>
-
-       <TextView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_weight="4"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:id="@+id/codeText"
-        android:textSize="20sp"
-        android:textColor="@android:color/holo_purple"
-        android:layout_centerInParent="true"
-        android:text="@+string/TextViewText"
-        android:isScrollContainer="true"
-        android:background="@drawable/bordertext"
-        android:scrollbars = "vertical"/>
 
     </LinearLayout>
 </ScrollView>

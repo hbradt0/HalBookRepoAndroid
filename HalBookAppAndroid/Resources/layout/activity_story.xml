@@ -25,17 +25,6 @@
         android:layout_centerInParent="true"
         android:layout_gravity="top" />
         
-        <ImageView
-            android:layout_height="40dp"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="120dp"
-            android:layout_marginLeft="0dp"
-            android:id="@+id/sharestory"
-            android:contentDescription="@+string/ImageText"
-            android:src="@android:drawable/ic_menu_share"/>
-
      <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -48,7 +37,6 @@
             android:layout_centerInParent="true"
             android:contentDescription="@+string/ImageText2"
             android:src="@drawable/maintitlepic" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -66,7 +54,16 @@
         android:background="@drawable/bordertext"
         android:scrollbars = "vertical"/>
 
-      
+        <ImageView
+        android:layout_height="42dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginLeft="0dp"
+        android:id="@+id/sharestory"
+        android:contentDescription="@+string/ImageText"
+        android:src="@android:drawable/ic_menu_share"/>
 
     </LinearLayout>
 </ScrollView>

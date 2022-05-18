@@ -39,7 +39,7 @@
         android:inputType="textEmailAddress" />
         
         <ImageView
-        android:layout_height="40dp"
+        android:layout_height="42dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="2dp"
         android:layout_marginTop="2dp"
@@ -56,10 +56,10 @@
 
         <ImageView
         android:layout_height="40dp"
-        android:layout_width="42dp"
+        android:layout_width="match_parent"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="1dp"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="110dp"
         android:layout_marginLeft="230dp"
         android:id="@+id/todofreshstart"
         android:contentDescription="@+string/ImageText"

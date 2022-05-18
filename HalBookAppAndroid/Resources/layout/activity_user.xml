@@ -27,22 +27,9 @@
         android:layout_centerInParent="true"
         android:layout_gravity="top" />
         
-        <ImageView
-        android:layout_height="40dp"
-        android:layout_width="42dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginLeft="230dp"
-        android:id="@+id/freshstart"
-        android:text="@+string/freshstart"
-        android:contentDescription="@+string/ImageText"
-        android:src="@android:drawable/ic_menu_delete"
-        />
-
         <ImageView  
         android:text="Pick Date"  
-        android:layout_height="40dp"
+        android:layout_height="42dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="1dp"
@@ -55,12 +42,19 @@
         android:id="@+id/buttonDateText"
         /> 
 
-        <TextView
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:visibility="gone"
-        android:id="@+id/editTextDateShare"
-       />
+ 
+       <ImageView
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginLeft="230dp"
+        android:id="@+id/freshstart"
+        android:text="@+string/freshstart"
+        android:contentDescription="@+string/ImageText"
+        android:src="@android:drawable/ic_menu_delete"
+        />
 
         <TextView
         android:layout_width="match_parent"
@@ -130,6 +124,13 @@
         android:text="@+string/freshstart"
         android:backgroundTint="@android:color/holo_blue_light"
         />
+
+        <TextView
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="gone"
+        android:id="@+id/editTextDateShare"
+       />
 
     </LinearLayout>
 </ScrollView>
