@@ -15,7 +15,6 @@ color;obj\Release\110\res\values\colors.xml
 color;obj\Release\110\res\values\ic_launcher_background.xml
 corners;obj\Release\110\res\drawable\buttoncolor.xml
 dimen;obj\Release\110\res\values\dimens.xml
-EditText;obj\Release\110\res\layout\activity_image.xml
 EditText;obj\Release\110\res\layout\activity_todo.xml
 EditText;obj\Release\110\res\layout\activity_user.xml
 EditText;obj\Release\110\res\layout\activity_user_edit.xml
@@ -34,7 +33,6 @@ item;obj\Release\110\res\drawable\buttoncolor.xml
 item;obj\Release\110\res\menu\menu_main.xml
 item;obj\Release\110\res\values\styles.xml
 layer-list;obj\Release\110\res\drawable\buttoncolor.xml
-LinearLayout;obj\Release\110\res\layout\activity_image.xml
 LinearLayout;obj\Release\110\res\layout\activity_main.xml
 LinearLayout;obj\Release\110\res\layout\activity_story.xml
 LinearLayout;obj\Release\110\res\layout\activity_todo.xml
