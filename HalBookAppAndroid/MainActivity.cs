@@ -33,6 +33,7 @@ namespace HalBookAppAndroid
         public Android.Widget.EditText editTextWrite;
         public Android.Widget.TextView textViewWrite;
         public Android.Widget.ImageView titleText;
+        public Android.Widget.TextView storytextView;
 
         //Buttons
         public Android.Widget.Button Button1;
@@ -48,6 +49,7 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ImageCalendar;
         int togglePicture;
         int textViewLocation = 0;
+        int textViewLocation1 = 0;
         public Android.Widget.EditText editTextDateJournal;
         public Android.Widget.ImageView ShareTodoJournal;
 
@@ -151,6 +153,7 @@ namespace HalBookAppAndroid
         protected override void OnSaveInstanceState(Bundle outState)
         {
             outState.PutInt("textViewLocation", textViewLocation);
+            outState.PutInt("textViewLocation1", textViewLocation1);
             outState.PutInt("toggletitle", toggletitle1);
             base.OnSaveInstanceState(outState);
         }
@@ -163,6 +166,7 @@ namespace HalBookAppAndroid
             Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
             var hiddenbutton = FindViewById<Android.Widget.Button>(Resource.Id.hiddenbutton);
             var hidemybuttontext = FindViewById<Android.Widget.EditText>(Resource.Id.hiddenbuttontext);
+            var codeText = FindViewById<Android.Widget.TextView>(Resource.Id.codeText);
             ShareTodoJournal = FindViewById<Android.Widget.ImageView>(Resource.Id.todosharejournal);
             editTextDateJournal = FindViewById<Android.Widget.EditText>(Resource.Id.dayspriorjournal);
             editTextDateJournal.Hint = "0 days";
@@ -181,10 +185,81 @@ namespace HalBookAppAndroid
             hiddenbutton.Text = "Code";
             hidemybuttontext.Hint = "type 'help'";
 
+            String codesneeded = "";
+            if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 1))
+            {
+                codesneeded = codesneeded + "\nstrcode1";
+            }
+            if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 7))
+            {
+                codesneeded = codesneeded + "\nstrcodexx10";
+            }
+            if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 14))
+            {
+                codesneeded = codesneeded + "\nstrcodex50";
+            }
+            if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 21))
+            {
+                codesneeded = codesneeded + "\nstrcodea100";
+            }
+            codeText.Text = "Codes Unlocked!!" + codesneeded;
+
             ShareTodoJournal.Click += ShareTodoJournalClick;
             //Clicks
             hiddenbutton.Click += hiddenbuttonclick;
         }
+
+        private void Button1ClickStory(object sender, EventArgs eventArgs)
+        {
+            textViewLocation1 = storytextView.ScrollY;
+            SetContentView(Resource.Layout.activity_user_main);
+            //Initialize
+            textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
+            Button3 = FindViewById<Android.Widget.Button>(Resource.Id.back);
+            var hiddenbutton = FindViewById<Android.Widget.Button>(Resource.Id.hiddenbutton);
+            var hidemybuttontext = FindViewById<Android.Widget.EditText>(Resource.Id.hiddenbuttontext);
+            var codeText = FindViewById<Android.Widget.TextView>(Resource.Id.codeText);
+            ShareTodoJournal = FindViewById<Android.Widget.ImageView>(Resource.Id.todosharejournal);
+            editTextDateJournal = FindViewById<Android.Widget.EditText>(Resource.Id.dayspriorjournal);
+            editTextDateJournal.Hint = "0 days";
+            ShareTodoJournal.SetImageResource(Resource.Drawable.share);
+
+            //Properties with
+            Button3.Text = "Back";
+            textView.SetScrollContainer(true);
+            textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            textView.Parent.RequestDisallowInterceptTouchEvent(false);
+            textView.ScrollTo(0, textViewLocation);
+            Button3.Click += Button3Click;
+            String texty = EmailFileRead.ReadText();
+            textView.Text = texty;
+            textViewLocation = textView.ScrollY;
+            hiddenbutton.Text = "Code";
+            hidemybuttontext.Hint = "type 'help'";
+
+            String codesneeded = "";
+            if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 1))
+            {
+                 codesneeded= codesneeded+"\nstrcode1";
+            }
+            if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 7))
+            {
+                codesneeded = codesneeded + "\nstrcodexx10";
+            }
+            if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 14))
+            {
+                codesneeded = codesneeded + "\nstrcodex50";
+            }
+            if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 21))
+            {
+                codesneeded = codesneeded + "\nstrcoder100";
+            }
+            codeText.Text = "Codes Unlocked!!" + codesneeded;
+            ShareTodoJournal.Click += ShareTodoJournalClick;
+            //Clicks
+            hiddenbutton.Click += hiddenbuttonclick;
+        }
+
         private void ShareTodoJournalClick(object sender, EventArgs eventArgs)
         {
             int i = 0;
@@ -201,32 +276,14 @@ namespace HalBookAppAndroid
         {
             var hidemybuttontext = FindViewById<Android.Widget.EditText>(Resource.Id.hiddenbuttontext);
             String pswd = hidemybuttontext.Text;
-            if (pswd == "secret_code")
+            if (pswd.ToLower() == "strcode1" || pswd.ToLower() == "strcodexx10" ||
+                pswd.ToLower() == "strcodex50" || pswd.ToLower() == "strcoder100"
+                || pswd.ToLower() == "stockhelm" || pswd.ToLower() == "emma stockhelm"
+                || pswd.ToLower() == "emma" || pswd.ToLower()=="help"
+                || pswd.ToLower()=="secret_code")
             {
-                textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
-                textView.SetScrollContainer(true);
-                textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-                textView.Parent.RequestDisallowInterceptTouchEvent(false);
-                textView.SetText(Resource.Drawable.Halbook);
-                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Halbook);
-                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
-                textView.Text = text;
-                var hiddenbutton = FindViewById<Android.Widget.Button>(Resource.Id.hiddenbutton);
-                hiddenbutton.Text = "Code";
-                hiddenbutton.Click += hiddenbuttonclick;
-            }
-            else if (pswd.ToLower() == "help")
-            {
-                textView = FindViewById<Android.Widget.TextView>(Resource.Id.bookText);
-                textView.SetScrollContainer(true);
-                textView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
-                textView.SetText(Resource.Drawable.Halbook);
-                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Reflections2);
-                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
-                textView.Text = text;
-                var hiddenbutton = FindViewById<Android.Widget.Button>(Resource.Id.hiddenbutton);
-                hiddenbutton.Text = "Code";
-                hiddenbutton.Click += hiddenbuttonclick;
+                EmailFileRead.code = pswd.ToLower();
+                SecretScreenClick(sender,eventArgs);
             }
             else
             {
@@ -234,6 +291,93 @@ namespace HalBookAppAndroid
             }
         }
 
+        private void SecretScreenClick(object sender, EventArgs eventArgs)
+        {
+            SetContentView(Resource.Layout.activity_story);
+            var shareStory = FindViewById<Android.Widget.ImageView>(Resource.Id.sharestory);
+            shareStory.SetImageResource(Resource.Drawable.share);
+            storytextView = FindViewById<Android.Widget.TextView>(Resource.Id.bookTextStoryScreen);
+            storytextView.SetScrollContainer(true);
+            storytextView.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+            storytextView.ScrollTo(0, textViewLocation1);
+            var storypic = FindViewById<Android.Widget.ImageView>(Resource.Id.storypic);
+            if (EmailFileRead.code.ToLower() == "secret_code")
+            {
+                storytextView.SetText(Resource.Drawable.Halbook);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Halbook);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                storytextView.Text = text;
+                storypic.SetImageResource(Resource.Drawable.blueflowers);
+            }
+            else if (EmailFileRead.code.ToLower() == "help")
+            {
+                storytextView.SetText(Resource.Drawable.Reflections2);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Reflections2);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                storytextView.Text = text;
+                storypic.SetImageResource(Resource.Drawable.blueflowers);
+
+            }
+            if (EmailFileRead.code.ToLower() == "strcode1")
+            {
+                storytextView.SetText(Resource.Drawable.Story1);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Story1);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                storytextView.Text = text;
+                storypic.SetImageResource(Resource.Drawable.chapter1);
+            }
+            else if (EmailFileRead.code.ToLower() == "strcodexx10")
+            {
+                storytextView.SetText(Resource.Drawable.Story10);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Story10);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                storytextView.Text = text;
+                storypic.SetImageResource(Resource.Drawable.chapter2);
+            }
+            else if (EmailFileRead.code.ToLower() == "strcodex50")
+            {
+                storytextView.SetText(Resource.Drawable.Story50);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Story25);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                storytextView.Text = text;
+                storypic.SetImageResource(Resource.Drawable.chapter3);
+            }
+            else if (EmailFileRead.code.ToLower() == "strcoder100")
+            {
+                storytextView.SetText(Resource.Drawable.Story50);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.Story50);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                storytextView.Text = text;
+                storypic.SetImageResource(Resource.Drawable.chapter4);
+            }
+            else if (EmailFileRead.code.ToLower() == "stockhelm" || EmailFileRead.code.ToLower() == "emma stockhelm"
+                || EmailFileRead.code.ToLower() == "emma")
+            {
+                storytextView.SetText(Resource.Drawable.WinText);
+                var is1 = this.Resources.OpenRawResource(Resource.Drawable.WinText);
+                String text = EmailReader.EmailFileRead.ReadTextFile(is1);
+                storytextView.Text = text;
+                storypic.SetImageResource(Resource.Drawable.chapter5);
+            }
+            else
+            {
+            }
+            textViewLocation1 = storytextView.ScrollY;
+            shareStory.Click += shareClick;
+            var hiddenbutton1 = FindViewById<Android.Widget.Button>(Resource.Id.backstoryscreen);
+            hiddenbutton1.Text = "Back";
+            hiddenbutton1.Click += Button1ClickStory;
+        }
+
+        private void shareClick(object sender, EventArgs eventArgs)
+        {
+            String txt = storytextView.Text;
+            Intent intentsend = new Intent();
+            intentsend.SetAction(Intent.ActionSend);
+            intentsend.PutExtra(Intent.ExtraText, txt);
+            intentsend.SetType("text/plain");
+            StartActivity(intentsend);
+        }
 
         //Create your story
         private void ButtonyourstoryscreenClick(object sender, EventArgs eventArgs)
@@ -247,8 +391,8 @@ namespace HalBookAppAndroid
             ButtonDelete = FindViewById<Android.Widget.ImageView>(Resource.Id.freshstart);
             ButtonDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.delete1line);
             ButtonDateShare = FindViewById<Android.Widget.ImageView>(Resource.Id.buttonDateText);
-            editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
             ButtonGoToEditPageStart = FindViewById<Android.Widget.Button>(Resource.Id.EditJournalPage);
+            editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
 
             ButtonDateShare.SetImageResource(Resource.Drawable.share);
 
@@ -795,7 +939,6 @@ namespace HalBookAppAndroid
             ButtonDelete = FindViewById<Android.Widget.ImageView>(Resource.Id.freshstart);
             ButtonDelete1Line = FindViewById<Android.Widget.Button>(Resource.Id.delete1line);
             ButtonDateShare = FindViewById<Android.Widget.ImageView>(Resource.Id.buttonDateText);
-            editTextDateShare = FindViewById<Android.Widget.TextView>(Resource.Id.editTextDateShare);
             ButtonGoToEditPageStart = FindViewById<Android.Widget.Button>(Resource.Id.EditJournalPage);
 
             //var v = WindowManager.MaximumWindowMetrics.Bounds.Bottom;
@@ -815,6 +958,7 @@ namespace HalBookAppAndroid
             editTextWrite.SetHeight(300);
             ButtonDelete1Line.Text = "Delete previous line";
             ButtonDateShare.SetImageResource(Resource.Drawable.share);
+            ButtonDelete.SetBackgroundColor(Android.Graphics.Color.Red);
 
             textViewWrite.SetScrollContainer(true);
             textViewWrite.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();

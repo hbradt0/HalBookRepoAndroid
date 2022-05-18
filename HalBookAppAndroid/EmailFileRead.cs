@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,6 +26,7 @@ namespace EmailReader //rename
         public static string imageFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "image.jpg");
         public static string publicImageFileName = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "image.jpg");
         public static string imageFileNameSaved = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
+        public static string code = "";
 
         public static String ReadText(String fileName = "")
         {
@@ -137,6 +139,15 @@ namespace EmailReader //rename
 
             var fi = new FileInfo(fileName);
             return fi.Length > size;
+        }
+
+        public static bool FileCountDays(String fileName = "", int countdesired = 25)
+        {
+            if (fileName == "")
+                fileName = fileName1;
+            String a = File.ReadAllText(fileName);
+            int count = Regex.Matches(a,DateTime.Now.ToLocalTime().ToString("yyyy")+":").Count;
+            return count >= countdesired;
         }
 
         public static void WriteText(String text, String fileName = "", bool list = false)

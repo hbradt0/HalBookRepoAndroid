@@ -17,7 +17,7 @@
 
 	/* 1: HalBookAppAndroid.dll */
 	/* uncompressed_file_size */
-	.word	382976
+	.word	386048
 	/* loaded */
 	.byte	0
 	/* data */
@@ -143,7 +143,7 @@
 
 	/* 15: System.dll */
 	/* uncompressed_file_size */
-	.word	815104
+	.word	815616
 	/* loaded */
 	.byte	0
 	/* data */
