@@ -29,7 +29,7 @@
         
         <ImageView  
         android:text="Pick Date"  
-        android:layout_height="42dp"
+        android:layout_height="40dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="1dp"
@@ -38,22 +38,21 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:layout_gravity="left"
         android:contentDescription="@+string/ImageText"
-        android:src="@android:drawable/ic_menu_share"
+        android:src="@drawable/share"
         android:id="@+id/buttonDateText"
         /> 
 
  
-       <ImageView
-        android:layout_height="40dp"
+       <Button
+        android:layout_height="42dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="1dp"
-        android:layout_marginRight="110dp"
-        android:layout_marginLeft="230dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="200dp"
         android:id="@+id/freshstart"
         android:text="@+string/freshstart"
-        android:contentDescription="@+string/ImageText"
-        android:src="@android:drawable/ic_menu_delete"
+        android:backgroundTint="@android:color/holo_red_light"
         />
 
         <TextView

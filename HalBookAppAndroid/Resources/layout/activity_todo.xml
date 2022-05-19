@@ -54,17 +54,16 @@
         android:src="@android:drawable/ic_menu_share"
         />
 
-        <ImageView
-        android:layout_height="40dp"
+        <Button
+        android:layout_height="42dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="1dp"
-        android:layout_marginRight="110dp"
-        android:layout_marginLeft="230dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="200dp"
         android:id="@+id/todofreshstart"
-        android:contentDescription="@+string/ImageText"
         android:text="@+string/freshstart"
-        android:src="@android:drawable/ic_menu_delete"
+        android:backgroundTint="@android:color/holo_red_light"
         />
 
         <TextView
