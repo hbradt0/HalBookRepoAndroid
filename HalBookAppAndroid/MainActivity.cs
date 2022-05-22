@@ -21,6 +21,7 @@ using Android.Media;
 using Android.Util;
 using AndroidX.Core.Content;
 using AndroidX.Core.App;
+using Android;
 
 namespace HalBookAppAndroid
 {
@@ -90,7 +91,7 @@ namespace HalBookAppAndroid
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
-
+     
             //Image view
             togglePicture = 0;
             imageView = FindViewById<ImageView>(Resource.Id.NewImage);
@@ -244,19 +245,19 @@ namespace HalBookAppAndroid
             String codesneeded = "";
             if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 1))
             {
-                 codesneeded= codesneeded+"\nstrcode1";
+                 codesneeded= codesneeded+"\n"+EmailFileRead.CodeList[0];
             }
             if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 7))
             {
-                codesneeded = codesneeded + "\nstrcodexx10";
+                codesneeded = codesneeded + "\n" + EmailFileRead.CodeList[1];
             }
             if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 14))
             {
-                codesneeded = codesneeded + "\nstrcodex50";
+                codesneeded = codesneeded + "\n" + EmailFileRead.CodeList[2];
             }
             if (EmailFileRead.FileCountDays(EmailFileRead.fileName1, 21))
             {
-                codesneeded = codesneeded + "\nstrcoder100";
+                codesneeded = codesneeded + "\n" + EmailFileRead.CodeList[3];
             }
             codeText.Text = "Codes Unlocked!!" + codesneeded;
             ShareTodoJournal.Click += ShareTodoJournalClick;
@@ -280,11 +281,7 @@ namespace HalBookAppAndroid
         {
             var hidemybuttontext = FindViewById<Android.Widget.EditText>(Resource.Id.hiddenbuttontext);
             String pswd = hidemybuttontext.Text;
-            if (pswd.ToLower() == "strcode1" || pswd.ToLower() == "strcodexx10" ||
-                pswd.ToLower() == "strcodex50" || pswd.ToLower() == "strcoder100"
-                || pswd.ToLower() == "stockhelm" || pswd.ToLower() == "emma stockhelm"
-                || pswd.ToLower() == "emma" || pswd.ToLower()=="help"
-                || pswd.ToLower()=="secret_code")
+            if (EmailFileRead.CodeList.Contains(pswd.ToLower()) || pswd.ToLower()=="help" || pswd.ToLower()=="secret_code")
             {
                 EmailFileRead.code = pswd.ToLower();
                 SecretScreenClick(sender,eventArgs);
@@ -322,7 +319,7 @@ namespace HalBookAppAndroid
                 storypic.SetImageResource(Resource.Drawable.blueflowers);
 
             }
-            if (EmailFileRead.code.ToLower() == "strcode1")
+            if (EmailFileRead.code.ToLower() == EmailFileRead.CodeList[0])
             {
                 storytextView.SetText(Resource.Drawable.Story1);
                 var is1 = this.Resources.OpenRawResource(Resource.Drawable.Story1);
@@ -330,7 +327,7 @@ namespace HalBookAppAndroid
                 storytextView.Text = text;
                 storypic.SetImageResource(Resource.Drawable.chapter1);
             }
-            else if (EmailFileRead.code.ToLower() == "strcodexx10")
+            else if (EmailFileRead.code.ToLower() == EmailFileRead.CodeList[1])
             {
                 storytextView.SetText(Resource.Drawable.Story10);
                 var is1 = this.Resources.OpenRawResource(Resource.Drawable.Story10);
@@ -338,7 +335,7 @@ namespace HalBookAppAndroid
                 storytextView.Text = text;
                 storypic.SetImageResource(Resource.Drawable.chapter2);
             }
-            else if (EmailFileRead.code.ToLower() == "strcodex50")
+            else if (EmailFileRead.code.ToLower() == EmailFileRead.CodeList[2])
             {
                 storytextView.SetText(Resource.Drawable.Story50);
                 var is1 = this.Resources.OpenRawResource(Resource.Drawable.Story25);
@@ -346,7 +343,7 @@ namespace HalBookAppAndroid
                 storytextView.Text = text;
                 storypic.SetImageResource(Resource.Drawable.chapter3);
             }
-            else if (EmailFileRead.code.ToLower() == "strcoder100")
+            else if (EmailFileRead.code.ToLower() == EmailFileRead.CodeList[3])
             {
                 storytextView.SetText(Resource.Drawable.Story50);
                 var is1 = this.Resources.OpenRawResource(Resource.Drawable.Story50);
@@ -354,8 +351,8 @@ namespace HalBookAppAndroid
                 storytextView.Text = text;
                 storypic.SetImageResource(Resource.Drawable.chapter4);
             }
-            else if (EmailFileRead.code.ToLower() == "stockhelm" || EmailFileRead.code.ToLower() == "emma stockhelm"
-                || EmailFileRead.code.ToLower() == "emma")
+            else if (EmailFileRead.code.ToLower() == EmailFileRead.CodeList[4] || EmailFileRead.code.ToLower() == EmailFileRead.CodeList[5]
+                || EmailFileRead.code.ToLower() == EmailFileRead.CodeList[6])
             {
                 storytextView.SetText(Resource.Drawable.WinText);
                 var is1 = this.Resources.OpenRawResource(Resource.Drawable.WinText);
@@ -984,10 +981,12 @@ namespace HalBookAppAndroid
             SetContentView(Resource.Layout.activity_user_edit);
             ButtonSaveEditPage = FindViewById<Android.Widget.Button>(Resource.Id.SaveJournalEdit);
             ButtonBackEditPage = FindViewById<Android.Widget.Button>(Resource.Id.BackJournalEdit);
+            var ButtonCreateSync = FindViewById<Android.Widget.Button>(Resource.Id.CloudSync);
             EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
 
             ButtonBackEditPage.Text = "Back";
             ButtonSaveEditPage.Text = "Save";
+            ButtonCreateSync.Text = "Sync Cloud";
 
             EditJournal.SetScrollContainer(true);
             EditJournal.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
@@ -996,7 +995,24 @@ namespace HalBookAppAndroid
             //Clicks
             ButtonBackEditPage.Click += ButtonBackEditPageClick;
             ButtonSaveEditPage.Click += ButtonUploadFullEdit;
+            ButtonCreateSync.Click += ButtonCreateSyncCloud;
 
+        }
+
+        private void ButtonCreateSyncCloud(object sender, EventArgs eventArgs)
+        {
+            int requestPermissions = 4000;
+            string permiss = Android.Manifest.Permission.ReadExternalStorage;
+
+            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted))
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { permiss, }, requestPermissions);
+            }
+            if ((ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted))
+            {
+                FireBaseRead.UploadFile(EmailFileRead.fileName1);
+                FireBaseRead.DownloadFile(EmailFileRead.fileName1);
+            }
         }
 
         //Submit your story page button

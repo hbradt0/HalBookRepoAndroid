@@ -27,7 +27,8 @@ namespace EmailReader //rename
         public static string publicImageFileName = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "image.jpg");
         public static string imageFileNameSaved = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");
         public static string code = "";
-
+        public static List<String> CodeList = new List<string> { "strcode1", "strcodexx10", "strcodex50", "strcoder100", "stockhelm", "emma", "emma stockhelm"};
+       
         public static String ReadText(String fileName = "")
         {
             if (fileName == "")
