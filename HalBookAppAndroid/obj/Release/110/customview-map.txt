@@ -4,6 +4,7 @@ adaptive-icon;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Release\110\res\layout\activity_image.xml
+Button;obj\Release\110\res\layout\activity_login.xml
 Button;obj\Release\110\res\layout\activity_main.xml
 Button;obj\Release\110\res\layout\activity_story.xml
 Button;obj\Release\110\res\layout\activity_todo.xml
@@ -15,6 +16,7 @@ color;obj\Release\110\res\values\colors.xml
 color;obj\Release\110\res\values\ic_launcher_background.xml
 corners;obj\Release\110\res\drawable\buttoncolor.xml
 dimen;obj\Release\110\res\values\dimens.xml
+EditText;obj\Release\110\res\layout\activity_login.xml
 EditText;obj\Release\110\res\layout\activity_todo.xml
 EditText;obj\Release\110\res\layout\activity_user.xml
 EditText;obj\Release\110\res\layout\activity_user_edit.xml
@@ -24,6 +26,7 @@ external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\o
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 ImageView;obj\Release\110\res\layout\activity_image.xml
+ImageView;obj\Release\110\res\layout\activity_login.xml
 ImageView;obj\Release\110\res\layout\activity_main.xml
 ImageView;obj\Release\110\res\layout\activity_story.xml
 ImageView;obj\Release\110\res\layout\activity_todo.xml
@@ -33,6 +36,7 @@ item;obj\Release\110\res\drawable\buttoncolor.xml
 item;obj\Release\110\res\menu\menu_main.xml
 item;obj\Release\110\res\values\styles.xml
 layer-list;obj\Release\110\res\drawable\buttoncolor.xml
+LinearLayout;obj\Release\110\res\layout\activity_login.xml
 LinearLayout;obj\Release\110\res\layout\activity_main.xml
 LinearLayout;obj\Release\110\res\layout\activity_story.xml
 LinearLayout;obj\Release\110\res\layout\activity_todo.xml
@@ -52,6 +56,7 @@ resources;obj\Release\110\res\values\ic_launcher_background.xml
 resources;obj\Release\110\res\values\strings.xml
 resources;obj\Release\110\res\values\styles.xml
 ScrollView;obj\Release\110\res\layout\activity_image.xml
+ScrollView;obj\Release\110\res\layout\activity_login.xml
 ScrollView;obj\Release\110\res\layout\activity_main.xml
 ScrollView;obj\Release\110\res\layout\activity_story.xml
 ScrollView;obj\Release\110\res\layout\activity_todo.xml
@@ -71,6 +76,7 @@ string;obj\Release\110\res\values\strings.xml
 stroke;obj\Release\110\res\drawable\border.xml
 stroke;obj\Release\110\res\drawable\bordertext.xml
 style;obj\Release\110\res\values\styles.xml
+TextView;obj\Release\110\res\layout\activity_login.xml
 TextView;obj\Release\110\res\layout\activity_main.xml
 TextView;obj\Release\110\res\layout\activity_story.xml
 TextView;obj\Release\110\res\layout\activity_todo.xml

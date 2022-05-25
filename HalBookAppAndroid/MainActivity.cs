@@ -86,6 +86,20 @@ namespace HalBookAppAndroid
         public Android.Widget.ImageView titletoggle;
         int toggletitle1 = 1;
 
+        //Login page
+        public Android.Widget.EditText loginemail;
+        public Android.Widget.EditText loginpassword;
+        public Android.Widget.ImageView submitbutton;
+        public Android.Widget.TextView instructionsEmail;
+        public Android.Widget.Button ButtonUploadBlobJournal;
+        public Android.Widget.Button ButtonDownloadBlobJournal;
+        public Android.Widget.Button ButtonDeleteBlobJournal;
+        public Android.Widget.Button ButtonUploadBlobTodo;
+        public Android.Widget.Button ButtonDownloadBlobTodo;
+        public Android.Widget.Button ButtonDeleteBlobTodo;
+        public Android.Widget.Button ButtonBackLoginPage;
+        public Android.Widget.Button LogoutLoginPage;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -173,6 +187,10 @@ namespace HalBookAppAndroid
             editTextDateJournal.Hint = "0 days";
             ShareTodoJournal.SetImageResource(Resource.Drawable.share);
 
+            var ButtonCreateSync = FindViewById<Android.Widget.Button>(Resource.Id.CloudSync);
+            ButtonCreateSync.Text = "Sync Cloud";
+            ButtonCreateSync.Click += ButtonCreateSyncCloud;
+
             //Properties with
             Button3.Text = "Back";
             textView.SetScrollContainer(true);
@@ -259,6 +277,9 @@ namespace HalBookAppAndroid
             {
                 codesneeded = codesneeded + "\n" + EmailFileRead.CodeList[3];
             }
+            var ButtonCreateSync = FindViewById<Android.Widget.Button>(Resource.Id.CloudSync);
+            ButtonCreateSync.Text = "Sync Cloud";
+            ButtonCreateSync.Click += ButtonCreateSyncCloud;
             codeText.Text = "Codes Unlocked!!" + codesneeded;
             ShareTodoJournal.Click += ShareTodoJournalClick;
             //Clicks
@@ -981,12 +1002,10 @@ namespace HalBookAppAndroid
             SetContentView(Resource.Layout.activity_user_edit);
             ButtonSaveEditPage = FindViewById<Android.Widget.Button>(Resource.Id.SaveJournalEdit);
             ButtonBackEditPage = FindViewById<Android.Widget.Button>(Resource.Id.BackJournalEdit);
-            var ButtonCreateSync = FindViewById<Android.Widget.Button>(Resource.Id.CloudSync);
             EditJournal = FindViewById<Android.Widget.EditText>(Resource.Id.EditJournal);
 
             ButtonBackEditPage.Text = "Back";
             ButtonSaveEditPage.Text = "Save";
-            ButtonCreateSync.Text = "Sync Cloud";
 
             EditJournal.SetScrollContainer(true);
             EditJournal.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
@@ -995,24 +1014,253 @@ namespace HalBookAppAndroid
             //Clicks
             ButtonBackEditPage.Click += ButtonBackEditPageClick;
             ButtonSaveEditPage.Click += ButtonUploadFullEdit;
-            ButtonCreateSync.Click += ButtonCreateSyncCloud;
-
         }
 
         private void ButtonCreateSyncCloud(object sender, EventArgs eventArgs)
         {
-            int requestPermissions = 4000;
-            string permiss = Android.Manifest.Permission.ReadExternalStorage;
+            //Initialize
+            SetContentView(Resource.Layout.activity_login);
+            loginemail = FindViewById<Android.Widget.EditText>(Resource.Id.loginemailCloud);
+            loginpassword = FindViewById<Android.Widget.EditText>(Resource.Id.loginpasswordCloud); 
 
-            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted))
-            {
-                ActivityCompat.RequestPermissions(this, new String[] { permiss, }, requestPermissions);
+            submitbutton = FindViewById<Android.Widget.ImageView>(Resource.Id.submitButtonCloud);
+            instructionsEmail = FindViewById<Android.Widget.TextView>(Resource.Id.logininstructionsCloud);
+
+            LogoutLoginPage = FindViewById<Android.Widget.Button>(Resource.Id.logoutloginpage);
+            ButtonUploadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobjournal);
+            ButtonDownloadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobjournal);
+            ButtonDeleteBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobjournal);
+
+            ButtonUploadBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobtodo);
+            ButtonDownloadBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobtodo);
+            ButtonDeleteBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobtodo);   
+
+            ButtonBackLoginPage = FindViewById<Android.Widget.Button>(Resource.Id.backLoginScreenCloud);
+            
+           loginemail.Text = "";
+           loginpassword.Text = "";
+           ButtonUploadBlobJournal.Text = "Upload Journal";
+           ButtonDownloadBlobJournal.Text = "Download Journal";
+           ButtonDeleteBlobJournal.Text = "Delete Journal";
+           ButtonUploadBlobTodo.Text = "Upload Todo List";
+           ButtonDownloadBlobTodo.Text = "Download Todo List";
+           ButtonDeleteBlobTodo.Text = "Delete Todo List";
+           ButtonBackLoginPage.Text = "Back";
+           LogoutLoginPage.Text = "Logout";
+
+           if (FireBaseRead.cloudservices == false || FireBaseRead.phoneID == "")
+           {
+               loginemail.Visibility = ViewStates.Visible;
+               loginpassword.Visibility = ViewStates.Visible;
+               submitbutton.Visibility = ViewStates.Visible;
+               instructionsEmail.Visibility = ViewStates.Visible;
+               ButtonUploadBlobJournal.Visibility = ViewStates.Gone;
+               ButtonDownloadBlobJournal.Visibility = ViewStates.Gone;
+               ButtonDeleteBlobJournal.Visibility = ViewStates.Gone;
+               ButtonUploadBlobTodo.Visibility = ViewStates.Gone;
+               ButtonDownloadBlobTodo.Visibility = ViewStates.Gone;
+               ButtonDeleteBlobTodo.Visibility = ViewStates.Gone;
+               ButtonBackLoginPage.Visibility = ViewStates.Visible;
+               LogoutLoginPage.Visibility = ViewStates.Gone;
+               instructionsEmail.Text = "Please login! Cloud Services";
+
             }
-            if ((ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted))
+            else
+           {
+               loginemail.Visibility = ViewStates.Gone;
+               loginpassword.Visibility = ViewStates.Gone;
+               submitbutton.Visibility = ViewStates.Gone;
+               instructionsEmail.Visibility = ViewStates.Visible;
+               ButtonUploadBlobJournal.Visibility = ViewStates.Visible;
+               ButtonDownloadBlobJournal.Visibility = ViewStates.Visible;
+               ButtonDeleteBlobJournal.Visibility = ViewStates.Visible;
+               ButtonUploadBlobTodo.Visibility = ViewStates.Visible;
+               ButtonDownloadBlobTodo.Visibility = ViewStates.Visible;
+               ButtonDeleteBlobTodo.Visibility = ViewStates.Visible;
+               ButtonBackLoginPage.Visibility = ViewStates.Visible;
+               LogoutLoginPage.Visibility = ViewStates.Visible;
+               instructionsEmail.Text = "Welcome " + FireBaseRead.loginemail;
+           }
+
+           submitbutton.Click += LoginButtonClick;
+           ButtonUploadBlobJournal.Click += UploadToCloud1;
+           ButtonDownloadBlobJournal.Click += DownloadCloud1;
+           ButtonDeleteBlobJournal.Click += DeleteCloudClick1;
+           ButtonUploadBlobTodo.Click += UploadToCloud1;
+           ButtonDownloadBlobTodo.Click += DownloadCloud2;
+           ButtonDeleteBlobTodo.Click += DeleteCloudClick2;
+           ButtonBackLoginPage.Click += Button1Click;
+           LogoutLoginPage.Click += LogoutCloud;
+
+        }
+
+        void LoginButtonClick(object sender, EventArgs eventArgs)
+        {
+            if (loginemail.Text != "" || loginpassword.Text != "")
+            {
+                if (FireBaseRead.phoneID == "" || (FireBaseRead.loginemail == loginemail.Text || FireBaseRead.loginpassword == loginpassword.Text))
+                {
+                    FireBaseRead.cloudservices = true;
+                    FireBaseRead.phoneID = loginemail.Text + loginpassword.Text;
+                    FireBaseRead.loginemail = loginemail.Text;
+                    FireBaseRead.loginpassword = loginpassword.Text;
+
+                    loginemail.Visibility = ViewStates.Gone;
+                    loginpassword.Visibility = ViewStates.Gone;
+                    submitbutton.Visibility = ViewStates.Gone;
+                    instructionsEmail.Visibility = ViewStates.Visible;
+                    ButtonUploadBlobJournal.Visibility = ViewStates.Visible;
+                    ButtonDownloadBlobJournal.Visibility = ViewStates.Visible;
+                    ButtonDeleteBlobJournal.Visibility = ViewStates.Visible;
+                    ButtonUploadBlobTodo.Visibility = ViewStates.Visible;
+                    ButtonDownloadBlobTodo.Visibility = ViewStates.Visible;
+                    ButtonDeleteBlobTodo.Visibility = ViewStates.Visible;
+                    ButtonBackLoginPage.Visibility = ViewStates.Visible;
+                    LogoutLoginPage.Visibility = ViewStates.Visible;
+                    instructionsEmail.Text = "Welcome: " + FireBaseRead.loginemail;
+
+                    int requestPermissions = 4000;
+                    string permiss = Android.Manifest.Permission.ReadExternalStorage;
+                    string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+                    string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+
+
+                    if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                        || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted))
+                    {
+                        ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2 }, requestPermissions);
+                    }
+                }
+                else
+                {
+                    //Populate the fields
+                    Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                    Android.App.AlertDialog alert = dialog.Create();
+                    alert.SetTitle("Autofilling your most recent information");
+                    alert.SetMessage("Adding your most recent information");
+                    alert.SetIcon(Resource.Drawable.alert);
+                    alert.SetButton("OK", (c, ev) =>
+                    {
+                        loginemail.Text = FireBaseRead.loginemail;
+                        loginpassword.Text = FireBaseRead.loginpassword;
+                    });
+                    alert.SetButton2("CANCEL", (c, ev) => { });
+                    alert.Show();
+                }
+            }
+        }
+
+        void UploadToCloud1(object sender, EventArgs eventArgs)
+        {
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("This may take a while and will upload your file to the cloud!");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
             {
                 FireBaseRead.UploadFile(EmailFileRead.fileName1);
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
+        }
+
+        void UploadToCloud2(object sender, EventArgs eventArgs)
+        {
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("This may take a while and will upload your file to the cloud!");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
+            {
+                FireBaseRead.UploadFile(EmailFileRead.fileName2);
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
+        }
+
+        void DeleteCloudClick1(object sender, EventArgs eventArgs)
+        {
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("This may take a while and will delete your file from the cloud!");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
+            {
+                FireBaseRead.DeleteFile(EmailFileRead.fileName1);
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
+ 
+        }
+
+        void DownloadCloud1(object sender, EventArgs eventArgs)
+        {
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("This may take a while and will download your file from the cloud!");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
+            {
                 FireBaseRead.DownloadFile(EmailFileRead.fileName1);
-            }
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
+
+        }
+
+        void DownloadCloud2(object sender, EventArgs eventArgs)
+        {
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("This may take a while and will download your file from the cloud!");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
+            {
+                FireBaseRead.DownloadFile(EmailFileRead.fileName2);
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
+
+        }
+
+        void DeleteCloudClick2(object sender, EventArgs eventArgs)
+        {
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Are you sure?");
+            alert.SetMessage("This may take a while and will delete your file from the cloud!");
+            alert.SetIcon(Resource.Drawable.alert);
+            alert.SetButton("OK", (c, ev) =>
+            {
+                FireBaseRead.DeleteFile(EmailFileRead.fileName2);
+            });
+            alert.SetButton2("CANCEL", (c, ev) => { });
+            alert.Show();
+
+        }
+
+        void LogoutCloud(object sender, EventArgs eventArgs)
+        {
+            loginemail.Visibility = ViewStates.Visible;
+            loginpassword.Visibility = ViewStates.Visible;
+            submitbutton.Visibility = ViewStates.Visible;
+            instructionsEmail.Visibility = ViewStates.Visible;
+            ButtonUploadBlobJournal.Visibility = ViewStates.Gone;
+            ButtonDownloadBlobJournal.Visibility = ViewStates.Gone;
+            ButtonDeleteBlobJournal.Visibility = ViewStates.Gone;
+            ButtonUploadBlobTodo.Visibility = ViewStates.Gone;
+            ButtonDownloadBlobTodo.Visibility = ViewStates.Gone;
+            ButtonDeleteBlobTodo.Visibility = ViewStates.Gone;
+            ButtonBackLoginPage.Visibility = ViewStates.Visible;
+            LogoutLoginPage.Visibility = ViewStates.Gone;
+            instructionsEmail.Text = "Please login! Cloud Services";
+            FireBaseRead.cloudservices = false;
+            FireBaseRead.phoneID = "";
         }
 
         //Submit your story page button

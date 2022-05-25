@@ -104,5 +104,16 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:background="@drawable/ButtonColor"/>
 
+        <Button
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:id="@+id/CloudSync"
+        android:text="Sync Cloud"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_centerInParent="true"
+        />
+
     </LinearLayout>
 </ScrollView>
