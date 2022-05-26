@@ -8,7 +8,7 @@
 	.global	map_module_count
 map_module_count:
 	.size	map_module_count, 4
-	.word	19
+	.word	17
 /* map_module_count: END */
 
 /* java_type_count: START */
@@ -18,7 +18,7 @@ map_module_count:
 	.global	java_type_count
 java_type_count:
 	.size	java_type_count, 4
-	.word	424
+	.word	382
 /* java_type_count: END */
 
 	.include	"typemaps.shared.inc"
@@ -90,26 +90,6 @@ map_modules:
 	.zero	4
 	.xword	0
 
-	/* module_uuid: 5da4f911-0683-42b4-86c9-d7019b974208 */
-	.byte	0x11, 0xf9, 0xa4, 0x5d, 0x83, 0x06, 0xb4, 0x42, 0x86, 0xc9, 0xd7, 0x01, 0x9b, 0x97, 0x42, 0x08
-	/* entry_count */
-	.word	1
-	/* duplicate_count */
-	.word	0
-	/* map */
-	.xword	module3_managed_to_java
-	/* duplicate_map */
-	.xword	0
-	/* assembly_name: HalBookAppAndroid */
-	.xword	.L.map_aname.3
-	/* image */
-	.xword	0
-	/* java_name_width */
-	.word	0
-	/* java_map */
-	.zero	4
-	.xword	0
-
 	/* module_uuid: c76ff11b-7138-4abb-8c41-f6ce0b2c9f68 */
 	.byte	0x1b, 0xf1, 0x6f, 0xc7, 0x38, 0x71, 0xbb, 0x4a, 0x8c, 0x41, 0xf6, 0xce, 0x0b, 0x2c, 0x9f, 0x68
 	/* entry_count */
@@ -117,11 +97,11 @@ map_modules:
 	/* duplicate_count */
 	.word	2
 	/* map */
-	.xword	module4_managed_to_java
+	.xword	module3_managed_to_java
 	/* duplicate_map */
-	.xword	module4_managed_to_java_duplicates
+	.xword	module3_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.SavedState */
-	.xword	.L.map_aname.4
+	.xword	.L.map_aname.3
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -137,31 +117,11 @@ map_modules:
 	/* duplicate_count */
 	.word	17
 	/* map */
-	.xword	module5_managed_to_java
+	.xword	module4_managed_to_java
 	/* duplicate_map */
-	.xword	module5_managed_to_java_duplicates
+	.xword	module4_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.AppCompat */
-	.xword	.L.map_aname.5
-	/* image */
-	.xword	0
-	/* java_name_width */
-	.word	0
-	/* java_map */
-	.zero	4
-	.xword	0
-
-	/* module_uuid: d728ca4b-8f7d-49cf-abef-e3b2501906ae */
-	.byte	0x4b, 0xca, 0x28, 0xd7, 0x7d, 0x8f, 0xcf, 0x49, 0xab, 0xef, 0xe3, 0xb2, 0x50, 0x19, 0x06, 0xae
-	/* entry_count */
-	.word	1
-	/* duplicate_count */
-	.word	0
-	/* map */
-	.xword	module6_managed_to_java
-	/* duplicate_map */
-	.xword	0
-	/* assembly_name: Tesseract.Droid */
-	.xword	.L.map_aname.6
+	.xword	.L.map_aname.4
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -177,11 +137,11 @@ map_modules:
 	/* duplicate_count */
 	.word	4
 	/* map */
-	.xword	module7_managed_to_java
+	.xword	module5_managed_to_java
 	/* duplicate_map */
-	.xword	module7_managed_to_java_duplicates
+	.xword	module5_managed_to_java_duplicates
 	/* assembly_name: Xamarin.Google.Android.Material */
-	.xword	.L.map_aname.7
+	.xword	.L.map_aname.5
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -190,18 +150,18 @@ map_modules:
 	.zero	4
 	.xword	0
 
-	/* module_uuid: 2cf36556-903b-4eb4-aaed-06265336d01f */
-	.byte	0x56, 0x65, 0xf3, 0x2c, 0x3b, 0x90, 0xb4, 0x4e, 0xaa, 0xed, 0x06, 0x26, 0x53, 0x36, 0xd0, 0x1f
+	/* module_uuid: 4af81657-7f88-4672-a333-a0d119bbc953 */
+	.byte	0x57, 0x16, 0xf8, 0x4a, 0x88, 0x7f, 0x72, 0x46, 0xa3, 0x33, 0xa0, 0xd1, 0x19, 0xbb, 0xc9, 0x53
 	/* entry_count */
-	.word	38
+	.word	269
 	/* duplicate_count */
-	.word	0
+	.word	132
 	/* map */
-	.xword	module8_managed_to_java
+	.xword	module6_managed_to_java
 	/* duplicate_map */
-	.xword	0
-	/* assembly_name: Tesseract.Binding.Droid */
-	.xword	.L.map_aname.8
+	.xword	module6_managed_to_java_duplicates
+	/* assembly_name: Mono.Android */
+	.xword	.L.map_aname.6
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -217,11 +177,11 @@ map_modules:
 	/* duplicate_count */
 	.word	5
 	/* map */
-	.xword	module9_managed_to_java
+	.xword	module7_managed_to_java
 	/* duplicate_map */
-	.xword	module9_managed_to_java_duplicates
+	.xword	module7_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Fragment */
-	.xword	.L.map_aname.9
+	.xword	.L.map_aname.7
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -237,11 +197,11 @@ map_modules:
 	/* duplicate_count */
 	.word	0
 	/* map */
-	.xword	module10_managed_to_java
+	.xword	module8_managed_to_java
 	/* duplicate_map */
 	.xword	0
 	/* assembly_name: Xamarin.Essentials */
-	.xword	.L.map_aname.10
+	.xword	.L.map_aname.8
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -257,11 +217,11 @@ map_modules:
 	/* duplicate_count */
 	.word	18
 	/* map */
-	.xword	module11_managed_to_java
+	.xword	module9_managed_to_java
 	/* duplicate_map */
-	.xword	module11_managed_to_java_duplicates
+	.xword	module9_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Core */
-	.xword	.L.map_aname.11
+	.xword	.L.map_aname.9
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -277,31 +237,11 @@ map_modules:
 	/* duplicate_count */
 	.word	4
 	/* map */
-	.xword	module12_managed_to_java
+	.xword	module10_managed_to_java
 	/* duplicate_map */
-	.xword	module12_managed_to_java_duplicates
+	.xword	module10_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Loader */
-	.xword	.L.map_aname.12
-	/* image */
-	.xword	0
-	/* java_name_width */
-	.word	0
-	/* java_map */
-	.zero	4
-	.xword	0
-
-	/* module_uuid: f872947c-d5d4-40a8-88aa-7ea497c04b5e */
-	.byte	0x7c, 0x94, 0x72, 0xf8, 0xd4, 0xd5, 0xa8, 0x40, 0x88, 0xaa, 0x7e, 0xa4, 0x97, 0xc0, 0x4b, 0x5e
-	/* entry_count */
-	.word	272
-	/* duplicate_count */
-	.word	132
-	/* map */
-	.xword	module13_managed_to_java
-	/* duplicate_map */
-	.xword	module13_managed_to_java_duplicates
-	/* assembly_name: Mono.Android */
-	.xword	.L.map_aname.13
+	.xword	.L.map_aname.10
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -317,11 +257,31 @@ map_modules:
 	/* duplicate_count */
 	.word	0
 	/* map */
-	.xword	module14_managed_to_java
+	.xword	module11_managed_to_java
 	/* duplicate_map */
 	.xword	0
 	/* assembly_name: Xamarin.AndroidX.Activity */
-	.xword	.L.map_aname.14
+	.xword	.L.map_aname.11
+	/* image */
+	.xword	0
+	/* java_name_width */
+	.word	0
+	/* java_map */
+	.zero	4
+	.xword	0
+
+	/* module_uuid: bafac887-3e5f-4340-8cdd-48c802322d02 */
+	.byte	0x87, 0xc8, 0xfa, 0xba, 0x5f, 0x3e, 0x40, 0x43, 0x8c, 0xdd, 0x48, 0xc8, 0x02, 0x32, 0x2d, 0x02
+	/* entry_count */
+	.word	1
+	/* duplicate_count */
+	.word	0
+	/* map */
+	.xword	module12_managed_to_java
+	/* duplicate_map */
+	.xword	0
+	/* assembly_name: HalBookAppAndroid */
+	.xword	.L.map_aname.12
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -337,11 +297,11 @@ map_modules:
 	/* duplicate_count */
 	.word	2
 	/* map */
-	.xword	module15_managed_to_java
+	.xword	module13_managed_to_java
 	/* duplicate_map */
-	.xword	module15_managed_to_java_duplicates
+	.xword	module13_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Lifecycle.LiveData.Core */
-	.xword	.L.map_aname.15
+	.xword	.L.map_aname.13
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -357,11 +317,11 @@ map_modules:
 	/* duplicate_count */
 	.word	1
 	/* map */
-	.xword	module16_managed_to_java
+	.xword	module14_managed_to_java
 	/* duplicate_map */
-	.xword	module16_managed_to_java_duplicates
+	.xword	module14_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.CustomView */
-	.xword	.L.map_aname.16
+	.xword	.L.map_aname.14
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -377,11 +337,11 @@ map_modules:
 	/* duplicate_count */
 	.word	1
 	/* map */
-	.xword	module17_managed_to_java
+	.xword	module15_managed_to_java
 	/* duplicate_map */
-	.xword	module17_managed_to_java_duplicates
+	.xword	module15_managed_to_java_duplicates
 	/* assembly_name: Xamarin.Google.Guava.ListenableFuture */
-	.xword	.L.map_aname.17
+	.xword	.L.map_aname.15
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -397,11 +357,11 @@ map_modules:
 	/* duplicate_count */
 	.word	3
 	/* map */
-	.xword	module18_managed_to_java
+	.xword	module16_managed_to_java
 	/* duplicate_map */
-	.xword	module18_managed_to_java_duplicates
+	.xword	module16_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.Lifecycle.ViewModel */
-	.xword	.L.map_aname.18
+	.xword	.L.map_aname.16
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -410,7 +370,7 @@ map_modules:
 	.zero	4
 	.xword	0
 
-	.size	map_modules, 1368
+	.size	map_modules, 1224
 /* Managed to Java map: END */
 
 /* Java to managed map: START */
@@ -421,16 +381,16 @@ map_modules:
 map_java:
 	/* #0 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554759
+	.word	33554753
 	/* java_name */
 	.ascii	"android/animation/Animator"
 	.zero	66
 
 	/* #1 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -439,7 +399,7 @@ map_java:
 
 	/* #2 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -448,16 +408,16 @@ map_java:
 
 	/* #3 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554765
+	.word	33554759
 	/* java_name */
 	.ascii	"android/animation/AnimatorListenerAdapter"
 	.zero	51
 
 	/* #4 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -466,43 +426,43 @@ map_java:
 
 	/* #5 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554770
+	.word	33554764
 	/* java_name */
 	.ascii	"android/app/Activity"
 	.zero	72
 
 	/* #6 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554771
+	.word	33554765
 	/* java_name */
 	.ascii	"android/app/AlertDialog"
 	.zero	69
 
 	/* #7 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554772
+	.word	33554766
 	/* java_name */
 	.ascii	"android/app/AlertDialog$Builder"
 	.zero	61
 
 	/* #8 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554773
+	.word	33554767
 	/* java_name */
 	.ascii	"android/app/Application"
 	.zero	69
 
 	/* #9 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -511,16 +471,16 @@ map_java:
 
 	/* #10 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554776
+	.word	33554770
 	/* java_name */
 	.ascii	"android/app/DatePickerDialog"
 	.zero	64
 
 	/* #11 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -529,25 +489,25 @@ map_java:
 
 	/* #12 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554781
+	.word	33554775
 	/* java_name */
 	.ascii	"android/app/Dialog"
 	.zero	74
 
 	/* #13 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554782
+	.word	33554776
 	/* java_name */
 	.ascii	"android/app/PendingIntent"
 	.zero	67
 
 	/* #14 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -556,7 +516,7 @@ map_java:
 
 	/* #15 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -565,34 +525,34 @@ map_java:
 
 	/* #16 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554787
+	.word	33554781
 	/* java_name */
 	.ascii	"android/content/ComponentName"
 	.zero	63
 
 	/* #17 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554788
+	.word	33554782
 	/* java_name */
 	.ascii	"android/content/Context"
 	.zero	69
 
 	/* #18 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554790
+	.word	33554784
 	/* java_name */
 	.ascii	"android/content/ContextWrapper"
 	.zero	62
 
 	/* #19 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -601,7 +561,7 @@ map_java:
 
 	/* #20 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -610,25 +570,25 @@ map_java:
 
 	/* #21 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554801
+	.word	33554795
 	/* java_name */
 	.ascii	"android/content/Intent"
 	.zero	70
 
 	/* #22 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554802
+	.word	33554796
 	/* java_name */
 	.ascii	"android/content/IntentSender"
 	.zero	64
 
 	/* #23 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -637,7 +597,7 @@ map_java:
 
 	/* #24 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -646,7 +606,7 @@ map_java:
 
 	/* #25 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -655,1247 +615,1220 @@ map_java:
 
 	/* #26 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554815
+	.word	33554809
 	/* java_name */
 	.ascii	"android/content/pm/PackageInfo"
 	.zero	62
 
 	/* #27 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554816
+	.word	33554810
 	/* java_name */
 	.ascii	"android/content/pm/PackageManager"
 	.zero	59
 
 	/* #28 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554811
+	.word	33554805
 	/* java_name */
 	.ascii	"android/content/res/AssetManager"
 	.zero	60
 
 	/* #29 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554812
+	.word	33554806
 	/* java_name */
 	.ascii	"android/content/res/ColorStateList"
 	.zero	58
 
 	/* #30 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554813
+	.word	33554807
 	/* java_name */
 	.ascii	"android/content/res/Configuration"
 	.zero	59
 
 	/* #31 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554814
+	.word	33554808
 	/* java_name */
 	.ascii	"android/content/res/Resources"
 	.zero	63
 
 	/* #32 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554757
+	.word	33554751
 	/* java_name */
 	.ascii	"android/database/DataSetObserver"
 	.zero	60
 
 	/* #33 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554734
+	.word	33554732
 	/* java_name */
 	.ascii	"android/graphics/Bitmap"
 	.zero	69
 
 	/* #34 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554735
+	.word	33554733
 	/* java_name */
 	.ascii	"android/graphics/Bitmap$CompressFormat"
 	.zero	54
 
 	/* #35 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554736
+	.word	33554734
 	/* java_name */
 	.ascii	"android/graphics/BitmapFactory"
 	.zero	62
 
 	/* #36 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554737
-	/* java_name */
-	.ascii	"android/graphics/BitmapFactory$Options"
-	.zero	54
-
-	/* #37 */
-	/* module_index */
-	.word	13
-	/* type_token_id */
-	.word	33554741
+	.word	33554735
 	/* java_name */
 	.ascii	"android/graphics/BlendMode"
 	.zero	66
 
-	/* #38 */
+	/* #37 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554742
+	.word	33554736
 	/* java_name */
 	.ascii	"android/graphics/Canvas"
 	.zero	69
 
-	/* #39 */
+	/* #38 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554743
+	.word	33554737
 	/* java_name */
 	.ascii	"android/graphics/ColorFilter"
 	.zero	64
 
-	/* #40 */
+	/* #39 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554744
+	.word	33554738
 	/* java_name */
 	.ascii	"android/graphics/Matrix"
 	.zero	69
 
-	/* #41 */
+	/* #40 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554745
+	.word	33554739
 	/* java_name */
 	.ascii	"android/graphics/Paint"
 	.zero	70
 
-	/* #42 */
+	/* #41 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554746
+	.word	33554740
 	/* java_name */
 	.ascii	"android/graphics/Point"
 	.zero	70
 
-	/* #43 */
+	/* #42 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554747
+	.word	33554741
 	/* java_name */
 	.ascii	"android/graphics/PorterDuff"
 	.zero	65
 
-	/* #44 */
+	/* #43 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554748
+	.word	33554742
 	/* java_name */
 	.ascii	"android/graphics/PorterDuff$Mode"
 	.zero	60
 
-	/* #45 */
+	/* #44 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554749
+	.word	33554743
 	/* java_name */
 	.ascii	"android/graphics/Rect"
 	.zero	71
 
-	/* #46 */
+	/* #45 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554750
+	.word	33554744
 	/* java_name */
 	.ascii	"android/graphics/RectF"
 	.zero	70
 
-	/* #47 */
+	/* #46 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554752
+	.word	33554746
 	/* java_name */
 	.ascii	"android/graphics/drawable/BitmapDrawable"
 	.zero	52
 
-	/* #48 */
+	/* #47 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554753
+	.word	33554747
 	/* java_name */
 	.ascii	"android/graphics/drawable/Drawable"
 	.zero	58
 
-	/* #49 */
+	/* #48 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/graphics/drawable/Drawable$Callback"
 	.zero	49
 
-	/* #50 */
+	/* #49 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554732
+	.word	33554730
 	/* java_name */
 	.ascii	"android/media/ExifInterface"
 	.zero	65
 
-	/* #51 */
+	/* #50 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554730
+	.word	33554728
 	/* java_name */
 	.ascii	"android/net/Uri"
 	.zero	77
 
-	/* #52 */
+	/* #51 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554716
+	.word	33554714
 	/* java_name */
 	.ascii	"android/os/BaseBundle"
 	.zero	71
 
-	/* #53 */
+	/* #52 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554717
+	.word	33554715
 	/* java_name */
 	.ascii	"android/os/Build"
 	.zero	76
 
-	/* #54 */
+	/* #53 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554718
+	.word	33554716
 	/* java_name */
 	.ascii	"android/os/Build$VERSION"
 	.zero	68
 
-	/* #55 */
+	/* #54 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554719
+	.word	33554717
 	/* java_name */
 	.ascii	"android/os/Bundle"
 	.zero	75
 
-	/* #56 */
+	/* #55 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554720
+	.word	33554718
 	/* java_name */
 	.ascii	"android/os/Environment"
 	.zero	70
 
-	/* #57 */
+	/* #56 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554721
+	.word	33554719
 	/* java_name */
 	.ascii	"android/os/Handler"
 	.zero	74
 
-	/* #58 */
+	/* #57 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554726
+	.word	33554724
 	/* java_name */
 	.ascii	"android/os/Looper"
 	.zero	75
 
-	/* #59 */
+	/* #58 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554727
+	.word	33554725
 	/* java_name */
 	.ascii	"android/os/Parcel"
 	.zero	75
 
-	/* #60 */
+	/* #59 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/os/Parcelable"
 	.zero	71
 
-	/* #61 */
+	/* #60 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/os/Parcelable$Creator"
 	.zero	63
 
-	/* #62 */
+	/* #61 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554715
+	.word	33554713
 	/* java_name */
 	.ascii	"android/preference/PreferenceManager"
 	.zero	56
 
-	/* #63 */
+	/* #62 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554866
+	.word	33554860
 	/* java_name */
 	.ascii	"android/runtime/JavaProxyThrowable"
 	.zero	58
 
-	/* #64 */
+	/* #63 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/text/Spannable"
 	.zero	70
 
-	/* #65 */
+	/* #64 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/text/Spanned"
 	.zero	72
 
-	/* #66 */
+	/* #65 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554711
+	.word	33554709
 	/* java_name */
 	.ascii	"android/text/method/BaseMovementMethod"
 	.zero	54
 
-	/* #67 */
+	/* #66 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/text/method/MovementMethod"
 	.zero	58
 
-	/* #68 */
+	/* #67 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554714
+	.word	33554712
 	/* java_name */
 	.ascii	"android/text/method/ScrollingMovementMethod"
 	.zero	49
 
-	/* #69 */
+	/* #68 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/util/AttributeSet"
 	.zero	67
 
-	/* #70 */
+	/* #69 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554698
 	/* java_name */
 	.ascii	"android/util/DisplayMetrics"
 	.zero	65
 
-	/* #71 */
+	/* #70 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554701
-	/* java_name */
-	.ascii	"android/util/Log"
-	.zero	76
-
-	/* #72 */
-	/* module_index */
-	.word	13
-	/* type_token_id */
-	.word	33554702
-	/* java_name */
-	.ascii	"android/util/Pair"
-	.zero	75
-
-	/* #73 */
-	/* module_index */
-	.word	13
-	/* type_token_id */
-	.word	33554703
 	/* java_name */
 	.ascii	"android/util/SparseArray"
 	.zero	68
 
-	/* #74 */
+	/* #71 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554609
 	/* java_name */
 	.ascii	"android/view/ActionMode"
 	.zero	69
 
-	/* #75 */
+	/* #72 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/ActionMode$Callback"
 	.zero	60
 
-	/* #76 */
+	/* #73 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554613
 	/* java_name */
 	.ascii	"android/view/ActionProvider"
 	.zero	65
 
-	/* #77 */
+	/* #74 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/ContextMenu"
 	.zero	68
 
-	/* #78 */
+	/* #75 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/ContextMenu$ContextMenuInfo"
 	.zero	52
 
-	/* #79 */
+	/* #76 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554615
 	/* java_name */
 	.ascii	"android/view/ContextThemeWrapper"
 	.zero	60
 
-	/* #80 */
+	/* #77 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554616
 	/* java_name */
 	.ascii	"android/view/Display"
 	.zero	72
 
-	/* #81 */
+	/* #78 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554617
 	/* java_name */
 	.ascii	"android/view/DragEvent"
 	.zero	70
 
-	/* #82 */
+	/* #79 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554630
 	/* java_name */
 	.ascii	"android/view/InputEvent"
 	.zero	69
 
-	/* #83 */
+	/* #80 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554642
 	/* java_name */
 	.ascii	"android/view/KeyEvent"
 	.zero	71
 
-	/* #84 */
+	/* #81 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/KeyEvent$Callback"
 	.zero	62
 
-	/* #85 */
+	/* #82 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554641
 	/* java_name */
 	.ascii	"android/view/KeyboardShortcutGroup"
 	.zero	58
 
-	/* #86 */
+	/* #83 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554645
 	/* java_name */
 	.ascii	"android/view/LayoutInflater"
 	.zero	65
 
-	/* #87 */
+	/* #84 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/LayoutInflater$Factory"
 	.zero	57
 
-	/* #88 */
+	/* #85 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/LayoutInflater$Factory2"
 	.zero	56
 
-	/* #89 */
+	/* #86 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/Menu"
 	.zero	75
 
-	/* #90 */
+	/* #87 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554651
 	/* java_name */
 	.ascii	"android/view/MenuInflater"
 	.zero	67
 
-	/* #91 */
+	/* #88 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/MenuItem"
 	.zero	71
 
-	/* #92 */
+	/* #89 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/MenuItem$OnActionExpandListener"
 	.zero	48
 
-	/* #93 */
+	/* #90 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/MenuItem$OnMenuItemClickListener"
 	.zero	47
 
-	/* #94 */
+	/* #91 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554652
 	/* java_name */
 	.ascii	"android/view/MotionEvent"
 	.zero	68
 
-	/* #95 */
+	/* #92 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554653
 	/* java_name */
 	.ascii	"android/view/SearchEvent"
 	.zero	68
 
-	/* #96 */
+	/* #93 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/SubMenu"
 	.zero	72
 
-	/* #97 */
+	/* #94 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554654
 	/* java_name */
 	.ascii	"android/view/View"
 	.zero	75
 
-	/* #98 */
+	/* #95 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/View$OnClickListener"
 	.zero	59
 
-	/* #99 */
+	/* #96 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/View$OnCreateContextMenuListener"
 	.zero	47
 
-	/* #100 */
+	/* #97 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554662
 	/* java_name */
 	.ascii	"android/view/ViewGroup"
 	.zero	70
 
-	/* #101 */
+	/* #98 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554663
 	/* java_name */
 	.ascii	"android/view/ViewGroup$LayoutParams"
 	.zero	57
 
-	/* #102 */
+	/* #99 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554664
 	/* java_name */
 	.ascii	"android/view/ViewGroup$MarginLayoutParams"
 	.zero	51
 
-	/* #103 */
+	/* #100 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/ViewManager"
 	.zero	68
 
-	/* #104 */
+	/* #101 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/ViewParent"
 	.zero	69
 
-	/* #105 */
+	/* #102 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554666
 	/* java_name */
 	.ascii	"android/view/ViewPropertyAnimator"
 	.zero	59
 
-	/* #106 */
+	/* #103 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554667
 	/* java_name */
 	.ascii	"android/view/ViewTreeObserver"
 	.zero	63
 
-	/* #107 */
+	/* #104 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/ViewTreeObserver$OnPreDrawListener"
 	.zero	45
 
-	/* #108 */
+	/* #105 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554670
 	/* java_name */
 	.ascii	"android/view/Window"
 	.zero	73
 
-	/* #109 */
+	/* #106 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/Window$Callback"
 	.zero	64
 
-	/* #110 */
+	/* #107 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554674
 	/* java_name */
 	.ascii	"android/view/WindowInsets"
 	.zero	67
 
-	/* #111 */
+	/* #108 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/WindowManager"
 	.zero	66
 
-	/* #112 */
+	/* #109 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554638
 	/* java_name */
 	.ascii	"android/view/WindowManager$LayoutParams"
 	.zero	53
 
-	/* #113 */
+	/* #110 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554675
 	/* java_name */
 	.ascii	"android/view/WindowMetrics"
 	.zero	66
 
-	/* #114 */
+	/* #111 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554691
 	/* java_name */
 	.ascii	"android/view/accessibility/AccessibilityEvent"
 	.zero	47
 
-	/* #115 */
+	/* #112 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/accessibility/AccessibilityEventSource"
 	.zero	41
 
-	/* #116 */
+	/* #113 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554692
 	/* java_name */
 	.ascii	"android/view/accessibility/AccessibilityRecord"
 	.zero	46
 
-	/* #117 */
+	/* #114 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554687
 	/* java_name */
 	.ascii	"android/view/animation/Animation"
 	.zero	60
 
-	/* #118 */
+	/* #115 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/view/animation/Interpolator"
 	.zero	57
 
-	/* #119 */
+	/* #116 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/widget/Adapter"
 	.zero	70
 
-	/* #120 */
+	/* #117 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554587
 	/* java_name */
 	.ascii	"android/widget/AdapterView"
 	.zero	66
 
-	/* #121 */
+	/* #118 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/widget/AdapterView$OnItemSelectedListener"
 	.zero	43
 
-	/* #122 */
+	/* #119 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554591
 	/* java_name */
 	.ascii	"android/widget/AutoCompleteTextView"
 	.zero	57
 
-	/* #123 */
+	/* #120 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554592
 	/* java_name */
 	.ascii	"android/widget/Button"
 	.zero	71
 
-	/* #124 */
+	/* #121 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554593
 	/* java_name */
 	.ascii	"android/widget/DatePicker"
 	.zero	67
 
-	/* #125 */
+	/* #122 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/widget/DatePicker$OnDateChangedListener"
 	.zero	45
 
-	/* #126 */
+	/* #123 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554596
 	/* java_name */
 	.ascii	"android/widget/EditText"
 	.zero	69
 
-	/* #127 */
+	/* #124 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554597
 	/* java_name */
 	.ascii	"android/widget/Filter"
 	.zero	71
 
-	/* #128 */
+	/* #125 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/widget/Filter$FilterListener"
 	.zero	56
 
-	/* #129 */
+	/* #126 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554601
 	/* java_name */
 	.ascii	"android/widget/FrameLayout"
 	.zero	66
 
-	/* #130 */
+	/* #127 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554602
 	/* java_name */
 	.ascii	"android/widget/HorizontalScrollView"
 	.zero	57
 
-	/* #131 */
+	/* #128 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554605
 	/* java_name */
 	.ascii	"android/widget/ImageView"
 	.zero	68
 
-	/* #132 */
+	/* #129 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"android/widget/SpinnerAdapter"
 	.zero	63
 
-	/* #133 */
+	/* #130 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554608
 	/* java_name */
 	.ascii	"android/widget/TextView"
 	.zero	69
 
-	/* #134 */
+	/* #131 */
 	/* module_index */
-	.word	14
+	.word	11
 	/* type_token_id */
 	.word	33554434
 	/* java_name */
 	.ascii	"androidx/activity/ComponentActivity"
 	.zero	57
 
-	/* #135 */
+	/* #132 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554474
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBar"
 	.zero	60
 
-	/* #136 */
+	/* #133 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554475
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBar$LayoutParams"
 	.zero	47
 
-	/* #137 */
+	/* #134 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBar$OnMenuVisibilityListener"
 	.zero	35
 
-	/* #138 */
+	/* #135 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBar$OnNavigationListener"
 	.zero	39
 
-	/* #139 */
+	/* #136 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554482
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBar$Tab"
 	.zero	56
 
-	/* #140 */
+	/* #137 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBar$TabListener"
 	.zero	48
 
-	/* #141 */
+	/* #138 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554489
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBarDrawerToggle"
 	.zero	48
 
-	/* #142 */
+	/* #139 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBarDrawerToggle$Delegate"
 	.zero	39
 
-	/* #143 */
+	/* #140 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/app/ActionBarDrawerToggle$DelegateProvider"
 	.zero	31
 
-	/* #144 */
+	/* #141 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554494
 	/* java_name */
 	.ascii	"androidx/appcompat/app/AppCompatActivity"
 	.zero	52
 
-	/* #145 */
+	/* #142 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/app/AppCompatCallback"
 	.zero	52
 
-	/* #146 */
+	/* #143 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554495
 	/* java_name */
 	.ascii	"androidx/appcompat/app/AppCompatDelegate"
 	.zero	52
 
-	/* #147 */
+	/* #144 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554473
 	/* java_name */
 	.ascii	"androidx/appcompat/graphics/drawable/DrawerArrowDrawable"
 	.zero	36
 
-	/* #148 */
+	/* #145 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554513
 	/* java_name */
 	.ascii	"androidx/appcompat/view/ActionMode"
 	.zero	58
 
-	/* #149 */
+	/* #146 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/view/ActionMode$Callback"
 	.zero	49
 
-	/* #150 */
+	/* #147 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554517
 	/* java_name */
 	.ascii	"androidx/appcompat/view/menu/MenuBuilder"
 	.zero	52
 
-	/* #151 */
+	/* #148 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/view/menu/MenuBuilder$Callback"
 	.zero	43
 
-	/* #152 */
+	/* #149 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554526
 	/* java_name */
 	.ascii	"androidx/appcompat/view/menu/MenuItemImpl"
 	.zero	51
 
-	/* #153 */
+	/* #150 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/view/menu/MenuPresenter"
 	.zero	50
 
-	/* #154 */
+	/* #151 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/view/menu/MenuPresenter$Callback"
 	.zero	41
 
-	/* #155 */
+	/* #152 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/view/menu/MenuView"
 	.zero	55
 
-	/* #156 */
+	/* #153 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554527
 	/* java_name */
 	.ascii	"androidx/appcompat/view/menu/SubMenuBuilder"
 	.zero	49
 
-	/* #157 */
+	/* #154 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554508
 	/* java_name */
 	.ascii	"androidx/appcompat/widget/AppCompatAutoCompleteTextView"
 	.zero	37
 
-	/* #158 */
+	/* #155 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/widget/DecorToolbar"
 	.zero	54
 
-	/* #159 */
+	/* #156 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554511
 	/* java_name */
 	.ascii	"androidx/appcompat/widget/ScrollingTabContainerView"
 	.zero	41
 
-	/* #160 */
+	/* #157 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554512
 	/* java_name */
 	.ascii	"androidx/appcompat/widget/ScrollingTabContainerView$VisibilityAnimListener"
 	.zero	18
 
-	/* #161 */
+	/* #158 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554499
 	/* java_name */
 	.ascii	"androidx/appcompat/widget/Toolbar"
 	.zero	59
 
-	/* #162 */
+	/* #159 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/appcompat/widget/Toolbar$OnMenuItemClickListener"
 	.zero	35
 
-	/* #163 */
+	/* #160 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554500
 	/* java_name */
 	.ascii	"androidx/appcompat/widget/Toolbar_NavigationOnClickEventDispatcher"
 	.zero	26
 
-	/* #164 */
+	/* #161 */
 	/* module_index */
 	.word	2
 	/* type_token_id */
@@ -1904,7 +1837,7 @@ map_java:
 	.ascii	"androidx/coordinatorlayout/widget/CoordinatorLayout"
 	.zero	41
 
-	/* #165 */
+	/* #162 */
 	/* module_index */
 	.word	2
 	/* type_token_id */
@@ -1913,7 +1846,7 @@ map_java:
 	.ascii	"androidx/coordinatorlayout/widget/CoordinatorLayout$Behavior"
 	.zero	32
 
-	/* #166 */
+	/* #163 */
 	/* module_index */
 	.word	2
 	/* type_token_id */
@@ -1922,286 +1855,286 @@ map_java:
 	.ascii	"androidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams"
 	.zero	28
 
-	/* #167 */
+	/* #164 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554516
 	/* java_name */
 	.ascii	"androidx/core/app/ActivityCompat"
 	.zero	60
 
-	/* #168 */
+	/* #165 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/app/ActivityCompat$OnRequestPermissionsResultCallback"
 	.zero	25
 
-	/* #169 */
+	/* #166 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/app/ActivityCompat$PermissionCompatDelegate"
 	.zero	35
 
-	/* #170 */
+	/* #167 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/app/ActivityCompat$RequestPermissionsRequestCodeValidator"
 	.zero	21
 
-	/* #171 */
+	/* #168 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554523
 	/* java_name */
 	.ascii	"androidx/core/app/ComponentActivity"
 	.zero	57
 
-	/* #172 */
+	/* #169 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554524
 	/* java_name */
 	.ascii	"androidx/core/app/ComponentActivity$ExtraData"
 	.zero	47
 
-	/* #173 */
+	/* #170 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554525
 	/* java_name */
 	.ascii	"androidx/core/app/SharedElementCallback"
 	.zero	53
 
-	/* #174 */
+	/* #171 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/app/SharedElementCallback$OnSharedElementsReadyListener"
 	.zero	23
 
-	/* #175 */
+	/* #172 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554529
 	/* java_name */
 	.ascii	"androidx/core/app/TaskStackBuilder"
 	.zero	58
 
-	/* #176 */
+	/* #173 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/app/TaskStackBuilder$SupportParentable"
 	.zero	40
 
-	/* #177 */
+	/* #174 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554514
 	/* java_name */
 	.ascii	"androidx/core/content/ContextCompat"
 	.zero	57
 
-	/* #178 */
+	/* #175 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554515
 	/* java_name */
 	.ascii	"androidx/core/content/pm/PackageInfoCompat"
 	.zero	50
 
-	/* #179 */
+	/* #176 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554513
 	/* java_name */
 	.ascii	"androidx/core/graphics/Insets"
 	.zero	63
 
-	/* #180 */
+	/* #177 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/internal/view/SupportMenu"
 	.zero	53
 
-	/* #181 */
+	/* #178 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/internal/view/SupportMenuItem"
 	.zero	49
 
-	/* #182 */
+	/* #179 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554476
 	/* java_name */
 	.ascii	"androidx/core/view/ActionProvider"
 	.zero	59
 
-	/* #183 */
+	/* #180 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/ActionProvider$SubUiVisibilityListener"
 	.zero	35
 
-	/* #184 */
+	/* #181 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/ActionProvider$VisibilityListener"
 	.zero	40
 
-	/* #185 */
+	/* #182 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554490
 	/* java_name */
 	.ascii	"androidx/core/view/DisplayCutoutCompat"
 	.zero	54
 
-	/* #186 */
+	/* #183 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554491
 	/* java_name */
 	.ascii	"androidx/core/view/DragAndDropPermissionsCompat"
 	.zero	45
 
-	/* #187 */
+	/* #184 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554504
 	/* java_name */
 	.ascii	"androidx/core/view/KeyEventDispatcher"
 	.zero	55
 
-	/* #188 */
+	/* #185 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/KeyEventDispatcher$Component"
 	.zero	45
 
-	/* #189 */
+	/* #186 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/NestedScrollingParent"
 	.zero	52
 
-	/* #190 */
+	/* #187 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/NestedScrollingParent2"
 	.zero	51
 
-	/* #191 */
+	/* #188 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/NestedScrollingParent3"
 	.zero	51
 
-	/* #192 */
+	/* #189 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/TintableBackgroundView"
 	.zero	51
 
-	/* #193 */
+	/* #190 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554507
 	/* java_name */
 	.ascii	"androidx/core/view/ViewPropertyAnimatorCompat"
 	.zero	47
 
-	/* #194 */
+	/* #191 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/ViewPropertyAnimatorListener"
 	.zero	45
 
-	/* #195 */
+	/* #192 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/core/view/ViewPropertyAnimatorUpdateListener"
 	.zero	39
 
-	/* #196 */
+	/* #193 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554508
 	/* java_name */
 	.ascii	"androidx/core/view/WindowInsetsCompat"
 	.zero	55
 
-	/* #197 */
+	/* #194 */
 	/* module_index */
-	.word	16
+	.word	14
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/customview/widget/Openable"
 	.zero	57
 
-	/* #198 */
+	/* #195 */
 	/* module_index */
 	.word	0
 	/* type_token_id */
@@ -2210,7 +2143,7 @@ map_java:
 	.ascii	"androidx/drawerlayout/widget/DrawerLayout"
 	.zero	51
 
-	/* #199 */
+	/* #196 */
 	/* module_index */
 	.word	0
 	/* type_token_id */
@@ -2219,97 +2152,97 @@ map_java:
 	.ascii	"androidx/drawerlayout/widget/DrawerLayout$DrawerListener"
 	.zero	36
 
-	/* #200 */
+	/* #197 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	33554468
 	/* java_name */
 	.ascii	"androidx/fragment/app/Fragment"
 	.zero	62
 
-	/* #201 */
+	/* #198 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	33554469
 	/* java_name */
 	.ascii	"androidx/fragment/app/Fragment$SavedState"
 	.zero	51
 
-	/* #202 */
+	/* #199 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	33554467
 	/* java_name */
 	.ascii	"androidx/fragment/app/FragmentActivity"
 	.zero	54
 
-	/* #203 */
+	/* #200 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	33554470
 	/* java_name */
 	.ascii	"androidx/fragment/app/FragmentFactory"
 	.zero	55
 
-	/* #204 */
+	/* #201 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	33554471
 	/* java_name */
 	.ascii	"androidx/fragment/app/FragmentManager"
 	.zero	55
 
-	/* #205 */
+	/* #202 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/fragment/app/FragmentManager$BackStackEntry"
 	.zero	40
 
-	/* #206 */
+	/* #203 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	33554474
 	/* java_name */
 	.ascii	"androidx/fragment/app/FragmentManager$FragmentLifecycleCallbacks"
 	.zero	28
 
-	/* #207 */
+	/* #204 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/fragment/app/FragmentManager$OnBackStackChangedListener"
 	.zero	28
 
-	/* #208 */
+	/* #205 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	33554482
 	/* java_name */
 	.ascii	"androidx/fragment/app/FragmentTransaction"
 	.zero	51
 
-	/* #209 */
+	/* #206 */
 	/* module_index */
-	.word	18
+	.word	16
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/lifecycle/HasDefaultViewModelProviderFactory"
 	.zero	39
 
-	/* #210 */
+	/* #207 */
 	/* module_index */
 	.word	1
 	/* type_token_id */
@@ -2318,7 +2251,7 @@ map_java:
 	.ascii	"androidx/lifecycle/Lifecycle"
 	.zero	64
 
-	/* #211 */
+	/* #208 */
 	/* module_index */
 	.word	1
 	/* type_token_id */
@@ -2327,7 +2260,7 @@ map_java:
 	.ascii	"androidx/lifecycle/Lifecycle$State"
 	.zero	58
 
-	/* #212 */
+	/* #209 */
 	/* module_index */
 	.word	1
 	/* type_token_id */
@@ -2336,7 +2269,7 @@ map_java:
 	.ascii	"androidx/lifecycle/LifecycleObserver"
 	.zero	56
 
-	/* #213 */
+	/* #210 */
 	/* module_index */
 	.word	1
 	/* type_token_id */
@@ -2345,1852 +2278,1501 @@ map_java:
 	.ascii	"androidx/lifecycle/LifecycleOwner"
 	.zero	59
 
-	/* #214 */
+	/* #211 */
 	/* module_index */
-	.word	15
+	.word	13
 	/* type_token_id */
 	.word	33554441
 	/* java_name */
 	.ascii	"androidx/lifecycle/LiveData"
 	.zero	65
 
-	/* #215 */
+	/* #212 */
 	/* module_index */
-	.word	15
+	.word	13
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/lifecycle/Observer"
 	.zero	65
 
-	/* #216 */
+	/* #213 */
 	/* module_index */
-	.word	18
+	.word	16
 	/* type_token_id */
 	.word	33554441
 	/* java_name */
 	.ascii	"androidx/lifecycle/ViewModelProvider"
 	.zero	56
 
-	/* #217 */
+	/* #214 */
 	/* module_index */
-	.word	18
+	.word	16
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/lifecycle/ViewModelProvider$Factory"
 	.zero	48
 
-	/* #218 */
+	/* #215 */
 	/* module_index */
-	.word	18
+	.word	16
 	/* type_token_id */
 	.word	33554444
 	/* java_name */
 	.ascii	"androidx/lifecycle/ViewModelStore"
 	.zero	59
 
-	/* #219 */
+	/* #216 */
 	/* module_index */
-	.word	18
+	.word	16
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/lifecycle/ViewModelStoreOwner"
 	.zero	54
 
-	/* #220 */
+	/* #217 */
 	/* module_index */
-	.word	12
+	.word	10
 	/* type_token_id */
 	.word	33554452
 	/* java_name */
 	.ascii	"androidx/loader/app/LoaderManager"
 	.zero	59
 
-	/* #221 */
+	/* #218 */
 	/* module_index */
-	.word	12
+	.word	10
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/loader/app/LoaderManager$LoaderCallbacks"
 	.zero	43
 
-	/* #222 */
+	/* #219 */
 	/* module_index */
-	.word	12
+	.word	10
 	/* type_token_id */
 	.word	33554447
 	/* java_name */
 	.ascii	"androidx/loader/content/Loader"
 	.zero	62
 
-	/* #223 */
+	/* #220 */
 	/* module_index */
-	.word	12
+	.word	10
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/loader/content/Loader$OnLoadCanceledListener"
 	.zero	39
 
-	/* #224 */
+	/* #221 */
 	/* module_index */
-	.word	12
+	.word	10
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/loader/content/Loader$OnLoadCompleteListener"
 	.zero	39
 
-	/* #225 */
+	/* #222 */
 	/* module_index */
-	.word	4
+	.word	3
 	/* type_token_id */
 	.word	33554437
 	/* java_name */
 	.ascii	"androidx/savedstate/SavedStateRegistry"
 	.zero	54
 
-	/* #226 */
+	/* #223 */
 	/* module_index */
-	.word	4
+	.word	3
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/savedstate/SavedStateRegistry$SavedStateProvider"
 	.zero	35
 
-	/* #227 */
+	/* #224 */
 	/* module_index */
-	.word	4
+	.word	3
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"androidx/savedstate/SavedStateRegistryOwner"
 	.zero	49
 
-	/* #228 */
+	/* #225 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	33554434
 	/* java_name */
 	.ascii	"com/google/android/material/behavior/SwipeDismissBehavior"
 	.zero	35
 
-	/* #229 */
+	/* #226 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"com/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener"
 	.zero	17
 
-	/* #230 */
+	/* #227 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	33554443
 	/* java_name */
 	.ascii	"com/google/android/material/snackbar/BaseTransientBottomBar"
 	.zero	33
 
-	/* #231 */
+	/* #228 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	33554444
 	/* java_name */
 	.ascii	"com/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback"
 	.zero	20
 
-	/* #232 */
+	/* #229 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	33554446
 	/* java_name */
 	.ascii	"com/google/android/material/snackbar/BaseTransientBottomBar$Behavior"
 	.zero	24
 
-	/* #233 */
+	/* #230 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"com/google/android/material/snackbar/ContentViewCallback"
 	.zero	36
 
-	/* #234 */
+	/* #231 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	33554440
 	/* java_name */
 	.ascii	"com/google/android/material/snackbar/Snackbar"
 	.zero	47
 
-	/* #235 */
+	/* #232 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	33554442
 	/* java_name */
 	.ascii	"com/google/android/material/snackbar/Snackbar$Callback"
 	.zero	38
 
-	/* #236 */
+	/* #233 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	33554441
 	/* java_name */
 	.ascii	"com/google/android/material/snackbar/Snackbar_SnackbarActionClickImplementor"
 	.zero	16
 
-	/* #237 */
+	/* #234 */
 	/* module_index */
-	.word	17
+	.word	15
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"com/google/common/util/concurrent/ListenableFuture"
 	.zero	42
 
-	/* #238 */
+	/* #235 */
 	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554451
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/AdaptiveMap"
-	.zero	48
-
-	/* #239 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554452
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Binarize"
-	.zero	51
-
-	/* #240 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554453
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Box"
-	.zero	56
-
-	/* #241 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554454
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Boxa"
-	.zero	55
-
-	/* #242 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554455
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Clip"
-	.zero	55
-
-	/* #243 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554456
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Constants"
-	.zero	50
-
-	/* #244 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554458
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Constants$SortBy"
-	.zero	43
-
-	/* #245 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554460
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Constants$SortOrder"
-	.zero	40
-
-	/* #246 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554462
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Constants$StorageFlag"
-	.zero	38
-
-	/* #247 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554463
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Convert"
-	.zero	52
-
-	/* #248 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554464
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Edge"
-	.zero	55
-
-	/* #249 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554466
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Edge$EdgeOrientationFlag"
-	.zero	35
-
-	/* #250 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554467
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Enhance"
-	.zero	52
-
-	/* #251 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554468
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/GrayQuant"
-	.zero	50
-
-	/* #252 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554469
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/JpegIO"
-	.zero	53
-
-	/* #253 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554470
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/MorphApp"
-	.zero	51
-
-	/* #254 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554472
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/MorphApp$TophatType"
-	.zero	40
-
-	/* #255 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554473
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Pix"
-	.zero	56
-
-	/* #256 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554474
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Pixa"
-	.zero	55
-
-	/* #257 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554475
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Pixa$PixIterator"
-	.zero	43
-
-	/* #258 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554476
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/ReadFile"
-	.zero	51
-
-	/* #259 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554477
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Rotate"
-	.zero	53
-
-	/* #260 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554478
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Scale"
-	.zero	54
-
-	/* #261 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554479
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Scale$ScaleType"
-	.zero	44
-
-	/* #262 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554480
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/Skew"
-	.zero	55
-
-	/* #263 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554481
-	/* java_name */
-	.ascii	"com/googlecode/leptonica/android/WriteFile"
-	.zero	50
-
-	/* #264 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554435
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/BuildConfig"
-	.zero	48
-
-	/* #265 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554436
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/PageIterator"
-	.zero	47
-
-	/* #266 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554437
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/ResultIterator"
-	.zero	45
-
-	/* #267 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554438
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessBaseAPI"
-	.zero	48
-
-	/* #268 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554440
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessBaseAPI$OcrEngineMode"
-	.zero	34
-
-	/* #269 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554441
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessBaseAPI$PageIteratorLevel"
-	.zero	30
-
-	/* #270 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554443
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessBaseAPI$PageIteratorLevel$Level"
-	.zero	24
-
-	/* #271 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554444
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessBaseAPI$PageSegMode"
-	.zero	36
-
-	/* #272 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554446
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessBaseAPI$PageSegMode$Mode"
-	.zero	31
-
-	/* #273 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554448
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessBaseAPI$ProgressNotifier"
-	.zero	31
-
-	/* #274 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554449
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessBaseAPI$ProgressValues"
-	.zero	33
-
-	/* #275 */
-	/* module_index */
-	.word	8
-	/* type_token_id */
-	.word	33554450
-	/* java_name */
-	.ascii	"com/googlecode/tesseract/android/TessPdfRenderer"
-	.zero	44
-
-	/* #276 */
-	/* module_index */
-	.word	3
+	.word	12
 	/* type_token_id */
 	.word	33554434
 	/* java_name */
 	.ascii	"crc64903dcea04fdc7c22/MainActivity"
 	.zero	58
 
-	/* #277 */
+	/* #236 */
 	/* module_index */
-	.word	6
-	/* type_token_id */
-	.word	33554441
-	/* java_name */
-	.ascii	"crc6496f10dc3ab335463/TesseractApi_ProgressHandler"
-	.zero	42
-
-	/* #278 */
-	/* module_index */
-	.word	10
+	.word	8
 	/* type_token_id */
 	.word	33554448
 	/* java_name */
 	.ascii	"crc64a0e0a82d0db9a07d/ActivityLifecycleContextListener"
 	.zero	38
 
-	/* #279 */
+	/* #237 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555038
+	.word	33555032
 	/* java_name */
 	.ascii	"java/io/BufferedReader"
 	.zero	70
 
-	/* #280 */
+	/* #238 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/io/Closeable"
 	.zero	75
 
-	/* #281 */
+	/* #239 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555039
+	.word	33555033
 	/* java_name */
 	.ascii	"java/io/File"
 	.zero	80
 
-	/* #282 */
+	/* #240 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555040
+	.word	33555034
 	/* java_name */
 	.ascii	"java/io/FileDescriptor"
 	.zero	70
 
-	/* #283 */
+	/* #241 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555041
+	.word	33555035
 	/* java_name */
 	.ascii	"java/io/FileInputStream"
 	.zero	69
 
-	/* #284 */
+	/* #242 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555042
+	.word	33555036
 	/* java_name */
 	.ascii	"java/io/FileOutputStream"
 	.zero	68
 
-	/* #285 */
+	/* #243 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/io/Flushable"
 	.zero	75
 
-	/* #286 */
+	/* #244 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555051
+	.word	33555045
 	/* java_name */
 	.ascii	"java/io/IOException"
 	.zero	73
 
-	/* #287 */
+	/* #245 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555047
+	.word	33555041
 	/* java_name */
 	.ascii	"java/io/InputStream"
 	.zero	73
 
-	/* #288 */
+	/* #246 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555049
+	.word	33555043
 	/* java_name */
 	.ascii	"java/io/InputStreamReader"
 	.zero	67
 
-	/* #289 */
+	/* #247 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555050
+	.word	33555044
 	/* java_name */
 	.ascii	"java/io/InterruptedIOException"
 	.zero	62
 
-	/* #290 */
+	/* #248 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555054
+	.word	33555048
 	/* java_name */
 	.ascii	"java/io/OutputStream"
 	.zero	72
 
-	/* #291 */
+	/* #249 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555056
+	.word	33555050
 	/* java_name */
 	.ascii	"java/io/PrintWriter"
 	.zero	73
 
-	/* #292 */
+	/* #250 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555057
+	.word	33555051
 	/* java_name */
 	.ascii	"java/io/Reader"
 	.zero	78
 
-	/* #293 */
+	/* #251 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/io/Serializable"
 	.zero	72
 
-	/* #294 */
+	/* #252 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555059
+	.word	33555053
 	/* java_name */
 	.ascii	"java/io/StringWriter"
 	.zero	72
 
-	/* #295 */
+	/* #253 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555060
+	.word	33555054
 	/* java_name */
 	.ascii	"java/io/Writer"
 	.zero	78
 
-	/* #296 */
+	/* #254 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/Appendable"
 	.zero	72
 
-	/* #297 */
+	/* #255 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/AutoCloseable"
 	.zero	69
 
-	/* #298 */
+	/* #256 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554976
+	.word	33554970
 	/* java_name */
 	.ascii	"java/lang/Boolean"
 	.zero	75
 
-	/* #299 */
+	/* #257 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554977
+	.word	33554971
 	/* java_name */
 	.ascii	"java/lang/Byte"
 	.zero	78
 
-	/* #300 */
+	/* #258 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/CharSequence"
 	.zero	70
 
-	/* #301 */
+	/* #259 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554978
+	.word	33554972
 	/* java_name */
 	.ascii	"java/lang/Character"
 	.zero	73
 
-	/* #302 */
+	/* #260 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554979
+	.word	33554973
 	/* java_name */
 	.ascii	"java/lang/Class"
 	.zero	77
 
-	/* #303 */
+	/* #261 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554980
+	.word	33554974
 	/* java_name */
 	.ascii	"java/lang/ClassCastException"
 	.zero	64
 
-	/* #304 */
+	/* #262 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554981
+	.word	33554975
 	/* java_name */
 	.ascii	"java/lang/ClassLoader"
 	.zero	71
 
-	/* #305 */
+	/* #263 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554983
+	.word	33554977
 	/* java_name */
 	.ascii	"java/lang/ClassNotFoundException"
 	.zero	60
 
-	/* #306 */
+	/* #264 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/Cloneable"
 	.zero	73
 
-	/* #307 */
+	/* #265 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/Comparable"
 	.zero	72
 
-	/* #308 */
+	/* #266 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554984
+	.word	33554978
 	/* java_name */
 	.ascii	"java/lang/Double"
 	.zero	76
 
-	/* #309 */
+	/* #267 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554985
+	.word	33554979
 	/* java_name */
 	.ascii	"java/lang/Enum"
 	.zero	78
 
-	/* #310 */
+	/* #268 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554987
+	.word	33554981
 	/* java_name */
 	.ascii	"java/lang/Error"
 	.zero	77
 
-	/* #311 */
+	/* #269 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554988
+	.word	33554982
 	/* java_name */
 	.ascii	"java/lang/Exception"
 	.zero	73
 
-	/* #312 */
+	/* #270 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554989
+	.word	33554983
 	/* java_name */
 	.ascii	"java/lang/Float"
 	.zero	77
 
-	/* #313 */
+	/* #271 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555003
+	.word	33554997
 	/* java_name */
 	.ascii	"java/lang/IllegalArgumentException"
 	.zero	58
 
-	/* #314 */
+	/* #272 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555004
+	.word	33554998
 	/* java_name */
 	.ascii	"java/lang/IllegalStateException"
 	.zero	61
 
-	/* #315 */
+	/* #273 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555005
+	.word	33554999
 	/* java_name */
 	.ascii	"java/lang/IndexOutOfBoundsException"
 	.zero	57
 
-	/* #316 */
+	/* #274 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555006
+	.word	33555000
 	/* java_name */
 	.ascii	"java/lang/Integer"
 	.zero	75
 
-	/* #317 */
+	/* #275 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/Iterable"
 	.zero	74
 
-	/* #318 */
+	/* #276 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555011
+	.word	33555005
 	/* java_name */
 	.ascii	"java/lang/LinkageError"
 	.zero	70
 
-	/* #319 */
+	/* #277 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555012
+	.word	33555006
 	/* java_name */
 	.ascii	"java/lang/Long"
 	.zero	78
 
-	/* #320 */
+	/* #278 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555013
+	.word	33555007
 	/* java_name */
 	.ascii	"java/lang/NoClassDefFoundError"
 	.zero	62
 
-	/* #321 */
+	/* #279 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555014
+	.word	33555008
 	/* java_name */
 	.ascii	"java/lang/NullPointerException"
 	.zero	62
 
-	/* #322 */
+	/* #280 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555015
+	.word	33555009
 	/* java_name */
 	.ascii	"java/lang/Number"
 	.zero	76
 
-	/* #323 */
+	/* #281 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555017
+	.word	33555011
 	/* java_name */
 	.ascii	"java/lang/Object"
 	.zero	76
 
-	/* #324 */
+	/* #282 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/Readable"
 	.zero	74
 
-	/* #325 */
+	/* #283 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555018
+	.word	33555012
 	/* java_name */
 	.ascii	"java/lang/ReflectiveOperationException"
 	.zero	54
 
-	/* #326 */
+	/* #284 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/Runnable"
 	.zero	74
 
-	/* #327 */
+	/* #285 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555019
+	.word	33555013
 	/* java_name */
 	.ascii	"java/lang/RuntimeException"
 	.zero	66
 
-	/* #328 */
+	/* #286 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555020
+	.word	33555014
 	/* java_name */
 	.ascii	"java/lang/SecurityException"
 	.zero	65
 
-	/* #329 */
+	/* #287 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555021
+	.word	33555015
 	/* java_name */
 	.ascii	"java/lang/Short"
 	.zero	77
 
-	/* #330 */
+	/* #288 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555022
+	.word	33555016
 	/* java_name */
 	.ascii	"java/lang/String"
 	.zero	76
 
-	/* #331 */
+	/* #289 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555024
+	.word	33555018
 	/* java_name */
 	.ascii	"java/lang/Thread"
 	.zero	76
 
-	/* #332 */
+	/* #290 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555026
+	.word	33555020
 	/* java_name */
 	.ascii	"java/lang/Throwable"
 	.zero	73
 
-	/* #333 */
+	/* #291 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555027
+	.word	33555021
 	/* java_name */
 	.ascii	"java/lang/UnsupportedOperationException"
 	.zero	53
 
-	/* #334 */
+	/* #292 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/annotation/Annotation"
 	.zero	61
 
-	/* #335 */
+	/* #293 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/reflect/AnnotatedElement"
 	.zero	58
 
-	/* #336 */
+	/* #294 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/reflect/GenericDeclaration"
 	.zero	56
 
-	/* #337 */
+	/* #295 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/reflect/Type"
 	.zero	70
 
-	/* #338 */
+	/* #296 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/lang/reflect/TypeVariable"
 	.zero	62
 
-	/* #339 */
+	/* #297 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554957
+	.word	33554951
 	/* java_name */
 	.ascii	"java/net/ConnectException"
 	.zero	67
 
-	/* #340 */
+	/* #298 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554958
+	.word	33554952
 	/* java_name */
 	.ascii	"java/net/HttpURLConnection"
 	.zero	66
 
-	/* #341 */
+	/* #299 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554960
+	.word	33554954
 	/* java_name */
 	.ascii	"java/net/InetSocketAddress"
 	.zero	66
 
-	/* #342 */
+	/* #300 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554961
+	.word	33554955
 	/* java_name */
 	.ascii	"java/net/ProtocolException"
 	.zero	66
 
-	/* #343 */
+	/* #301 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554962
+	.word	33554956
 	/* java_name */
 	.ascii	"java/net/Proxy"
 	.zero	78
 
-	/* #344 */
+	/* #302 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554963
+	.word	33554957
 	/* java_name */
 	.ascii	"java/net/Proxy$Type"
 	.zero	73
 
-	/* #345 */
+	/* #303 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554964
+	.word	33554958
 	/* java_name */
 	.ascii	"java/net/ProxySelector"
 	.zero	70
 
-	/* #346 */
+	/* #304 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554966
+	.word	33554960
 	/* java_name */
 	.ascii	"java/net/SocketAddress"
 	.zero	70
 
-	/* #347 */
+	/* #305 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554968
+	.word	33554962
 	/* java_name */
 	.ascii	"java/net/SocketException"
 	.zero	68
 
-	/* #348 */
+	/* #306 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554969
+	.word	33554963
 	/* java_name */
 	.ascii	"java/net/SocketTimeoutException"
 	.zero	61
 
-	/* #349 */
+	/* #307 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554971
+	.word	33554965
 	/* java_name */
 	.ascii	"java/net/URI"
 	.zero	80
 
-	/* #350 */
+	/* #308 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554972
+	.word	33554966
 	/* java_name */
 	.ascii	"java/net/URL"
 	.zero	80
 
-	/* #351 */
+	/* #309 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554973
+	.word	33554967
 	/* java_name */
 	.ascii	"java/net/URLConnection"
 	.zero	70
 
-	/* #352 */
+	/* #310 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554970
+	.word	33554964
 	/* java_name */
 	.ascii	"java/net/UnknownServiceException"
 	.zero	60
 
-	/* #353 */
+	/* #311 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554930
+	.word	33554924
 	/* java_name */
 	.ascii	"java/nio/Buffer"
 	.zero	77
 
-	/* #354 */
+	/* #312 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554932
+	.word	33554926
 	/* java_name */
 	.ascii	"java/nio/ByteBuffer"
 	.zero	73
 
-	/* #355 */
+	/* #313 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554934
+	.word	33554928
 	/* java_name */
 	.ascii	"java/nio/CharBuffer"
 	.zero	73
 
-	/* #356 */
+	/* #314 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/nio/channels/ByteChannel"
 	.zero	63
 
-	/* #357 */
+	/* #315 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/nio/channels/Channel"
 	.zero	67
 
-	/* #358 */
+	/* #316 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554937
+	.word	33554931
 	/* java_name */
 	.ascii	"java/nio/channels/FileChannel"
 	.zero	63
 
-	/* #359 */
+	/* #317 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/nio/channels/GatheringByteChannel"
 	.zero	54
 
-	/* #360 */
+	/* #318 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/nio/channels/InterruptibleChannel"
 	.zero	54
 
-	/* #361 */
+	/* #319 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/nio/channels/ReadableByteChannel"
 	.zero	55
 
-	/* #362 */
+	/* #320 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/nio/channels/ScatteringByteChannel"
 	.zero	53
 
-	/* #363 */
+	/* #321 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/nio/channels/SeekableByteChannel"
 	.zero	55
 
-	/* #364 */
+	/* #322 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/nio/channels/WritableByteChannel"
 	.zero	55
 
-	/* #365 */
+	/* #323 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554955
+	.word	33554949
 	/* java_name */
 	.ascii	"java/nio/channels/spi/AbstractInterruptibleChannel"
 	.zero	42
 
-	/* #366 */
+	/* #324 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554917
+	.word	33554911
 	/* java_name */
 	.ascii	"java/security/KeyStore"
 	.zero	70
 
-	/* #367 */
+	/* #325 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/security/KeyStore$LoadStoreParameter"
 	.zero	51
 
-	/* #368 */
+	/* #326 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/security/KeyStore$ProtectionParameter"
 	.zero	50
 
-	/* #369 */
+	/* #327 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/security/Principal"
 	.zero	69
 
-	/* #370 */
+	/* #328 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554922
+	.word	33554916
 	/* java_name */
 	.ascii	"java/security/SecureRandom"
 	.zero	66
 
-	/* #371 */
+	/* #329 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554923
+	.word	33554917
 	/* java_name */
 	.ascii	"java/security/cert/Certificate"
 	.zero	62
 
-	/* #372 */
+	/* #330 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554925
+	.word	33554919
 	/* java_name */
 	.ascii	"java/security/cert/CertificateFactory"
 	.zero	55
 
-	/* #373 */
+	/* #331 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554928
+	.word	33554922
 	/* java_name */
 	.ascii	"java/security/cert/X509Certificate"
 	.zero	58
 
-	/* #374 */
+	/* #332 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/security/cert/X509Extension"
 	.zero	60
 
-	/* #375 */
+	/* #333 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554858
+	.word	33554852
 	/* java_name */
 	.ascii	"java/util/ArrayList"
 	.zero	73
 
-	/* #376 */
+	/* #334 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554847
+	.word	33554841
 	/* java_name */
 	.ascii	"java/util/Collection"
 	.zero	72
 
-	/* #377 */
+	/* #335 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/Comparator"
 	.zero	72
 
-	/* #378 */
+	/* #336 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/Enumeration"
 	.zero	71
 
-	/* #379 */
+	/* #337 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554849
+	.word	33554843
 	/* java_name */
 	.ascii	"java/util/HashMap"
 	.zero	75
 
-	/* #380 */
+	/* #338 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554867
+	.word	33554861
 	/* java_name */
 	.ascii	"java/util/HashSet"
 	.zero	75
 
-	/* #381 */
+	/* #339 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/Iterator"
 	.zero	74
 
-	/* #382 */
+	/* #340 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554898
+	.word	33554892
 	/* java_name */
 	.ascii	"java/util/Random"
 	.zero	76
 
-	/* #383 */
+	/* #341 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/Spliterator"
 	.zero	71
 
-	/* #384 */
+	/* #342 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/concurrent/Executor"
 	.zero	63
 
-	/* #385 */
+	/* #343 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/concurrent/Future"
 	.zero	65
 
-	/* #386 */
+	/* #344 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554914
+	.word	33554908
 	/* java_name */
 	.ascii	"java/util/concurrent/TimeUnit"
 	.zero	63
 
-	/* #387 */
+	/* #345 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/function/Consumer"
 	.zero	65
 
-	/* #388 */
+	/* #346 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/function/Function"
 	.zero	65
 
-	/* #389 */
+	/* #347 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/function/ToDoubleFunction"
 	.zero	57
 
-	/* #390 */
+	/* #348 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/function/ToIntFunction"
 	.zero	60
 
-	/* #391 */
+	/* #349 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"java/util/function/ToLongFunction"
 	.zero	59
 
-	/* #392 */
+	/* #350 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554559
 	/* java_name */
 	.ascii	"javax/net/SocketFactory"
 	.zero	69
 
-	/* #393 */
+	/* #351 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"javax/net/ssl/HostnameVerifier"
 	.zero	62
 
-	/* #394 */
+	/* #352 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554561
 	/* java_name */
 	.ascii	"javax/net/ssl/HttpsURLConnection"
 	.zero	60
 
-	/* #395 */
+	/* #353 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"javax/net/ssl/KeyManager"
 	.zero	68
 
-	/* #396 */
+	/* #354 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554575
 	/* java_name */
 	.ascii	"javax/net/ssl/KeyManagerFactory"
 	.zero	61
 
-	/* #397 */
+	/* #355 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554576
 	/* java_name */
 	.ascii	"javax/net/ssl/SSLContext"
 	.zero	68
 
-	/* #398 */
+	/* #356 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"javax/net/ssl/SSLSession"
 	.zero	68
 
-	/* #399 */
+	/* #357 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"javax/net/ssl/SSLSessionContext"
 	.zero	61
 
-	/* #400 */
+	/* #358 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554577
 	/* java_name */
 	.ascii	"javax/net/ssl/SSLSocketFactory"
 	.zero	62
 
-	/* #401 */
+	/* #359 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"javax/net/ssl/TrustManager"
 	.zero	66
 
-	/* #402 */
+	/* #360 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554579
 	/* java_name */
 	.ascii	"javax/net/ssl/TrustManagerFactory"
 	.zero	59
 
-	/* #403 */
+	/* #361 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"javax/net/ssl/X509TrustManager"
 	.zero	62
 
-	/* #404 */
+	/* #362 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554558
 	/* java_name */
 	.ascii	"javax/security/auth/Subject"
 	.zero	65
 
-	/* #405 */
+	/* #363 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554554
 	/* java_name */
 	.ascii	"javax/security/cert/Certificate"
 	.zero	61
 
-	/* #406 */
+	/* #364 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554556
 	/* java_name */
 	.ascii	"javax/security/cert/X509Certificate"
 	.zero	57
 
-	/* #407 */
+	/* #365 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555084
+	.word	33555078
 	/* java_name */
 	.ascii	"mono/android/TypeManager"
 	.zero	68
 
-	/* #408 */
+	/* #366 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554780
+	.word	33554774
 	/* java_name */
 	.ascii	"mono/android/app/DatePickerDialog_OnDateSetListenerImplementor"
 	.zero	30
 
-	/* #409 */
+	/* #367 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554798
+	.word	33554792
 	/* java_name */
 	.ascii	"mono/android/content/DialogInterface_OnClickListenerImplementor"
 	.zero	29
 
-	/* #410 */
+	/* #368 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554843
+	.word	33554837
 	/* java_name */
 	.ascii	"mono/android/runtime/InputStreamAdapter"
 	.zero	53
 
-	/* #411 */
+	/* #369 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	0
 	/* java_name */
 	.ascii	"mono/android/runtime/JavaArray"
 	.zero	62
 
-	/* #412 */
+	/* #370 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554864
+	.word	33554858
 	/* java_name */
 	.ascii	"mono/android/runtime/JavaObject"
 	.zero	61
 
-	/* #413 */
+	/* #371 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33554882
+	.word	33554876
 	/* java_name */
 	.ascii	"mono/android/runtime/OutputStreamAdapter"
 	.zero	52
 
-	/* #414 */
+	/* #372 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554657
 	/* java_name */
 	.ascii	"mono/android/view/View_OnClickListenerImplementor"
 	.zero	43
 
-	/* #415 */
+	/* #373 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554479
 	/* java_name */
 	.ascii	"mono/androidx/appcompat/app/ActionBar_OnMenuVisibilityListenerImplementor"
 	.zero	19
 
-	/* #416 */
+	/* #374 */
 	/* module_index */
-	.word	5
+	.word	4
 	/* type_token_id */
 	.word	33554505
 	/* java_name */
 	.ascii	"mono/androidx/appcompat/widget/Toolbar_OnMenuItemClickListenerImplementor"
 	.zero	19
 
-	/* #417 */
+	/* #375 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554480
 	/* java_name */
 	.ascii	"mono/androidx/core/view/ActionProvider_SubUiVisibilityListenerImplementor"
 	.zero	19
 
-	/* #418 */
+	/* #376 */
 	/* module_index */
-	.word	11
+	.word	9
 	/* type_token_id */
 	.word	33554484
 	/* java_name */
 	.ascii	"mono/androidx/core/view/ActionProvider_VisibilityListenerImplementor"
 	.zero	24
 
-	/* #419 */
+	/* #377 */
 	/* module_index */
 	.word	0
 	/* type_token_id */
@@ -4199,43 +3781,43 @@ map_java:
 	.ascii	"mono/androidx/drawerlayout/widget/DrawerLayout_DrawerListenerImplementor"
 	.zero	20
 
-	/* #420 */
+	/* #378 */
 	/* module_index */
-	.word	9
+	.word	7
 	/* type_token_id */
 	.word	33554478
 	/* java_name */
 	.ascii	"mono/androidx/fragment/app/FragmentManager_OnBackStackChangedListenerImplementor"
 	.zero	12
 
-	/* #421 */
+	/* #379 */
 	/* module_index */
-	.word	7
+	.word	5
 	/* type_token_id */
 	.word	33554439
 	/* java_name */
 	.ascii	"mono/com/google/android/material/behavior/SwipeDismissBehavior_OnDismissListenerImplementor"
 	.zero	1
 
-	/* #422 */
+	/* #380 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
-	.word	33555025
+	.word	33555019
 	/* java_name */
 	.ascii	"mono/java/lang/RunnableImplementor"
 	.zero	58
 
-	/* #423 */
+	/* #381 */
 	/* module_index */
-	.word	13
+	.word	6
 	/* type_token_id */
 	.word	33554553
 	/* java_name */
 	.ascii	"xamarin/android/net/OldAndroidSSLSocketFactory"
 	.zero	46
 
-	.size	map_java, 42400
+	.size	map_java, 38200
 /* Java to managed map: END */
 
 

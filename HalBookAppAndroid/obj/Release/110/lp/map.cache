@@ -1,5 +1,3 @@
-Tesseract.Binding.Droid.dll
-Tesseract.Droid.dll
 Xamarin.AndroidX.Activity.dll
 Xamarin.AndroidX.Annotation.dll
 Xamarin.AndroidX.AppCompat.AppCompatResources.dll
@@ -41,6 +39,7 @@ Xamarin.AndroidX.ViewPager.dll
 Xamarin.Essentials.dll
 Xamarin.Google.Android.Material.dll
 Xamarin.Google.Guava.ListenableFuture.dll
+androidx.multidex.multidex.aar
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.lifecycle.lifecycle-runtime.aar
 androidx.core.core.aar
@@ -75,4 +74,3 @@ androidx.appcompat.appcompat-resources.aar
 androidx.appcompat.appcompat.aar
 com.google.android.material.material.aar
 androidx.browser.browser.aar
-androidx.multidex.multidex.aar

@@ -38,10 +38,6 @@
       "frameworks": {
         "monoandroid11.0": {
           "dependencies": {
-            "Azure.Storage.Blobs": {
-              "target": "Package",
-              "version": "[12.12.0, )"
-            },
             "MailKit": {
               "target": "Package",
               "version": "[3.1.1, )"
@@ -65,10 +61,6 @@
             "Xamarin.Google.Android.Material": {
               "target": "Package",
               "version": "[1.0.0.1, )"
-            },
-            "Xamarin.Tesseract": {
-              "target": "Package",
-              "version": "[0.3.4, )"
             }
           }
         }

@@ -12,7 +12,7 @@ using Android.Widget;
 using EmailReader;
 using Android.Content;
 using Android.Content.PM;
-using Tesseract.Droid;
+//using Tesseract.Droid;
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Java.IO;
@@ -156,6 +156,13 @@ namespace HalBookAppAndroid
             if (savedInstanceState != null)
                 textViewLocation = savedInstanceState.GetInt("textViewLocation", 0);
 
+            if (savedInstanceState != null)
+            {
+                FireBaseRead.LoginEmail = savedInstanceState.GetString("LoginEmail");
+                FireBaseRead.LoginPassword = savedInstanceState.GetString("LoginPassword");
+                FireBaseRead.phoneID = savedInstanceState.GetString("phoneId");
+            }
+
             //Clicks
             Button1.Click += Button1Click;
             Button2.Click += Button2Click;
@@ -170,6 +177,9 @@ namespace HalBookAppAndroid
             outState.PutInt("textViewLocation", textViewLocation);
             outState.PutInt("textViewLocation1", textViewLocation1);
             outState.PutInt("toggletitle", toggletitle1);
+            outState.PutString("LoginEmail", FireBaseRead.LoginEmail);
+            outState.PutString("LoginPassword", FireBaseRead.LoginPassword);
+            outState.PutString("phoneId", FireBaseRead.phoneID);
             base.OnSaveInstanceState(outState);
         }
 
@@ -188,7 +198,7 @@ namespace HalBookAppAndroid
             ShareTodoJournal.SetImageResource(Resource.Drawable.share);
 
             var ButtonCreateSync = FindViewById<Android.Widget.Button>(Resource.Id.CloudSync);
-            ButtonCreateSync.Text = "Sync Cloud";
+            ButtonCreateSync.Text = "Login for Cloud";
             ButtonCreateSync.Click += ButtonCreateSyncCloud;
 
             //Properties with
@@ -278,7 +288,7 @@ namespace HalBookAppAndroid
                 codesneeded = codesneeded + "\n" + EmailFileRead.CodeList[3];
             }
             var ButtonCreateSync = FindViewById<Android.Widget.Button>(Resource.Id.CloudSync);
-            ButtonCreateSync.Text = "Sync Cloud";
+            ButtonCreateSync.Text = "Login for Cloud";
             ButtonCreateSync.Click += ButtonCreateSyncCloud;
             codeText.Text = "Codes Unlocked!!" + codesneeded;
             ShareTodoJournal.Click += ShareTodoJournalClick;
@@ -1026,7 +1036,6 @@ namespace HalBookAppAndroid
             submitbutton = FindViewById<Android.Widget.ImageView>(Resource.Id.submitButtonCloud);
             instructionsEmail = FindViewById<Android.Widget.TextView>(Resource.Id.logininstructionsCloud);
 
-            LogoutLoginPage = FindViewById<Android.Widget.Button>(Resource.Id.logoutloginpage);
             ButtonUploadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobjournal);
             ButtonDownloadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobjournal);
             ButtonDeleteBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobjournal);
@@ -1046,9 +1055,8 @@ namespace HalBookAppAndroid
            ButtonDownloadBlobTodo.Text = "Download Todo List";
            ButtonDeleteBlobTodo.Text = "Delete Todo List";
            ButtonBackLoginPage.Text = "Back";
-           LogoutLoginPage.Text = "Logout";
 
-           if (FireBaseRead.cloudservices == false || FireBaseRead.phoneID == "")
+           if (FireBaseRead.phoneID == "")
            {
                loginemail.Visibility = ViewStates.Visible;
                loginpassword.Visibility = ViewStates.Visible;
@@ -1061,8 +1069,7 @@ namespace HalBookAppAndroid
                ButtonDownloadBlobTodo.Visibility = ViewStates.Gone;
                ButtonDeleteBlobTodo.Visibility = ViewStates.Gone;
                ButtonBackLoginPage.Visibility = ViewStates.Visible;
-               LogoutLoginPage.Visibility = ViewStates.Gone;
-               instructionsEmail.Text = "Please login! Cloud Services";
+               instructionsEmail.Text = "Please login, use an email and password, 1 time login! Cloud Services";
 
             }
             else
@@ -1078,19 +1085,17 @@ namespace HalBookAppAndroid
                ButtonDownloadBlobTodo.Visibility = ViewStates.Visible;
                ButtonDeleteBlobTodo.Visibility = ViewStates.Visible;
                ButtonBackLoginPage.Visibility = ViewStates.Visible;
-               LogoutLoginPage.Visibility = ViewStates.Visible;
-               instructionsEmail.Text = "Welcome " + FireBaseRead.loginemail;
+               instructionsEmail.Text = "Welcome " + FireBaseRead.LoginEmail;
            }
 
            submitbutton.Click += LoginButtonClick;
            ButtonUploadBlobJournal.Click += UploadToCloud1;
            ButtonDownloadBlobJournal.Click += DownloadCloud1;
            ButtonDeleteBlobJournal.Click += DeleteCloudClick1;
-           ButtonUploadBlobTodo.Click += UploadToCloud1;
+           ButtonUploadBlobTodo.Click += UploadToCloud2;
            ButtonDownloadBlobTodo.Click += DownloadCloud2;
            ButtonDeleteBlobTodo.Click += DeleteCloudClick2;
            ButtonBackLoginPage.Click += Button1Click;
-           LogoutLoginPage.Click += LogoutCloud;
 
         }
 
@@ -1098,12 +1103,12 @@ namespace HalBookAppAndroid
         {
             if (loginemail.Text != "" || loginpassword.Text != "")
             {
-                if (FireBaseRead.phoneID == "" || (FireBaseRead.loginemail == loginemail.Text || FireBaseRead.loginpassword == loginpassword.Text))
+                if (FireBaseRead.phoneID == "" || (FireBaseRead.LoginEmail == loginemail.Text && FireBaseRead.LoginPassword == loginpassword.Text))
                 {
                     FireBaseRead.cloudservices = true;
                     FireBaseRead.phoneID = loginemail.Text + loginpassword.Text;
-                    FireBaseRead.loginemail = loginemail.Text;
-                    FireBaseRead.loginpassword = loginpassword.Text;
+                    FireBaseRead.LoginEmail = loginemail.Text;
+                    FireBaseRead.LoginPassword = loginpassword.Text;
 
                     loginemail.Visibility = ViewStates.Gone;
                     loginpassword.Visibility = ViewStates.Gone;
@@ -1116,15 +1121,14 @@ namespace HalBookAppAndroid
                     ButtonDownloadBlobTodo.Visibility = ViewStates.Visible;
                     ButtonDeleteBlobTodo.Visibility = ViewStates.Visible;
                     ButtonBackLoginPage.Visibility = ViewStates.Visible;
-                    LogoutLoginPage.Visibility = ViewStates.Visible;
-                    instructionsEmail.Text = "Welcome: " + FireBaseRead.loginemail;
+                    instructionsEmail.Text = "Welcome: " + FireBaseRead.LoginEmail;
 
                     int requestPermissions = 4000;
                     string permiss = Android.Manifest.Permission.ReadExternalStorage;
                     string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
                     string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
 
-
+                    FireBaseRead.Encrypt();
                     if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
                         || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted))
                     {
@@ -1141,8 +1145,8 @@ namespace HalBookAppAndroid
                     alert.SetIcon(Resource.Drawable.alert);
                     alert.SetButton("OK", (c, ev) =>
                     {
-                        loginemail.Text = FireBaseRead.loginemail;
-                        loginpassword.Text = FireBaseRead.loginpassword;
+                        loginemail.Text = FireBaseRead.LoginEmail;
+                        loginpassword.Text = FireBaseRead.LoginPassword;
                     });
                     alert.SetButton2("CANCEL", (c, ev) => { });
                     alert.Show();
@@ -1152,10 +1156,20 @@ namespace HalBookAppAndroid
 
         void UploadToCloud1(object sender, EventArgs eventArgs)
         {
+            int requestPermissions = 4000;
+            string permiss = Android.Manifest.Permission.ReadExternalStorage;
+            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+            string permiss3 = Android.Manifest.Permission.Internet;
+            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
+            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will upload your file to the cloud!");
+            alert.SetMessage("This may take a while and will upload your journal to the cloud! Caution, this overwrites whatever is in the cloud.");
             alert.SetIcon(Resource.Drawable.alert);
             alert.SetButton("OK", (c, ev) =>
             {
@@ -1167,10 +1181,20 @@ namespace HalBookAppAndroid
 
         void UploadToCloud2(object sender, EventArgs eventArgs)
         {
+            int requestPermissions = 4000;
+            string permiss = Android.Manifest.Permission.ReadExternalStorage;
+            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+            string permiss3 = Android.Manifest.Permission.Internet;
+            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
+            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will upload your file to the cloud!");
+            alert.SetMessage("This may take a while and will upload your todo list to the cloud! Caution, this overwrites whatever is in the cloud.");
             alert.SetIcon(Resource.Drawable.alert);
             alert.SetButton("OK", (c, ev) =>
             {
@@ -1182,10 +1206,20 @@ namespace HalBookAppAndroid
 
         void DeleteCloudClick1(object sender, EventArgs eventArgs)
         {
+            int requestPermissions = 4000;
+            string permiss = Android.Manifest.Permission.ReadExternalStorage;
+            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+            string permiss3 = Android.Manifest.Permission.Internet;
+            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
+            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will delete your file from the cloud!");
+            alert.SetMessage("This may take a while and will delete your journal from the cloud!");
             alert.SetIcon(Resource.Drawable.alert);
             alert.SetButton("OK", (c, ev) =>
             {
@@ -1198,10 +1232,20 @@ namespace HalBookAppAndroid
 
         void DownloadCloud1(object sender, EventArgs eventArgs)
         {
+            int requestPermissions = 4000;
+            string permiss = Android.Manifest.Permission.ReadExternalStorage;
+            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+            string permiss3 = Android.Manifest.Permission.Internet;
+            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
+            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will download your file from the cloud!");
+            alert.SetMessage("This may take a while and will download your journal from the cloud! This will overwrite changes made on the device.");
             alert.SetIcon(Resource.Drawable.alert);
             alert.SetButton("OK", (c, ev) =>
             {
@@ -1214,10 +1258,20 @@ namespace HalBookAppAndroid
 
         void DownloadCloud2(object sender, EventArgs eventArgs)
         {
+            int requestPermissions = 4000;
+            string permiss = Android.Manifest.Permission.ReadExternalStorage;
+            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+            string permiss3 = Android.Manifest.Permission.Internet;
+            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
+            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will download your file from the cloud!");
+            alert.SetMessage("This may take a while and will download your todo list from the cloud! This will overwrite changes made on the device.");
             alert.SetIcon(Resource.Drawable.alert);
             alert.SetButton("OK", (c, ev) =>
             {
@@ -1230,6 +1284,16 @@ namespace HalBookAppAndroid
 
         void DeleteCloudClick2(object sender, EventArgs eventArgs)
         {
+            int requestPermissions = 4000;
+            string permiss = Android.Manifest.Permission.ReadExternalStorage;
+            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+            string permiss3 = Android.Manifest.Permission.Internet;
+            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
+            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
@@ -1242,25 +1306,6 @@ namespace HalBookAppAndroid
             alert.SetButton2("CANCEL", (c, ev) => { });
             alert.Show();
 
-        }
-
-        void LogoutCloud(object sender, EventArgs eventArgs)
-        {
-            loginemail.Visibility = ViewStates.Visible;
-            loginpassword.Visibility = ViewStates.Visible;
-            submitbutton.Visibility = ViewStates.Visible;
-            instructionsEmail.Visibility = ViewStates.Visible;
-            ButtonUploadBlobJournal.Visibility = ViewStates.Gone;
-            ButtonDownloadBlobJournal.Visibility = ViewStates.Gone;
-            ButtonDeleteBlobJournal.Visibility = ViewStates.Gone;
-            ButtonUploadBlobTodo.Visibility = ViewStates.Gone;
-            ButtonDownloadBlobTodo.Visibility = ViewStates.Gone;
-            ButtonDeleteBlobTodo.Visibility = ViewStates.Gone;
-            ButtonBackLoginPage.Visibility = ViewStates.Visible;
-            LogoutLoginPage.Visibility = ViewStates.Gone;
-            instructionsEmail.Text = "Please login! Cloud Services";
-            FireBaseRead.cloudservices = false;
-            FireBaseRead.phoneID = "";
         }
 
         //Submit your story page button
@@ -1437,7 +1482,7 @@ namespace HalBookAppAndroid
             }
             return "";
         }
-
+        /*
         public String readOCR(String sourceFilePath)
         {
             try
@@ -1450,6 +1495,7 @@ namespace HalBookAppAndroid
             catch (Exception e)
             { return ""; }
         }
+        */
 
         private void ChooseMyPhoto(object sender, EventArgs eventArgs)
         {

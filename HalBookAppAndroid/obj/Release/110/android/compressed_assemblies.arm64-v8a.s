@@ -6,500 +6,365 @@
 	.type	.L.compressed_assembly_descriptors, @object
 	.p2align	3
 .L.compressed_assembly_descriptors:
-	/* 0: Azure.Core.dll */
-	/* uncompressed_file_size */
-	.word	254976
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_0
-
-	/* 1: Azure.Storage.Blobs.dll */
-	/* uncompressed_file_size */
-	.word	1162752
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_1
-
-	/* 2: Azure.Storage.Common.dll */
-	/* uncompressed_file_size */
-	.word	157184
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_2
-
-	/* 3: BouncyCastle.Crypto.dll */
+	/* 0: BouncyCastle.Crypto.dll */
 	/* uncompressed_file_size */
 	.word	3291648
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_3
+	.xword	compressed_assembly_data_0
 
-	/* 4: HalBookAppAndroid.dll */
+	/* 1: HalBookAppAndroid.dll */
 	/* uncompressed_file_size */
-	.word	395776
+	.word	397312
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_4
+	.xword	compressed_assembly_data_1
 
-	/* 5: Java.Interop.dll */
+	/* 2: Java.Interop.dll */
 	/* uncompressed_file_size */
 	.word	163328
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_5
+	.xword	compressed_assembly_data_2
 
-	/* 6: MailKit.dll */
+	/* 3: MailKit.dll */
 	/* uncompressed_file_size */
 	.word	852992
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_6
+	.xword	compressed_assembly_data_3
 
-	/* 7: Microsoft.Azure.KeyVault.Core.dll */
+	/* 4: Microsoft.Azure.KeyVault.Core.dll */
 	/* uncompressed_file_size */
 	.word	5632
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_7
+	.xword	compressed_assembly_data_4
 
-	/* 8: Microsoft.Azure.Storage.Blob.dll */
+	/* 5: Microsoft.Azure.Storage.Blob.dll */
 	/* uncompressed_file_size */
 	.word	408576
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_8
+	.xword	compressed_assembly_data_5
 
-	/* 9: Microsoft.Azure.Storage.Common.dll */
+	/* 6: Microsoft.Azure.Storage.Common.dll */
 	/* uncompressed_file_size */
 	.word	358912
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_9
+	.xword	compressed_assembly_data_6
 
-	/* 10: Microsoft.Bcl.AsyncInterfaces.dll */
-	/* uncompressed_file_size */
-	.word	5120
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_10
-
-	/* 11: Microsoft.CSharp.dll */
+	/* 7: Microsoft.CSharp.dll */
 	/* uncompressed_file_size */
 	.word	300032
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_11
+	.xword	compressed_assembly_data_7
 
-	/* 12: MimeKit.dll */
+	/* 8: MimeKit.dll */
 	/* uncompressed_file_size */
 	.word	1152000
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_12
+	.xword	compressed_assembly_data_8
 
-	/* 13: Mono.Android.dll */
+	/* 9: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.word	1172992
+	.word	1166848
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_13
+	.xword	compressed_assembly_data_9
 
-	/* 14: Mono.Security.dll */
+	/* 10: Mono.Security.dll */
 	/* uncompressed_file_size */
 	.word	124928
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_14
+	.xword	compressed_assembly_data_10
 
-	/* 15: Newtonsoft.Json.dll */
+	/* 11: Newtonsoft.Json.dll */
 	/* uncompressed_file_size */
 	.word	632832
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_15
+	.xword	compressed_assembly_data_11
 
-	/* 16: System.Buffers.dll */
+	/* 12: System.Buffers.dll */
 	/* uncompressed_file_size */
 	.word	13688
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_16
+	.xword	compressed_assembly_data_12
 
-	/* 17: System.Core.dll */
+	/* 13: System.Core.dll */
 	/* uncompressed_file_size */
 	.word	1073664
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_17
+	.xword	compressed_assembly_data_13
 
-	/* 18: System.Data.DataSetExtensions.dll */
+	/* 14: System.Data.DataSetExtensions.dll */
 	/* uncompressed_file_size */
 	.word	6656
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_18
+	.xword	compressed_assembly_data_14
 
-	/* 19: System.Data.dll */
+	/* 15: System.Data.dll */
 	/* uncompressed_file_size */
-	.word	745984
+	.word	745472
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_19
+	.xword	compressed_assembly_data_15
 
-	/* 20: System.Diagnostics.DiagnosticSource.dll */
+	/* 16: System.Net.Http.dll */
 	/* uncompressed_file_size */
-	.word	39424
+	.word	231936
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_20
+	.xword	compressed_assembly_data_16
 
-	/* 21: System.IO.Hashing.dll */
-	/* uncompressed_file_size */
-	.word	21504
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_21
-
-	/* 22: System.Memory.Data.dll */
-	/* uncompressed_file_size */
-	.word	12288
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_22
-
-	/* 23: System.Net.Http.dll */
-	/* uncompressed_file_size */
-	.word	232960
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_23
-
-	/* 24: System.Numerics.dll */
+	/* 17: System.Numerics.dll */
 	/* uncompressed_file_size */
 	.word	39936
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_24
+	.xword	compressed_assembly_data_17
 
-	/* 25: System.Runtime.CompilerServices.Unsafe.dll */
-	/* uncompressed_file_size */
-	.word	7680
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_25
-
-	/* 26: System.Runtime.Serialization.dll */
+	/* 18: System.Runtime.Serialization.dll */
 	/* uncompressed_file_size */
 	.word	6144
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_26
+	.xword	compressed_assembly_data_18
 
-	/* 27: System.Security.Cryptography.Pkcs.dll */
+	/* 19: System.Security.Cryptography.Pkcs.dll */
 	/* uncompressed_file_size */
 	.word	121856
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_27
+	.xword	compressed_assembly_data_19
 
-	/* 28: System.Text.Encodings.Web.dll */
+	/* 20: System.Xml.Linq.dll */
 	/* uncompressed_file_size */
-	.word	47104
+	.word	66560
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_28
+	.xword	compressed_assembly_data_20
 
-	/* 29: System.Text.Json.dll */
+	/* 21: System.Xml.dll */
 	/* uncompressed_file_size */
-	.word	283136
+	.word	1380864
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_29
+	.xword	compressed_assembly_data_21
 
-	/* 30: System.Threading.Tasks.Extensions.dll */
+	/* 22: System.dll */
 	/* uncompressed_file_size */
-	.word	14208
+	.word	854528
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_30
+	.xword	compressed_assembly_data_22
 
-	/* 31: System.Web.Services.dll */
-	/* uncompressed_file_size */
-	.word	38912
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_31
-
-	/* 32: System.Xml.Linq.dll */
-	/* uncompressed_file_size */
-	.word	67072
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_32
-
-	/* 33: System.Xml.dll */
-	/* uncompressed_file_size */
-	.word	1381376
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_33
-
-	/* 34: System.dll */
-	/* uncompressed_file_size */
-	.word	861184
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_34
-
-	/* 35: Tesseract.Binding.Droid.dll */
-	/* uncompressed_file_size */
-	.word	124928
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_35
-
-	/* 36: Tesseract.Droid.dll */
-	/* uncompressed_file_size */
-	.word	19456
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_36
-
-	/* 37: Tesseract.dll */
-	/* uncompressed_file_size */
-	.word	8704
-	/* loaded */
-	.byte	0
-	/* data */
-	.zero	3
-	.xword	compressed_assembly_data_37
-
-	/* 38: Xamarin.AndroidX.Activity.dll */
+	/* 23: Xamarin.AndroidX.Activity.dll */
 	/* uncompressed_file_size */
 	.word	6144
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_38
+	.xword	compressed_assembly_data_23
 
-	/* 39: Xamarin.AndroidX.AppCompat.dll */
+	/* 24: Xamarin.AndroidX.AppCompat.dll */
 	/* uncompressed_file_size */
 	.word	322048
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_39
+	.xword	compressed_assembly_data_24
 
-	/* 40: Xamarin.AndroidX.CoordinatorLayout.dll */
+	/* 25: Xamarin.AndroidX.CoordinatorLayout.dll */
 	/* uncompressed_file_size */
 	.word	68608
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_40
+	.xword	compressed_assembly_data_25
 
-	/* 41: Xamarin.AndroidX.Core.dll */
+	/* 26: Xamarin.AndroidX.Core.dll */
 	/* uncompressed_file_size */
 	.word	189952
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_41
+	.xword	compressed_assembly_data_26
 
-	/* 42: Xamarin.AndroidX.CustomView.dll */
+	/* 27: Xamarin.AndroidX.CustomView.dll */
 	/* uncompressed_file_size */
 	.word	8704
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_42
+	.xword	compressed_assembly_data_27
 
-	/* 43: Xamarin.AndroidX.DrawerLayout.dll */
+	/* 28: Xamarin.AndroidX.DrawerLayout.dll */
 	/* uncompressed_file_size */
 	.word	40960
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_43
+	.xword	compressed_assembly_data_28
 
-	/* 44: Xamarin.AndroidX.Fragment.dll */
+	/* 29: Xamarin.AndroidX.Fragment.dll */
 	/* uncompressed_file_size */
 	.word	152576
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_44
+	.xword	compressed_assembly_data_29
 
-	/* 45: Xamarin.AndroidX.Lifecycle.Common.dll */
+	/* 30: Xamarin.AndroidX.Lifecycle.Common.dll */
 	/* uncompressed_file_size */
 	.word	14848
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_45
+	.xword	compressed_assembly_data_30
 
-	/* 46: Xamarin.AndroidX.Lifecycle.LiveData.Core.dll */
+	/* 31: Xamarin.AndroidX.Lifecycle.LiveData.Core.dll */
 	/* uncompressed_file_size */
 	.word	15872
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_46
+	.xword	compressed_assembly_data_31
 
-	/* 47: Xamarin.AndroidX.Lifecycle.ViewModel.dll */
+	/* 32: Xamarin.AndroidX.Lifecycle.ViewModel.dll */
 	/* uncompressed_file_size */
 	.word	16896
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_47
+	.xword	compressed_assembly_data_32
 
-	/* 48: Xamarin.AndroidX.Loader.dll */
+	/* 33: Xamarin.AndroidX.Loader.dll */
 	/* uncompressed_file_size */
 	.word	36352
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_48
+	.xword	compressed_assembly_data_33
 
-	/* 49: Xamarin.AndroidX.SavedState.dll */
+	/* 34: Xamarin.AndroidX.SavedState.dll */
 	/* uncompressed_file_size */
 	.word	12800
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_49
+	.xword	compressed_assembly_data_34
 
-	/* 50: Xamarin.Essentials.dll */
+	/* 35: Xamarin.Essentials.dll */
 	/* uncompressed_file_size */
 	.word	26112
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_50
+	.xword	compressed_assembly_data_35
 
-	/* 51: Xamarin.Google.Android.Material.dll */
+	/* 36: Xamarin.Google.Android.Material.dll */
 	/* uncompressed_file_size */
 	.word	44032
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_51
+	.xword	compressed_assembly_data_36
 
-	/* 52: Xamarin.Google.Guava.ListenableFuture.dll */
+	/* 37: Xamarin.Google.Guava.ListenableFuture.dll */
 	/* uncompressed_file_size */
 	.word	18072
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_52
+	.xword	compressed_assembly_data_37
 
-	/* 53: mscorlib.dll */
+	/* 38: mscorlib.dll */
 	/* uncompressed_file_size */
-	.word	2279936
+	.word	2204672
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
-	.xword	compressed_assembly_data_53
+	.xword	compressed_assembly_data_38
 
-	.size	.L.compressed_assembly_descriptors, 864
+	.size	.L.compressed_assembly_descriptors, 624
 	.section	.data.compressed_assemblies,"aw",@progbits
 	.type	compressed_assemblies, @object
 	.p2align	3
 	.global	compressed_assemblies
 compressed_assemblies:
 	/* count */
-	.word	54
+	.word	39
 	/* descriptors */
 	.zero	4
 	.xword	.L.compressed_assembly_descriptors
