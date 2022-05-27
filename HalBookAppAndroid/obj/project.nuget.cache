@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cKIun7UpZEhYjMWDz+VFgaQlvchxuHPhKwOE85TXZwJp7ZCsf1+uuDoJ+ePpISD6hxj6JLUQvyEx1xiS+Z+fyg==",
+  "dgSpecHash": "4yUP0ePSMrxJTJu9r7RoOMyqSzC8jwF+KgJqqyf5w+Un4WQw7kvBfrDtFYKHNEc/4FmDczR1aH9t9xM06JOpvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\hbradt\\source\\repos\\HalBookAppAndroid\\HalBookAppAndroid\\HalBookAppAndroid.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,7 @@
     "C:\\Users\\hbradt\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Users\\hbradt\\.nuget\\packages\\system.threading.tasks\\4.0.11\\system.threading.tasks.4.0.11.nupkg.sha512",
     "C:\\Users\\hbradt\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\hbradt\\.nuget\\packages\\xam.plugin.connectivity\\3.2.0\\xam.plugin.connectivity.3.2.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.3\\xamarin.androidx.activity.1.1.0.3.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation\\1.1.0.7\\xamarin.androidx.annotation.1.1.0.7.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.appcompat\\1.2.0.5\\xamarin.androidx.appcompat.1.2.0.5.nupkg.sha512",

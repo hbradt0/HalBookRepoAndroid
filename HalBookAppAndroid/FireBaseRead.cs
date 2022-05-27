@@ -13,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Plugin.Connectivity;
 
 namespace EmailReader //rename
 {
@@ -120,6 +121,12 @@ namespace EmailReader //rename
                 {
                 }*/
             }
+        }
+
+        public static bool IsConnected()
+        {
+            var isConnected = CrossConnectivity.Current.IsConnected;
+            return isConnected;
         }
 
         public static void DownloadFile(String file, String cont = "halbookappblob")
