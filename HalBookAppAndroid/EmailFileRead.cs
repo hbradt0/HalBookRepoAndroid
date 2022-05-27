@@ -23,6 +23,7 @@ namespace EmailReader //rename
         }
         public static string fileName1 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "notes.txt");
         public static string fileName2 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "todo.txt");
+        public static string phoneIdFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "phoneId.txt");
         public static string imageFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "image.jpg");
         public static string publicImageFileName = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "image.jpg");
         public static string imageFileNameSaved = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "imagesaved.jpg");

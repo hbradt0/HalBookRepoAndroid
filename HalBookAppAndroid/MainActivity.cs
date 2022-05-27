@@ -98,7 +98,11 @@ namespace HalBookAppAndroid
         public Android.Widget.Button ButtonDownloadBlobTodo;
         public Android.Widget.Button ButtonDeleteBlobTodo;
         public Android.Widget.Button ButtonBackLoginPage;
-        public Android.Widget.Button LogoutLoginPage;
+        public Android.Widget.TextView textViewBlob;
+        public Android.Widget.Button ViewBlob;
+        int blobtoggle = 0;
+        public static string str = "Blob ";
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -1028,111 +1032,143 @@ namespace HalBookAppAndroid
 
         private void ButtonCreateSyncCloud(object sender, EventArgs eventArgs)
         {
-            //Initialize
-            SetContentView(Resource.Layout.activity_login);
-            loginemail = FindViewById<Android.Widget.EditText>(Resource.Id.loginemailCloud);
-            loginpassword = FindViewById<Android.Widget.EditText>(Resource.Id.loginpasswordCloud); 
-
-            submitbutton = FindViewById<Android.Widget.ImageView>(Resource.Id.submitButtonCloud);
-            instructionsEmail = FindViewById<Android.Widget.TextView>(Resource.Id.logininstructionsCloud);
-
-            ButtonUploadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobjournal);
-            ButtonDownloadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobjournal);
-            ButtonDeleteBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobjournal);
-
-            ButtonUploadBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobtodo);
-            ButtonDownloadBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobtodo);
-            ButtonDeleteBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobtodo);   
-
-            ButtonBackLoginPage = FindViewById<Android.Widget.Button>(Resource.Id.backLoginScreenCloud);
-            
-           loginemail.Text = "";
-           loginpassword.Text = "";
-           ButtonUploadBlobJournal.Text = "Upload Journal";
-           ButtonDownloadBlobJournal.Text = "Download Journal";
-           ButtonDeleteBlobJournal.Text = "Delete Journal";
-           ButtonUploadBlobTodo.Text = "Upload Todo List";
-           ButtonDownloadBlobTodo.Text = "Download Todo List";
-           ButtonDeleteBlobTodo.Text = "Delete Todo List";
-           ButtonBackLoginPage.Text = "Back";
-
-           if (FireBaseRead.phoneID == "")
+            if (FireBaseRead.GetphoneID() != "")
            {
-               loginemail.Visibility = ViewStates.Visible;
-               loginpassword.Visibility = ViewStates.Visible;
-               submitbutton.Visibility = ViewStates.Visible;
-               instructionsEmail.Visibility = ViewStates.Visible;
-               ButtonUploadBlobJournal.Visibility = ViewStates.Gone;
-               ButtonDownloadBlobJournal.Visibility = ViewStates.Gone;
-               ButtonDeleteBlobJournal.Visibility = ViewStates.Gone;
-               ButtonUploadBlobTodo.Visibility = ViewStates.Gone;
-               ButtonDownloadBlobTodo.Visibility = ViewStates.Gone;
-               ButtonDeleteBlobTodo.Visibility = ViewStates.Gone;
-               ButtonBackLoginPage.Visibility = ViewStates.Visible;
-               instructionsEmail.Text = "Please login, use an email and password, 1 time login! Cloud Services";
+                SetContentView(Resource.Layout.activity_login_cloud);
+                
+                ButtonUploadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobjournal);
+                ButtonDownloadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobjournal);
+                ButtonDeleteBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobjournal);
+                ButtonUploadBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobtodo);
+                ButtonDownloadBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobtodo);
+                ButtonDeleteBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobtodo);
+                ViewBlob = FindViewById<Android.Widget.Button>(Resource.Id.viewBlob);
+                textViewBlob = FindViewById<Android.Widget.TextView>(Resource.Id.OutputBlob);
+                ButtonBackLoginPage = FindViewById<Android.Widget.Button>(Resource.Id.backLoginScreenCloud1);
+                instructionsEmail = FindViewById<Android.Widget.TextView>(Resource.Id.logininstructionsCloud1);
 
+                ButtonUploadBlobJournal.Text = "Upload Journal";
+                ButtonDownloadBlobJournal.Text = "Download Journal";
+                ButtonDeleteBlobJournal.Text = "Delete Journal";
+                ButtonUploadBlobTodo.Text = "Upload Todo List";
+                ButtonDownloadBlobTodo.Text = "Download Todo List";
+                ButtonDeleteBlobTodo.Text = "Delete Todo List";
+                ButtonBackLoginPage.Text = "Back";
+                ViewBlob.Text = "View Blob Toggle";
+                textViewBlob.Text = "";
+
+                textViewBlob.SetScrollContainer(true);
+                textViewBlob.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+                textViewBlob.Parent.RequestDisallowInterceptTouchEvent(false);
+                instructionsEmail.Text = "Welcome " + FireBaseRead.LoginEmail;
+
+                ButtonUploadBlobJournal.Click += UploadToCloud1;
+                ButtonDownloadBlobJournal.Click += DownloadCloud1;
+                ButtonDeleteBlobJournal.Click += DeleteCloudClick1;
+                ButtonUploadBlobTodo.Click += UploadToCloud2;
+                ButtonDownloadBlobTodo.Click += DownloadCloud2;
+                ButtonDeleteBlobTodo.Click += DeleteCloudClick2;
+                ButtonBackLoginPage.Click += Button1Click;
+                ViewBlob.Click += ViewBlobClick;
+
+                int requestPermissions = 4000;
+                string permiss = Android.Manifest.Permission.ReadExternalStorage;
+                string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+                string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+                string permiss3 = Android.Manifest.Permission.Internet;
+                if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                        || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
+                {
+                    ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
+                }
             }
             else
-           {
-               loginemail.Visibility = ViewStates.Gone;
-               loginpassword.Visibility = ViewStates.Gone;
-               submitbutton.Visibility = ViewStates.Gone;
-               instructionsEmail.Visibility = ViewStates.Visible;
-               ButtonUploadBlobJournal.Visibility = ViewStates.Visible;
-               ButtonDownloadBlobJournal.Visibility = ViewStates.Visible;
-               ButtonDeleteBlobJournal.Visibility = ViewStates.Visible;
-               ButtonUploadBlobTodo.Visibility = ViewStates.Visible;
-               ButtonDownloadBlobTodo.Visibility = ViewStates.Visible;
-               ButtonDeleteBlobTodo.Visibility = ViewStates.Visible;
-               ButtonBackLoginPage.Visibility = ViewStates.Visible;
-               instructionsEmail.Text = "Welcome " + FireBaseRead.LoginEmail;
-           }
+            {
+                SetContentView(Resource.Layout.activity_login);
+                loginemail = FindViewById<Android.Widget.EditText>(Resource.Id.loginemailCloud);
+                loginpassword = FindViewById<Android.Widget.EditText>(Resource.Id.loginpasswordCloud);
+                submitbutton = FindViewById<Android.Widget.ImageView>(Resource.Id.submitButtonCloud);
+                ButtonBackLoginPage = FindViewById<Android.Widget.Button>(Resource.Id.backLoginScreenCloud);
+                instructionsEmail = FindViewById<Android.Widget.TextView>(Resource.Id.logininstructionsCloud);
 
-           submitbutton.Click += LoginButtonClick;
-           ButtonUploadBlobJournal.Click += UploadToCloud1;
-           ButtonDownloadBlobJournal.Click += DownloadCloud1;
-           ButtonDeleteBlobJournal.Click += DeleteCloudClick1;
-           ButtonUploadBlobTodo.Click += UploadToCloud2;
-           ButtonDownloadBlobTodo.Click += DownloadCloud2;
-           ButtonDeleteBlobTodo.Click += DeleteCloudClick2;
-           ButtonBackLoginPage.Click += Button1Click;
+                loginemail.Text = "";
+                loginpassword.Text = "";
+                ButtonBackLoginPage.Text = "Back";
+                instructionsEmail.Text = "Please login, use an email and password, 1 time login! Cloud Services";
+                submitbutton.Click += LoginButtonClick;
+                ButtonBackLoginPage.Click += Button1Click;
 
+                int requestPermissions = 4000;
+                string permiss = Android.Manifest.Permission.ReadExternalStorage;
+                string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
+                string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
+                string permiss3 = Android.Manifest.Permission.Internet;
+                if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
+                        || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
+                {
+                    ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
+                }
+
+            }
         }
 
         void LoginButtonClick(object sender, EventArgs eventArgs)
         {
             if (loginemail.Text != "" || loginpassword.Text != "")
             {
-                if (FireBaseRead.phoneID == "" || (FireBaseRead.LoginEmail == loginemail.Text && FireBaseRead.LoginPassword == loginpassword.Text))
+                if (FireBaseRead.GetphoneID() == "")
                 {
                     FireBaseRead.cloudservices = true;
                     FireBaseRead.phoneID = loginemail.Text + loginpassword.Text;
+                    FireBaseRead.Encrypt();
                     FireBaseRead.LoginEmail = loginemail.Text;
                     FireBaseRead.LoginPassword = loginpassword.Text;
+                    SetContentView(Resource.Layout.activity_login_cloud);
 
-                    loginemail.Visibility = ViewStates.Gone;
-                    loginpassword.Visibility = ViewStates.Gone;
-                    submitbutton.Visibility = ViewStates.Gone;
-                    instructionsEmail.Visibility = ViewStates.Visible;
-                    ButtonUploadBlobJournal.Visibility = ViewStates.Visible;
-                    ButtonDownloadBlobJournal.Visibility = ViewStates.Visible;
-                    ButtonDeleteBlobJournal.Visibility = ViewStates.Visible;
-                    ButtonUploadBlobTodo.Visibility = ViewStates.Visible;
-                    ButtonDownloadBlobTodo.Visibility = ViewStates.Visible;
-                    ButtonDeleteBlobTodo.Visibility = ViewStates.Visible;
-                    ButtonBackLoginPage.Visibility = ViewStates.Visible;
-                    instructionsEmail.Text = "Welcome: " + FireBaseRead.LoginEmail;
+                    ButtonUploadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobjournal);
+                    ButtonDownloadBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobjournal);
+                    ButtonDeleteBlobJournal = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobjournal);
+                    ButtonUploadBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.uploadblobtodo);
+                    ButtonDownloadBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.downloadblobtodo);
+                    ButtonDeleteBlobTodo = FindViewById<Android.Widget.Button>(Resource.Id.deleteblobtodo);
+                    ViewBlob = FindViewById<Android.Widget.Button>(Resource.Id.viewBlob);
+                    textViewBlob = FindViewById<Android.Widget.TextView>(Resource.Id.OutputBlob);
+                    ButtonBackLoginPage = FindViewById<Android.Widget.Button>(Resource.Id.backLoginScreenCloud1);
+                    instructionsEmail = FindViewById<Android.Widget.TextView>(Resource.Id.logininstructionsCloud1);
+
+                    ButtonUploadBlobJournal.Text = "Upload Journal";
+                    ButtonDownloadBlobJournal.Text = "Download Journal";
+                    ButtonDeleteBlobJournal.Text = "Delete Journal";
+                    ButtonUploadBlobTodo.Text = "Upload Todo List";
+                    ButtonDownloadBlobTodo.Text = "Download Todo List";
+                    ButtonDeleteBlobTodo.Text = "Delete Todo List";
+                    ButtonBackLoginPage.Text = "Back";
+                    ViewBlob.Text = "View Blob Toggle";
+                    textViewBlob.Text = "";
+
+                    textViewBlob.SetScrollContainer(true);
+                    textViewBlob.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
+                    textViewBlob.Parent.RequestDisallowInterceptTouchEvent(false);
+                    instructionsEmail.Text = "Welcome " + FireBaseRead.LoginEmail;
+
+                    ButtonUploadBlobJournal.Click += UploadToCloud1;
+                    ButtonDownloadBlobJournal.Click += DownloadCloud1;
+                    ButtonDeleteBlobJournal.Click += DeleteCloudClick1;
+                    ButtonUploadBlobTodo.Click += UploadToCloud2;
+                    ButtonDownloadBlobTodo.Click += DownloadCloud2;
+                    ButtonDeleteBlobTodo.Click += DeleteCloudClick2;
+                    ButtonBackLoginPage.Click += Button1Click;
+                    ViewBlob.Click += ViewBlobClick;
 
                     int requestPermissions = 4000;
                     string permiss = Android.Manifest.Permission.ReadExternalStorage;
                     string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
                     string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
-
-                    FireBaseRead.Encrypt();
+                    string permiss3 = Android.Manifest.Permission.Internet;
                     if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
-                        || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted))
+                            || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
                     {
-                        ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2 }, requestPermissions);
+                        ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
                     }
                 }
                 else
@@ -1153,19 +1189,22 @@ namespace HalBookAppAndroid
                 }
             }
         }
-
+        void ViewBlobClick(object sender, EventArgs eventArgs)
+        {
+            if (blobtoggle == 0)
+            {
+                textViewBlob.Text = "Viewing Journal in Cloud: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
+                blobtoggle = 1;
+            }
+            else
+            {
+                textViewBlob.Text = "Viewing Todo List in Cloud \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName2);
+                blobtoggle = 0;
+            }
+        }
+ 
         void UploadToCloud1(object sender, EventArgs eventArgs)
         {
-            int requestPermissions = 4000;
-            string permiss = Android.Manifest.Permission.ReadExternalStorage;
-            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
-            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
-            string permiss3 = Android.Manifest.Permission.Internet;
-            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
-                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
-            {
-                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
-            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
@@ -1174,23 +1213,14 @@ namespace HalBookAppAndroid
             alert.SetButton("OK", (c, ev) =>
             {
                 FireBaseRead.UploadFile(EmailFileRead.fileName1);
+                textViewBlob.Text = "Uploaded journal: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
             });
             alert.SetButton2("CANCEL", (c, ev) => { });
-            alert.Show();
+            alert.Show(); 
         }
 
         void UploadToCloud2(object sender, EventArgs eventArgs)
         {
-            int requestPermissions = 4000;
-            string permiss = Android.Manifest.Permission.ReadExternalStorage;
-            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
-            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
-            string permiss3 = Android.Manifest.Permission.Internet;
-            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
-                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
-            {
-                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
-            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
@@ -1199,49 +1229,31 @@ namespace HalBookAppAndroid
             alert.SetButton("OK", (c, ev) =>
             {
                 FireBaseRead.UploadFile(EmailFileRead.fileName2);
+                textViewBlob.Text = "Uploaded Todo List: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName2);
             });
             alert.SetButton2("CANCEL", (c, ev) => { });
             alert.Show();
-        }
+         }
 
         void DeleteCloudClick1(object sender, EventArgs eventArgs)
         {
-            int requestPermissions = 4000;
-            string permiss = Android.Manifest.Permission.ReadExternalStorage;
-            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
-            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
-            string permiss3 = Android.Manifest.Permission.Internet;
-            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
-                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
-            {
-                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
-            }
-            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-            Android.App.AlertDialog alert = dialog.Create();
-            alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will delete your journal from the cloud!");
-            alert.SetIcon(Resource.Drawable.alert);
-            alert.SetButton("OK", (c, ev) =>
-            {
-                FireBaseRead.DeleteFile(EmailFileRead.fileName1);
-            });
-            alert.SetButton2("CANCEL", (c, ev) => { });
-            alert.Show();
- 
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("This may take a while and will delete your journal from the cloud!");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                    FireBaseRead.DeleteFile(EmailFileRead.fileName1);
+                    textViewBlob.Text = "Deleted Journal: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
+
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
         }
 
         void DownloadCloud1(object sender, EventArgs eventArgs)
         {
-            int requestPermissions = 4000;
-            string permiss = Android.Manifest.Permission.ReadExternalStorage;
-            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
-            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
-            string permiss3 = Android.Manifest.Permission.Internet;
-            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
-                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
-            {
-                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
-            }
             Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
             Android.App.AlertDialog alert = dialog.Create();
             alert.SetTitle("Are you sure?");
@@ -1250,62 +1262,42 @@ namespace HalBookAppAndroid
             alert.SetButton("OK", (c, ev) =>
             {
                 FireBaseRead.DownloadFile(EmailFileRead.fileName1);
+                textViewBlob.Text = "Downloaded Journal: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
             });
             alert.SetButton2("CANCEL", (c, ev) => { });
             alert.Show();
-
         }
 
         void DownloadCloud2(object sender, EventArgs eventArgs)
         {
-            int requestPermissions = 4000;
-            string permiss = Android.Manifest.Permission.ReadExternalStorage;
-            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
-            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
-            string permiss3 = Android.Manifest.Permission.Internet;
-            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
-                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
-            {
-                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
-            }
-            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-            Android.App.AlertDialog alert = dialog.Create();
-            alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will download your todo list from the cloud! This will overwrite changes made on the device.");
-            alert.SetIcon(Resource.Drawable.alert);
-            alert.SetButton("OK", (c, ev) =>
-            {
-                FireBaseRead.DownloadFile(EmailFileRead.fileName2);
-            });
-            alert.SetButton2("CANCEL", (c, ev) => { });
-            alert.Show();
-
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("This may take a while and will download your todo list from the cloud! This will overwrite changes made on the device.");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                    FireBaseRead.DownloadFile(EmailFileRead.fileName2);
+                    textViewBlob.Text = "Downloaded Todo List: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName2);
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
         }
 
         void DeleteCloudClick2(object sender, EventArgs eventArgs)
         {
-            int requestPermissions = 4000;
-            string permiss = Android.Manifest.Permission.ReadExternalStorage;
-            string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
-            string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
-            string permiss3 = Android.Manifest.Permission.Internet;
-            if (!(ContextCompat.CheckSelfPermission(this, permiss) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss2) == (int)Permission.Granted)
-                    || !(ContextCompat.CheckSelfPermission(this, permiss1) == (int)Permission.Granted) || !(ContextCompat.CheckSelfPermission(this, permiss3) == (int)Permission.Granted))
-            {
-                ActivityCompat.RequestPermissions(this, new String[] { permiss, permiss1, permiss2, permiss3 }, requestPermissions);
-            }
-            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-            Android.App.AlertDialog alert = dialog.Create();
-            alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will delete your file from the cloud!");
-            alert.SetIcon(Resource.Drawable.alert);
-            alert.SetButton("OK", (c, ev) =>
-            {
-                FireBaseRead.DeleteFile(EmailFileRead.fileName2);
-            });
-            alert.SetButton2("CANCEL", (c, ev) => { });
-            alert.Show();
-
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("This may take a while and will delete your file from the cloud!");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                    FireBaseRead.DeleteFile(EmailFileRead.fileName2);
+                    textViewBlob.Text = "Deleted Todo List: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName2);
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
         }
 
         //Submit your story page button

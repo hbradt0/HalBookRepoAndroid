@@ -5,13 +5,14 @@ background;obj\Debug\110\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Debug\110\res\layout\activity_image.xml
 Button;obj\Debug\110\res\layout\activity_login.xml
+Button;obj\Debug\110\res\layout\activity_login_cloud.xml
 Button;obj\Debug\110\res\layout\activity_main.xml
 Button;obj\Debug\110\res\layout\activity_story.xml
 Button;obj\Debug\110\res\layout\activity_todo.xml
 Button;obj\Debug\110\res\layout\activity_user.xml
 Button;obj\Debug\110\res\layout\activity_user_edit.xml
 Button;obj\Debug\110\res\layout\activity_user_main.xml
-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\110\res\values\colors.xml
 color;obj\Debug\110\res\values\ic_launcher_background.xml
 corners;obj\Debug\110\res\drawable\buttoncolor.xml
@@ -21,8 +22,8 @@ EditText;obj\Debug\110\res\layout\activity_todo.xml
 EditText;obj\Debug\110\res\layout\activity_user.xml
 EditText;obj\Debug\110\res\layout\activity_user_edit.xml
 EditText;obj\Debug\110\res\layout\activity_user_main.xml
-external-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-cache-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\110\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 ImageView;obj\Debug\110\res\layout\activity_image.xml
@@ -37,6 +38,7 @@ item;obj\Debug\110\res\menu\menu_main.xml
 item;obj\Debug\110\res\values\styles.xml
 layer-list;obj\Debug\110\res\drawable\buttoncolor.xml
 LinearLayout;obj\Debug\110\res\layout\activity_login.xml
+LinearLayout;obj\Debug\110\res\layout\activity_login_cloud.xml
 LinearLayout;obj\Debug\110\res\layout\activity_main.xml
 LinearLayout;obj\Debug\110\res\layout\activity_story.xml
 LinearLayout;obj\Debug\110\res\layout\activity_todo.xml
@@ -47,9 +49,8 @@ menu;obj\Debug\110\res\menu\menu_main.xml
 padding;obj\Debug\110\res\drawable\border.xml
 padding;obj\Debug\110\res\drawable\bordertext.xml
 padding;obj\Debug\110\res\drawable\buttoncolor.xml
-paths;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\40\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+paths;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 RelativeLayout;obj\Debug\110\res\layout\activity_image.xml
-resources;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\1\jl\res\values\strings.xml
 resources;obj\Debug\110\res\values\colors.xml
 resources;obj\Debug\110\res\values\dimens.xml
 resources;obj\Debug\110\res\values\ic_launcher_background.xml
@@ -57,6 +58,7 @@ resources;obj\Debug\110\res\values\strings.xml
 resources;obj\Debug\110\res\values\styles.xml
 ScrollView;obj\Debug\110\res\layout\activity_image.xml
 ScrollView;obj\Debug\110\res\layout\activity_login.xml
+ScrollView;obj\Debug\110\res\layout\activity_login_cloud.xml
 ScrollView;obj\Debug\110\res\layout\activity_main.xml
 ScrollView;obj\Debug\110\res\layout\activity_story.xml
 ScrollView;obj\Debug\110\res\layout\activity_todo.xml
@@ -71,12 +73,12 @@ shape;obj\Debug\110\res\drawable\buttoncolor.xml
 solid;obj\Debug\110\res\drawable\border.xml
 solid;obj\Debug\110\res\drawable\bordertext.xml
 solid;obj\Debug\110\res\drawable\buttoncolor.xml
-string;C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Debug\110\lp\1\jl\res\values\strings.xml
 string;obj\Debug\110\res\values\strings.xml
 stroke;obj\Debug\110\res\drawable\border.xml
 stroke;obj\Debug\110\res\drawable\bordertext.xml
 style;obj\Debug\110\res\values\styles.xml
 TextView;obj\Debug\110\res\layout\activity_login.xml
+TextView;obj\Debug\110\res\layout\activity_login_cloud.xml
 TextView;obj\Debug\110\res\layout\activity_main.xml
 TextView;obj\Debug\110\res\layout\activity_story.xml
 TextView;obj\Debug\110\res\layout\activity_todo.xml

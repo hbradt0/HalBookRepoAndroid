@@ -5,6 +5,7 @@ background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Release\110\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Release\110\res\layout\activity_image.xml
 Button;obj\Release\110\res\layout\activity_login.xml
+Button;obj\Release\110\res\layout\activity_login_cloud.xml
 Button;obj\Release\110\res\layout\activity_main.xml
 Button;obj\Release\110\res\layout\activity_story.xml
 Button;obj\Release\110\res\layout\activity_todo.xml
@@ -37,6 +38,7 @@ item;obj\Release\110\res\menu\menu_main.xml
 item;obj\Release\110\res\values\styles.xml
 layer-list;obj\Release\110\res\drawable\buttoncolor.xml
 LinearLayout;obj\Release\110\res\layout\activity_login.xml
+LinearLayout;obj\Release\110\res\layout\activity_login_cloud.xml
 LinearLayout;obj\Release\110\res\layout\activity_main.xml
 LinearLayout;obj\Release\110\res\layout\activity_story.xml
 LinearLayout;obj\Release\110\res\layout\activity_todo.xml
@@ -56,6 +58,7 @@ resources;obj\Release\110\res\values\strings.xml
 resources;obj\Release\110\res\values\styles.xml
 ScrollView;obj\Release\110\res\layout\activity_image.xml
 ScrollView;obj\Release\110\res\layout\activity_login.xml
+ScrollView;obj\Release\110\res\layout\activity_login_cloud.xml
 ScrollView;obj\Release\110\res\layout\activity_main.xml
 ScrollView;obj\Release\110\res\layout\activity_story.xml
 ScrollView;obj\Release\110\res\layout\activity_todo.xml
@@ -75,6 +78,7 @@ stroke;obj\Release\110\res\drawable\border.xml
 stroke;obj\Release\110\res\drawable\bordertext.xml
 style;obj\Release\110\res\values\styles.xml
 TextView;obj\Release\110\res\layout\activity_login.xml
+TextView;obj\Release\110\res\layout\activity_login_cloud.xml
 TextView;obj\Release\110\res\layout\activity_main.xml
 TextView;obj\Release\110\res\layout\activity_story.xml
 TextView;obj\Release\110\res\layout\activity_todo.xml

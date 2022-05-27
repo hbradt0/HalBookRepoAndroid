@@ -5,9 +5,8 @@
     Changes to this file may cause incorrect behavior and will be lost if
     the contents are regenerated.
     -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="39" android:versionName="6.5" package="com.halbook.halbookappandroid" android:installLocation="preferExternal">
-  <uses-sdk android:minSdkVersion="25" android:targetSdkVersion="29" />
-  <uses-permission android:name="android.permission.INTERNET" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="41" android:versionName="6.7" package="com.halbook.halbookappandroid" android:installLocation="preferExternal">
+  <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="30" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.WRITE_SETTINGS" />
   <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
@@ -15,6 +14,7 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.DELETE_CACHE_FILES" />
   <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+  <uses-permission android:name="android.permission.INTERNET" />
   <application android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:label="Create Your Story" android:icon="@mipmap/ic_launcher" android:name="android.app.Application" android:debuggable="true" android:extractNativeLibs="true">
     <activity android:icon="@drawable/ic_launcher_round" android:label="Create Your Story" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:name="crc64903dcea04fdc7c22.MainActivity">
       <intent-filter>

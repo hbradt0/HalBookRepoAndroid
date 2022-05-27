@@ -17,7 +17,7 @@
 
 	/* 1: HalBookAppAndroid.dll */
 	/* uncompressed_file_size */
-	.word	397312
+	.word	398848
 	/* loaded */
 	.byte	0
 	/* data */
@@ -89,7 +89,7 @@
 
 	/* 9: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.word	1166848
+	.word	1166336
 	/* loaded */
 	.byte	0
 	/* data */

@@ -37,20 +37,6 @@
         android:background="@android:color/white"
         android:textColor="@android:color/black"/>
 
-         <Button
-        android:layout_height="42dp"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/downloadblobjournal"
-        android:text="Download1"
-        android:layout_centerInParent="true"
-        android:layout_gravity="left"
-        android:backgroundTint="@android:color/holo_blue_bright"
-        android:visibility="gone"/>
-
         <EditText
         android:layout_height="50dp"
         android:layout_width="match_parent"
@@ -59,31 +45,17 @@
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
         android:id="@+id/loginemailCloud"
-        android:hint="Email address"
+        android:hint="Username"
         android:layout_gravity="left"
         android:layout_weight="1"
         android:inputType="textEmailAddress" />
-
-       <Button
-        android:layout_height="42dp"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/downloadblobtodo"
-        android:text="Download"
-        android:layout_centerInParent="true"
-        android:layout_gravity="left"
-        android:backgroundTint="@android:color/holo_blue_bright"
-        android:visibility="gone"/>
 
         <EditText
         android:layout_height="50dp"
         android:layout_width="match_parent"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="25dp"
-        android:hint="Password"
+        android:hint="Pin"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
         android:id="@+id/loginpasswordCloud"
@@ -91,19 +63,6 @@
         android:layout_weight="1"
         android:inputType="textPassword" />
 
-        <Button
-        android:layout_height="42dp"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/uploadblobtodo"
-        android:text="Upload"
-        android:layout_centerInParent="true"
-        android:layout_gravity="left"
-        android:backgroundTint="@android:color/holo_purple"
-        android:visibility="gone"/>
 
        <ImageView
             android:layout_height="42dp"
@@ -116,61 +75,6 @@
             android:contentDescription="text_here"
             android:src="@android:drawable/ic_menu_save"/>
 
-        <Button
-        android:layout_height="42dp"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/uploadblobjournal"
-        android:text="Upload1"
-        android:layout_centerInParent="true"
-        android:layout_gravity="left"
-        android:backgroundTint="@android:color/holo_purple"
-        android:visibility="gone"/>
-
-         <Button
-        android:layout_height="42dp"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/deleteblobjournal"
-        android:text="Delete"
-        android:layout_centerInParent="true"
-        android:layout_gravity="left"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:visibility="gone"/>
-
-         <Button
-        android:layout_height="42dp"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/deleteblobtodo"
-        android:text="Delete1"
-        android:layout_centerInParent="true"
-        android:layout_gravity="left"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:visibility="gone"/>
-
-       <Button
-        android:layout_height="42dp"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:id="@+id/logoutloginpage"
-        android:text="Logout"
-        android:layout_centerInParent="true"
-        android:layout_gravity="left"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:visibility="gone"/>
 
     </LinearLayout>
 </ScrollView>
