@@ -1062,7 +1062,7 @@ namespace HalBookAppAndroid
                     textViewBlob.Parent.RequestDisallowInterceptTouchEvent(false);
                     textViewBlob.Text = "Viewing Journal in Cloud: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
                     blobtoggle = 1;
-                    instructionsEmail.Text = "Welcome " + FireBaseRead.LoginEmail;
+                    instructionsEmail.Text = "Welcome back! " + FireBaseRead.LoginEmail;
 
                     ButtonUploadBlobJournal.Click += UploadToCloud1;
                     ButtonDownloadBlobJournal.Click += DownloadCloud1;
@@ -1117,7 +1117,7 @@ namespace HalBookAppAndroid
                     loginemail.Text = "";
                     loginpassword.Text = "";
                     ButtonBackLoginPage.Text = "Back";
-                    instructionsEmail.Text = "Please login, use an email and password, 1 time login! Cloud Services";
+                    instructionsEmail.Text = "Please login, use an email and password, one time login! Cloud Services";
                     submitbutton.Click += LoginButtonClick;
                     ButtonBackLoginPage.Click += Button1Click;
 
