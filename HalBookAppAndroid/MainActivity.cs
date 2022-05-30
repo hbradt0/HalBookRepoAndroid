@@ -1060,7 +1060,7 @@ namespace HalBookAppAndroid
                     textViewBlob.SetScrollContainer(true);
                     textViewBlob.MovementMethod = new Android.Text.Method.ScrollingMovementMethod();
                     textViewBlob.Parent.RequestDisallowInterceptTouchEvent(false);
-                    textViewBlob.Text = "Viewing Journal in Cloud: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
+                    textViewBlob.Text = "No connection";
                     blobtoggle = 1;
                     instructionsEmail.Text = "Welcome back! " + FireBaseRead.LoginEmail;
 
@@ -1082,6 +1082,7 @@ namespace HalBookAppAndroid
                         ButtonDownloadBlobTodo.Enabled = true;
                         ButtonDeleteBlobTodo.Enabled = true;
                         ViewBlob.Enabled = true;
+                        textViewBlob.Text = "Viewing Journal in Cloud: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
                     }
                     else
                     {
@@ -1092,9 +1093,10 @@ namespace HalBookAppAndroid
                         ButtonDownloadBlobTodo.Enabled = false;
                         ButtonDeleteBlobTodo.Enabled = false;
                         ViewBlob.Enabled = false;
+                        instructionsEmail.Text = "Please turn on internet connection.";
                     }
 
-                    int requestPermissions = 4000;
+                 int requestPermissions = 4000;
                     string permiss = Android.Manifest.Permission.ReadExternalStorage;
                     string permiss1 = Android.Manifest.Permission.WriteExternalStorage;
                     string permiss2 = Android.Manifest.Permission.ManageExternalStorage;
@@ -1118,6 +1120,17 @@ namespace HalBookAppAndroid
                     loginpassword.Text = "";
                     ButtonBackLoginPage.Text = "Back";
                     instructionsEmail.Text = "Please login, use an email and password, one time login! Cloud Services";
+
+                    if (FireBaseRead.IsConnected())
+                    {
+                        submitbutton.Enabled = true;
+                    }
+                    else
+                    {
+                        submitbutton.Enabled = false;
+                        instructionsEmail.Text = "Please turn on internet connection.";
+                    }
+
                     submitbutton.Click += LoginButtonClick;
                     ButtonBackLoginPage.Click += Button1Click;
 
@@ -1232,57 +1245,78 @@ namespace HalBookAppAndroid
                     });
                     alert.SetButton2("CANCEL", (c, ev) => { });
                     alert.Show();
+
+                    if (FireBaseRead.IsConnected())
+                    {
+                        submitbutton.Enabled = true;
+                    }
+                    else
+                    {
+                        submitbutton.Enabled = false;
+                        instructionsEmail.Text = "Please turn on internet connection.";
+                    }
                 }
             }
         }
         void ViewBlobClick(object sender, EventArgs eventArgs)
         {
-            if (blobtoggle == 0)
+            if (FireBaseRead.IsConnected())
             {
-                textViewBlob.Text = "Viewing Journal in Cloud: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
-                blobtoggle = 1;
-            }
-            else
-            {
-                textViewBlob.Text = "Viewing Todo List in Cloud \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName2);
-                blobtoggle = 0;
+                if (blobtoggle == 0)
+                {
+                    textViewBlob.Text = "Viewing Journal in Cloud: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
+                    blobtoggle = 1;
+                }
+                else
+                {
+                    textViewBlob.Text = "Viewing Todo List in Cloud \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName2);
+                    blobtoggle = 0;
+                }
             }
         }
  
         void UploadToCloud1(object sender, EventArgs eventArgs)
         {
-            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-            Android.App.AlertDialog alert = dialog.Create();
-            alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will upload your journal to the cloud! Caution, this overwrites whatever is in the cloud.");
-            alert.SetIcon(Resource.Drawable.alert);
-            alert.SetButton("OK", (c, ev) =>
+            if (FireBaseRead.IsConnected())
             {
-                FireBaseRead.UploadFile(EmailFileRead.fileName1);
-                textViewBlob.Text = "Uploaded journal: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
-            });
-            alert.SetButton2("CANCEL", (c, ev) => { });
-            alert.Show(); 
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("This may take a while and will upload your journal to the cloud! Caution, this overwrites whatever is in the cloud.");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                    FireBaseRead.UploadFile(EmailFileRead.fileName1);
+                    textViewBlob.Text = "Uploaded journal: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
+            }
         }
 
         void UploadToCloud2(object sender, EventArgs eventArgs)
         {
-            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-            Android.App.AlertDialog alert = dialog.Create();
-            alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will upload your todo list to the cloud! Caution, this overwrites whatever is in the cloud.");
-            alert.SetIcon(Resource.Drawable.alert);
-            alert.SetButton("OK", (c, ev) =>
+            if (FireBaseRead.IsConnected())
             {
-                FireBaseRead.UploadFile(EmailFileRead.fileName2);
-                textViewBlob.Text = "Uploaded Todo List: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName2);
-            });
-            alert.SetButton2("CANCEL", (c, ev) => { });
-            alert.Show();
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("This may take a while and will upload your todo list to the cloud! Caution, this overwrites whatever is in the cloud.");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                    FireBaseRead.UploadFile(EmailFileRead.fileName2);
+                    textViewBlob.Text = "Uploaded Todo List: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName2);
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
+            }
          }
 
         void DeleteCloudClick1(object sender, EventArgs eventArgs)
         {
+            if (FireBaseRead.IsConnected())
+            {
                 Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alert = dialog.Create();
                 alert.SetTitle("Are you sure?");
@@ -1296,26 +1330,32 @@ namespace HalBookAppAndroid
                 });
                 alert.SetButton2("CANCEL", (c, ev) => { });
                 alert.Show();
+            }
         }
 
         void DownloadCloud1(object sender, EventArgs eventArgs)
         {
-            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
-            Android.App.AlertDialog alert = dialog.Create();
-            alert.SetTitle("Are you sure?");
-            alert.SetMessage("This may take a while and will download your journal from the cloud! This will overwrite changes made on the device.");
-            alert.SetIcon(Resource.Drawable.alert);
-            alert.SetButton("OK", (c, ev) =>
+            if (FireBaseRead.IsConnected())
             {
-                FireBaseRead.DownloadFile(EmailFileRead.fileName1);
-                textViewBlob.Text = "Downloaded Journal: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
-            });
-            alert.SetButton2("CANCEL", (c, ev) => { });
-            alert.Show();
+                Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+                Android.App.AlertDialog alert = dialog.Create();
+                alert.SetTitle("Are you sure?");
+                alert.SetMessage("This may take a while and will download your journal from the cloud! This will overwrite changes made on the device.");
+                alert.SetIcon(Resource.Drawable.alert);
+                alert.SetButton("OK", (c, ev) =>
+                {
+                    FireBaseRead.DownloadFile(EmailFileRead.fileName1);
+                    textViewBlob.Text = "Downloaded Journal: \n" + FireBaseRead.DownloadFileStream(EmailFileRead.fileName1);
+                });
+                alert.SetButton2("CANCEL", (c, ev) => { });
+                alert.Show();
+            }
         }
 
         void DownloadCloud2(object sender, EventArgs eventArgs)
         {
+            if (FireBaseRead.IsConnected())
+            {
                 Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alert = dialog.Create();
                 alert.SetTitle("Are you sure?");
@@ -1328,10 +1368,13 @@ namespace HalBookAppAndroid
                 });
                 alert.SetButton2("CANCEL", (c, ev) => { });
                 alert.Show();
+            }
         }
 
         void DeleteCloudClick2(object sender, EventArgs eventArgs)
         {
+            if (FireBaseRead.IsConnected())
+            {
                 Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
                 Android.App.AlertDialog alert = dialog.Create();
                 alert.SetTitle("Are you sure?");
@@ -1344,6 +1387,7 @@ namespace HalBookAppAndroid
                 });
                 alert.SetButton2("CANCEL", (c, ev) => { });
                 alert.Show();
+            }
         }
 
         //Submit your story page button
