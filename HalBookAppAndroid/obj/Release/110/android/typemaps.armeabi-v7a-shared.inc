@@ -97,12 +97,12 @@
 	.section	.rodata.map_aname.16,"aMS",%progbits,1
 	.type	.L.map_aname.16, %object
 .L.map_aname.16:
-	.asciz	"Xamarin.AndroidX.Lifecycle.ViewModel"
-	.size	.L.map_aname.16, 37
+	.asciz	"HalBookAppAndroid"
+	.size	.L.map_aname.16, 18
 
 	.section	.rodata.map_aname.17,"aMS",%progbits,1
 	.type	.L.map_aname.17, %object
 .L.map_aname.17:
-	.asciz	"HalBookAppAndroid"
-	.size	.L.map_aname.17, 18
+	.asciz	"Xamarin.AndroidX.Lifecycle.ViewModel"
+	.size	.L.map_aname.17, 37
 

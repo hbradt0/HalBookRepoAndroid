@@ -10,6 +10,8 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Azure.Storage.Common.dll",
 		"MimeKit.dll",
 		"Newtonsoft.Json.dll",
+		"Plugin.Connectivity.Abstractions.dll",
+		"Plugin.Connectivity.dll",
 		"System.Security.Cryptography.Pkcs.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.Annotation.dll",

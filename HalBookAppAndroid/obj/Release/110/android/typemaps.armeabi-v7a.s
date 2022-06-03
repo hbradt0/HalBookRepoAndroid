@@ -354,17 +354,17 @@ map_modules:
 	/* java_map */
 	.long	0
 
-	/* module_uuid: 965ee4e5-b5e4-4fc6-9599-a10985f821f3 */
-	.byte	0xe5, 0xe4, 0x5e, 0x96, 0xe4, 0xb5, 0xc6, 0x4f, 0x95, 0x99, 0xa1, 0x09, 0x85, 0xf8, 0x21, 0xf3
+	/* module_uuid: 9ac086e4-e1d7-4342-a94c-4d7abfb104bb */
+	.byte	0xe4, 0x86, 0xc0, 0x9a, 0xd7, 0xe1, 0x42, 0x43, 0xa9, 0x4c, 0x4d, 0x7a, 0xbf, 0xb1, 0x04, 0xbb
 	/* entry_count */
-	.long	5
+	.long	1
 	/* duplicate_count */
-	.long	3
+	.long	0
 	/* map */
 	.long	module16_managed_to_java
 	/* duplicate_map */
-	.long	module16_managed_to_java_duplicates
-	/* assembly_name: Xamarin.AndroidX.Lifecycle.ViewModel */
+	.long	0
+	/* assembly_name: HalBookAppAndroid */
 	.long	.L.map_aname.16
 	/* image */
 	.long	0
@@ -373,17 +373,17 @@ map_modules:
 	/* java_map */
 	.long	0
 
-	/* module_uuid: 646bf3f0-0cdd-4c42-a880-089416a02a29 */
-	.byte	0xf0, 0xf3, 0x6b, 0x64, 0xdd, 0x0c, 0x42, 0x4c, 0xa8, 0x80, 0x08, 0x94, 0x16, 0xa0, 0x2a, 0x29
+	/* module_uuid: 965ee4e5-b5e4-4fc6-9599-a10985f821f3 */
+	.byte	0xe5, 0xe4, 0x5e, 0x96, 0xe4, 0xb5, 0xc6, 0x4f, 0x95, 0x99, 0xa1, 0x09, 0x85, 0xf8, 0x21, 0xf3
 	/* entry_count */
-	.long	1
+	.long	5
 	/* duplicate_count */
-	.long	0
+	.long	3
 	/* map */
 	.long	module17_managed_to_java
 	/* duplicate_map */
-	.long	0
-	/* assembly_name: HalBookAppAndroid */
+	.long	module17_managed_to_java_duplicates
+	/* assembly_name: Xamarin.AndroidX.Lifecycle.ViewModel */
 	.long	.L.map_aname.17
 	/* image */
 	.long	0
@@ -2329,7 +2329,7 @@ map_java:
 
 	/* #214 */
 	/* module_index */
-	.long	16
+	.long	17
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2392,7 +2392,7 @@ map_java:
 
 	/* #221 */
 	/* module_index */
-	.long	16
+	.long	17
 	/* type_token_id */
 	.long	33554441
 	/* java_name */
@@ -2401,7 +2401,7 @@ map_java:
 
 	/* #222 */
 	/* module_index */
-	.long	16
+	.long	17
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2410,7 +2410,7 @@ map_java:
 
 	/* #223 */
 	/* module_index */
-	.long	16
+	.long	17
 	/* type_token_id */
 	.long	33554444
 	/* java_name */
@@ -2419,7 +2419,7 @@ map_java:
 
 	/* #224 */
 	/* module_index */
-	.long	16
+	.long	17
 	/* type_token_id */
 	.long	0
 	/* java_name */
@@ -2590,7 +2590,7 @@ map_java:
 
 	/* #243 */
 	/* module_index */
-	.long	17
+	.long	16
 	/* type_token_id */
 	.long	33554434
 	/* java_name */

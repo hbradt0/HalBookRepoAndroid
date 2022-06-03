@@ -5,10 +5,10 @@
     Changes to this file may cause incorrect behavior and will be lost if
     the contents are regenerated.
     -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="45" android:versionName="7.1" package="com.halbook.halbookappandroid1" android:installLocation="preferExternal">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="47" android:versionName="7.3" package="com.halbook.halbookappandroid1" android:installLocation="preferExternal">
   <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="30" />
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.WRITE_SETTINGS" />
   <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -16,8 +16,8 @@
   <uses-permission android:name="android.permission.DELETE_CACHE_FILES" />
   <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
   <uses-permission android:name="android.permission.INTERNET" />
-  <application android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:label="Create Your Story Cloud" android:icon="@mipmap/ic_launcher" android:name="androidx.multidex.MultiDexApplication" android:extractNativeLibs="true">
-    <activity android:icon="@drawable/ic_launcher_round" android:label="Create Your Story" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:name="crc64903dcea04fdc7c22.MainActivity">
+  <application android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:label="Your Story" android:icon="@mipmap/ic_launcher" android:name="androidx.multidex.MultiDexApplication" android:extractNativeLibs="true">
+    <activity android:icon="@drawable/ic_launcher_round" android:label="Your Story" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:name="crc64903dcea04fdc7c22.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
