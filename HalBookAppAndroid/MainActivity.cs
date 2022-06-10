@@ -25,7 +25,7 @@ using Android;
 
 namespace HalBookAppAndroid
 {
-    [Activity(Label = "Your Story", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, Icon = "@drawable/ic_launcher_round", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "Your Story", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]//Icon = "@drawable/ic_launcher"
     public class MainActivity : AppCompatActivity
     {
         //Text views
