@@ -310,26 +310,6 @@ map_modules:
 	.zero	4
 	.xword	0
 
-	/* module_uuid: 5ee77e9e-a48a-4939-a38e-38f9a452adb3 */
-	.byte	0x9e, 0x7e, 0xe7, 0x5e, 0x8a, 0xa4, 0x39, 0x49, 0xa3, 0x8e, 0x38, 0xf9, 0xa4, 0x52, 0xad, 0xb3
-	/* entry_count */
-	.word	1
-	/* duplicate_count */
-	.word	0
-	/* map */
-	.xword	module14_managed_to_java
-	/* duplicate_map */
-	.xword	0
-	/* assembly_name: HalBookAppAndroid */
-	.xword	.L.map_aname.14
-	/* image */
-	.xword	0
-	/* java_name_width */
-	.word	0
-	/* java_map */
-	.zero	4
-	.xword	0
-
 	/* module_uuid: 5d71c2a3-54dd-4890-8b03-0874d6551eff */
 	.byte	0xa3, 0xc2, 0x71, 0x5d, 0xdd, 0x54, 0x90, 0x48, 0x8b, 0x03, 0x08, 0x74, 0xd6, 0x55, 0x1e, 0xff
 	/* entry_count */
@@ -337,11 +317,11 @@ map_modules:
 	/* duplicate_count */
 	.word	1
 	/* map */
-	.xword	module15_managed_to_java
+	.xword	module14_managed_to_java
 	/* duplicate_map */
-	.xword	module15_managed_to_java_duplicates
+	.xword	module14_managed_to_java_duplicates
 	/* assembly_name: Xamarin.AndroidX.CustomView */
-	.xword	.L.map_aname.15
+	.xword	.L.map_aname.14
 	/* image */
 	.xword	0
 	/* java_name_width */
@@ -357,10 +337,30 @@ map_modules:
 	/* duplicate_count */
 	.word	1
 	/* map */
+	.xword	module15_managed_to_java
+	/* duplicate_map */
+	.xword	module15_managed_to_java_duplicates
+	/* assembly_name: Xamarin.Google.Guava.ListenableFuture */
+	.xword	.L.map_aname.15
+	/* image */
+	.xword	0
+	/* java_name_width */
+	.word	0
+	/* java_map */
+	.zero	4
+	.xword	0
+
+	/* module_uuid: 2aad5be3-ad2e-4496-9bc5-28d9a74cb723 */
+	.byte	0xe3, 0x5b, 0xad, 0x2a, 0x2e, 0xad, 0x96, 0x44, 0x9b, 0xc5, 0x28, 0xd9, 0xa7, 0x4c, 0xb7, 0x23
+	/* entry_count */
+	.word	1
+	/* duplicate_count */
+	.word	0
+	/* map */
 	.xword	module16_managed_to_java
 	/* duplicate_map */
-	.xword	module16_managed_to_java_duplicates
-	/* assembly_name: Xamarin.Google.Guava.ListenableFuture */
+	.xword	0
+	/* assembly_name: HalBookAppAndroid */
 	.xword	.L.map_aname.16
 	/* image */
 	.xword	0
@@ -2219,7 +2219,7 @@ map_java:
 
 	/* #202 */
 	/* module_index */
-	.word	15
+	.word	14
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2579,7 +2579,7 @@ map_java:
 
 	/* #242 */
 	/* module_index */
-	.word	16
+	.word	15
 	/* type_token_id */
 	.word	0
 	/* java_name */
@@ -2588,7 +2588,7 @@ map_java:
 
 	/* #243 */
 	/* module_index */
-	.word	14
+	.word	16
 	/* type_token_id */
 	.word	33554434
 	/* java_name */

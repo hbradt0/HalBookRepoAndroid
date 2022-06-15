@@ -2,11 +2,6 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\Ref
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\Halbook.txt
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\HalBookAppAndroid.dll
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\HalBookAppAndroid.pdb
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid1.apk
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid1.aab
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid1-Signed.aab
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid1-Signed.apk
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid1-Signed.apk.idsig
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\MonoAndroid,Version=v11.0.AssemblyAttributes.cs
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\build.props
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\adb.props
@@ -30,10 +25,7 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.csproj.CoreCompileInputs.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.dll
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.pdb
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\bin\com.halbook.halbookappandroid1.apk
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\bin\base.zip
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\bin\com.halbook.halbookappandroid1.aab
-C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\bin\com.halbook.halbookappandroid1.apks
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\reflections.docx
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\layout\activity_main.xml
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\layout\content_main.xml
@@ -237,3 +229,12 @@ C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\HalBookAppAndroid.csproj.AssemblyReference.cache
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\drawable\ic_launcher.png
 C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\res\mipmap-ldpi\ic_launcher.png
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\src\com\halbook\halbookappandroid\R.java
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid.apk
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid.aab
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.aab
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.apk
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\bin\Release\com.halbook.halbookappandroid-Signed.apk.idsig
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\bin\com.halbook.halbookappandroid.apk
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\bin\com.halbook.halbookappandroid.aab
+C:\Users\hbradt\source\repos\HalBookAppAndroid\HalBookAppAndroid\obj\Release\110\android\bin\com.halbook.halbookappandroid.apks

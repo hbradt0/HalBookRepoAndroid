@@ -3,8 +3,8 @@
 	.section	.rodata.env.str.1,"aMS",@progbits,1
 	.type	.L.env.str.1, @object
 .L.env.str.1:
-	.asciz	"com.halbook.halbookappandroid1"
-	.size	.L.env.str.1, 31
+	.asciz	"com.halbook.halbookappandroid"
+	.size	.L.env.str.1, 30
 	.section	.data.application_config,"aw",@progbits
 	.type	application_config, @object
 	.p2align	3
@@ -73,7 +73,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-	.asciz	"9849386d-4d6f-4608-970b-883907a91275"
+	.asciz	"62ccf1fc-ac9d-4027-96c6-0fa3a81ec889"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
